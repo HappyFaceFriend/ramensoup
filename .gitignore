@@ -1,0 +1,8 @@
+#Temorary
+*x64/
+
+#Directories
+.vs/
+
+#Files
+*.user
