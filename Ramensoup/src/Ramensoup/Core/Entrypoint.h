@@ -5,8 +5,7 @@
 
 int main(int argc, char** argv)
 {
-	Ramensoup::Logger::Init();
-	Ramensoup::CoreLogger::Init();
+	Ramensoup::InitLoggers();
 
 	Ramensoup::Application* app = Ramensoup::CreateApplication();
 

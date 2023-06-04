@@ -8,6 +8,11 @@ namespace Ramensoup
 	std::shared_ptr<spdlog::logger> Logger::s_Logger;
 	std::shared_ptr<spdlog::logger> CoreLogger::s_Logger;
 
+	void InitLoggers()
+	{
+		Logger::Init();
+		CoreLogger::Init();
+	}
 
 	void Logger::Init()
 	{
