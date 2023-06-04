@@ -19,7 +19,7 @@ project "Ramensoup"
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	pchheader "pch.h"
-	pchsource "%{prj.name}/src/pch.cpp"
+	pchsource "Ramensoup/src/pch.cpp"
 
 	files
 	{

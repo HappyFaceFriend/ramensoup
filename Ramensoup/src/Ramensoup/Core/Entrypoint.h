@@ -1,7 +1,13 @@
 #pragma once
 
+
 int main(int argc, char** argv)
 {
-	//std::cout << "Hello Ramensoup!" << std::endl;
+	Ramensoup::Application* app = Ramensoup::CreateApplication();
+
+	app->Run();
+
+	delete app;
+
 	return 0;
 }

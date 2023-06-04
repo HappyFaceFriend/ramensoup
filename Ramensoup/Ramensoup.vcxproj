@@ -93,10 +93,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Ramensoup.h" />
+    <ClInclude Include="src\Ramensoup\Core\Application.h" />
     <ClInclude Include="src\Ramensoup\Core\Entrypoint.h" />
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Ramensoup\Core\Application.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
