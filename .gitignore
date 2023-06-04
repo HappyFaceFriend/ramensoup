@@ -1,8 +1,7 @@
-#Temorary
-*x64/
-
 #Directories
 .vs/
+bin/
+bin-int/
 
 #Files
 *.user
