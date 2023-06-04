@@ -1,13 +1,14 @@
 #include "pch.h"
 
 #include "Application.h"
+#include "Logger.h"
 
 
 namespace Ramensoup
 {
 	Application::Application(const std::string& name)
 	{
-		std::cout << "Created application "<< name << std::endl;
+		CoreLogger::Log("Created Application!");
 	}
 
 	Application::~Application()
@@ -19,7 +20,7 @@ namespace Ramensoup
 		m_IsRunning = true;
 		while (m_IsRunning)
 		{
-			std::cout << "Running application" << std::endl;
+
 		}
 	}
 

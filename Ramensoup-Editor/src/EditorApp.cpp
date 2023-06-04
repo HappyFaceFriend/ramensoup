@@ -8,7 +8,9 @@ namespace Ramensoup
 	public:
 		EditorApp()
 			:Application()
-		{}
+		{
+			Logger::Info("Hello Editor!");
+		}
 	};
 
 	Application* CreateApplication()

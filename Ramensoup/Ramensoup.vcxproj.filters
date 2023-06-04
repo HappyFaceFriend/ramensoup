@@ -16,10 +16,16 @@
     <ClInclude Include="src\Ramensoup\Core\Entrypoint.h">
       <Filter>Ramensoup\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ramensoup\Core\Logger.h">
+      <Filter>Ramensoup\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ramensoup\Core\Application.cpp">
+      <Filter>Ramensoup\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Core\Logger.cpp">
       <Filter>Ramensoup\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />

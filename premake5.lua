@@ -29,8 +29,8 @@ project "Ramensoup"
 
 	includedirs
 	{
-		"%{prj.name}/src"
-		--%{prj.name}vendor/spdlog/include
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include"
 	}
 
 	filter "system:windows"
@@ -72,7 +72,9 @@ project "Ramensoup-Editor"
 	includedirs
 	{
 		"Ramensoup/src",
-		"%{prj.name}/src"
+		"%{prj.name}/src",
+
+		"Ramensoup/vendor/spdlog/include",
 	}
 
 	links
