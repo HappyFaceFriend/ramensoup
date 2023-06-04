@@ -1,9 +1,7 @@
 #pragma once
 
-#include <iostream>
-
 int main(int argc, char** argv)
 {
-	printf("Hello ramensoup!");
+	//std::cout << "Hello Ramensoup!" << std::endl;
 	return 0;
 }
