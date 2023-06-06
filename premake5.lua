@@ -8,6 +8,11 @@ workspace "Ramensoup"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDirs = {}
+IncludeDirs["GLFW"] = "Ramensoup/vendor/GLFW/include"
+
+include "Ramensoup/vendor/GLFW"
+
 project "Ramensoup"
 	location "Ramensoup"
 	kind "StaticLib"
@@ -30,7 +35,14 @@ project "Ramensoup"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDirs.GLFW}",
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -38,7 +50,8 @@ project "Ramensoup"
 
 		defines
 		{
-			"RS_PLATFORM_WINDOWS"
+			"RS_PLATFORM_WINDOWS",
+			"GLFW_INCLUDE_NONE"
 		}
 
 	filter "configurations:Debug"
