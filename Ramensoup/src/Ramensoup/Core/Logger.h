@@ -20,7 +20,6 @@ namespace Ramensoup
 		{
 #ifdef RS_DEBUG
 			s_Logger->trace(format, std::forward<Args>(args)...);
-#else
 #endif
 		}
 
@@ -29,7 +28,6 @@ namespace Ramensoup
 		{
 #ifdef RS_DEBUG
 			s_Logger->info(format, std::forward<Args>(args)...);
-#else
 #endif
 		}
 
@@ -38,7 +36,6 @@ namespace Ramensoup
 		{
 #ifdef RS_DEBUG
 			s_Logger->warn(format, std::forward<Args>(args)...);
-#else
 #endif
 		}
 
@@ -47,7 +44,6 @@ namespace Ramensoup
 		{
 #ifdef RS_DEBUG
 			s_Logger->error(format, std::forward<Args>(args)...);
-#else
 #endif
 		}
 	private:
@@ -65,7 +61,6 @@ namespace Ramensoup
 		{
 #ifdef RS_DEBUG
 			s_Logger->trace(format, std::forward<Args>(args)...);
-#else
 #endif
 		}
 
@@ -74,7 +69,6 @@ namespace Ramensoup
 		{
 #ifdef RS_DEBUG
 			s_Logger->info(format, std::forward<Args>(args)...);
-#else
 #endif
 		}
 
@@ -83,7 +77,6 @@ namespace Ramensoup
 		{
 #ifdef RS_DEBUG
 			s_Logger->warn(format, std::forward<Args>(args)...);
-#else
 #endif
 		}
 
@@ -92,7 +85,6 @@ namespace Ramensoup
 		{
 #ifdef RS_DEBUG
 			s_Logger->error(format, std::forward<Args>(args)...);
-#else
 #endif
 		}
 	private:
