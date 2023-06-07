@@ -61,8 +61,8 @@ project "Ramensoup"
 		}
 		files
 		{
-			"%{prj.name}/src/Platform/*.h",
-			"%{prj.name}/src/Platform/*..cpp"
+			"%{prj.name}/src/Platform/Windows/*.h",
+			"%{prj.name}/src/Platform/Windows/*..cpp"
 		}
 
 	filter "configurations:Debug"
