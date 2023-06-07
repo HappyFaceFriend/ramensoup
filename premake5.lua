@@ -29,7 +29,13 @@ project "Ramensoup"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+	}
+	
+	removefiles 
+	{
+		"%{prj.name}/src/Platform/*.h",
+		"%{prj.name}/src/Platform/*..cpp"
 	}
 
 	includedirs
@@ -52,6 +58,11 @@ project "Ramensoup"
 		{
 			"RS_PLATFORM_WINDOWS",
 			"GLFW_INCLUDE_NONE"
+		}
+		files
+		{
+			"%{prj.name}/src/Platform/*.h",
+			"%{prj.name}/src/Platform/*..cpp"
 		}
 
 	filter "configurations:Debug"
