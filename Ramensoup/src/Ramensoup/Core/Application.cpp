@@ -23,7 +23,7 @@ namespace Ramensoup
 	void Application::OnEvent(EventBase& event)
 	{
 		//Push event to event queue
-		CoreLogger::Log("{0}", event.type_name());
+		CoreLogger::Log("{0}", event.Name());
 	}
 	void Application::Run()
 	{
