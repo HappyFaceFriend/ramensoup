@@ -10,7 +10,7 @@ namespace Ramensoup
 	Application::Application(const std::string& name)
 	{
 		CoreLogger::Log("Created Application!");
-		m_Window = new Window( name, 1280, 720 );
+		m_Window = Window::Create({ name, 1280, 720 });
 	}
 
 	Application::~Application()

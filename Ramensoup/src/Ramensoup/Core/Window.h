@@ -1,28 +1,35 @@
 #pragma once
+#include "Ramensoup/Events/Event.h"
 
 namespace Ramensoup
 {
+	struct WindowProps
+	{
+		std::string Title;
+		uint32_t Width;
+		uint32_t Height;
+
+		WindowProps(const std::string& title = "window", uint32_t width = 1280, uint32_t height = 720)
+			:Title(title), Width(width), Height(height)
+		{}
+	};
 	class Window
 	{
 	public:
-		Window(const std::string& title = "New Window", uint32_t width = 1280, uint32_t height = 720);
-		Window(const Window&) = delete;
-		Window& operator=(const Window&) = delete;
+		using EventCallbackFunc = std::function<void(EventBase&)>;
 
-		virtual ~Window();
+		virtual ~Window(){}
 
-		void OnUpdate();
+		virtual void OnUpdate()=0;
 
-		void SetVSync(bool enable);
-		bool IsVSync() const;
+		virtual void SetVSync(bool enable)=0;
+		virtual bool IsVSync() const=0;
 
-		inline uint32_t GetWidth() const { return m_Width; }
-		inline uint32_t GetHeight() const { return m_Height; }
+		virtual uint32_t GetWidth() const=0;
+		virtual uint32_t GetHeight() const=0;
 
+		virtual void SetEventCallback(const EventCallbackFunc& callback) = 0;
 
-	private:
-		std::string m_Title;
-		uint32_t m_Width, m_Height;
-		bool m_VSyncEnabled;
+		static Window* Create(const WindowProps& props = WindowProps());
 	};
 }

@@ -1,7 +1,5 @@
 #include "pch.h"
-#include "Ramensoup/Core/Window.h"
-
-#include <GLFW/glfw3.h>
+#include "WindowsWindow.h"
 
 #include "Ramensoup/Core/Logger.h"
 
@@ -9,16 +7,18 @@ namespace Ramensoup
 {
 	static bool s_GLFWInitialized = false;
 
-	//TEMP : This shoudn't be static
-	static GLFWwindow* s_Window;
+	Window* Window::Create(const WindowProps& props)
+	{
+		return new WindowsWindow(props);
+	}
 
 	static void GLFWErrorCallback(int error, const char* description)
 	{
 		CoreLogger::Error("GLFW Error {0} : {1}", error, description);
 	}
 
-	Window::Window(const std::string& title, uint32_t width, uint32_t height)
-		:m_Title(title), m_Width(width), m_Height(height), m_VSyncEnabled(false)
+	WindowsWindow::WindowsWindow(const WindowProps& props)
+		:m_Data{ props.Title, props.Width, props.Height, false }
 	{
 		if (!s_GLFWInitialized)
 		{
@@ -27,41 +27,47 @@ namespace Ramensoup
 			s_GLFWInitialized = true;
 			glfwSetErrorCallback(GLFWErrorCallback);
 		}
-		s_Window = glfwCreateWindow(640, 480, "My Title", NULL, NULL);
-		if (!s_Window)
+		m_WindowHandle = glfwCreateWindow(props.Width, props.Height, props.Title.c_str(), NULL, NULL);
+		if (!m_WindowHandle)
 		{
 			CoreLogger::Error("Window creation failed!");
 			glfwTerminate();
 
 		}
+		glfwMakeContextCurrent(m_WindowHandle);
 
-		glfwMakeContextCurrent(s_Window);
+		glfwSetWindowUserPointer(m_WindowHandle, &m_Data);
 
 	}
 
-	Window::~Window()
+	WindowsWindow::~WindowsWindow()
 	{
-		glfwTerminate();
+		Shutdown();
 	}
 
-	void Window::OnUpdate()
+	void WindowsWindow::OnUpdate()
 	{
-		glfwSwapBuffers(s_Window);
+		glfwSwapBuffers(m_WindowHandle);
 		glfwPollEvents();
 	}
 
-	void Window::SetVSync(bool enable)
+	void WindowsWindow::SetVSync(bool enable)
 	{
 		if (enable)
 			glfwSwapInterval(1);
 		else
 			glfwSwapInterval(0);
-		m_VSyncEnabled = enable;
+		m_Data.VSyncEnabled = enable;
 
 	}
-	bool Window::IsVSync() const
+
+	void WindowsWindow::InitEventCallbacks()
 	{
-		return m_VSyncEnabled;
+	}
+
+	void WindowsWindow::Shutdown()
+	{
+		glfwDestroyWindow(m_WindowHandle);
 	}
 
 
