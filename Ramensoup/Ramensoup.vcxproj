@@ -105,6 +105,7 @@
     <ClInclude Include="src\Ramensoup\Core\Logger.h" />
     <ClInclude Include="src\Ramensoup\Core\Window.h" />
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Ramensoup\Events\Event.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
