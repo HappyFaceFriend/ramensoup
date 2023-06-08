@@ -31,6 +31,10 @@
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Ramensoup\Core\Utils.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\Ramensoup\Events\Event.h" />
+    <ClInclude Include="src\Ramensoup\Events\KeyEvents.h" />
+    <ClInclude Include="src\Ramensoup\Events\MouseEvents.h" />
+    <ClInclude Include="src\Ramensoup\Events\WindowEvents.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">

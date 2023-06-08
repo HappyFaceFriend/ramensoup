@@ -13,6 +13,8 @@ namespace Ramensoup
 
 		virtual ~Application();
 
+		void OnEvent(EventBase& event);
+
 		void Run();
 
 	private:

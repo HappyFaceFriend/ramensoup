@@ -23,14 +23,17 @@ namespace Ramensoup
 		Mouse		= BIT(4) | Input,
 		MouseButton = BIT(5) | Input | Mouse,
 	};
-	
 	struct EventBase
 	{
-		bool IsHandled = true;
+		bool IsHandled = true;  
+#ifdef RS_DEBUG
+		virtual const char* Name() const { return typeid(*this).name(); }
+#else
+		const char* Name() const { return "Event"; }
+#endif
 	};
-
 	template<EventType type, EventCategory categoryFlags>
-	struct Event : EventBase
+	struct Event : public EventBase
 	{
 		inline EventType GetType() const { return type; }
 		inline bool IsInCategory(EventCategory category) const { return categoryFlags & category; }
