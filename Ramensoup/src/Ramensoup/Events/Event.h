@@ -26,6 +26,7 @@ namespace Ramensoup
 	struct EventBase
 	{
 		bool IsHandled = true;  
+		//TODO : Change to not use virtual functions
 #ifdef RS_DEBUG
 		virtual const char* Name() const { return typeid(*this).name(); }
 #else

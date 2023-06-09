@@ -20,7 +20,7 @@ namespace Ramensoup
 	private:
 		bool m_IsRunning = false;
 
-		Window* m_Window;
+		std::unique_ptr<Window> m_Window;
 	};
 
 	//to be defined in client

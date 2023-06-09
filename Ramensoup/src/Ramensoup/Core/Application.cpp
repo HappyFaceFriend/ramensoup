@@ -17,7 +17,6 @@ namespace Ramensoup
 
 	Application::~Application()
 	{
-		delete m_Window;
 	}
 
 	void Application::OnEvent(EventBase& event)

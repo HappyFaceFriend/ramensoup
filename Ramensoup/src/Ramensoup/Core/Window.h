@@ -30,6 +30,6 @@ namespace Ramensoup
 
 		virtual void SetEventCallback(const EventCallbackFunc& callback) = 0;
 
-		static Window* Create(const WindowProps& props = WindowProps());
+		static std::unique_ptr<Window> Create(const WindowProps& props = WindowProps());
 	};
 }
