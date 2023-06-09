@@ -23,11 +23,10 @@ namespace Ramensoup
 		Mouse		= BIT(4) | Input,
 		MouseButton = BIT(5) | Input | Mouse,
 	};
+
 	struct Event
 	{
 		using EventCallbackFunc = std::function<void(Event&)>;
-		template<typename T>
-		using EventHandler = std::function<bool(T&)>;
 
 		bool IsHandled = false;  
 		//TODO : Change to not use virtual functions
@@ -37,6 +36,18 @@ namespace Ramensoup
 		const char* Name() const { return "Event"; }
 #endif
 
+		virtual EventType GetType() const = 0;
+		virtual bool IsInCategory(EventCategory category) const = 0;
+		virtual EventCategory GetCategory() const = 0;
+	};
+
+	class EventDispatcher
+	{
+	public:
+		EventDispatcher(Event& e) : m_Event(e){}
+		template<typename T>
+		using EventHandler = std::function<bool(T&)>;
+
 		template<typename T>
 		void Dispatch(EventHandler<T> func)
 		{
@@ -45,9 +56,8 @@ namespace Ramensoup
 				m_Event.IsHandled = func(*(T*)&m_Event);
 			}
 		}
-		virtual EventType GetType() const = 0;
-		virtual bool IsInCategory(EventCategory category) const = 0;
-		virtual EventCategory GetCategory() const = 0;
+	private:
+		Event& m_Event;
 	};
 	template<EventType type, EventCategory categoryFlags>
 	struct EventBase : public Event

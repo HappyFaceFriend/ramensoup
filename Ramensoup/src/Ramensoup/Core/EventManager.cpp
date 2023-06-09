@@ -28,11 +28,12 @@ namespace Ramensoup
 
 	void EventManager::HandleEvent(Event& event)
 	{
+		//TODO : Should be backwards
 		for (auto& layer : *m_LayerStack)
 		{
 			if (event.IsHandled)
 				break;
-			event.IsHandled = layer->HandleEvent(event);
+			layer->HandleEvent(event);
 		}
 	}
 
