@@ -13,7 +13,7 @@ namespace Ramensoup
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
 		virtual void OnUpdate() {}
-		virtual void HandleEvent(Event& event) {}
+		virtual bool HandleEvent(const Event& event) { return false; }
 
 		inline const std::string& GetName() const { return m_DebugName; }
 

@@ -20,7 +20,7 @@ namespace Ramensoup
 	}
 	void EventManager::Flush()
 	{
-		std::function<void(Event&)> eventHandler = std::bind(&EventManager::HandleEvent, this, std::placeholders::_1);
+		Event::EventCallbackFunc eventHandler = std::bind(&EventManager::HandleEvent, this, std::placeholders::_1);
 		EventQueue<KeyPressEvent>::Flush(eventHandler);
 		EventQueue<KeyReleaseEvent>::Flush(eventHandler);
 		EventQueue<MouseMoveEvent>::Flush(eventHandler);
@@ -32,7 +32,7 @@ namespace Ramensoup
 		{
 			if (event.IsHandled)
 				break;
-			layer->HandleEvent(event);
+			event.IsHandled = layer->HandleEvent(event);
 		}
 	}
 

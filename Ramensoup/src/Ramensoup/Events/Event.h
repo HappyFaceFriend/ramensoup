@@ -25,6 +25,10 @@ namespace Ramensoup
 	};
 	struct Event
 	{
+		using EventCallbackFunc = std::function<void(Event&)>;
+		template<typename T>
+		using EventHandler = std::function<bool(T&)>;
+
 		bool IsHandled = false;  
 		//TODO : Change to not use virtual functions
 #ifdef RS_DEBUG
@@ -32,6 +36,15 @@ namespace Ramensoup
 #else
 		const char* Name() const { return "Event"; }
 #endif
+
+		template<typename T>
+		void Dispatch(EventHandler<T> func)
+		{
+			if (m_Event.GetType() == T::GetStaticType())
+			{
+				m_Event.IsHandled = func(*(T*)&m_Event);
+			}
+		}
 		virtual EventType GetType() const = 0;
 		virtual bool IsInCategory(EventCategory category) const = 0;
 		virtual EventCategory GetCategory() const = 0;
@@ -39,6 +52,7 @@ namespace Ramensoup
 	template<EventType type, EventCategory categoryFlags>
 	struct EventBase : public Event
 	{
+		static EventType GetStaticType() { return type; }
 		virtual EventType GetType() const override { return type; }
 		virtual bool IsInCategory(EventCategory category) const override { return (int)categoryFlags & (int)category; }
 		virtual EventCategory GetCategory() const override { return categoryFlags; }

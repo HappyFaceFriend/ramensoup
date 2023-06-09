@@ -16,8 +16,6 @@ namespace Ramensoup
 	private:
 		void HandleEvent(Event& event);
 	private:
-		std::vector<std::unique_ptr<Event>> m_Events;
-
 		LayerStack* m_LayerStack;
 	};
 

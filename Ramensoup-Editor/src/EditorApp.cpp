@@ -8,7 +8,7 @@ namespace Ramensoup
 		virtual void OnAttach() override { Logger::Info("OnAttach");}
 		virtual void OnDetach() override { Logger::Info("OnDetach");}
 		virtual void OnUpdate() override { Logger::Info("OnUpdate");}
-		virtual void HandleEvent(Event& event) { Logger::Info("{0}", event.Name()); }
+		virtual bool HandleEvent(const Event& event) { Logger::Info("{0}", event.Name()); return true; }
 	};
 	class EditorApp : public Application
 	{

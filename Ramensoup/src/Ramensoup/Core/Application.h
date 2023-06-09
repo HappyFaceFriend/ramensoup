@@ -25,8 +25,8 @@ namespace Ramensoup
 	private:
 		bool m_IsRunning = false;
 
-		EventManager m_EventManager;
 		LayerStack m_LayerStack;
+		EventManager m_EventManager;
 
 		std::unique_ptr<Window> m_Window;
 	};
