@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Window.h"
+#include "EventManager.h"
+#include "LayerStack.h"
 
 namespace Ramensoup
 {
@@ -13,12 +15,18 @@ namespace Ramensoup
 
 		virtual ~Application();
 
-		void OnEvent(EventBase& event);
+		void OnEvent(Event&& event);
+
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* overlay);
 
 		void Run();
 
 	private:
 		bool m_IsRunning = false;
+
+		EventManager m_EventManager;
+		LayerStack m_LayerStack;
 
 		std::unique_ptr<Window> m_Window;
 	};

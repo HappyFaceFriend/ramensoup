@@ -17,8 +17,6 @@ namespace Ramensoup
 		virtual uint32_t GetWidth() const override { return m_Data.Width; }
 		virtual uint32_t GetHeight() const override { return m_Data.Height; }
 
-		virtual void SetEventCallback(const EventCallbackFunc& callback) override { m_Data.EventCallback = callback; }
-
 		virtual void SetVSync(bool enabled) override;
 		virtual bool IsVSync() const override { return m_Data.VSyncEnabled; }
 
@@ -33,7 +31,6 @@ namespace Ramensoup
 			std::string Title;
 			uint32_t Width, Height;
 			bool VSyncEnabled;
-			EventCallbackFunc EventCallback;
 		} m_Data;
 	};
 }

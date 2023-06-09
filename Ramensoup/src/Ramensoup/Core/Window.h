@@ -1,5 +1,6 @@
 #pragma once
 #include "Ramensoup/Events/Event.h"
+#include "Ramensoup/Core/EventQueue.h"
 
 namespace Ramensoup
 {
@@ -16,7 +17,8 @@ namespace Ramensoup
 	class Window
 	{
 	public:
-		using EventCallbackFunc = std::function<void(EventBase&)>;
+		static std::unique_ptr<Window> Create(const WindowProps& props = WindowProps());
+	public:
 
 		virtual ~Window(){}
 
@@ -28,8 +30,9 @@ namespace Ramensoup
 		virtual uint32_t GetWidth() const=0;
 		virtual uint32_t GetHeight() const=0;
 
-		virtual void SetEventCallback(const EventCallbackFunc& callback) = 0;
+	protected:
+		template<typename T>
+		static void QueueEvent(T&& event) { EventQueue<T>::Push(std::move(event)); }
 
-		static std::unique_ptr<Window> Create(const WindowProps& props = WindowProps());
 	};
 }

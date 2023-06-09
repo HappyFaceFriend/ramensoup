@@ -23,21 +23,24 @@ namespace Ramensoup
 		Mouse		= BIT(4) | Input,
 		MouseButton = BIT(5) | Input | Mouse,
 	};
-	struct EventBase
+	struct Event
 	{
-		bool IsHandled = true;  
+		bool IsHandled = false;  
 		//TODO : Change to not use virtual functions
 #ifdef RS_DEBUG
 		virtual const char* Name() const { return typeid(*this).name(); }
 #else
 		const char* Name() const { return "Event"; }
 #endif
+		virtual EventType GetType() const = 0;
+		virtual bool IsInCategory(EventCategory category) const = 0;
+		virtual EventCategory GetCategory() const = 0;
 	};
 	template<EventType type, EventCategory categoryFlags>
-	struct Event : public EventBase
+	struct EventBase : public Event
 	{
-		inline EventType GetType() const { return type; }
-		inline bool IsInCategory(EventCategory category) const { return categoryFlags & category; }
-		inline EventCategory GetCategory() const { return categories; }
+		virtual EventType GetType() const override { return type; }
+		virtual bool IsInCategory(EventCategory category) const override { return (int)categoryFlags & (int)category; }
+		virtual EventCategory GetCategory() const override { return categoryFlags; }
 	};
 }

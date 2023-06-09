@@ -35,6 +35,10 @@
     <ClInclude Include="src\Ramensoup\Events\KeyEvents.h" />
     <ClInclude Include="src\Ramensoup\Events\MouseEvents.h" />
     <ClInclude Include="src\Ramensoup\Events\WindowEvents.h" />
+    <ClInclude Include="src\Ramensoup\Core\EventManager.h" />
+    <ClInclude Include="src\Ramensoup\Core\LayerStack.h" />
+    <ClInclude Include="src\Ramensoup\Core\Layer.h" />
+    <ClInclude Include="src\Ramensoup\Core\EventQueue.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
@@ -47,5 +51,9 @@
       <Filter>Ramensoup\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\Ramensoup\Core\EventManager.cpp" />
+    <ClCompile Include="src\Ramensoup\Core\Layer.cpp" />
+    <ClCompile Include="src\Ramensoup\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Ramensoup\Core\EventQueue.cpp" />
   </ItemGroup>
 </Project>

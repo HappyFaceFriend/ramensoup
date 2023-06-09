@@ -103,6 +103,10 @@
     <ClInclude Include="src\Ramensoup.h" />
     <ClInclude Include="src\Ramensoup\Core\Application.h" />
     <ClInclude Include="src\Ramensoup\Core\Entrypoint.h" />
+    <ClInclude Include="src\Ramensoup\Core\EventManager.h" />
+    <ClInclude Include="src\Ramensoup\Core\EventQueue.h" />
+    <ClInclude Include="src\Ramensoup\Core\Layer.h" />
+    <ClInclude Include="src\Ramensoup\Core\LayerStack.h" />
     <ClInclude Include="src\Ramensoup\Core\Logger.h" />
     <ClInclude Include="src\Ramensoup\Core\Utils.h" />
     <ClInclude Include="src\Ramensoup\Core\Window.h" />
@@ -115,6 +119,10 @@
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Ramensoup\Core\Application.cpp" />
+    <ClCompile Include="src\Ramensoup\Core\EventManager.cpp" />
+    <ClCompile Include="src\Ramensoup\Core\EventQueue.cpp" />
+    <ClCompile Include="src\Ramensoup\Core\Layer.cpp" />
+    <ClCompile Include="src\Ramensoup\Core\LayerStack.cpp" />
     <ClCompile Include="src\Ramensoup\Core\Logger.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
