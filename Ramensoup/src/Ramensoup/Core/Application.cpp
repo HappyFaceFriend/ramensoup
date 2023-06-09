@@ -4,6 +4,7 @@
 #include "Logger.h"
 
 #include "EventQueue.h"
+#include "Ramensoup/Events/WindowEvents.h"
 
 
 namespace Ramensoup
@@ -28,9 +29,9 @@ namespace Ramensoup
 	{
 		m_LayerStack.PushOverlay(overlay);
 	}
-	void Application::OnEvent(Event&& event)
+	void Application::OnWindowCloseEvent(Event& event)
 	{
-		//Push event to event queue
+		m_IsRunning = false;
 	}
 	void Application::Run()
 	{
@@ -38,7 +39,7 @@ namespace Ramensoup
 		while (m_IsRunning)
 		{
 			m_EventManager.Flush();
-
+			EventQueue<WindowCloseEvent>::Flush(std::bind(&Application::OnWindowCloseEvent, this, std::placeholders::_1));
 
 			m_Window->OnUpdate();
 

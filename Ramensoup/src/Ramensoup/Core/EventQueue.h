@@ -14,7 +14,7 @@ namespace Ramensoup
 		{
 			s_Queue.push_back(std::forward<T>(event));
 		}
-		static void Flush(EventCallbackFunc& callback)
+		static void Flush(EventCallbackFunc callback)
 		{
 			for (T& event : s_Queue)
 			{

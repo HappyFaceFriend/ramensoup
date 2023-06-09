@@ -15,7 +15,7 @@ namespace Ramensoup
 
 		virtual ~Application();
 
-		void OnEvent(Event&& event);
+		void OnWindowCloseEvent(Event& event);
 
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);
