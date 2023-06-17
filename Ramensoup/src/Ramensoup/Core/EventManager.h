@@ -14,7 +14,17 @@ namespace Ramensoup
 		void Flush();
 
 	private:
-		void HandleEvent(Event& event);
+		template <typename T>
+		void HandleEvent(T& event)
+		{
+			//TODO : Should be backwards
+			for (auto& layer : *m_LayerStack)
+			{
+				if (event.IsHandled)
+					break;
+				layer->HandleEvent(event);
+			}
+		}
 	private:
 		LayerStack* m_LayerStack;
 	};

@@ -45,8 +45,8 @@ namespace Ramensoup
 		m_IsRunning = true;
 		while (m_IsRunning)
 		{
-			m_EventManager.Flush();
 			EventQueue<WindowCloseEvent>::Flush(std::bind(&Application::OnWindowCloseEvent, this, std::placeholders::_1));
+			m_EventManager.Flush();
 
 			m_Window->OnUpdate();
 

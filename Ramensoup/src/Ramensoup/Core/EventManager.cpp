@@ -7,6 +7,8 @@
 
 #include "Ramensoup/Core/Logger.h"
 
+#define FLUSH_QUEUE(x) EventQueue<x>::Flush(std::bind(&EventManager::HandleEvent<x>, this, std::placeholders::_1))
+
 namespace Ramensoup
 {
 
@@ -18,23 +20,25 @@ namespace Ramensoup
 	EventManager::~EventManager()
 	{
 	}
+
+
 	void EventManager::Flush()
 	{
-		Event::EventCallbackFunc eventHandler = std::bind(&EventManager::HandleEvent, this, std::placeholders::_1);
-		EventQueue<KeyPressEvent>::Flush(eventHandler);
-		EventQueue<KeyReleaseEvent>::Flush(eventHandler);
-		EventQueue<MouseMoveEvent>::Flush(eventHandler);
+		//TODO : Change the odrer to match priority
+		//TODO : Check if is empty
+		//TODO : Cache the functions
+		FLUSH_QUEUE(KeyPressEvent);
+		FLUSH_QUEUE(KeyReleaseEvent);
+		FLUSH_QUEUE(KeyTypeEvent);
+		FLUSH_QUEUE(WindowCloseEvent);
+		FLUSH_QUEUE(WindowFocusEvent);
+		FLUSH_QUEUE(WindowLoseFocusEvent);
+		FLUSH_QUEUE(WindowResizeEvent);
+		FLUSH_QUEUE(MouseButtonPressEvent);
+		FLUSH_QUEUE(MouseButtonReleaseEvent);
+		FLUSH_QUEUE(MouseMoveEvent);
+		FLUSH_QUEUE(MouseScrollEvent);
 	}
 
-	void EventManager::HandleEvent(Event& event)
-	{
-		//TODO : Should be backwards
-		for (auto& layer : *m_LayerStack)
-		{
-			if (event.IsHandled)
-				break;
-			layer->HandleEvent(event);
-		}
-	}
 
 }

@@ -1,6 +1,9 @@
 #pragma once
 
 #include "Ramensoup/Events/Event.h"
+#include "Ramensoup/Events/KeyEvents.h"
+#include "Ramensoup/Events/WindowEvents.h"
+#include "Ramensoup/Events/MouseEvents.h"
 
 namespace Ramensoup
 {
@@ -13,11 +16,20 @@ namespace Ramensoup
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
 		virtual void OnUpdate() {}
-		//TODO : To remove EventDispatcher, Layer should implement all kinds of eventHandlers, specific to type.
-		//		 As a result, HandleEvent() should dispatch events.
-		virtual void HandleEvent(Event& event) {}
 
 		inline const std::string& GetName() const { return m_DebugName; }
+
+		virtual bool HandleEvent(const KeyReleaseEvent& event)			{ return false; }
+		virtual bool HandleEvent(const KeyPressEvent& event)			{ return false; }
+		virtual bool HandleEvent(const KeyTypeEvent& event)				{ return false; }
+		virtual bool HandleEvent(const WindowCloseEvent& event)			{ return false; }
+		virtual bool HandleEvent(const WindowFocusEvent& event)			{ return false; }
+		virtual bool HandleEvent(const WindowLoseFocusEvent& event)		{ return false; }
+		virtual bool HandleEvent(const WindowResizeEvent& event)		{ return false; }
+		virtual bool HandleEvent(const MouseButtonPressEvent& event)	{ return false; }
+		virtual bool HandleEvent(const MouseButtonReleaseEvent& event)	{ return false; }
+		virtual bool HandleEvent(const MouseMoveEvent& event)			{ return false; }
+		virtual bool HandleEvent(const MouseScrollEvent& event)			{ return false; }
 
 	protected:
 		std::string m_DebugName;
