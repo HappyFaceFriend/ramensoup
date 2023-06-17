@@ -1,3 +1,6 @@
 [submodule "Ramensoup/vendor/glfw"]
 	path = Ramensoup/vendor/glfw
 	url = https://github.com/HappyFaceFriend/glfw
+[submodule "Ramensoup/vendor/ImGui"]
+	path = Ramensoup/vendor/ImGui
+	url = https://github.com/HappyFaceFriend/imgui

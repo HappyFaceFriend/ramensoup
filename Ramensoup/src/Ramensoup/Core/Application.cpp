@@ -6,6 +6,8 @@
 #include "EventQueue.h"
 #include "Ramensoup/Events/WindowEvents.h"
 
+#include "Ramensoup/ImGui/ImGuiCommands.h"
+#include "imgui.h"
 //TEMP
 #include "glad/glad.h"
 
@@ -18,10 +20,12 @@ namespace Ramensoup
 		m_Window = Window::Create({ name, 1280, 720 });
 		m_Window->SetVSync(true);
 
+		ImGuiCommands::Init(m_Window.get());
 	}
 
 	Application::~Application()
 	{
+		ImGuiCommands::Shutdown();
 	}
 
 	void Application::PushLayer(Layer* layer)
@@ -49,6 +53,16 @@ namespace Ramensoup
 			//TEMP
 			glClearColor(0.8, 0.5, 0.1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			ImGuiCommands::Begin();
+
+			//TEMP
+			ImGui::Begin("test window");
+			ImGui::Text("Hello world");
+			ImGui::End();
+
+			ImGuiCommands::End();
+
 		}
 
 	}

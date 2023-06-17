@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GLFW", "Ramensoup\vendor\GL
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Glad", "Ramensoup\vendor\Glad\Glad.vcxproj", "{BDD6857C-A90D-870D-52FA-6C103E10030F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImGui", "Ramensoup\vendor\ImGui\ImGui.vcxproj", "{C0FF640D-2C14-8DBE-F595-301E616989EF}"
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ramensoup", "Ramensoup\Ramensoup.vcxproj", "{9FCA1681-0B35-CBF7-5473-7C9DC01CA94C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ramensoup-Editor", "Ramensoup-Editor\Ramensoup-Editor.vcxproj", "{7385708B-5F7E-8FDD-88B0-746274086FE9}"
@@ -23,6 +25,10 @@ Global
 		{BDD6857C-A90D-870D-52FA-6C103E10030F}.Debug|Win64.Build.0 = Debug Win64|x64
 		{BDD6857C-A90D-870D-52FA-6C103E10030F}.Release|Win64.ActiveCfg = Release Win64|x64
 		{BDD6857C-A90D-870D-52FA-6C103E10030F}.Release|Win64.Build.0 = Release Win64|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Debug|Win64.ActiveCfg = Debug Win64|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Debug|Win64.Build.0 = Debug Win64|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Release|Win64.ActiveCfg = Release Win64|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Release|Win64.Build.0 = Release Win64|x64
 		{9FCA1681-0B35-CBF7-5473-7C9DC01CA94C}.Debug|Win64.ActiveCfg = Debug Win64|x64
 		{9FCA1681-0B35-CBF7-5473-7C9DC01CA94C}.Debug|Win64.Build.0 = Debug Win64|x64
 		{9FCA1681-0B35-CBF7-5473-7C9DC01CA94C}.Release|Win64.ActiveCfg = Release Win64|x64

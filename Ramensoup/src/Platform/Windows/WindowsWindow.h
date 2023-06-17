@@ -20,6 +20,8 @@ namespace Ramensoup
 		virtual void SetVSync(bool enabled) override;
 		virtual bool IsVSync() const override { return m_Data.VSyncEnabled; }
 
+		inline GLFWwindow* GetWindowHandle() const{ return m_WindowHandle; }
+
 	private:
 		virtual void InitEventCallbacks();
 		virtual void Shutdown();
