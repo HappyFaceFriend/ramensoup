@@ -6,6 +6,8 @@
 #include "EventQueue.h"
 #include "Ramensoup/Events/WindowEvents.h"
 
+//TEMP
+#include "glad/glad.h"
 
 namespace Ramensoup
 {
@@ -15,6 +17,7 @@ namespace Ramensoup
 		CoreLogger::Log("Created Application!");
 		m_Window = Window::Create({ name, 1280, 720 });
 		m_Window->SetVSync(true);
+
 	}
 
 	Application::~Application()
@@ -43,6 +46,9 @@ namespace Ramensoup
 
 			m_Window->OnUpdate();
 
+			//TEMP
+			glClearColor(0.8, 0.5, 0.1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
 		}
 
 	}

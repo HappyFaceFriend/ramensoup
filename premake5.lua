@@ -10,8 +10,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDirs = {}
 IncludeDirs["GLFW"] = "Ramensoup/vendor/GLFW/include"
+IncludeDirs["Glad"] = "Ramensoup/vendor/Glad/include"
 
 include "Ramensoup/vendor/GLFW"
+include "Ramensoup/vendor/Glad"
 
 project "Ramensoup"
 	location "Ramensoup"
@@ -43,11 +45,13 @@ project "Ramensoup"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDirs.GLFW}",
+		"%{IncludeDirs.Glad}",
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 

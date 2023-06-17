@@ -13,8 +13,14 @@
     <Filter Include="Ramensoup\Core">
       <UniqueIdentifier>{576A4247-4338-364D-2CCC-A673183912B2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ramensoup\Events">
+      <UniqueIdentifier>{A36DA826-8F66-C778-B898-ACFDA4F0A684}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ramensoup.h" />
     <ClInclude Include="src\Ramensoup\Core\Application.h">
       <Filter>Ramensoup\Core</Filter>
@@ -22,23 +28,40 @@
     <ClInclude Include="src\Ramensoup\Core\Entrypoint.h">
       <Filter>Ramensoup\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ramensoup\Core\EventManager.h">
+      <Filter>Ramensoup\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Core\EventQueue.h">
+      <Filter>Ramensoup\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Core\Layer.h">
+      <Filter>Ramensoup\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Core\LayerStack.h">
+      <Filter>Ramensoup\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Logger.h">
+      <Filter>Ramensoup\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Core\Utils.h">
       <Filter>Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Window.h">
       <Filter>Ramensoup\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ramensoup\Events\Event.h">
+      <Filter>Ramensoup\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Events\KeyEvents.h">
+      <Filter>Ramensoup\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Events\MouseEvents.h">
+      <Filter>Ramensoup\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Events\WindowEvents.h">
+      <Filter>Ramensoup\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Ramensoup\Core\Utils.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
-    <ClInclude Include="src\Ramensoup\Events\Event.h" />
-    <ClInclude Include="src\Ramensoup\Events\KeyEvents.h" />
-    <ClInclude Include="src\Ramensoup\Events\MouseEvents.h" />
-    <ClInclude Include="src\Ramensoup\Events\WindowEvents.h" />
-    <ClInclude Include="src\Ramensoup\Core\EventManager.h" />
-    <ClInclude Include="src\Ramensoup\Core\LayerStack.h" />
-    <ClInclude Include="src\Ramensoup\Core\Layer.h" />
-    <ClInclude Include="src\Ramensoup\Core\EventQueue.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
@@ -47,13 +70,21 @@
     <ClCompile Include="src\Ramensoup\Core\Application.cpp">
       <Filter>Ramensoup\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\Ramensoup\Core\EventManager.cpp">
+      <Filter>Ramensoup\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Core\EventQueue.cpp">
+      <Filter>Ramensoup\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Core\Layer.cpp">
+      <Filter>Ramensoup\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Core\LayerStack.cpp">
+      <Filter>Ramensoup\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\Ramensoup\Core\Logger.cpp">
       <Filter>Ramensoup\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Ramensoup\Core\EventManager.cpp" />
-    <ClCompile Include="src\Ramensoup\Core\Layer.cpp" />
-    <ClCompile Include="src\Ramensoup\Core\LayerStack.cpp" />
-    <ClCompile Include="src\Ramensoup\Core\EventQueue.cpp" />
   </ItemGroup>
 </Project>

@@ -8,6 +8,8 @@
 #include "Ramensoup/Events/KeyEvents.h"
 #include "Ramensoup/Events/MouseEvents.h"
 
+#include <glad/glad.h>
+
 namespace Ramensoup
 {
 	static bool s_GLFWInitialized = false;
@@ -41,6 +43,9 @@ namespace Ramensoup
 		}
 		glfwMakeContextCurrent(m_WindowHandle);
 
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		if (!status)
+			CoreLogger::Error("Failed to initialize Glad");
 		glfwSetWindowUserPointer(m_WindowHandle, &m_Data);
 
 		InitEventCallbacks();
