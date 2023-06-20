@@ -16,6 +16,9 @@
     <Filter Include="Ramensoup\Events">
       <UniqueIdentifier>{A36DA826-8F66-C778-B898-ACFDA4F0A684}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ramensoup\ImGui">
+      <UniqueIdentifier>{097BFA2F-7506-68F4-7E17-EBE8EA21C4F4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
@@ -61,10 +64,15 @@
     <ClInclude Include="src\Ramensoup\Events\WindowEvents.h">
       <Filter>Ramensoup\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ramensoup\ImGui\ImGuiCommands.h">
+      <Filter>Ramensoup\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Ramensoup\ImGui\ImGuiCommands.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\Windows\WindowsImGuiCommands.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
@@ -87,6 +95,5 @@
       <Filter>Ramensoup\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsImGuiCommands.cpp" />
   </ItemGroup>
 </Project>

@@ -57,11 +57,13 @@ namespace Ramensoup
 			glClearColor(0.8, 0.5, 0.1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
+
+
 			ImGuiCommands::Begin();
-			//TEMP
-			ImGui::Begin("test window");
-			ImGui::Text("Hello world");
-			ImGui::End();
+			bool show_demo_window = true;
+			ImGui::ShowDemoWindow(&show_demo_window);
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiUpdate();
 			ImGuiCommands::End();
 
 		}

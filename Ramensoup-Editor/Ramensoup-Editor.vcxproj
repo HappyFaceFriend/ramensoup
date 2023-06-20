@@ -59,7 +59,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>RS_PLATFORM_WINDOWS;RS_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Ramensoup\src;src;..\Ramensoup\vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Ramensoup\src;src;..\Ramensoup\vendor\ImGui;..\Ramensoup\vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -76,7 +76,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>RS_PLATFORM_WINDOWS;RS_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Ramensoup\src;src;..\Ramensoup\vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Ramensoup\src;src;..\Ramensoup\vendor\ImGui;..\Ramensoup\vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -98,6 +98,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Ramensoup\Ramensoup.vcxproj">
       <Project>{9FCA1681-0B35-CBF7-5473-7C9DC01CA94C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Ramensoup\vendor\ImGui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

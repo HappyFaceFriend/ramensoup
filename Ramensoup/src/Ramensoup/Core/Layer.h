@@ -16,6 +16,7 @@ namespace Ramensoup
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
 		virtual void OnUpdate() {}
+		virtual void OnImGuiUpdate() {}
 
 		inline const std::string& GetName() const { return m_DebugName; }
 

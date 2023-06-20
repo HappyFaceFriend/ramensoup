@@ -106,12 +106,14 @@ project "Ramensoup-Editor"
 		"Ramensoup/src",
 		"%{prj.name}/src",
 
+		"%{IncludeDirs.ImGui}",
 		"Ramensoup/vendor/spdlog/include",
 	}
 
 	links
 	{
-		"Ramensoup"
+		"Ramensoup",
+		"ImGui"
 	}
 
 	filter "system:windows"

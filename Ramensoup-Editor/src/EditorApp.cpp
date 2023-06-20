@@ -1,5 +1,7 @@
 #include <Ramensoup.h>
 
+#include <imgui.h>
+
 
 namespace Ramensoup
 {
@@ -8,6 +10,17 @@ namespace Ramensoup
 	public:
 		virtual void OnAttach() override { Logger::Info("OnAttach");}
 		virtual void OnDetach() override { Logger::Info("OnDetach");}
+
+		virtual void OnImGuiUpdate() override 
+		{
+			ImGui::Begin("test window");
+			ImGui::Text("Hello world");
+			ImGui::End();
+			ImGui::Begin("test window2");
+			double d = 0;
+			ImGui::InputDouble("Val", &d);
+			ImGui::End();
+		}
 
 		virtual bool HandleEvent(const KeyPressEvent& e) override 
 		{

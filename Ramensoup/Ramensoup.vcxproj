@@ -99,7 +99,6 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Ramensoup\ImGui\ImGuiCommands.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Ramensoup.h" />
     <ClInclude Include="src\Ramensoup\Core\Application.h" />
@@ -115,6 +114,7 @@
     <ClInclude Include="src\Ramensoup\Events\KeyEvents.h" />
     <ClInclude Include="src\Ramensoup\Events\MouseEvents.h" />
     <ClInclude Include="src\Ramensoup\Events\WindowEvents.h" />
+    <ClInclude Include="src\Ramensoup\ImGui\ImGuiCommands.h" />
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
