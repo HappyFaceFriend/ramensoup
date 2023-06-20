@@ -8,16 +8,15 @@ namespace Ramensoup
 	public:
 		virtual void OnAttach() override { Logger::Info("OnAttach");}
 		virtual void OnDetach() override { Logger::Info("OnDetach");}
-		virtual void OnUpdate() override { Logger::Info("OnUpdate");}
 
-		virtual bool HandleEvent(const KeyPressEvent& event) override 
+		virtual bool HandleEvent(const KeyPressEvent& e) override 
 		{
-			Logger::Info("KeyPressed {0}", event.KeyCode);
+			Logger::Info("KeyPressed {0}", e.KeyCode);
 			return true;
 		}
-		virtual bool HandleEvent(const MouseMoveEvent& event) override
+		virtual bool HandleEvent(const MouseMoveEvent& e) override
 		{
-			Logger::Info("MouseMoved {0},{1}", event.X, event.Y);
+			Logger::Info("MouseMoved {0},{1}", e.X, e.Y);
 			return true;
 		}
 	};

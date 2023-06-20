@@ -50,17 +50,18 @@ namespace Ramensoup
 
 			m_Window->OnUpdate();
 
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
+
 			//TEMP
 			glClearColor(0.8, 0.5, 0.1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			ImGuiCommands::Begin();
-
 			//TEMP
 			ImGui::Begin("test window");
 			ImGui::Text("Hello world");
 			ImGui::End();
-
 			ImGuiCommands::End();
 
 		}

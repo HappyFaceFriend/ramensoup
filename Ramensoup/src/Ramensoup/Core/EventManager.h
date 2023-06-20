@@ -15,14 +15,15 @@ namespace Ramensoup
 
 	private:
 		template <typename T>
-		void HandleEvent(T& event)
+		void HandleEvent(T& e)
 		{
 			//TODO : Should be backwards
-			for (auto& layer : *m_LayerStack)
+			for (auto iter = m_LayerStack->end(); iter != m_LayerStack->begin(); )
 			{
-				if (event.IsHandled)
+				iter--;
+				if (e.IsHandled)
 					break;
-				layer->HandleEvent(event);
+				(*iter)->HandleEvent(e);
 			}
 		}
 	private:
