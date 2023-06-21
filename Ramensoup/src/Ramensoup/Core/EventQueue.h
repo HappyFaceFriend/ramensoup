@@ -14,7 +14,6 @@ namespace Ramensoup
 			s_Queue.push_back(std::forward<T>(event));
 		}
 		using HandlerFunc  = std::function<void(T&)>;
-		//TODO : Make specific Flush for specific event type, so caller can make different callbacks for different events
 		static void Flush(HandlerFunc callback)
 		{
 			for (T& event : s_Queue)

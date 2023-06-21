@@ -20,12 +20,12 @@ namespace Ramensoup
 		m_Window = Window::Create({ name, 1280, 720 });
 		m_Window->SetVSync(true);
 
-		ImGuiCommands::Init(m_Window.get());
+		m_ImGuiLayer = std::make_unique<ImGuiLayer>(m_Window.get());
+		m_LayerStack.PushOverlay(m_ImGuiLayer.get());
 	}
 
 	Application::~Application()
 	{
-		ImGuiCommands::Shutdown();
 	}
 
 	void Application::PushLayer(Layer* layer)
@@ -56,7 +56,6 @@ namespace Ramensoup
 			//TEMP
 			glClearColor(0.8, 0.5, 0.1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
-
 
 
 			ImGuiCommands::Begin();

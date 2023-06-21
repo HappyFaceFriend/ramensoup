@@ -23,7 +23,7 @@ namespace Ramensoup
 				iter--;
 				if (e.IsHandled)
 					break;
-				(*iter)->HandleEvent(e);
+				e.IsHandled = (*iter)->HandleEvent(e);
 			}
 		}
 	private:

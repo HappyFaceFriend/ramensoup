@@ -3,6 +3,7 @@
 #include "Window.h"
 #include "EventManager.h"
 #include "LayerStack.h"
+#include "Ramensoup/ImGui/ImGuiLayer.h"
 
 namespace Ramensoup
 {
@@ -29,6 +30,9 @@ namespace Ramensoup
 		EventManager m_EventManager;
 
 		std::unique_ptr<Window> m_Window;
+
+		std::unique_ptr<ImGuiLayer> m_ImGuiLayer;
+		
 	};
 
 	//to be defined in client
