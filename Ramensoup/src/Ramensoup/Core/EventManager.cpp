@@ -7,7 +7,7 @@
 
 #include "Ramensoup/Core/Logger.h"
 
-#define FLUSH_QUEUE(x) EventQueue<x>::Flush(std::bind(&EventManager::HandleEvent<x>, this, std::placeholders::_1))
+#define SET_HANDLER(T) m_EventQueue.SetHandler<T>(std::bind(&EventManager::HandleEvent<T>, this, std::placeholders::_1));
 
 namespace Ramensoup
 {
@@ -15,6 +15,17 @@ namespace Ramensoup
 	EventManager::EventManager(LayerStack* layerStack)
 		: m_LayerStack(layerStack)
 	{
+		SET_HANDLER(KeyPressEvent);
+		SET_HANDLER(KeyReleaseEvent);
+		SET_HANDLER(KeyTypeEvent);
+		SET_HANDLER(WindowCloseEvent);
+		SET_HANDLER(WindowFocusEvent);
+		SET_HANDLER(WindowLoseFocusEvent);
+		SET_HANDLER(WindowResizeEvent);
+		SET_HANDLER(MouseButtonPressEvent);
+		SET_HANDLER(MouseButtonReleaseEvent);
+		SET_HANDLER(MouseMoveEvent);
+		SET_HANDLER(MouseScrollEvent);
 	}
 
 	EventManager::~EventManager()
@@ -24,20 +35,7 @@ namespace Ramensoup
 
 	void EventManager::Flush()
 	{
-		//TODO : Change the odrer to match priority
-		//TODO : Check if is empty
-		//TODO : Cache the functions
-		FLUSH_QUEUE(KeyPressEvent);
-		FLUSH_QUEUE(KeyReleaseEvent);
-		FLUSH_QUEUE(KeyTypeEvent);
-		FLUSH_QUEUE(WindowCloseEvent);
-		FLUSH_QUEUE(WindowFocusEvent);
-		FLUSH_QUEUE(WindowLoseFocusEvent);
-		FLUSH_QUEUE(WindowResizeEvent);
-		FLUSH_QUEUE(MouseButtonPressEvent);
-		FLUSH_QUEUE(MouseButtonReleaseEvent);
-		FLUSH_QUEUE(MouseMoveEvent);
-		FLUSH_QUEUE(MouseScrollEvent);
+		m_EventQueue.Flush();
 	}
 
 

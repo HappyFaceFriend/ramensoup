@@ -1,6 +1,7 @@
 #pragma once
 #include "Ramensoup/Events/Event.h"
 #include "Ramensoup/Core/EventQueue.h"
+#include "Application.h"
 
 namespace Ramensoup
 {
@@ -32,7 +33,7 @@ namespace Ramensoup
 
 	protected:
 		template<typename T>
-		static void QueueEvent(T&& event) { EventQueue<T>::Push(std::move(event)); }
+		static void QueueEvent(T&& event) { Application::Get().Push(std::move(event)); }
 
 	};
 }

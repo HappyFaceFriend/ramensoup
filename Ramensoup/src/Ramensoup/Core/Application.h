@@ -16,12 +16,16 @@ namespace Ramensoup
 
 		virtual ~Application();
 
+		template<typename T>
+		void OnEvent(T&& e) { m_EventManager.Push(std::forward(e)); }
 		void OnWindowCloseEvent(Event& event);
 
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);
 
 		void Run();
+
+		static Application& Get() { return *instance; }
 
 	private:
 		bool m_IsRunning = false;
@@ -33,6 +37,7 @@ namespace Ramensoup
 
 		std::unique_ptr<ImGuiLayer> m_ImGuiLayer;
 		
+		static Application* instance;
 	};
 
 	//to be defined in client

@@ -130,12 +130,12 @@ namespace Ramensoup
 		glfwSetScrollCallback(m_WindowHandle, [](GLFWwindow* window, double xOffset, double yOffset)
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-				EventQueue<MouseScrollEvent>::Push(MouseScrollEvent((float)xOffset, (float)yOffset));
+				QueueEvent(MouseScrollEvent((float)xOffset, (float)yOffset));
 			});
 		glfwSetCursorPosCallback(m_WindowHandle, [](GLFWwindow* window, double xPos, double yPos)
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-				EventQueue<MouseMoveEvent>::Push(MouseMoveEvent((float)xPos, (float)yPos));
+				QueueEvent(MouseMoveEvent((float)xPos, (float)yPos));
 			});
 	}
 

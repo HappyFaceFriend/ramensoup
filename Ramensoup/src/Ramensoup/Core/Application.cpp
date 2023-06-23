@@ -13,9 +13,13 @@
 
 namespace Ramensoup
 {
+	Application* Application::instance;
+
 	Application::Application(const std::string& name)
 		:m_EventManager(&m_LayerStack)
 	{
+		instance = this;
+
 		CoreLogger::Log("Created Application!");
 		m_Window = Window::Create({ name, 1280, 720 });
 		m_Window->SetVSync(true);
@@ -45,7 +49,6 @@ namespace Ramensoup
 		m_IsRunning = true;
 		while (m_IsRunning)
 		{
-			EventQueue<WindowCloseEvent>::Flush(std::bind(&Application::OnWindowCloseEvent, this, std::placeholders::_1));
 			m_EventManager.Flush();
 
 			m_Window->OnUpdate();

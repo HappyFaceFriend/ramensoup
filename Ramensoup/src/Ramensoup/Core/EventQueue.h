@@ -4,28 +4,48 @@
 
 namespace Ramensoup
 {
-	template <typename T>
+	/*
+		This EventQueue stores different types of events in a single queue.
+		It is achived by saving the event's type (EventType) as a header of each event.
+	*/
 	class EventQueue
 	{
 	public:
+		EventQueue();
+		~EventQueue();
 
-		static void Push(T&& event)
+		using EventHandler = std::function<void(Event&)>;
+
+		template <typename T>
+		void SetHandler(EventHandler handler)
 		{
-			s_Queue.push_back(std::forward<T>(event));
+			m_Handlers[T::GetStaticType()] = handler;
 		}
-		using HandlerFunc  = std::function<void(T&)>;
-		static void Flush(HandlerFunc callback)
+
+		template <typename T>
+		void Push(T&& e)
 		{
-			for (T& event : s_Queue)
-			{
-				callback(event);
-				if (event.IsHandled)
-					break;
-			}
-			s_Queue.clear();
+			//Store size of the event
+			*(EventType*)m_BufferPtr = T::GetStaticType();
+			m_BufferPtr = (char*)m_BufferPtr + sizeof(EventType*);
+			//Store actual event
+			*(T*)m_BufferPtr = std::move<T>(e);		//TODO : Test if copy constructor is called
+			m_BufferPtr = (char*)m_BufferPtr + PaddedSizeof<T>();
 		}
-		static bool IsEmpty() { return s_Queue.empty(); }
+
+		void Flush();
+		
+
 	private:
-		inline static std::vector<T> s_Queue;
+		template<typename T>
+		static uint32_t PaddedSizeof()
+		{
+			return sizeof(T) >= sizeof(std::max_align_t) ? sizeof(T) : sizeof(std::max_align_t)
+		}
+	private:
+		void* m_BufferBase;
+		void* m_BufferPtr;
+		uint32_t m_Count = 0;
+		std::unordered_map<EventType, EventHandler> m_Handlers;
 	};
 }
