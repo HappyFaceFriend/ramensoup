@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Ramensoup/Core/Utils.h"
+#include "Ramensoup/Core/Logger.h"
 
 namespace Ramensoup
 {
@@ -29,16 +30,12 @@ namespace Ramensoup
 		using EventCallbackFunc = std::function<void(Event&)>;
 
 		bool IsHandled = false;  
-		//TODO : Change to not use virtual functions
+
 #ifdef RS_DEBUG
-		virtual const char* Name() const { return typeid(*this).name(); }
+		const char* Name() const { return typeid(*this).name(); }
 #else
 		const char* Name() const { return "Event"; }
-#endif
-
-		virtual EventType GetType() const = 0;
-		virtual bool IsInCategory(EventCategory category) const = 0;
-		virtual EventCategory GetCategory() const = 0;
+#endif		
 	};
 
 	class EventDispatcher
@@ -63,8 +60,8 @@ namespace Ramensoup
 	struct EventBase : public Event
 	{
 		static EventType GetStaticType() { return type; }
-		virtual EventType GetType() const override { return type; }
-		virtual bool IsInCategory(EventCategory category) const override { return (int)categoryFlags & (int)category; }
-		virtual EventCategory GetCategory() const override { return categoryFlags; }
+		EventType GetType() const  { return type; }
+		bool IsInCategory(EventCategory category) const  { return (int)categoryFlags & (int)category; }
+		EventCategory GetCategory() const  { return categoryFlags; }
 	};
 }

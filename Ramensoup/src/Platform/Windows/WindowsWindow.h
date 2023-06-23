@@ -22,9 +22,13 @@ namespace Ramensoup
 
 		inline GLFWwindow* GetWindowHandle() const{ return m_WindowHandle; }
 
+	protected:
+		virtual void SetEventCallback(const EventCallbackFunc& callback) override;
 	private:
-		virtual void InitEventCallbacks();
-		virtual void Shutdown();
+		void InitEventCallbacks();
+		void Shutdown();
+
+
 	private:
 		GLFWwindow* m_WindowHandle;
 
@@ -33,6 +37,7 @@ namespace Ramensoup
 			std::string Title;
 			uint32_t Width, Height;
 			bool VSyncEnabled;
+			EventCallbackFunc EventCallback;
 		} m_Data;
 	};
 }

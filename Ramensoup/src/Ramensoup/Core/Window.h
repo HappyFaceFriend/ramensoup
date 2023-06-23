@@ -30,9 +30,11 @@ namespace Ramensoup
 		virtual uint32_t GetWidth() const=0;
 		virtual uint32_t GetHeight() const=0;
 
-	protected:
-		template<typename T>
-		static void QueueEvent(T&& event) { EventQueue<T>::Push(std::move(event)); }
+		using EventCallbackFunc = std::function<void(Event&)>;
+		virtual void SetEventCallback(const EventCallbackFunc& callback) = 0;
 
+	protected:
+		template <typename T>
+		static void QueueEvent(T&& e) { EventQueue::Get().Push(std::move(e)); }
 	};
 }

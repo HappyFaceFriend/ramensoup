@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Window.h"
-#include "EventManager.h"
+#include "EventQueue.h"
 #include "LayerStack.h"
 #include "Ramensoup/ImGui/ImGuiLayer.h"
 
@@ -23,11 +23,12 @@ namespace Ramensoup
 
 		void Run();
 
+
 	private:
 		bool m_IsRunning = false;
 
 		LayerStack m_LayerStack;
-		EventManager m_EventManager;
+
 
 		std::unique_ptr<Window> m_Window;
 
