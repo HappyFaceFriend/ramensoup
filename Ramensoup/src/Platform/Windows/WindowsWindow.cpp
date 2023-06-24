@@ -73,6 +73,11 @@ namespace Ramensoup
 
 	}
 
+	void WindowsWindow::SetEventCallback(const EventCallbackFunc& callback)
+	{
+		m_Data.EventCallback = callback;
+	}
+
 	void WindowsWindow::InitEventCallbacks()
 	{
 		glfwSetWindowSizeCallback(m_WindowHandle, [](GLFWwindow* window, int width, int height)
@@ -126,7 +131,6 @@ namespace Ramensoup
 				}
 				}
 			});
-
 		glfwSetScrollCallback(m_WindowHandle, [](GLFWwindow* window, double xOffset, double yOffset)
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);

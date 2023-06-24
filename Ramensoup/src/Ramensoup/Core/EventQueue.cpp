@@ -1,13 +1,14 @@
 #include "pch.h"
 #include "EventQueue.h"
 
+#include "Ramensoup/Core/Logger.h"
 #include "Ramensoup/Events/KeyEvents.h"
 #include "Ramensoup/Events/MouseEvents.h"
 #include "Ramensoup/Events/WindowEvents.h"
 
 #define DISPATCH(EventT)	case EventType::##EventT: \
-								m_Handlers[EventType::##EventT](*(##EventT##Event*)ptr); \
-								ptr = (char*)ptr + PaddedSizeof<KeyPressEvent>(); \
+								HandleEvent<##EventT##Event>((##EventT##Event*)ptr, layerStack); \
+								ptr = (char*)ptr + PaddedSizeof<##EventT##Event>(); \
 								break
 
 namespace Ramensoup
@@ -15,8 +16,12 @@ namespace Ramensoup
 	static constexpr uint32_t MAX_QUEUE_SIZE_BYTES = 100;
 	using byte = uint8_t;
 
+	EventQueue* EventQueue::s_Instance = nullptr;
+	static EventQueue instance;
+
 	EventQueue::EventQueue()
 	{
+		s_Instance = this;
 		m_BufferBase = new byte[MAX_QUEUE_SIZE_BYTES];
 		m_BufferPtr = m_BufferBase;
 	}
@@ -24,7 +29,7 @@ namespace Ramensoup
 	{
 		delete m_BufferBase;
 	}
-	void EventQueue::Flush()
+	void EventQueue::Flush(const LayerStack& layerStack)
 	{
 		void* ptr = m_BufferBase;
 		while (ptr < m_BufferPtr)
@@ -47,7 +52,10 @@ namespace Ramensoup
 			DISPATCH(MouseScroll);
 			default:
 				//TODO : Assert here
+				break;
 			}
 		}
+		m_BufferPtr = m_BufferBase;
+		m_Count = 0;
 	}
 }

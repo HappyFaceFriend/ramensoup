@@ -13,15 +13,12 @@
 
 namespace Ramensoup
 {
-	Application* Application::instance;
 
 	Application::Application(const std::string& name)
-		:m_EventManager(&m_LayerStack)
 	{
-		instance = this;
-
 		CoreLogger::Log("Created Application!");
 		m_Window = Window::Create({ name, 1280, 720 });
+		//m_Window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
 		m_Window->SetVSync(true);
 
 		m_ImGuiLayer = std::make_unique<ImGuiLayer>(m_Window.get());
@@ -49,7 +46,7 @@ namespace Ramensoup
 		m_IsRunning = true;
 		while (m_IsRunning)
 		{
-			m_EventManager.Flush();
+			EventQueue::Get().Flush(m_LayerStack);
 
 			m_Window->OnUpdate();
 

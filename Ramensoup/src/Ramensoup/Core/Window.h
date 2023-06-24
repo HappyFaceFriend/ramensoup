@@ -1,7 +1,6 @@
 #pragma once
 #include "Ramensoup/Events/Event.h"
 #include "Ramensoup/Core/EventQueue.h"
-#include "Application.h"
 
 namespace Ramensoup
 {
@@ -31,9 +30,11 @@ namespace Ramensoup
 		virtual uint32_t GetWidth() const=0;
 		virtual uint32_t GetHeight() const=0;
 
-	protected:
-		template<typename T>
-		static void QueueEvent(T&& event) { Application::Get().Push(std::move(event)); }
+		using EventCallbackFunc = std::function<void(Event&)>;
+		virtual void SetEventCallback(const EventCallbackFunc& callback) = 0;
 
+	protected:
+		template <typename T>
+		static void QueueEvent(T&& e) { EventQueue::Get().Push(std::move(e)); }
 	};
 }

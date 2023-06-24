@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Window.h"
-#include "EventManager.h"
+#include "EventQueue.h"
 #include "LayerStack.h"
 #include "Ramensoup/ImGui/ImGuiLayer.h"
 
@@ -16,8 +16,6 @@ namespace Ramensoup
 
 		virtual ~Application();
 
-		template<typename T>
-		void OnEvent(T&& e) { m_EventManager.Push(std::forward(e)); }
 		void OnWindowCloseEvent(Event& event);
 
 		void PushLayer(Layer* layer);
@@ -25,19 +23,17 @@ namespace Ramensoup
 
 		void Run();
 
-		static Application& Get() { return *instance; }
 
 	private:
 		bool m_IsRunning = false;
 
 		LayerStack m_LayerStack;
-		EventManager m_EventManager;
+
 
 		std::unique_ptr<Window> m_Window;
 
 		std::unique_ptr<ImGuiLayer> m_ImGuiLayer;
 		
-		static Application* instance;
 	};
 
 	//to be defined in client

@@ -31,9 +31,6 @@
     <ClInclude Include="src\Ramensoup\Core\Entrypoint.h">
       <Filter>Ramensoup\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ramensoup\Core\EventManager.h">
-      <Filter>Ramensoup\Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\EventQueue.h">
       <Filter>Ramensoup\Core</Filter>
     </ClInclude>
@@ -78,9 +75,6 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Core\Application.cpp">
-      <Filter>Ramensoup\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ramensoup\Core\EventManager.cpp">
       <Filter>Ramensoup\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Core\EventQueue.cpp">
