@@ -5,27 +5,37 @@
 namespace Ramensoup
 {
 	template <typename T>
+	class EventAllocator
+	{
+	public:
+		static T* Allocate(T&& e)
+		{
+			s_Buffer.push_back(std::forward<T>(e));
+			return &(s_Buffer.back());
+		}
+		static void Flush()
+		{
+			s_Buffer.clear();
+		}
+	private:
+		inline static std::vector<T> s_Buffer;
+	};
+
+	//TODO: Need to clear the buffers every flush.
 	class EventQueue
 	{
 	public:
+		template<typename T>
+		using EventFunc = std::function<bool(T&)>;
 
-		static void Push(T&& event)
+		template <typename T>
+		static void Push(T&& e)
 		{
-			s_Queue.push_back(std::forward<T>(event));
+			T* allocatedEvent = EventAllocator<T>::Allocate(std::move(e));
+			m_Queue.push_back(std::make_unique<T>(allocatedEvent));
 		}
-		using HandlerFunc  = std::function<void(T&)>;
-		static void Flush(HandlerFunc callback)
-		{
-			for (T& event : s_Queue)
-			{
-				callback(event);
-				if (event.IsHandled)
-					break;
-			}
-			s_Queue.clear();
-		}
-		static bool IsEmpty() { return s_Queue.empty(); }
+		static void Flush(std::function<void(Event&)> handler);
 	private:
-		inline static std::vector<T> s_Queue;
+		static std::vector<std::unique_ptr<Event>> m_Queue;
 	};
 }

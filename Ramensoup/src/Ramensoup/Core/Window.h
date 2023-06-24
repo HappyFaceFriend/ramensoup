@@ -32,7 +32,7 @@ namespace Ramensoup
 
 	protected:
 		template<typename T>
-		static void QueueEvent(T&& event) { EventQueue<T>::Push(std::move(event)); }
+		static void QueueEvent(T&& event) { EventAllocator<T>::Allocate(std::move(event)); }
 
 	};
 }
