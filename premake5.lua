@@ -12,6 +12,7 @@ IncludeDirs = {}
 IncludeDirs["GLFW"] = "Ramensoup/vendor/GLFW/include"
 IncludeDirs["Glad"] = "Ramensoup/vendor/Glad/include"
 IncludeDirs["ImGui"] = "Ramensoup/vendor/ImGui"
+IncludeDirs["glm"] = "Ramensoup/vendor/glm"
 
 include "Ramensoup/vendor/GLFW"
 include "Ramensoup/vendor/Glad"
@@ -49,6 +50,7 @@ project "Ramensoup"
 		"%{IncludeDirs.GLFW}",
 		"%{IncludeDirs.Glad}",
 		"%{IncludeDirs.ImGui}",
+		"%{IncludeDirs.glm}",
 	}
 
 	links
@@ -107,13 +109,14 @@ project "Ramensoup-Editor"
 		"%{prj.name}/src",
 
 		"%{IncludeDirs.ImGui}",
+		"%{IncludeDirs.glm}",
 		"Ramensoup/vendor/spdlog/include",
 	}
 
 	links
 	{
 		"Ramensoup",
-		"ImGui"
+		"ImGui",
 	}
 
 	filter "system:windows"

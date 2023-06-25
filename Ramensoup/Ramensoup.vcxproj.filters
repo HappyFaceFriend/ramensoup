@@ -64,8 +64,10 @@
     <ClInclude Include="src\Ramensoup\ImGui\ImGuiCommands.h">
       <Filter>Ramensoup\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ramensoup\ImGui\ImGuiLayer.h">
+      <Filter>Ramensoup\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Ramensoup\ImGui\ImGuiLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsImGuiCommands.cpp">
@@ -89,7 +91,9 @@
     <ClCompile Include="src\Ramensoup\Core\Logger.cpp">
       <Filter>Ramensoup\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\Ramensoup\ImGui\ImGuiLayer.cpp">
+      <Filter>Ramensoup\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Ramensoup\ImGui\ImGuiLayer.cpp" />
   </ItemGroup>
 </Project>
