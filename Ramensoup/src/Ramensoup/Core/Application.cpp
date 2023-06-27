@@ -18,7 +18,6 @@ namespace Ramensoup
 	{
 		CoreLogger::Log("Created Application!");
 		m_Window = Window::Create({ name, 1280, 720 });
-		//m_Window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
 		m_Window->SetVSync(true);
 
 		m_ImGuiLayer = std::make_unique<ImGuiLayer>(m_Window.get());
@@ -56,7 +55,6 @@ namespace Ramensoup
 			//TEMP
 			glClearColor(0.8, 0.5, 0.1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
-
 
 			ImGuiCommands::Begin();
 			bool show_demo_window = true;

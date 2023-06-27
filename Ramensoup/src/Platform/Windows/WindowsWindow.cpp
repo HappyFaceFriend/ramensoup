@@ -41,11 +41,14 @@ namespace Ramensoup
 			glfwTerminate();
 
 		}
+		//Rendering API Dependent
 		glfwMakeContextCurrent(m_WindowHandle);
 
+		//Rendering API Dependent
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		if (!status)
 			CoreLogger::Error("Failed to initialize Glad");
+
 		glfwSetWindowUserPointer(m_WindowHandle, &m_Data);
 
 		InitEventCallbacks();
@@ -59,7 +62,9 @@ namespace Ramensoup
 
 	void WindowsWindow::OnUpdate()
 	{
+		//Rendering API Dependent
 		glfwSwapBuffers(m_WindowHandle);
+
 		glfwPollEvents();
 	}
 

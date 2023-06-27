@@ -17,22 +17,15 @@ namespace Ramensoup
 
 		using EventHandler = std::function<void(Event*, const LayerStack&)>;
 
-
-		template <typename T>
-		struct HandlerSetter
-		{
-			HandlerSetter() { EventQueue::Get().m_Handlers[T::GetStaticType()] =  EventQueue::HandleEvent<T>; }
-		};
-
 		template <typename T>
 		void Push(T&& e)
 		{
-			static HandlerSetter<T> set;
-			//Store size of the event
+			static const HandlerSetter<T> set;
+			//Store event type
 			*(EventType*)m_BufferPtr = T::GetStaticType();
 			m_BufferPtr = (char*)m_BufferPtr + sizeof(EventType*);
 			//Store actual event
-			*(T*)m_BufferPtr = std::move(e);		//TODO : Test if copy constructor is called
+			*(T*)m_BufferPtr = std::move(e);
 			m_BufferPtr = (char*)m_BufferPtr + PaddedSizeof<T>();
 			m_Count++;
 		}
@@ -54,6 +47,13 @@ namespace Ramensoup
 		static EventQueue& Get() { return *s_Instance; }
 
 	private:
+
+		template <typename T>
+		struct HandlerSetter
+		{
+			HandlerSetter() { EventQueue::Get().m_Handlers[T::GetStaticType()] = EventQueue::HandleEvent<T>; }
+		};
+
 		template<typename T>
 		static uint32_t PaddedSizeof()
 		{
