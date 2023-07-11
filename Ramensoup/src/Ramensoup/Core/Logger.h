@@ -1,93 +1,45 @@
 #pragma once
 
 #include "spdlog/spdlog.h"
-#include "spdlog/sinks/stdout_color_sinks.h"
+#include "spdlog/fmt/ostr.h"
+
 
 namespace Ramensoup
 {
-	void InitLoggers();
-
 	class Logger
 	{
 	public:
-		template<typename... Args>
-		using FormattedString = spdlog::format_string_t<Args...>;
-	public:
 		static void Init();
 
-		template<typename... Args>
-		inline static void Log(FormattedString<Args...> format, Args &&... args)
-		{
-#ifdef RS_DEBUG
-			s_Logger->trace(format, std::forward<Args>(args)...);
-#endif
-		}
+		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }
+		inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }
 
-		template<typename... Args>
-		inline static void Info(FormattedString<Args...> format, Args &&... args)
-		{
-#ifdef RS_DEBUG
-			s_Logger->info(format, std::forward<Args>(args)...);
-#endif
-		}
-
-		template<typename... Args>
-		inline static void Warning(FormattedString<Args...> format, Args &&... args)
-		{
-#ifdef RS_DEBUG
-			s_Logger->warn(format, std::forward<Args>(args)...);
-#endif
-		}
-
-		template<typename... Args>
-		inline static void Error(FormattedString<Args...> format, Args &&... args)
-		{
-#ifdef RS_DEBUG
-			s_Logger->error(format, std::forward<Args>(args)...);
-#endif
-		}
 	private:
-		static std::shared_ptr<spdlog::logger> s_Logger;
-	};
-
-
-	class CoreLogger
-	{
-	public:
-		static void Init();
-
-		template<typename... Args>
-		inline static void Log(Logger::FormattedString<Args...> format, Args &&... args)
-		{
-#ifdef RS_DEBUG
-			s_Logger->trace(format, std::forward<Args>(args)...);
-#endif
-		}
-
-		template<typename... Args>
-		inline static void Info(Logger::FormattedString<Args...> format, Args &&... args)
-		{
-#ifdef RS_DEBUG
-			s_Logger->info(format, std::forward<Args>(args)...);
-#endif
-		}
-
-		template<typename... Args>
-		inline static void Warning(Logger::FormattedString<Args...> format, Args &&... args)
-		{
-#ifdef RS_DEBUG
-			s_Logger->warn(format, std::forward<Args>(args)...);
-#endif
-		}
-
-		template<typename... Args>
-		inline static void Error(Logger::FormattedString<Args...> format, Args &&... args)
-		{
-#ifdef RS_DEBUG
-			s_Logger->error(format, std::forward<Args>(args)...);
-#endif
-		}
-	private:
-		static std::shared_ptr<spdlog::logger> s_Logger;
+		static std::shared_ptr<spdlog::logger> s_CoreLogger;
+		static std::shared_ptr<spdlog::logger> s_ClientLogger;
 	};
 }
+#ifdef RS_DEBUG
+	//Core log macros
+	#define RS_CORE_LOG(...)		::Ramensoup::Logger::GetCoreLogger()->trace(__VA_ARGS__)
+	#define RS_CORE_LOG_INFO(...)	::Ramensoup::Logger::GetCoreLogger()->info(__VA_ARGS__)
+	#define RS_CORE_LOG_WARN(...)	::Ramensoup::Logger::GetCoreLogger()->warn(__VA_ARGS__)
+	#define RS_CORE_LOG_ERROR(...)	::Ramensoup::Logger::GetCoreLogger()->error(__VA_ARGS__)
+
+	//Client log macros
+	#define RS_LOG(...)			::Ramensoup::Logger::GetClientLogger()->trace(__VA_ARGS__)
+	#define RS_LOG_INFO(...)	::Ramensoup::Logger::GetClientLogger()->info(__VA_ARGS__)
+	#define RS_LOG_WARN(...)	::Ramensoup::Logger::GetClientLogger()->warn(__VA_ARGS__)
+	#define RS_LOG_ERROR(...)	::Ramensoup::Logger::GetClientLogger()->error(__VA_ARGS__)
+#else
+	#define RS_CORE_LOG(...)		
+	#define RS_CORE_LOG_INFO(...)	
+	#define RS_CORE_LOG_WARN(...)	
+	#define RS_CORE_LOG_ERROR(...)	
+
+	//Client log macros
+	#define RS_LOG(...)		
+	#define RS_LOG_INFO(...)
+	#define RS_LOG_WARN(...)
+	#define RS_LOG_ERROR(...)
+#endif

@@ -8,7 +8,7 @@
 #include "Ramensoup/Events/KeyEvents.h"
 #include "Ramensoup/Events/MouseEvents.h"
 
-#include <glad/glad.h>
+#include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Ramensoup
 {
@@ -21,7 +21,7 @@ namespace Ramensoup
 
 	static void GLFWErrorCallback(int error, const char* description)
 	{
-		CoreLogger::Error("GLFW Error {0} : {1}", error, description);
+		RS_CORE_LOG_ERROR("GLFW Error {0} : {1}", error, description);
 	}
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
@@ -37,17 +37,14 @@ namespace Ramensoup
 		m_WindowHandle = glfwCreateWindow(props.Width, props.Height, props.Title.c_str(), NULL, NULL);
 		if (!m_WindowHandle)
 		{
-			CoreLogger::Error("Window creation failed!");
+			RS_CORE_LOG_ERROR("Window creation failed!");
 			glfwTerminate();
-
 		}
-		//Rendering API Dependent
-		glfwMakeContextCurrent(m_WindowHandle);
 
-		//Rendering API Dependent
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		if (!status)
-			CoreLogger::Error("Failed to initialize Glad");
+		//RenderAPI Dependent
+		m_RenderContext = std::make_unique<OpenGLContext>(m_WindowHandle);
+
+		m_RenderContext->Init();
 
 		glfwSetWindowUserPointer(m_WindowHandle, &m_Data);
 
@@ -62,9 +59,7 @@ namespace Ramensoup
 
 	void WindowsWindow::OnUpdate()
 	{
-		//Rendering API Dependent
-		glfwSwapBuffers(m_WindowHandle);
-
+		m_RenderContext->SwapBuffers();
 		glfwPollEvents();
 	}
 

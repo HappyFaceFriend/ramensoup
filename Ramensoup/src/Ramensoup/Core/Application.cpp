@@ -16,7 +16,7 @@ namespace Ramensoup
 
 	Application::Application(const std::string& name)
 	{
-		CoreLogger::Log("Created Application!");
+		RS_CORE_LOG("Created Application!");
 		m_Window = Window::Create({ name, 1280, 720 });
 		m_Window->SetVSync(true);
 

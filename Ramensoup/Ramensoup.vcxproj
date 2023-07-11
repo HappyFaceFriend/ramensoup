@@ -99,9 +99,11 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Ramensoup.h" />
     <ClInclude Include="src\Ramensoup\Core\Application.h" />
+    <ClInclude Include="src\Ramensoup\Core\Debug.h" />
     <ClInclude Include="src\Ramensoup\Core\Entrypoint.h" />
     <ClInclude Include="src\Ramensoup\Core\EventQueue.h" />
     <ClInclude Include="src\Ramensoup\Core\Layer.h" />
@@ -115,9 +117,11 @@
     <ClInclude Include="src\Ramensoup\Events\WindowEvents.h" />
     <ClInclude Include="src\Ramensoup\ImGui\ImGuiCommands.h" />
     <ClInclude Include="src\Ramensoup\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Ramensoup\Renderer\RenderContext.h" />
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsImGuiCommands.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Ramensoup\Core\Application.cpp" />

@@ -2,6 +2,8 @@
 #include "Ramensoup/Events/Event.h"
 #include "Ramensoup/Core/EventQueue.h"
 
+#include "Ramensoup/Renderer/RenderContext.h"
+
 namespace Ramensoup
 {
 	struct WindowProps
@@ -36,5 +38,8 @@ namespace Ramensoup
 	protected:
 		template <typename T>
 		static void QueueEvent(T&& e) { EventQueue::Get().Push(std::move(e)); }
+
+	protected:
+		std::unique_ptr<RenderContext> m_RenderContext;
 	};
 }

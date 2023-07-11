@@ -4,6 +4,9 @@
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
@@ -19,13 +22,22 @@
     <Filter Include="Ramensoup\ImGui">
       <UniqueIdentifier>{097BFA2F-7506-68F4-7E17-EBE8EA21C4F4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ramensoup\Renderer">
+      <UniqueIdentifier>{25717569-1155-36BF-7AB5-301266B82041}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup.h" />
     <ClInclude Include="src\Ramensoup\Core\Application.h">
+      <Filter>Ramensoup\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Core\Debug.h">
       <Filter>Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Entrypoint.h">
@@ -67,9 +79,15 @@
     <ClInclude Include="src\Ramensoup\ImGui\ImGuiLayer.h">
       <Filter>Ramensoup\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ramensoup\Renderer\RenderContext.h">
+      <Filter>Ramensoup\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsImGuiCommands.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>

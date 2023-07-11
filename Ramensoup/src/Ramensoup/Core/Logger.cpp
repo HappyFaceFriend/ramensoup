@@ -2,28 +2,22 @@
 
 #include "Logger.h"
 
+#include "spdlog/sinks/stdout_color_sinks.h"
 
 namespace Ramensoup
 {
-	std::shared_ptr<spdlog::logger> Logger::s_Logger;
-	std::shared_ptr<spdlog::logger> CoreLogger::s_Logger;
-
-	void InitLoggers()
-	{
-		Logger::Init();
-		CoreLogger::Init();
-	}
+	std::shared_ptr<spdlog::logger> Logger::s_CoreLogger;
+	std::shared_ptr<spdlog::logger> Logger::s_ClientLogger;
 
 	void Logger::Init()
 	{
 		spdlog::set_pattern("%^[%T] %n: %v%$");
-		s_Logger = spdlog::stdout_color_mt("APP");
-		s_Logger->set_level(spdlog::level::trace);
-	}
-	void CoreLogger::Init()
-	{
+		s_CoreLogger = spdlog::stdout_color_mt("CORE");
+		s_CoreLogger->set_level(spdlog::level::trace);
+
 		spdlog::set_pattern("%^[%T] %n: %v%$");
-		s_Logger = spdlog::stdout_color_mt("CORE");
-		s_Logger->set_level(spdlog::level::trace);
+		s_ClientLogger = spdlog::stdout_color_mt("APP");
+		s_ClientLogger->set_level(spdlog::level::trace);
 	}
+
 }
