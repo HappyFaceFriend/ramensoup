@@ -16,3 +16,5 @@
 #ifdef RS_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif
+
+#include "Ramensoup/Core/Debug.h"

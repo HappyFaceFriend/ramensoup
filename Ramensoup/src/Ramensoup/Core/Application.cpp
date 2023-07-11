@@ -43,18 +43,20 @@ namespace Ramensoup
 	void Application::Run()
 	{
 		m_IsRunning = true;
+
 		while (m_IsRunning)
 		{
 			EventQueue::Get().Flush(m_LayerStack);
 
 			m_Window->OnUpdate();
 
-			for (Layer* layer : m_LayerStack)
-				layer->OnUpdate();
-
 			//TEMP
 			glClearColor(0.8, 0.5, 0.1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
+
 
 			ImGuiCommands::Begin();
 			bool show_demo_window = true;
