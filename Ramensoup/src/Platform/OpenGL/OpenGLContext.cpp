@@ -22,7 +22,6 @@ namespace Ramensoup
 	{
 		//Windows code
 		glfwMakeContextCurrent(m_WindowHandle);
-
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		RS_CORE_ASSERT(status, "Failed to initialize Glad");
 	}

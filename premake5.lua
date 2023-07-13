@@ -116,7 +116,6 @@ project "Ramensoup-Editor"
 	links
 	{
 		"Ramensoup",
-		"ImGui",
 	}
 
 	filter "system:windows"
