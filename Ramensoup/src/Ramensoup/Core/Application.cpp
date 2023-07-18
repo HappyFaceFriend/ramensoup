@@ -8,6 +8,8 @@
 
 #include "Ramensoup/ImGui/ImGuiCommands.h"
 #include "imgui.h"
+
+#include "Ramensoup/Renderer/Renderer.h"
 //TEMP
 #include "glad/glad.h"
 
@@ -22,6 +24,8 @@ namespace Ramensoup
 
 		m_ImGuiLayer = std::make_unique<ImGuiLayer>(m_Window.get());
 		m_LayerStack.PushOverlay(m_ImGuiLayer.get());
+
+		Renderer::Init(Renderer::API::OpenGL);
 	}
 
 	Application::~Application()

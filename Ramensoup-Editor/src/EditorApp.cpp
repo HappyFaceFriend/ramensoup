@@ -11,11 +11,9 @@ namespace Ramensoup
 		std::shared_ptr<VertexBuffer> m_VertexBuffer;
 		std::shared_ptr<IndexBuffer> m_IndexBuffer;
 		
-		RendererAPI* m_Renderer;
 	public:
 		virtual void OnAttach() override
 		{
-			m_Renderer = new OpenGLRendererAPI();
 			float verticies[3 * 3] = {
 				-0.5f, -0.5f, 0.0f,
 				0.5f, -0.5f, 0.0f,
@@ -36,7 +34,7 @@ namespace Ramensoup
 		virtual void OnDetach() override { RS_LOG("OnDetach");}
 		virtual void OnUpdate() override
 		{
-			m_Renderer->DrawIndexed(m_VertexBuffer, m_IndexBuffer);
+			Renderer::DrawIndexed(m_VertexBuffer, m_IndexBuffer);
 		}
 		virtual void OnImGuiUpdate() override 
 		{

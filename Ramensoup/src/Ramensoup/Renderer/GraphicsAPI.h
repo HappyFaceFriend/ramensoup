@@ -7,14 +7,13 @@
 
 namespace Ramensoup
 {
-	enum class GraphicsAPI
+
+	class GraphicsAPI
 	{
-		None = 0, OpenGL = 1
-	};
-	class RendererAPI
-	{
-	public:
-		virtual ~RendererAPI() = default;
+		friend class Renderer;
+
+	protected:
+		virtual ~GraphicsAPI() = default;
 		virtual void Init() = 0;
 
 		virtual void SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height) = 0;
@@ -23,9 +22,5 @@ namespace Ramensoup
 
 		virtual void DrawIndexed(const std::shared_ptr<VertexBuffer>& vertexBuffer, const std::shared_ptr<IndexBuffer>& indexBuffer, uint32_t indexCount = 0) = 0;
 
-		static inline GraphicsAPI GetAPI() { return s_API; }
-
-	private:
-		static GraphicsAPI s_API;
 	};
 }
