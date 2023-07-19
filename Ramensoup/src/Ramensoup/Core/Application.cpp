@@ -10,8 +10,7 @@
 #include "imgui.h"
 
 #include "Ramensoup/Renderer/Renderer.h"
-//TEMP
-#include "glad/glad.h"
+#include "Ramensoup/Core/Input.h"
 
 namespace Ramensoup
 {
@@ -21,11 +20,13 @@ namespace Ramensoup
 		RS_CORE_LOG("Created Application!");
 		m_Window = Window::Create({ name, 1280, 720 });
 		m_Window->SetVSync(true);
+		Input::SetWindow(m_Window.get());
 
 		m_ImGuiLayer = std::make_unique<ImGuiLayer>(m_Window.get());
 		m_LayerStack.PushOverlay(m_ImGuiLayer.get());
 
 		Renderer::Init(Renderer::API::OpenGL);
+		Renderer::SetClearColor(glm::vec4(0.8f, 0.5f, 0.1f, 1.0f));
 	}
 
 	Application::~Application()
@@ -54,9 +55,7 @@ namespace Ramensoup
 
 			m_Window->OnUpdate();
 
-			//TEMP
-			glClearColor(0.8, 0.5, 0.1, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
+			Renderer::Clear();
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();

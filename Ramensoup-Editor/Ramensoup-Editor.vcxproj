@@ -93,18 +93,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Editor\OrthographicCameraController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Editor\OrthographicCameraController.cpp" />
     <ClCompile Include="src\EditorApp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ramensoup\Ramensoup.vcxproj">
       <Project>{9FCA1681-0B35-CBF7-5473-7C9DC01CA94C}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\Ramensoup\vendor\ImGui\ImGui.vcxproj">
-      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="assets\shaders\FlatColor.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

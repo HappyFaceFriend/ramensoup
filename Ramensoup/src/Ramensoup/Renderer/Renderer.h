@@ -15,6 +15,10 @@ namespace Ramensoup
 	public:
 		static void Init(API api);
 
+		static void BeginScene(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix);
+		static void EndScene();
+
+		static void DrawIndexed(const std::shared_ptr<VertexBuffer>& vertexBuffer, const std::shared_ptr<IndexBuffer>& indexBuffer, uint32_t indexCount = 0);
 
 
 		inline static void SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height)
@@ -29,13 +33,15 @@ namespace Ramensoup
 		{
 			s_GraphicsAPI->SetClearColor(color);
 		}
-		inline static void DrawIndexed(const std::shared_ptr<VertexBuffer>& vertexBuffer, const std::shared_ptr<IndexBuffer>& indexBuffer, uint32_t indexCount = 0)
-		{
-			s_GraphicsAPI->DrawIndexed(vertexBuffer, indexBuffer, indexCount);
-		}
 		inline static API GetAPI() { return s_API; }
 
 	private:
+		struct SceneContext
+		{
+			glm::mat4 ViewProjectionMatrix;
+		};
+		static SceneContext m_SceneContext;
+
 		static GraphicsAPI* s_GraphicsAPI;
 		static API s_API;
 	};

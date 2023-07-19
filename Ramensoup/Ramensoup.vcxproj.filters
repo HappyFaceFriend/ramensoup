@@ -30,6 +30,21 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLGraphicsAPI.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLIndexBuffer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexBuffer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -44,6 +59,12 @@
       <Filter>Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\EventQueue.h">
+      <Filter>Ramensoup\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Core\Input.h">
+      <Filter>Ramensoup\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Core\KeyCodes.h">
       <Filter>Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Layer.h">
@@ -79,26 +100,52 @@
     <ClInclude Include="src\Ramensoup\ImGui\ImGuiLayer.h">
       <Filter>Ramensoup\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ramensoup\Renderer\Camera.h">
+      <Filter>Ramensoup\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Renderer\GraphicsAPI.h">
+      <Filter>Ramensoup\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Renderer\IndexBuffer.h">
+      <Filter>Ramensoup\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ramensoup\Renderer\RenderContext.h">
       <Filter>Ramensoup\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ramensoup\Renderer\Renderer.h">
+      <Filter>Ramensoup\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Renderer\Shader.h">
+      <Filter>Ramensoup\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Renderer\VertexBuffer.h">
+      <Filter>Ramensoup\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Ramensoup\Renderer\GraphicsAPI.h" />
-    <ClInclude Include="src\Ramensoup\Renderer\VertexBuffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexBuffer.h" />
-    <ClInclude Include="src\Ramensoup\Renderer\IndexBuffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLIndexBuffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLGraphicsAPI.h" />
-    <ClInclude Include="src\Ramensoup\Renderer\Renderer.h" />
-    <ClInclude Include="src\Ramensoup\Renderer\Shader.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLGraphicsAPI.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLIndexBuffer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexBuffer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsImGuiCommands.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
@@ -122,16 +169,24 @@
     <ClCompile Include="src\Ramensoup\ImGui\ImGuiLayer.cpp">
       <Filter>Ramensoup\ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="src\Ramensoup\Renderer\Camera.cpp">
+      <Filter>Ramensoup\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Renderer\GraphicsAPI.cpp">
+      <Filter>Ramensoup\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Renderer\IndexBuffer.cpp">
+      <Filter>Ramensoup\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Renderer\Renderer.cpp">
+      <Filter>Ramensoup\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Renderer\Shader.cpp">
+      <Filter>Ramensoup\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Renderer\VertexBuffer.cpp">
+      <Filter>Ramensoup\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Ramensoup\Renderer\GraphicsAPI.cpp" />
-    <ClCompile Include="src\Ramensoup\Renderer\VertexBuffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexBuffer.cpp" />
-    <ClCompile Include="src\Ramensoup\Renderer\IndexBuffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLIndexBuffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLGraphicsAPI.cpp" />
-    <ClCompile Include="src\Ramensoup\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\Ramensoup\Renderer\Shader.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
   </ItemGroup>
 </Project>

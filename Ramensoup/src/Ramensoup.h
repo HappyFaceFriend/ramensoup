@@ -5,7 +5,8 @@
 
 #include "Ramensoup/Core/Application.h"
 
-#include "Ramensoup/Core/Entrypoint.h"
+#include "Ramensoup/Core/Input.h"
+#include "Ramensoup/Core/KeyCodes.h"
 
 #include "Ramensoup/Events/KeyEvents.h"
 #include "Ramensoup/Events/MouseEvents.h"
@@ -15,3 +16,4 @@
 #include "Ramensoup/Renderer/IndexBuffer.h"
 #include "Ramensoup/Renderer/Shader.h"
 
+#include "Ramensoup/Renderer/Camera.h"

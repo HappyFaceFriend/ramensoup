@@ -37,7 +37,7 @@ namespace Ramensoup
         }
 
         // Setup Platform/Renderer backends
-        auto windowHandle = ((WindowsWindow*)window)->GetWindowHandle();
+        auto windowHandle = dynamic_cast<WindowsWindow*>(window)->GetWindowHandle();
         ImGui_ImplGlfw_InitForOpenGL(windowHandle, true);
         //TODO : This should be able to change dynamicaly according to rendererAPI.
         ImGui_ImplOpenGL3_Init("#version 410");

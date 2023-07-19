@@ -1,7 +1,9 @@
 #include <Ramensoup.h>
+#include <Ramensoup/Core/Entrypoint.h>
 
 #include <imgui.h>
 
+#include "Editor/OrthographicCameraController.h"
 
 namespace Ramensoup
 {
@@ -12,7 +14,13 @@ namespace Ramensoup
 		std::shared_ptr<IndexBuffer> m_IndexBuffer;
 		std::shared_ptr<Shader> m_Shader;
 		
+		OrthographicCameraController m_CameraController;
 	public:
+		TestLayer()
+			:m_CameraController(16.0f/9.0f, 5.625)
+		{
+
+		}
 		virtual void OnAttach() override
 		{
 			float verticies[3 * 3] = {
@@ -22,7 +30,7 @@ namespace Ramensoup
 			};
 			m_VertexBuffer = VertexBuffer::Create(verticies, sizeof(verticies));
 			m_VertexBuffer->SetLayout({
-				{ ShaderDataType::Float3, "position" }
+				{ ShaderDataType::Float3, "a_Position" }
 			});
 
 			
@@ -37,9 +45,16 @@ namespace Ramensoup
 		virtual void OnDetach() override { RS_LOG("OnDetach");}
 		virtual void OnUpdate() override
 		{
+			m_CameraController.OnUpdate();
+
+			Renderer::BeginScene(m_CameraController.GetCamera().GetProjectionMatrix(), m_CameraController.GetCamera().GetViewMatrix());
+
 			m_Shader->Bind();
 			m_Shader->SetUniformFloat4("u_Color", glm::vec4(0.8f, 0.2f, 0.3f, 1.0f));
+			m_Shader->SetUniformMat4("u_ViewProjectionMatrix", m_CameraController.GetCamera().GetProjectionMatrix() * m_CameraController.GetCamera().GetViewMatrix());
 			Renderer::DrawIndexed(m_VertexBuffer, m_IndexBuffer);
+
+			Renderer::EndScene();
 		}
 		virtual void OnImGuiUpdate() override 
 		{
@@ -54,12 +69,12 @@ namespace Ramensoup
 
 		virtual bool HandleEvent(const KeyPressEvent& e) override 
 		{
-			RS_LOG("KeyPressed {0}", e.KeyCode);
+			//RS_LOG("KeyPressed {0}", e.KeyCode);
 			return true;
 		}
 		virtual bool HandleEvent(const MouseMoveEvent& e) override
 		{
-			RS_LOG("MouseMoved {0},{1}", e.X, e.Y);
+			//RS_LOG("MouseMoved {0},{1}", e.X, e.Y);
 			return true;
 		}
 	};
