@@ -17,20 +17,20 @@ namespace Ramensoup
 	{
 		float speed = m_TranslationSpeed;
 		if (Input::IsKeyPressed(RS_KEY_A))
-			m_Position.x -= speed;
+			m_Position.x -= speed * Time::GetDeltaTime();
 		if (Input::IsKeyPressed(RS_KEY_D))
-			m_Position.x += speed;
+			m_Position.x += speed * Time::GetDeltaTime();
 		if (Input::IsKeyPressed(RS_KEY_W))
-			m_Position.y += speed;
+			m_Position.y += speed * Time::GetDeltaTime();
 		if (Input::IsKeyPressed(RS_KEY_S))
-			m_Position.y -= speed;
+			m_Position.y -= speed * Time::GetDeltaTime();
 
 
 		float rotationSpeed = m_RotationSpeed;
 		if (Input::IsKeyPressed(RS_KEY_Q))
-			m_Rotation += rotationSpeed;
+			m_Rotation += rotationSpeed * Time::GetDeltaTime();
 		if (Input::IsKeyPressed(RS_KEY_E))
-			m_Rotation -= rotationSpeed;
+			m_Rotation -= rotationSpeed * Time::GetDeltaTime();
 
 		m_Camera.SetTransform(glm::translate(glm::mat4(1.0f), m_Position) * 
 			glm::rotate(glm::mat4(1.0f), glm::radians(m_Rotation), glm::vec3(0, 0, 1)));

@@ -116,6 +116,7 @@
     <ClInclude Include="src\Ramensoup\Core\Layer.h" />
     <ClInclude Include="src\Ramensoup\Core\LayerStack.h" />
     <ClInclude Include="src\Ramensoup\Core\Logger.h" />
+    <ClInclude Include="src\Ramensoup\Core\Time.h" />
     <ClInclude Include="src\Ramensoup\Core\Utils.h" />
     <ClInclude Include="src\Ramensoup\Core\Window.h" />
     <ClInclude Include="src\Ramensoup\Events\Event.h" />
@@ -148,6 +149,7 @@
     <ClCompile Include="src\Ramensoup\Core\Layer.cpp" />
     <ClCompile Include="src\Ramensoup\Core\LayerStack.cpp" />
     <ClCompile Include="src\Ramensoup\Core\Logger.cpp" />
+    <ClCompile Include="src\Ramensoup\Core\Time.cpp" />
     <ClCompile Include="src\Ramensoup\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Camera.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\GraphicsAPI.cpp" />

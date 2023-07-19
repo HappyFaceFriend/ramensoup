@@ -59,7 +59,8 @@ namespace Ramensoup
 		virtual void OnImGuiUpdate() override 
 		{
 			ImGui::Begin("test window");
-			ImGui::Text("Hello world");
+			ImGui::Text("Frame time: %fms", Time::GetDeltaTime() * 1000);
+			ImGui::Text("FPS: %f", 1 / Time::GetDeltaTime());
 			ImGui::End();
 			ImGui::Begin("test window2");
 			double d = 0;

@@ -5,6 +5,7 @@
 
 #include "Ramensoup/Core/Application.h"
 
+#include "Ramensoup/Core/Time.h"
 #include "Ramensoup/Core/Input.h"
 #include "Ramensoup/Core/KeyCodes.h"
 

@@ -12,6 +12,8 @@
 #include "Ramensoup/Renderer/Renderer.h"
 #include "Ramensoup/Core/Input.h"
 
+#include "Ramensoup/Core/Time.h"
+
 namespace Ramensoup
 {
 
@@ -19,7 +21,7 @@ namespace Ramensoup
 	{
 		RS_CORE_LOG("Created Application!");
 		m_Window = Window::Create({ name, 1280, 720 });
-		m_Window->SetVSync(true);
+		m_Window->SetVSync(false);
 		Input::SetWindow(m_Window.get());
 
 		m_ImGuiLayer = std::make_unique<ImGuiLayer>(m_Window.get());
@@ -51,6 +53,7 @@ namespace Ramensoup
 
 		while (m_IsRunning)
 		{
+			Time::Tick();
 			EventQueue::Get().Flush(m_LayerStack);
 
 			m_Window->OnUpdate();
