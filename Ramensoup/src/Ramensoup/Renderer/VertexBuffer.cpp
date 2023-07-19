@@ -13,5 +13,7 @@ namespace Ramensoup
 		case Renderer::API::OpenGL:
 			return std::shared_ptr<VertexBuffer>(new OpenGLVertexBuffer(verticies, size));
 		}
+		RS_CORE_ASSERT(false, "Unknwon RendererAPI");
+		return nullptr;
 	}
 }

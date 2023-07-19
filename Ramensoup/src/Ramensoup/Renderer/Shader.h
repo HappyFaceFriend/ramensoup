@@ -15,8 +15,8 @@ namespace Ramensoup
 
 		virtual const std::string& GetName() const = 0;
 
-		static std::shared_ptr<Shader> Create(const std::string& filePath);
-		static std::shared_ptr<Shader> Create(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc);
+		static const std::shared_ptr<Shader> Create(const std::string& filePath);
+		static const std::shared_ptr<Shader> Create(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc);
 
 		//virtual void UploadUniformBuffer
 		virtual void SetUniformMat4(const std::string& name, const glm::mat4& matrix) = 0;

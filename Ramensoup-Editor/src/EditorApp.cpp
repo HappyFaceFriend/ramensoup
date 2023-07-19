@@ -10,6 +10,7 @@ namespace Ramensoup
 	private:
 		std::shared_ptr<VertexBuffer> m_VertexBuffer;
 		std::shared_ptr<IndexBuffer> m_IndexBuffer;
+		std::shared_ptr<Shader> m_Shader;
 		
 	public:
 		virtual void OnAttach() override
@@ -30,10 +31,14 @@ namespace Ramensoup
 			};
 			m_IndexBuffer = IndexBuffer::Create(indicies, 3);
 
+			m_Shader = Shader::Create("assets/shaders/FlatColor.glsl");
+
 		}
 		virtual void OnDetach() override { RS_LOG("OnDetach");}
 		virtual void OnUpdate() override
 		{
+			m_Shader->Bind();
+			m_Shader->SetUniformFloat4("u_Color", glm::vec4(0.8f, 0.2f, 0.3f, 1.0f));
 			Renderer::DrawIndexed(m_VertexBuffer, m_IndexBuffer);
 		}
 		virtual void OnImGuiUpdate() override 

@@ -4,12 +4,15 @@
 
 namespace Ramensoup
 {
-	GraphicsAPI* Renderer::s_GraphicsAPI;
+	GraphicsAPI* Renderer::s_GraphicsAPI = nullptr;
 	Renderer::API Renderer::s_API = API::None;
 
 	void Renderer::Init(API api)
 	{
 		s_API = api;
+
+		if (s_GraphicsAPI)
+			delete s_GraphicsAPI;
 
 		switch (api)
 		{

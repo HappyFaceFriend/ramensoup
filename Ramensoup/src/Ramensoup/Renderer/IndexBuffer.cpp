@@ -14,5 +14,7 @@ namespace Ramensoup
 		case Renderer::API::OpenGL:
 			return std::shared_ptr<IndexBuffer>(new OpenGLIndexBuffer(indicies, count));
 		}
+		RS_CORE_ASSERT(false, "Unknwon RendererAPI");
+		return nullptr;
 	}
 }

@@ -13,4 +13,5 @@
 #include "Ramensoup/Renderer/Renderer.h"
 #include "Ramensoup/Renderer/VertexBuffer.h"
 #include "Ramensoup/Renderer/IndexBuffer.h"
+#include "Ramensoup/Renderer/Shader.h"
 

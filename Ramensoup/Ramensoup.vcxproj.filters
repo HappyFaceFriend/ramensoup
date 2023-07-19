@@ -91,6 +91,8 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLGraphicsAPI.h" />
     <ClInclude Include="src\Ramensoup\Renderer\Renderer.h" />
+    <ClInclude Include="src\Ramensoup\Renderer\Shader.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -129,5 +131,7 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLGraphicsAPI.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Ramensoup\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
   </ItemGroup>
 </Project>
