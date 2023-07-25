@@ -15,12 +15,9 @@ namespace Ramensoup
 		EventQueue();
 		~EventQueue();
 
-		using EventHandler = std::function<void(Event*, const LayerStack&)>;
-
 		template <typename T>
 		void Push(T&& e)
 		{
-			static const HandlerSetter<T> set;
 			//Store event type
 			*(EventType*)m_BufferPtr = T::GetStaticType();
 			m_BufferPtr = (char*)m_BufferPtr + sizeof(EventType*);
@@ -30,29 +27,17 @@ namespace Ramensoup
 			m_Count++;
 		}
 
-		void Flush(const LayerStack& layerStack);
+		void Flush(LayerStack& layerStack);
 
 		template <typename T>
-		static void HandleEvent(Event* e, const LayerStack& layerStack)
+		static void HandleEvent(Event* e, LayerStack& layerStack)
 		{
-			for (auto iter = layerStack.end(); iter != layerStack.begin(); )
-			{
-				iter--;
-				if (e->IsHandled)
-					break;
-				e->IsHandled = (*iter)->HandleEvent(*(T*)e);
-			}
+			layerStack.HandleEvent<T>(*(T*)e);
 		}
 		
 		static EventQueue& Get() { return *s_Instance; }
 
 	private:
-
-		template <typename T>
-		struct HandlerSetter
-		{
-			HandlerSetter() { EventQueue::Get().m_Handlers[T::GetStaticType()] = EventQueue::HandleEvent<T>; }
-		};
 
 		template<typename T>
 		static uint32_t PaddedSizeof()
@@ -63,7 +48,6 @@ namespace Ramensoup
 		void* m_BufferBase;
 		void* m_BufferPtr;
 		uint32_t m_Count = 0;
-		std::unordered_map<EventType, EventHandler> m_Handlers;
 	private:
 		static EventQueue* s_Instance;
 	};

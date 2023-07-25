@@ -13,7 +13,7 @@
 
 namespace Ramensoup
 {
-	static constexpr uint32_t MAX_QUEUE_SIZE_BYTES = 100;
+	static constexpr uint32_t MAX_QUEUE_SIZE_BYTES = 4000;
 	using byte = uint8_t;
 
 	EventQueue* EventQueue::s_Instance = nullptr;
@@ -29,7 +29,7 @@ namespace Ramensoup
 	{
 		delete m_BufferBase;
 	}
-	void EventQueue::Flush(const LayerStack& layerStack)
+	void EventQueue::Flush(LayerStack& layerStack)
 	{
 		void* ptr = m_BufferBase;
 		while (ptr < m_BufferPtr)

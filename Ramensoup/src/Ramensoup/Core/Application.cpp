@@ -27,6 +27,7 @@ namespace Ramensoup
 		m_ImGuiLayer = std::make_unique<ImGuiLayer>(m_Window.get());
 		m_LayerStack.PushOverlay(m_ImGuiLayer.get());
 
+
 		Renderer::Init(Renderer::API::OpenGL);
 		Renderer::SetClearColor(glm::vec4(0.8f, 0.5f, 0.1f, 1.0f));
 	}
@@ -43,10 +44,10 @@ namespace Ramensoup
 	{
 		m_LayerStack.PushOverlay(overlay);
 	}
-	void Application::OnWindowCloseEvent(Event& event)
+	/*void Application::OnWindowCloseEvent(Event& event)
 	{
 		m_IsRunning = false;
-	}
+	}*/
 	void Application::Run()
 	{
 		m_IsRunning = true;

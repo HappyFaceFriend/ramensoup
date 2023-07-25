@@ -7,6 +7,7 @@
 
 namespace Ramensoup
 {
+
 	class Application
 	{
 	public:
@@ -16,7 +17,6 @@ namespace Ramensoup
 
 		virtual ~Application();
 
-		void OnWindowCloseEvent(Event& event);
 
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);
@@ -38,5 +38,6 @@ namespace Ramensoup
 
 	//to be defined in client
 	Application* CreateApplication();
+
 }
 
