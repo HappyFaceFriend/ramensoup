@@ -19,6 +19,7 @@ namespace Ramensoup
 
 
 		bool OnWindowCloseEvent(WindowCloseEvent& event);
+		bool OnWindowResizeEvent(WindowResizeEvent& event);
 
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);
