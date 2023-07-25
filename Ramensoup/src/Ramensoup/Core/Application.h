@@ -18,6 +18,8 @@ namespace Ramensoup
 		virtual ~Application();
 
 
+		bool OnWindowCloseEvent(WindowCloseEvent& event);
+
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);
 
@@ -32,7 +34,7 @@ namespace Ramensoup
 
 		std::unique_ptr<Window> m_Window;
 
-		std::unique_ptr<ImGuiLayer> m_ImGuiLayer;
+		ImGuiLayer* m_ImGuiLayer;
 		
 	};
 
