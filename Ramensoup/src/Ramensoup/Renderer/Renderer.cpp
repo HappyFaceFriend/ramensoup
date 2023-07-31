@@ -35,8 +35,8 @@ namespace Ramensoup
 	}
 	void Renderer::Submit(const std::shared_ptr<Mesh>& mesh, const std::shared_ptr<Material>& material, const glm::mat4& transform)
 	{
-		auto vertexBuffer = VertexBuffer::Create(mesh->GetPositions().data(), sizeof(glm::vec3) * mesh->GetPositions().size());
-		auto indexBuffer = IndexBuffer::Create(mesh->GetIndicies().data(), mesh->GetIndicies().size());
+		auto& vertexBuffer = mesh->GetVertexBuffer();
+		auto& indexBuffer = mesh->GetIndexBuffer();
 		vertexBuffer->SetLayout({
 				{ ShaderDataType::Float3, "a_Position" }
 			});
