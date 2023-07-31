@@ -37,9 +37,6 @@ namespace Ramensoup
 	{
 		auto& vertexBuffer = mesh->GetVertexBuffer();
 		auto& indexBuffer = mesh->GetIndexBuffer();
-		vertexBuffer->SetLayout({
-				{ ShaderDataType::Float3, "a_Position" }
-			});
 
 		material->GetShader()->Bind();
 		material->GetShader()->SetUniformMat4("u_ViewProjectionMatrix", s_SceneContext.ViewProjectionMatrix);
