@@ -1,6 +1,8 @@
 #pragma once
 
 #include "GraphicsAPI.h"
+#include "Mesh.h"
+#include "Material.h"
 
 namespace Ramensoup
 {
@@ -16,6 +18,8 @@ namespace Ramensoup
 		static void Init(API api);
 
 		static void BeginScene(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix);
+
+		static void Submit(const std::shared_ptr<Mesh>& mesh, const std::shared_ptr<Material>& material, const glm::mat4& transform = glm::mat4(1.0f));
 		static void EndScene();
 
 		static void DrawIndexed(const std::shared_ptr<VertexBuffer>& vertexBuffer, const std::shared_ptr<IndexBuffer>& indexBuffer, uint32_t indexCount = 0);
@@ -40,7 +44,7 @@ namespace Ramensoup
 		{
 			glm::mat4 ViewProjectionMatrix;
 		};
-		static SceneContext m_SceneContext;
+		static SceneContext s_SceneContext;
 
 		static GraphicsAPI* s_GraphicsAPI;
 		static API s_API;

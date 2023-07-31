@@ -16,14 +16,15 @@ namespace Ramensoup
 		virtual void SetLayout(const BufferLayout& layout) = 0;
 		virtual const BufferLayout& GetLayout() const = 0;
 
-		static const std::shared_ptr<VertexBuffer> Create(const float* verticies, uint32_t size);
-		static const std::shared_ptr<VertexBuffer> Create(uint32_t size);
+		static const std::shared_ptr<VertexBuffer> Create(const void* data, uint32_t size);
+		//static const std::shared_ptr<VertexBuffer> Create(uint32_t size);
 	};
 
 	enum class ShaderDataType : uint8_t
 	{
 		None = 0, Float, Float2, Float3, Float4, Mat3, Mat4, Int, Int2, Int3, Int4, Bool
 	};
+
 
 	struct BufferElement
 	{
@@ -113,5 +114,4 @@ namespace Ramensoup
 		std::vector<BufferElement> m_Elements;
 		uint32_t m_Stride = 0;
 	};
-
 }

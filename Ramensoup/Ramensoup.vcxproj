@@ -125,6 +125,8 @@
     <ClInclude Include="src\Ramensoup\Events\WindowEvents.h" />
     <ClInclude Include="src\Ramensoup\ImGui\ImGuiCommands.h" />
     <ClInclude Include="src\Ramensoup\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Ramensoup\Renderer\Material.h" />
+    <ClInclude Include="src\Ramensoup\Renderer\Mesh.h" />
     <ClInclude Include="src\Ramensoup\Renderer\Camera.h" />
     <ClInclude Include="src\Ramensoup\Renderer\GraphicsAPI.h" />
     <ClInclude Include="src\Ramensoup\Renderer\IndexBuffer.h" />
@@ -154,6 +156,8 @@
     <ClCompile Include="src\Ramensoup\Renderer\Camera.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\GraphicsAPI.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\IndexBuffer.cpp" />
+    <ClCompile Include="src\Ramensoup\Renderer\Material.cpp" />
+    <ClCompile Include="src\Ramensoup\Renderer\Mesh.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Shader.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\VertexBuffer.cpp" />

@@ -13,6 +13,9 @@ namespace Ramensoup
 		std::shared_ptr<VertexBuffer> m_VertexBuffer;
 		std::shared_ptr<IndexBuffer> m_IndexBuffer;
 		std::shared_ptr<Shader> m_Shader;
+
+		std::shared_ptr<Mesh> m_Mesh;
+		std::shared_ptr<Material> m_Material;
 		
 		OrthographicCameraController m_CameraController;
 	public:
@@ -23,23 +26,33 @@ namespace Ramensoup
 		}
 		virtual void OnAttach() override
 		{
-			float verticies[3 * 3] = {
-				-0.5f, -0.5f, 0.0f,
-				0.5f, -0.5f, 0.0f,
-				0.0f, 0.5f, 0.0f
+
+			glm::vec3 verticies[3] = {
+		{ -0.5f, -0.5f, 0.0f},
+		{0.5f, -0.5f, 0.0f},
+		{0.0f, 0.5f, 0.0f}
 			};
+
+			uint32_t indicies[3] = {
+				0,1,2
+			};
+			/*
 			m_VertexBuffer = VertexBuffer::Create(verticies, sizeof(verticies));
 			m_VertexBuffer->SetLayout({
 				{ ShaderDataType::Float3, "a_Position" }
-			});
+				});
 
-			
-			uint32_t indicies[6] = {
-				0,1,2
-			};
+
 			m_IndexBuffer = IndexBuffer::Create(indicies, 3);
-
+			*/
+			m_Mesh = std::shared_ptr<Mesh>(new Mesh(verticies, 3, indicies, 3));
+			
+			
 			m_Shader = Shader::Create("assets/shaders/FlatColor.glsl");
+
+			m_Material = std::shared_ptr<Material>(new Material("FlatColor", m_Shader));
+			m_Material->GetShader()->Bind();
+			m_Material->GetShader()->SetUniformFloat4("u_Color", glm::vec4(0.8f, 0.2f, 0.3f, 1.0f));
 
 		}
 		virtual void OnDetach() override { RS_LOG("OnDetach");}
@@ -49,11 +62,8 @@ namespace Ramensoup
 
 			Renderer::BeginScene(m_CameraController.GetCamera().GetProjectionMatrix(), m_CameraController.GetCamera().GetViewMatrix());
 
-			m_Shader->Bind();
-			m_Shader->SetUniformFloat4("u_Color", glm::vec4(0.8f, 0.2f, 0.3f, 1.0f));
-			m_Shader->SetUniformMat4("u_ViewProjectionMatrix", m_CameraController.GetCamera().GetProjectionMatrix() * m_CameraController.GetCamera().GetViewMatrix());
-			Renderer::DrawIndexed(m_VertexBuffer, m_IndexBuffer);
-
+			Renderer::Submit(m_Mesh, m_Material);
+			//Renderer::DrawIndexed(m_VertexBuffer, m_IndexBuffer);
 			Renderer::EndScene();
 		}
 		virtual void OnImGuiUpdate() override 

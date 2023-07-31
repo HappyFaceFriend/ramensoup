@@ -16,5 +16,7 @@
 #include "Ramensoup/Renderer/VertexBuffer.h"
 #include "Ramensoup/Renderer/IndexBuffer.h"
 #include "Ramensoup/Renderer/Shader.h"
+#include "Ramensoup/Renderer/Mesh.h"
+#include "Ramensoup/Renderer/Material.h"
 
 #include "Ramensoup/Renderer/Camera.h"

@@ -8,7 +8,7 @@ namespace Ramensoup
 	GraphicsAPI* Renderer::s_GraphicsAPI = nullptr;
 	Renderer::API Renderer::s_API = API::None;
 
-	Renderer::SceneContext Renderer::m_SceneContext;
+	Renderer::SceneContext Renderer::s_SceneContext;
 
 	void Renderer::Init(API api)
 	{
@@ -28,11 +28,26 @@ namespace Ramensoup
 	}
 	void Renderer::BeginScene(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix)
 	{
-		m_SceneContext.ViewProjectionMatrix = projectionMatrix * viewMatrix;
+		s_SceneContext.ViewProjectionMatrix = projectionMatrix * viewMatrix;
 	}
 	void Renderer::EndScene()
 	{
 	}
+	void Renderer::Submit(const std::shared_ptr<Mesh>& mesh, const std::shared_ptr<Material>& material, const glm::mat4& transform)
+	{
+		auto vertexBuffer = VertexBuffer::Create(mesh->GetPositions().data(), sizeof(glm::vec3) * mesh->GetPositions().size());
+		auto indexBuffer = IndexBuffer::Create(mesh->GetIndicies().data(), mesh->GetIndicies().size());
+		vertexBuffer->SetLayout({
+				{ ShaderDataType::Float3, "a_Position" }
+			});
+
+		material->GetShader()->Bind();
+		material->GetShader()->SetUniformMat4("u_ViewProjectionMatrix", s_SceneContext.ViewProjectionMatrix);
+
+		DrawIndexed(vertexBuffer, indexBuffer, indexBuffer->GetCount());
+
+	}
+
 	void Renderer::DrawIndexed(const std::shared_ptr<VertexBuffer>& vertexBuffer, const std::shared_ptr<IndexBuffer>& indexBuffer, uint32_t indexCount)
 	{
 		s_GraphicsAPI->DrawIndexed(vertexBuffer, indexBuffer, indexCount);

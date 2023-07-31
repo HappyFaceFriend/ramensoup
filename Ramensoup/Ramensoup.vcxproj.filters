@@ -123,6 +123,8 @@
     </ClInclude>
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Ramensoup\Core\Time.h" />
+    <ClInclude Include="src\Ramensoup\Renderer\Mesh.h" />
+    <ClInclude Include="src\Ramensoup\Renderer\Material.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -190,5 +192,7 @@
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
     <ClCompile Include="src\Ramensoup\Core\Time.cpp" />
+    <ClCompile Include="src\Ramensoup\Renderer\Mesh.cpp" />
+    <ClCompile Include="src\Ramensoup\Renderer\Material.cpp" />
   </ItemGroup>
 </Project>
