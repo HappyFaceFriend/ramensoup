@@ -1,198 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Platform">
-      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Platform\OpenGL">
-      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
+    <Filter Include="src\Platform">
+      <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Platform\Windows">
-      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    <Filter Include="src\Platform\OpenGL">
+      <UniqueIdentifier>{35A49437-A105-7245-2A73-B8F796D3A804}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ramensoup">
-      <UniqueIdentifier>{9FCA1681-0B35-CBF7-5473-7C9DC01CA94C}</UniqueIdentifier>
+    <Filter Include="src\Platform\Windows">
+      <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ramensoup\Core">
-      <UniqueIdentifier>{576A4247-4338-364D-2CCC-A673183912B2}</UniqueIdentifier>
+    <Filter Include="src\Ramensoup">
+      <UniqueIdentifier>{762CD1C0-E2EC-4CF7-AB27-967417A791D3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ramensoup\Events">
-      <UniqueIdentifier>{A36DA826-8F66-C778-B898-ACFDA4F0A684}</UniqueIdentifier>
+    <Filter Include="src\Ramensoup\Core">
+      <UniqueIdentifier>{8E8A26A5-7A6E-E7FA-E3CE-E14DCFD1D17C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ramensoup\ImGui">
-      <UniqueIdentifier>{097BFA2F-7506-68F4-7E17-EBE8EA21C4F4}</UniqueIdentifier>
+    <Filter Include="src\Ramensoup\Events">
+      <UniqueIdentifier>{9A77158E-8606-9F57-2F25-B3521B93AFFD}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ramensoup\Renderer">
-      <UniqueIdentifier>{25717569-1155-36BF-7AB5-301266B82041}</UniqueIdentifier>
+    <Filter Include="src\Ramensoup\ImGui">
+      <UniqueIdentifier>{20A2624A-8C03-4058-1571-860A81D17617}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Ramensoup\Renderer">
+      <UniqueIdentifier>{DCD44C60-C8CE-75B2-B13B-0CC39DD4DB1E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor">
+      <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\stb_image">
+      <UniqueIdentifier>{0DA0BA59-F998-D9AB-22CB-BE300E23B9B7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
-      <Filter>Platform\OpenGL</Filter>
+      <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLGraphicsAPI.h">
-      <Filter>Platform\OpenGL</Filter>
+      <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLIndexBuffer.h">
-      <Filter>Platform\OpenGL</Filter>
+      <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
-      <Filter>Platform\OpenGL</Filter>
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture2D.h">
+      <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
-      <Filter>Platform\OpenGL</Filter>
+      <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexBuffer.h">
-      <Filter>Platform\OpenGL</Filter>
+      <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
-      <Filter>Platform\Windows</Filter>
+      <Filter>src\Platform\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ramensoup.h" />
+    <ClInclude Include="src\Ramensoup.h">
+      <Filter>src</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Application.h">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Debug.h">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Entrypoint.h">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\EventQueue.h">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Input.h">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\KeyCodes.h">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Layer.h">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\LayerStack.h">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Logger.h">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Core\Time.h">
+      <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Utils.h">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Window.h">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Events\Event.h">
-      <Filter>Ramensoup\Events</Filter>
+      <Filter>src\Ramensoup\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Events\KeyEvents.h">
-      <Filter>Ramensoup\Events</Filter>
+      <Filter>src\Ramensoup\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Events\MouseEvents.h">
-      <Filter>Ramensoup\Events</Filter>
+      <Filter>src\Ramensoup\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Events\WindowEvents.h">
-      <Filter>Ramensoup\Events</Filter>
+      <Filter>src\Ramensoup\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\ImGui\ImGuiCommands.h">
-      <Filter>Ramensoup\ImGui</Filter>
+      <Filter>src\Ramensoup\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\ImGui\ImGuiLayer.h">
-      <Filter>Ramensoup\ImGui</Filter>
+      <Filter>src\Ramensoup\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Renderer\Camera.h">
-      <Filter>Ramensoup\Renderer</Filter>
+      <Filter>src\Ramensoup\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Renderer\GraphicsAPI.h">
-      <Filter>Ramensoup\Renderer</Filter>
+      <Filter>src\Ramensoup\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Renderer\IndexBuffer.h">
-      <Filter>Ramensoup\Renderer</Filter>
+      <Filter>src\Ramensoup\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Renderer\Material.h">
+      <Filter>src\Ramensoup\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Renderer\Mesh.h">
+      <Filter>src\Ramensoup\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Renderer\RenderContext.h">
-      <Filter>Ramensoup\Renderer</Filter>
+      <Filter>src\Ramensoup\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Renderer\Renderer.h">
-      <Filter>Ramensoup\Renderer</Filter>
+      <Filter>src\Ramensoup\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Renderer\Shader.h">
-      <Filter>Ramensoup\Renderer</Filter>
+      <Filter>src\Ramensoup\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Renderer\Texture.h">
+      <Filter>src\Ramensoup\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Renderer\VertexBuffer.h">
-      <Filter>Ramensoup\Renderer</Filter>
+      <Filter>src\Ramensoup\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Ramensoup\Core\Time.h" />
-    <ClInclude Include="src\Ramensoup\Renderer\Mesh.h" />
-    <ClInclude Include="src\Ramensoup\Renderer\Material.h" />
+    <ClInclude Include="src\pch.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb_image\stb_image.h">
+      <Filter>vendor\stb_image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
-      <Filter>Platform\OpenGL</Filter>
+      <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLGraphicsAPI.cpp">
-      <Filter>Platform\OpenGL</Filter>
+      <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLIndexBuffer.cpp">
-      <Filter>Platform\OpenGL</Filter>
+      <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
-      <Filter>Platform\OpenGL</Filter>
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture2D.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
-      <Filter>Platform\OpenGL</Filter>
+      <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexBuffer.cpp">
-      <Filter>Platform\OpenGL</Filter>
+      <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsImGuiCommands.cpp">
-      <Filter>Platform\Windows</Filter>
+      <Filter>src\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
-      <Filter>Platform\Windows</Filter>
+      <Filter>src\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
-      <Filter>Platform\Windows</Filter>
+      <Filter>src\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Core\Application.cpp">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Core\EventQueue.cpp">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Core\Layer.cpp">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Core\LayerStack.cpp">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Core\Logger.cpp">
-      <Filter>Ramensoup\Core</Filter>
+      <Filter>src\Ramensoup\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Core\Time.cpp">
+      <Filter>src\Ramensoup\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\ImGui\ImGuiLayer.cpp">
-      <Filter>Ramensoup\ImGui</Filter>
+      <Filter>src\Ramensoup\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Renderer\Camera.cpp">
-      <Filter>Ramensoup\Renderer</Filter>
+      <Filter>src\Ramensoup\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Renderer\GraphicsAPI.cpp">
-      <Filter>Ramensoup\Renderer</Filter>
+      <Filter>src\Ramensoup\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Renderer\IndexBuffer.cpp">
-      <Filter>Ramensoup\Renderer</Filter>
+      <Filter>src\Ramensoup\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Renderer\Material.cpp">
+      <Filter>src\Ramensoup\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Renderer\Mesh.cpp">
+      <Filter>src\Ramensoup\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Renderer\Renderer.cpp">
-      <Filter>Ramensoup\Renderer</Filter>
+      <Filter>src\Ramensoup\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Renderer\Shader.cpp">
-      <Filter>Ramensoup\Renderer</Filter>
+      <Filter>src\Ramensoup\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Renderer\Texture.cpp">
+      <Filter>src\Ramensoup\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Renderer\VertexBuffer.cpp">
-      <Filter>Ramensoup\Renderer</Filter>
+      <Filter>src\Ramensoup\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Ramensoup\Core\Time.cpp" />
-    <ClCompile Include="src\Ramensoup\Renderer\Mesh.cpp" />
-    <ClCompile Include="src\Ramensoup\Renderer\Material.cpp" />
+    <ClCompile Include="src\pch.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\stb_image\stb_image.cpp">
+      <Filter>vendor\stb_image</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

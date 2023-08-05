@@ -13,6 +13,7 @@ IncludeDirs["GLFW"] = "Ramensoup/vendor/GLFW/include"
 IncludeDirs["Glad"] = "Ramensoup/vendor/Glad/include"
 IncludeDirs["ImGui"] = "Ramensoup/vendor/ImGui"
 IncludeDirs["glm"] = "Ramensoup/vendor/glm"
+IncludeDirs["stb_image"] = "Ramensoup/vendor/stb_image"
 
 include "Ramensoup/vendor/GLFW"
 include "Ramensoup/vendor/Glad"
@@ -35,12 +36,14 @@ project "Ramensoup"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 	}
 	
 	removefiles 
 	{
-		"%{prj.name}/src/Platform/*.h",
-		"%{prj.name}/src/Platform/*..cpp"
+		"%{prj.name}/src/Platform/Windows/*.h",
+		"%{prj.name}/src/Platform/Windows/*.cpp"
 	}
 
 	includedirs
@@ -51,6 +54,7 @@ project "Ramensoup"
 		"%{IncludeDirs.Glad}",
 		"%{IncludeDirs.ImGui}",
 		"%{IncludeDirs.glm}",
+		"%{IncludeDirs.stb_image}",
 	}
 
 	links
@@ -72,7 +76,7 @@ project "Ramensoup"
 		files
 		{
 			"%{prj.name}/src/Platform/Windows/*.h",
-			"%{prj.name}/src/Platform/Windows/*..cpp"
+			"%{prj.name}/src/Platform/Windows/*.cpp"
 		}
 
 	filter "configurations:Debug"

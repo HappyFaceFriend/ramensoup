@@ -19,6 +19,8 @@ namespace Ramensoup
 	}
 	const std::shared_ptr<Shader> Shader::Create(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
 	{
+		//TODO : implement this
+		RS_CORE_ASSERT(false, "NOT IMPLEMENTED");
 		return nullptr;
 	}
 }

@@ -58,7 +58,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>RS_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;RS_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -79,7 +79,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>RS_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;RS_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -103,6 +103,7 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLGraphicsAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLIndexBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture2D.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexBuffer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -125,22 +126,25 @@
     <ClInclude Include="src\Ramensoup\Events\WindowEvents.h" />
     <ClInclude Include="src\Ramensoup\ImGui\ImGuiCommands.h" />
     <ClInclude Include="src\Ramensoup\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Ramensoup\Renderer\Material.h" />
-    <ClInclude Include="src\Ramensoup\Renderer\Mesh.h" />
     <ClInclude Include="src\Ramensoup\Renderer\Camera.h" />
     <ClInclude Include="src\Ramensoup\Renderer\GraphicsAPI.h" />
     <ClInclude Include="src\Ramensoup\Renderer\IndexBuffer.h" />
+    <ClInclude Include="src\Ramensoup\Renderer\Material.h" />
+    <ClInclude Include="src\Ramensoup\Renderer\Mesh.h" />
     <ClInclude Include="src\Ramensoup\Renderer\RenderContext.h" />
     <ClInclude Include="src\Ramensoup\Renderer\Renderer.h" />
     <ClInclude Include="src\Ramensoup\Renderer\Shader.h" />
+    <ClInclude Include="src\Ramensoup\Renderer\Texture.h" />
     <ClInclude Include="src\Ramensoup\Renderer\VertexBuffer.h" />
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLGraphicsAPI.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLIndexBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture2D.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexBuffer.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsImGuiCommands.cpp" />
@@ -160,10 +164,12 @@
     <ClCompile Include="src\Ramensoup\Renderer\Mesh.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Ramensoup\Renderer\Texture.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\VertexBuffer.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="vendor\stb_image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
