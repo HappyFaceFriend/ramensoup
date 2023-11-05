@@ -2,7 +2,7 @@
 
 workspace "Ramensoup"
 	architecture "x64"
-
+	startproject "Ramensoup-Editor"
 	configurations {"Debug", "Release"}
 	platforms {"Win64"}
 
