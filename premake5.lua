@@ -14,6 +14,9 @@ IncludeDirs["Glad"] = "Ramensoup/vendor/Glad/include"
 IncludeDirs["ImGui"] = "Ramensoup/vendor/ImGui"
 IncludeDirs["glm"] = "Ramensoup/vendor/glm"
 IncludeDirs["stb_image"] = "Ramensoup/vendor/stb_image"
+IncludeDirs["assimp"] = "Ramensoup/vendor/assimp/include"
+
+include "Ramensoup/vendor/assimp"
 
 include "Ramensoup/vendor/GLFW"
 include "Ramensoup/vendor/Glad"
@@ -55,6 +58,7 @@ project "Ramensoup"
 		"%{IncludeDirs.ImGui}",
 		"%{IncludeDirs.glm}",
 		"%{IncludeDirs.stb_image}",
+		"%{IncludeDirs.assimp}",
 	}
 
 	links
@@ -62,6 +66,7 @@ project "Ramensoup"
 		"GLFW",
 		"Glad",
 		"ImGui",
+		"assimp",
 		"opengl32.lib"
 	}
 
@@ -114,6 +119,7 @@ project "Ramensoup-Editor"
 
 		"%{IncludeDirs.ImGui}",
 		"%{IncludeDirs.glm}",
+		"%{IncludeDirs.assimp}",
 		"Ramensoup/vendor/spdlog/include",
 	}
 

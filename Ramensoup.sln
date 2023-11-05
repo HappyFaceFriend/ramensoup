@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ramensoup", "Ramensoup\Rame
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ramensoup-Editor", "Ramensoup-Editor\Ramensoup-Editor.vcxproj", "{7385708B-5F7E-8FDD-88B0-746274086FE9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "assimp", "Ramensoup\vendor\assimp\assimp.vcxproj", "{724885F2-5EEA-AFC8-47A5-C31C33E63619}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win64 = Debug|Win64
@@ -37,6 +39,10 @@ Global
 		{7385708B-5F7E-8FDD-88B0-746274086FE9}.Debug|Win64.Build.0 = Debug Win64|x64
 		{7385708B-5F7E-8FDD-88B0-746274086FE9}.Release|Win64.ActiveCfg = Release Win64|x64
 		{7385708B-5F7E-8FDD-88B0-746274086FE9}.Release|Win64.Build.0 = Release Win64|x64
+		{724885F2-5EEA-AFC8-47A5-C31C33E63619}.Debug|Win64.ActiveCfg = Debug Win64|x64
+		{724885F2-5EEA-AFC8-47A5-C31C33E63619}.Debug|Win64.Build.0 = Debug Win64|x64
+		{724885F2-5EEA-AFC8-47A5-C31C33E63619}.Release|Win64.ActiveCfg = Release Win64|x64
+		{724885F2-5EEA-AFC8-47A5-C31C33E63619}.Release|Win64.Build.0 = Release Win64|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
