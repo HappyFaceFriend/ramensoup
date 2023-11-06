@@ -48,42 +48,13 @@ namespace Ramensoup
 
 			m_IndexBuffer = IndexBuffer::Create(indicies, 3);
 			*/
-			m_Mesh = std::shared_ptr<Mesh>(new Mesh(verticies, 3, indicies, 3));
-			
-			
+
+			m_Mesh = MeshLoader::LoadOBJ("assets/models/Toyota Supra MK4 Custom/model/mk5_on_4.obj");
 			m_Shader = Shader::Create("assets/shaders/FlatColor.glsl");
 
 			m_Material = std::shared_ptr<Material>(new Material("FlatColor", m_Shader));
 			m_Material->GetShader()->Bind();
 			m_Material->GetShader()->SetUniformFloat4("u_Color", glm::vec4(0.8f, 0.2f, 0.3f, 1.0f));
-
-			DoTheImportThing("assets/models/");
-		}
-		bool DoTheImportThing(const std::string& pFile) {
-			// Create an instance of the Importer class
-			Assimp::Importer importer;
-
-			// And have it read the given file with some example postprocessing
-			// Usually - if speed is not the most important aspect for you - you'll
-			// probably to request more postprocessing than we do in this example.
-			const aiScene* scene = importer.ReadFile(pFile,
-				aiProcess_CalcTangentSpace |
-				aiProcess_Triangulate |
-				aiProcess_JoinIdenticalVertices |
-				aiProcess_SortByPType);
-
-			// If the import failed, report it
-			if (nullptr == scene) {
-				//DoTheErrorLogging(importer.GetErrorString());
-				return false;
-			}
-
-			
-			// Now we can access the file's contents.
-			//DoTheSceneProcessing(scene);
-
-			// We're done. Everything will be cleaned up by the importer destructor
-			return true;
 		}
 		virtual void OnDetach() override { RS_LOG("OnDetach");}
 		virtual void OnUpdate() override

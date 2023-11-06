@@ -1,0 +1,323 @@
+# Blender MTL File: 'mk5_on_4.blend'
+# Material Count: 28
+
+newmtl CSR2_BrakeDisc_ForgedDrilled
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.090000 0.090000 0.090000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\ACER\\Desktop\\Mods\\3D Models\\Rims\\YOKOHAMA_ADVAN-Racing-R6\\maps\\BrakeDisc_ForgedDrilled_nrml.png
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\3D Models\\Rims\\YOKOHAMA_ADVAN-Racing-R6\\maps\\BrakeDisc_ForgedDrilled_diff.png
+
+newmtl CSR2_BrakeDisc_ForgedDrilled.001
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.090000 0.090000 0.090000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\ACER\\Desktop\\Mods\\3D Models\\Rims\\YOKOHAMA_ADVAN-Racing-R6\\maps\\BrakeDisc_ForgedDrilled_nrml.png
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\3D Models\\Rims\\YOKOHAMA_ADVAN-Racing-R6\\maps\\BrakeDisc_ForgedDrilled_diff.png
+
+newmtl CSR2_TOYO_ProxesR888_A
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.090000 0.090000 0.090000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\ACER\\Desktop\\Mods\\3D Models\\Rims\\YOKOHAMA_ADVAN-Racing-R6\\maps\\TOYO_ProxesR888_A_nrml.png
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\3D Models\\Rims\\YOKOHAMA_ADVAN-Racing-R6\\maps\\TOYO_ProxesR888_A_diff.png
+
+newmtl CSR2_TOYO_ProxesR888_A.001
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.090000 0.090000 0.090000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\ACER\\Desktop\\Mods\\3D Models\\Rims\\YOKOHAMA_ADVAN-Racing-R6\\maps\\TOYO_ProxesR888_A_nrml.png
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\3D Models\\Rims\\YOKOHAMA_ADVAN-Racing-R6\\maps\\TOYO_ProxesR888_A_diff.png
+
+newmtl None
+Ns 499.999983
+Ka 1.000000 1.000000 1.000000
+Kd 0.300000 0.300000 0.300000
+Ks 0.800000 0.800000 0.800000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl None.001
+Ns 499.999983
+Ka 1.000000 1.000000 1.000000
+Kd 0.300000 0.300000 0.300000
+Ks 0.800000 0.800000 0.800000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Toyota_SupraMK4TNR0_1994Base_Material
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+
+newmtl Toyota_SupraMK4TNR0_1994Carbon1M_Material
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 0.341000 0.341000 0.341000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\Already Modded\\carbon1m.png
+
+newmtl Toyota_SupraMK4TNR0_1994Carbon2_Material
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 0.341000 0.341000 0.341000
+Ks 0.691358 0.691358 0.691358
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\Already Modded\\carbon2.png
+
+newmtl Toyota_SupraMK4TNR0_1994Coloured_Material
+Ns 464.825974
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 1.000000 0.000000
+Ks 0.629630 0.629630 0.629630
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\Already Modded\\Global_Texture_Coloured_Diffuse.png
+
+newmtl Toyota_SupraMK4TNR0_1994EngineA_Material
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_EngineA_Normal.png
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_EngineA_DiffuseAOSO.png
+map_d C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_EngineA_DiffuseAOSO.png
+
+newmtl Toyota_SupraMK4TNR0_1994Grille6A_Material
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_Grille6A_Normal.png
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_Grille6A_DiffuseAOSO.png
+map_d C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_Grille6A_DiffuseAOSO.png
+
+newmtl Toyota_SupraMK4TNR0_1994Grille7A_Material
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_Grille7A_Normal.png
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_Grille7A_DiffuseAOSO.png
+map_d C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_Grille7A_DiffuseAOSO.png
+
+newmtl Toyota_SupraMK4TNR0_1994Grille8A_Material
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_Grille8A_Normal.png
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_Grille8A_DiffuseAOSO.png
+map_d C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_Grille8A_DiffuseAOSO.png
+
+newmtl Toyota_SupraMK4TNR0_1994Grille9A_Material
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_Grille9A_Normal.png
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_Grille9A_DiffuseAOSO.png
+map_d C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_Grille9A_DiffuseAOSO.png
+
+newmtl Toyota_SupraMK4TNR0_1994InteriorA_Material
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_InteriorA_Normal.png
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_InteriorA_DiffuseAOSO.png
+map_d C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_InteriorA_DiffuseAOSO.png
+
+newmtl Toyota_SupraMK4TNR0_1994LightA_Material
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_LightA_Diffuse.png
+map_d C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_LightA_Diffuse.png
+
+newmtl Toyota_SupraMK4TNR0_1994PaintTNR_Material
+Ns 339.907700
+Ka 0.888889 0.888889 0.888889
+Kd 0.119275 0.119275 0.119275
+Ks 0.641975 0.641975 0.641975
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+
+newmtl Toyota_SupraMK4TNR0_1994SeatBelt_Material
+Ns 12.968717
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 1.000000 0.000000
+Ks 0.300000 0.300000 0.300000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\Already Modded\\Global_Texture_Coloured_Diffuse.png
+
+newmtl Toyota_SupraMK4TNR0_1994TexturedA_Material
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_TexturedA_Diffuse.png
+map_d C:\\Users\\ACER\\Desktop\\Mods\\CSR2 Model\\Toyota Supra [Elite Tuners]\\[Base] Toyota Supra MKIV\\GameObject\\Toyota_SupraMK4TNR_1994_TexturedA_Diffuse.png
+
+newmtl Toyota_SupraMK4TNR0_1994WindowInside_Material
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 0.500000
+illum 6
+
+newmtl Toyota_SupraMK4TNR6_1994Carbon1_Material
+Ns 199.999995
+Ka 1.000000 1.000000 1.000000
+Kd 0.341000 0.341000 0.341000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\Already Modded\\carbon1.png
+
+newmtl coloured_window
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 0.265432
+illum 6
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\Already Modded\\mattegold.png
+
+newmtl plastic
+Ns 404.244753
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.574074 0.574074 0.574074
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\Already Modded\\plastic.png
+
+newmtl rims
+Ns 359.999993
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\3D Models\\Rims\\Rotiform DAB\\Texture\\rims2.png
+
+newmtl rims.001
+Ns 359.999993
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\3D Models\\Rims\\Rotiform DAB\\Texture\\rims2.png
+
+newmtl spoke
+Ns 359.999993
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\3D Models\\Rims\\Rotiform DAB\\Texture\\spoke.png
+
+newmtl spoke.001
+Ns 359.999993
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\ACER\\Desktop\\Mods\\3D Models\\Rims\\Rotiform DAB\\Texture\\spoke.png
