@@ -9,7 +9,7 @@ namespace Ramensoup
 	class MeshLoader
 	{
 	public:
-		static std::shared_ptr<Mesh> LoadOBJ(const std::string& filePath);
+		static std::vector<std::shared_ptr<Mesh>> LoadOBJ(const std::string& filePath);
 
 	//private:
 		static std::shared_ptr<Mesh> LoadSingleMesh(const aiMesh* meshData);

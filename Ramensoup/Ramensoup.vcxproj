@@ -99,7 +99,6 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Ramensoup\Renderer\MeshLoader.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLGraphicsAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLIndexBuffer.h" />
@@ -132,6 +131,7 @@
     <ClInclude Include="src\Ramensoup\Renderer\IndexBuffer.h" />
     <ClInclude Include="src\Ramensoup\Renderer\Material.h" />
     <ClInclude Include="src\Ramensoup\Renderer\Mesh.h" />
+    <ClInclude Include="src\Ramensoup\Renderer\MeshLoader.h" />
     <ClInclude Include="src\Ramensoup\Renderer\RenderContext.h" />
     <ClInclude Include="src\Ramensoup\Renderer\Renderer.h" />
     <ClInclude Include="src\Ramensoup\Renderer\Shader.h" />
@@ -141,7 +141,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Ramensoup\Renderer\MeshLoader.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLGraphicsAPI.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLIndexBuffer.cpp" />
@@ -164,6 +163,7 @@
     <ClCompile Include="src\Ramensoup\Renderer\IndexBuffer.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Material.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Mesh.cpp" />
+    <ClCompile Include="src\Ramensoup\Renderer\MeshLoader.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Shader.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Texture.cpp" />

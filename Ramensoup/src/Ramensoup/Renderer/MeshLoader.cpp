@@ -6,20 +6,26 @@
 
 namespace Ramensoup
 {
-	std::shared_ptr<Mesh> MeshLoader::LoadOBJ(const std::string& filePath) //"assets/models/Toyota Supra MK4 Custom/model/mk5_on_4.obj"
+	std::vector<std::shared_ptr<Mesh>> MeshLoader::LoadOBJ(const std::string& filePath) //"assets/models/Toyota Supra MK4 Custom/model/mk5_on_4.obj"
 	{
+		std::vector<std::shared_ptr<Mesh>> meshes;
+
 		Assimp::Importer importer;
 		const aiScene* scene = importer.ReadFile(filePath, aiProcess_Triangulate);
 
 		if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
 		{
 			RS_LOG_ERROR("Failed loading {0}: {0}", filePath, importer.GetErrorString());
-			return nullptr;
+			return meshes;
 		}
 		
-		auto mesh = LoadSingleMesh(scene->mMeshes[0]);
+		for (int meshIndex = 0; meshIndex < scene->mNumMeshes; meshIndex++)
+		{
+			auto mesh = LoadSingleMesh(scene->mMeshes[meshIndex]);
+			meshes.push_back(mesh);
+		}
 
-		return mesh;
+		return meshes;
 	}
 	std::shared_ptr<Mesh> MeshLoader::LoadSingleMesh(const aiMesh* meshData)
 	{
@@ -29,8 +35,14 @@ namespace Ramensoup
 		//assimp Texcoords is 3d
 		// TODO : This is currently loading only the first texture's uv
 		std::vector<glm::vec2> texCoords(vertexCount);
-		for(int vertexIndex = 0; vertexIndex < vertexCount; vertexIndex++)
-			texCoords[vertexIndex] = { meshData->mTextureCoords[0][vertexIndex].x, meshData->mTextureCoords[0][vertexIndex].y };
+		uint32_t textureID = 0;
+		for (int vertexIndex = 0; vertexIndex < vertexCount; vertexIndex++)
+		{
+			if (meshData->HasTextureCoords(textureID))
+				texCoords[vertexIndex] = { meshData->mTextureCoords[textureID][vertexIndex].x, meshData->mTextureCoords[textureID][vertexIndex].y };
+			else
+				texCoords[vertexIndex] = { 0,0 };
+		}
 		
 		//assimp indicies is stored as triangles(faces)
 		std::vector<uint32_t> indicies(meshData->mNumFaces * 3);

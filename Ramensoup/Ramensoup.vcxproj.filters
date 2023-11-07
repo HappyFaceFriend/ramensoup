@@ -132,6 +132,9 @@
     <ClInclude Include="src\Ramensoup\Renderer\Mesh.h">
       <Filter>src\Ramensoup\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ramensoup\Renderer\MeshLoader.h">
+      <Filter>src\Ramensoup\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ramensoup\Renderer\RenderContext.h">
       <Filter>src\Ramensoup\Renderer</Filter>
     </ClInclude>
@@ -152,9 +155,6 @@
     </ClInclude>
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Ramensoup\Renderer\MeshLoader.h">
-      <Filter>src\Ramensoup\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +224,9 @@
     <ClCompile Include="src\Ramensoup\Renderer\Mesh.cpp">
       <Filter>src\Ramensoup\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Ramensoup\Renderer\MeshLoader.cpp">
+      <Filter>src\Ramensoup\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Ramensoup\Renderer\Renderer.cpp">
       <Filter>src\Ramensoup\Renderer</Filter>
     </ClCompile>
@@ -241,9 +244,6 @@
     </ClCompile>
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Ramensoup\Renderer\MeshLoader.cpp">
-      <Filter>src\Ramensoup\Renderer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

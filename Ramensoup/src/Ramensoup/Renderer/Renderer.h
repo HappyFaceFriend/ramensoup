@@ -39,12 +39,25 @@ namespace Ramensoup
 		}
 		inline static API GetAPI() { return s_API; }
 
+		//TODO : Debug & Release only
+		struct Statistics
+		{
+			uint32_t DrawCallCount = 0;
+			uint32_t TotalIndexCount = 0;
+		};
+		inline static const Statistics& GetStatistics() { return s_Statistics; }
+	private:
+
+		static void ResetStatistics();
 	private:
 		struct SceneContext
 		{
 			glm::mat4 ViewProjectionMatrix;
 		};
 		static SceneContext s_SceneContext;
+
+
+		static Statistics s_Statistics;
 
 		static GraphicsAPI* s_GraphicsAPI;
 		static API s_API;

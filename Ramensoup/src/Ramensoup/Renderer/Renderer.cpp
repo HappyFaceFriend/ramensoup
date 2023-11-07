@@ -9,6 +9,7 @@ namespace Ramensoup
 	Renderer::API Renderer::s_API = API::None;
 
 	Renderer::SceneContext Renderer::s_SceneContext;
+	Renderer::Statistics Renderer::s_Statistics;
 
 	void Renderer::Init(API api)
 	{
@@ -29,6 +30,8 @@ namespace Ramensoup
 	void Renderer::BeginScene(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix)
 	{
 		s_SceneContext.ViewProjectionMatrix = projectionMatrix * viewMatrix;
+
+		ResetStatistics();
 	}
 	void Renderer::EndScene()
 	{
@@ -49,5 +52,14 @@ namespace Ramensoup
 	void Renderer::DrawIndexed(const std::shared_ptr<VertexBuffer>& vertexBuffer, const std::shared_ptr<IndexBuffer>& indexBuffer, uint32_t indexCount)
 	{
 		s_GraphicsAPI->DrawIndexed(vertexBuffer, indexBuffer, indexCount);
+		
+		s_Statistics.DrawCallCount++;
+		s_Statistics.TotalIndexCount += indexCount;
+	}
+
+	void Renderer::ResetStatistics()
+	{
+		s_Statistics.DrawCallCount = 0;
+		s_Statistics.TotalIndexCount = 0;
 	}
 }
