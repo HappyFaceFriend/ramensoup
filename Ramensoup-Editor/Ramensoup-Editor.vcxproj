@@ -94,10 +94,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Editor\OrthographicCameraController.h" />
+    <ClInclude Include="src\Editor\PerspectiveCameracontroller.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Editor\OrthographicCameraController.cpp" />
     <ClCompile Include="src\EditorApp.cpp" />
+    <ClCompile Include="src\Editor\PerspectiveCameraController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ramensoup\Ramensoup.vcxproj">

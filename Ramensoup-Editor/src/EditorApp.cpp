@@ -2,11 +2,8 @@
 #include <Ramensoup/Core/Entrypoint.h>
 
 #include <imgui.h>
-
-#include "Editor/OrthographicCameraController.h"
-#include <assimp/Importer.hpp>      // C++ importer interface
-#include <assimp/scene.h>           // Output data structure
-#include <assimp/postprocess.h>     // Post processing flag
+#include "glm/gtc/matrix_transform.hpp"
+#include "Editor/PerspectiveCameraController.h"
 
 namespace Ramensoup
 {
@@ -20,11 +17,14 @@ namespace Ramensoup
 		std::vector<std::shared_ptr<Mesh>> m_Meshes;
 		std::shared_ptr<Material> m_Material;
 		
-		OrthographicCameraController m_CameraController;
+		glm::mat4 m_ModelTransform = glm::mat4(1.0f);
+
+		PerspectiveCameraController m_CameraController;
 	public:
 		TestLayer()
-			:m_CameraController(16.0f/9.0f, 5.625)
+			:m_CameraController(16.0f/9.0f, glm::radians(60.0f), 0, 100)
 		{
+			m_ModelTransform = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
 
 		}
 		virtual void OnAttach() override
@@ -45,7 +45,7 @@ namespace Ramensoup
 			Renderer::BeginScene(m_CameraController.GetCamera().GetProjectionMatrix(), m_CameraController.GetCamera().GetViewMatrix());
 
 			for(auto mesh : m_Meshes)
-				Renderer::Submit(mesh, m_Material);
+				Renderer::Submit(mesh, m_Material, m_ModelTransform);
 			Renderer::EndScene();
 		}
 		virtual void OnImGuiUpdate() override 
