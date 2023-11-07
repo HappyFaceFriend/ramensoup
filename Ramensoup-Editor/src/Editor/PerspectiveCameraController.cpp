@@ -26,6 +26,10 @@ namespace Ramensoup
 				m_Position.y += speed * Time::GetDeltaTime();
 			if (Input::IsKeyPressed(RS_KEY_S))
 				m_Position.y -= speed * Time::GetDeltaTime();
+			if (Input::IsKeyPressed(RS_KEY_E))
+				m_Position.z += speed * Time::GetDeltaTime();
+			if (Input::IsKeyPressed(RS_KEY_Q))
+				m_Position.z -= speed * Time::GetDeltaTime();
 		}
 		else
 		{
