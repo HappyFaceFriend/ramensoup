@@ -22,6 +22,7 @@ namespace Ramensoup
 		{
 		case API::OpenGL:
 			s_GraphicsAPI = new OpenGLGraphicsAPI();
+			s_GraphicsAPI->Init();
 			break;
 		case API::None:
 			RS_CORE_ASSERT(false, "Renderer::API::None is not supported.");

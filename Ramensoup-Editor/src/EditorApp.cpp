@@ -22,10 +22,9 @@ namespace Ramensoup
 		PerspectiveCameraController m_CameraController;
 	public:
 		TestLayer()
-			:m_CameraController(16.0f/9.0f, glm::radians(60.0f), 0, 100)
+			:m_CameraController(16.0f/9.0f, glm::radians(60.0f), 0.1f, 100)
 		{
 			m_ModelTransform = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-
 		}
 		virtual void OnAttach() override
 		{

@@ -20,7 +20,7 @@ namespace Ramensoup
 		float m_Near;
 		float m_Far;
 
-		glm::vec3 m_Position{0, 0, 10};
+		glm::vec3 m_Position{0, 0, 5};
 		glm::vec3 m_Rotation{0, 0, 0};
 
 		float m_TranslationSpeed = 1;
