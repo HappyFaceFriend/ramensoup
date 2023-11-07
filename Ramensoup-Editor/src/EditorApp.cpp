@@ -31,11 +31,13 @@ namespace Ramensoup
 		{
 			//m_Meshes = MeshLoader::LoadOBJ("assets/models/Toyota Supra MK4 Custom/model/mk5_on_4.obj");
 			m_Meshes = MeshLoader::LoadOBJ("assets/models/low-poly-garen_/source/b137609479e34bc3bf215142d91b745b.obj");
-			m_Shader = Shader::Create("assets/shaders/FlatColor.glsl");
+			m_Shader = Shader::Create("assets/shaders/Lit.glsl");
 
-			m_Material = std::shared_ptr<Material>(new Material("FlatColor", m_Shader));
+			m_Material = std::shared_ptr<Material>(new Material("Lit", m_Shader));
 			m_Material->GetShader()->Bind();
-			m_Material->GetShader()->SetUniformFloat4("u_Color", glm::vec4(0.8f, 0.2f, 0.3f, 1.0f));
+			//m_Material->GetShader()->SetUniformFloat4("u_Color", glm::vec4(0.8f, 0.2f, 0.3f, 1.0f));
+
+			Renderer::SetClearColor(glm::vec4(0.2, 0.2, 0.2, 1));
 		}
 		virtual void OnDetach() override { RS_LOG("OnDetach");}
 		virtual void OnUpdate() override
