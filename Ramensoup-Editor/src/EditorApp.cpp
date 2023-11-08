@@ -16,7 +16,7 @@ namespace Ramensoup
 
 		std::vector<std::shared_ptr<Mesh>> m_Meshes;
 		std::shared_ptr<Material> m_Material;
-		
+		std::shared_ptr<Texture2D> m_Texture;
 		glm::mat4 m_ModelTransform = glm::mat4(1.0f);
 
 		PerspectiveCameraController m_CameraController;
@@ -36,6 +36,8 @@ namespace Ramensoup
 			m_Material->GetShader()->Bind();
 			//m_Material->GetShader()->SetUniformFloat4("u_Color", glm::vec4(0.8f, 0.2f, 0.3f, 1.0f));
 
+			m_Texture = Texture2D::Create("assets/models/low-poly-garen_/textures/garen_tex.jpg");
+			m_Texture->Bind();
 			Renderer::SetClearColor(glm::vec4(0.2, 0.2, 0.2, 1));
 		}
 		virtual void OnDetach() override { RS_LOG("OnDetach");}

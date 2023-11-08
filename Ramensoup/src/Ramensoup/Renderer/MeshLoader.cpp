@@ -25,6 +25,7 @@ namespace Ramensoup
 			meshes.push_back(mesh);
 		}
 
+
 		return meshes;
 	}
 	std::shared_ptr<Mesh> MeshLoader::LoadSingleMesh(const aiMesh* meshData)

@@ -19,5 +19,6 @@
 #include "Ramensoup/Renderer/MeshLoader.h"
 #include "Ramensoup/Renderer/Mesh.h"
 #include "Ramensoup/Renderer/Material.h"
+#include "Ramensoup/Renderer/Texture.h"
 
 #include "Ramensoup/Renderer/Camera.h"
