@@ -35,9 +35,11 @@ namespace Ramensoup
 
 			if (m_LastMousePos.x != -1)
 			{
-				float xRot = -(Input::GetMousePos().y - m_LastMousePos.y) * m_RotationSpeed;
-				float yRot = -(Input::GetMousePos().x - m_LastMousePos.x) * m_RotationSpeed;
+				float xRot = (Input::GetMousePos().y - m_LastMousePos.y) * m_RotationSpeed;
+				float yRot = (Input::GetMousePos().x - m_LastMousePos.x) * m_RotationSpeed;
 
+				m_Front = glm::rotate(glm::mat4(1.0f), xRot, right) * glm::rotate(glm::mat4(1.0f), yRot, m_Up) * glm::vec4(m_Front, 0);
+				m_Up = glm::rotate(glm::mat4(1.0f), yRot, m_Up) * glm::vec4(m_Up, 0);
 			}
 			m_LastMousePos = Input::GetMousePos();
 		}
