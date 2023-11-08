@@ -35,6 +35,10 @@ project "Ramensoup"
 	pchheader "pch.h"
 	pchsource "Ramensoup/src/pch.cpp"
 
+	defines
+	{
+		"GLM_FORCE_LEFT_HANDED"
+	}
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -112,6 +116,10 @@ project "Ramensoup-Editor"
 		"%{prj.name}/src/**.cpp"
 	}
 
+	defines
+	{
+		"GLM_FORCE_LEFT_HANDED"
+	}
 	includedirs
 	{
 		"Ramensoup/src",

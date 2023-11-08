@@ -15,6 +15,7 @@ namespace Ramensoup
 		void SetPerspective(float yFov, float aspectRatio, float zNear, float zFar);
 
 		inline void SetTransform(const glm::mat4& transform) { m_ViewMatrix = glm::inverse(transform); }
+		inline void SetView(const glm::mat4& view) { m_ViewMatrix = view; }
 
 		const glm::mat4& GetProjectionMatrix() const { return m_ProjectionMatrix; }
 		const glm::mat4& GetViewMatrix() const { return m_ViewMatrix; }

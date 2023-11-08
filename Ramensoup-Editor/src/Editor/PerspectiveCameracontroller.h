@@ -13,6 +13,7 @@ namespace Ramensoup
 		void OnUpdate();
 
 		inline const Camera& GetCamera() const { return m_Camera; }
+		inline const glm::vec3& GetPosition() { return m_Position; }
 	private:
 		Camera m_Camera;
 		float m_AspectRatio;
@@ -20,10 +21,13 @@ namespace Ramensoup
 		float m_Near;
 		float m_Far;
 
-		glm::vec3 m_Position{0, 0, 5};
-		glm::vec3 m_Rotation{0, 0, 0};
+		glm::vec3 m_Position{0, 0, -5};
+		glm::vec3 m_Front{0, 0, 1};
+		glm::vec3 m_Up{0, 1, 0};
 
 		float m_TranslationSpeed = 1;
-		float m_RotationSpeed = 0.7f;
+		float m_RotationSpeed = 0.2f / 180;
+
+		glm::vec2 m_LastMousePos = { -1, -1 };
 	};
 }

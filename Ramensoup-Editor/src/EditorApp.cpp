@@ -3,6 +3,7 @@
 
 #include <imgui.h>
 #include "glm/gtc/matrix_transform.hpp"
+#include "glm/gtc/type_ptr.hpp"
 #include "Editor/PerspectiveCameraController.h"
 
 namespace Ramensoup
@@ -24,7 +25,7 @@ namespace Ramensoup
 		TestLayer()
 			:m_CameraController(16.0f/9.0f, glm::radians(60.0f), 0.1f, 100)
 		{
-			m_ModelTransform = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+			m_ModelTransform = glm::translate(glm::mat4(1.0f), glm::vec3(1, 0, 0));
 		}
 		virtual void OnAttach() override
 		{
@@ -61,8 +62,8 @@ namespace Ramensoup
 			ImGui::Text("Indicies: %d", Renderer::GetStatistics().TotalIndexCount);
 			ImGui::End();
 			ImGui::Begin("test window2");
-			double d = 0;
-			ImGui::InputDouble("Val", &d);
+			glm::vec3 position = m_CameraController.GetPosition();
+			ImGui::DragFloat3("Camera Position", glm::value_ptr(position));
 			ImGui::End();
 		}
 

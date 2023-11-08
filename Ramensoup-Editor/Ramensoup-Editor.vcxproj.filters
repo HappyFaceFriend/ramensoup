@@ -9,13 +9,17 @@
     <ClInclude Include="src\Editor\OrthographicCameraController.h">
       <Filter>Editor</Filter>
     </ClInclude>
-    <ClInclude Include="src\Editor\PerspectiveCameracontroller.h" />
+    <ClInclude Include="src\Editor\PerspectiveCameracontroller.h">
+      <Filter>Editor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Editor\OrthographicCameraController.cpp">
       <Filter>Editor</Filter>
     </ClCompile>
+    <ClCompile Include="src\Editor\PerspectiveCameraController.cpp">
+      <Filter>Editor</Filter>
+    </ClCompile>
     <ClCompile Include="src\EditorApp.cpp" />
-    <ClCompile Include="src\Editor\PerspectiveCameraController.cpp" />
   </ItemGroup>
 </Project>
