@@ -16,8 +16,10 @@
 
 namespace Ramensoup
 {
+	Application* Application::s_Instance = nullptr;
 
 	Application::Application(const std::string& name)
+		:m_EventQueue()
 	{
 		RS_CORE_LOG("Created Application!");
 		m_Window = Window::Create({ name, 1280, 720 });
@@ -27,11 +29,13 @@ namespace Ramensoup
 		m_ImGuiLayer = new ImGuiLayer(m_Window.get());
 		m_LayerStack.PushOverlay(m_ImGuiLayer);
 
-		EventQueue::AddOverlayHandler<WindowCloseEvent>(std::bind(&Application::OnWindowCloseEvent, this, std::placeholders::_1));
-		EventQueue::AddOverlayHandler<WindowResizeEvent>(std::bind(&Application::OnWindowResizeEvent, this, std::placeholders::_1));
+		m_EventQueue.AddOverlayHandler<WindowCloseEvent>(std::bind(&Application::OnWindowCloseEvent, this, std::placeholders::_1));
+		m_EventQueue.AddOverlayHandler<WindowResizeEvent>(std::bind(&Application::OnWindowResizeEvent, this, std::placeholders::_1));
 
 		Renderer::Init(Renderer::API::OpenGL);
 		Renderer::SetClearColor(glm::vec4(0.8f, 0.5f, 0.1f, 1.0f));
+
+		s_Instance = this;
 	}
 
 	Application::~Application()
@@ -65,13 +69,12 @@ namespace Ramensoup
 			Time::Tick();
 			m_Window->OnUpdate();
 
-			EventQueue::Get().Flush(m_LayerStack);
+			HandleEvents();
 
 			Renderer::Clear();
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
-
 
 			ImGuiCommands::Begin();
 			bool show_demo_window = true;
@@ -79,9 +82,11 @@ namespace Ramensoup
 			for (Layer* layer : m_LayerStack)
 				layer->OnImGuiUpdate();
 			ImGuiCommands::End();
-
 		}
-
+	}
+	void Application::HandleEvents()
+	{
+		m_EventQueue.Flush(m_LayerStack);
 	}
 
 }

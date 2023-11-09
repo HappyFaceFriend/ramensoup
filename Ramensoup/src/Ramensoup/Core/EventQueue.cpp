@@ -16,12 +16,9 @@ namespace Ramensoup
 	static constexpr uint32_t MAX_QUEUE_SIZE_BYTES = 1000;
 	using byte = uint8_t;
 
-	EventQueue* EventQueue::s_Instance = nullptr;
-	static EventQueue instance;
 
 	EventQueue::EventQueue()
 	{
-		s_Instance = this;
 		m_BufferBase = new byte[MAX_QUEUE_SIZE_BYTES];
 		m_BufferPtr = m_BufferBase;
 	}

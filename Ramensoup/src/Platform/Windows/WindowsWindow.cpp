@@ -7,8 +7,10 @@
 #include "Ramensoup/Events/Event.h"
 #include "Ramensoup/Events/KeyEvents.h"
 #include "Ramensoup/Events/MouseEvents.h"
+#include "Ramensoup/Core/Application.h"
 
 #include "Platform/OpenGL/OpenGLContext.h"
+
 
 namespace Ramensoup
 {
@@ -85,12 +87,13 @@ namespace Ramensoup
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 				data.Width = width;
 				data.Height = height;
-				QueueEvent(WindowResizeEvent(width,height));
+				Application::Get().QueueEvent(WindowResizeEvent(width,height));
+				Application::Get().HandleEvents();
 			});
 		glfwSetWindowCloseCallback(m_WindowHandle, [](GLFWwindow* window)
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-				QueueEvent(WindowCloseEvent());
+				Application::Get().QueueEvent(WindowCloseEvent());
 			});
 		glfwSetKeyCallback(m_WindowHandle, [](GLFWwindow* window, int key, int scancode, int action, int mods)
 			{
@@ -99,12 +102,12 @@ namespace Ramensoup
 				{
 				case GLFW_PRESS: case GLFW_REPEAT:
 				{
-					QueueEvent(KeyPressEvent(key));
+					Application::Get().QueueEvent(KeyPressEvent(key));
 					break;
 				}
 				case GLFW_RELEASE:
 				{
-					QueueEvent(KeyReleaseEvent(key));
+					Application::Get().QueueEvent(KeyReleaseEvent(key));
 					break;
 				}
 				}
@@ -112,7 +115,7 @@ namespace Ramensoup
 		glfwSetCharCallback(m_WindowHandle, [](GLFWwindow* window, unsigned int character)
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-				QueueEvent(KeyTypeEvent(character));
+				Application::Get().QueueEvent(KeyTypeEvent(character));
 			});
 		glfwSetMouseButtonCallback(m_WindowHandle, [](GLFWwindow* window, int button, int action, int mods)
 			{
@@ -121,12 +124,12 @@ namespace Ramensoup
 				{
 				case GLFW_PRESS:
 				{
-					QueueEvent(MouseButtonPressEvent(button));
+					Application::Get().QueueEvent(MouseButtonPressEvent(button));
 					break;
 				}
 				case GLFW_RELEASE:
 				{
-					QueueEvent(MouseButtonReleaseEvent(button));
+					Application::Get().QueueEvent(MouseButtonReleaseEvent(button));
 					break;
 				}
 				}
@@ -134,12 +137,12 @@ namespace Ramensoup
 		glfwSetScrollCallback(m_WindowHandle, [](GLFWwindow* window, double xOffset, double yOffset)
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-				QueueEvent(MouseScrollEvent((float)xOffset, (float)yOffset));
+				Application::Get().QueueEvent(MouseScrollEvent((float)xOffset, (float)yOffset));
 			});
 		glfwSetCursorPosCallback(m_WindowHandle, [](GLFWwindow* window, double xPos, double yPos)
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-				QueueEvent(MouseMoveEvent((float)xPos, (float)yPos));
+				Application::Get().QueueEvent(MouseMoveEvent((float)xPos, (float)yPos));
 			});
 	}
 

@@ -36,10 +36,6 @@ namespace Ramensoup
 		virtual void SetEventCallback(const EventCallbackFunc& callback) = 0;
 
 	protected:
-		template <typename T>
-		static void QueueEvent(T&& e) { EventQueue::Get().Push(std::move(e)); }
-
-	protected:
 		std::unique_ptr<RenderContext> m_RenderContext;
 	};
 }

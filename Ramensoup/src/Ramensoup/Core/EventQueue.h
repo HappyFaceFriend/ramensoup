@@ -24,9 +24,10 @@ namespace Ramensoup
 			*(EventType*)m_BufferPtr = T::GetStaticType();
 			m_BufferPtr = (char*)m_BufferPtr + sizeof(EventType*);
 			//Store actual event
-			*(T*)m_BufferPtr = std::move(e);
+			*(T*)m_BufferPtr = e;
 			m_BufferPtr = (char*)m_BufferPtr + PaddedSizeof<T>();
 			m_Count++;
+			
 		}
 
 		void Flush(LayerStack& layerStack);
@@ -35,24 +36,22 @@ namespace Ramensoup
 		using EventHandler = std::function<bool(T&)>;
 
 		template <typename T>
-		static void AddOverlayHandler(EventHandler<T> handler)
+		void AddOverlayHandler(EventHandler<T> handler)
 		{
-			s_Instance->m_OverlayHandlers[T::GetStaticType()] = handler;
+			m_OverlayHandlers[T::GetStaticType()] = handler;
 		}
 
 		template <typename T>
-		static void HandleEvent(Event* e, LayerStack& layerStack)
+		void HandleEvent(Event* e, LayerStack& layerStack)
 		{
 			bool handled = false;
-			if (s_Instance->m_OverlayHandlers.find(T::GetStaticType()) != s_Instance->m_OverlayHandlers.end())
+			if (m_OverlayHandlers.find(T::GetStaticType()) != m_OverlayHandlers.end())
 			{
-				handled = (std::any_cast<EventHandler<T>>(s_Instance->m_OverlayHandlers[T::GetStaticType()]))(*(T*)e);
+				handled = (std::any_cast<EventHandler<T>>(m_OverlayHandlers[T::GetStaticType()]))(*(T*)e);
 			}
 			if (!handled)
 				layerStack.HandleEvent<T>(*(T*)e);
 		}
-		
-		static EventQueue& Get() { return *s_Instance; }
 
 	private:
 
@@ -67,6 +66,5 @@ namespace Ramensoup
 		void* m_BufferPtr;
 		uint32_t m_Count = 0;
 	private:
-		static EventQueue* s_Instance;
 	};
 }
