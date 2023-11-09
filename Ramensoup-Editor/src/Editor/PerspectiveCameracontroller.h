@@ -25,8 +25,8 @@ namespace Ramensoup
 		glm::vec3 m_Front{0, 0, 1};
 		glm::vec3 m_Up{0, 1, 0};
 
-		float m_TranslationSpeed = 1;
-		float m_RotationSpeed = 0.2f / 180;
+		float m_TranslationSpeed = 3;
+		float m_RotationSpeed = 0.5f / 180;
 
 		glm::vec2 m_LastMousePos = { -1, -1 };
 	};
