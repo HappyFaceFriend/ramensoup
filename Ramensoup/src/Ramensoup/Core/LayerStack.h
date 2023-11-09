@@ -31,9 +31,9 @@ namespace Ramensoup
 			for (auto iter = cend(); iter != cbegin(); )
 			{
 				iter--;
-				if (e.IsHandled)
+				bool handled = (*iter)->HandleEvent(e);
+				if (handled)
 					break;
-				e.IsHandled = (*iter)->HandleEvent(e);
 			}
 		}
 		

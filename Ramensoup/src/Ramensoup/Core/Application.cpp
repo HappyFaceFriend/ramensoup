@@ -63,9 +63,9 @@ namespace Ramensoup
 		while (m_IsRunning)
 		{
 			Time::Tick();
-			EventQueue::Get().Flush(m_LayerStack);
-
 			m_Window->OnUpdate();
+
+			EventQueue::Get().Flush(m_LayerStack);
 
 			Renderer::Clear();
 

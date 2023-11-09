@@ -13,7 +13,7 @@
 
 namespace Ramensoup
 {
-	static constexpr uint32_t MAX_QUEUE_SIZE_BYTES = 4000;
+	static constexpr uint32_t MAX_QUEUE_SIZE_BYTES = 1000;
 	using byte = uint8_t;
 
 	EventQueue* EventQueue::s_Instance = nullptr;
@@ -51,7 +51,7 @@ namespace Ramensoup
 			DISPATCH(MouseMove);
 			DISPATCH(MouseScroll);
 			default:
-				//TODO : Assert here
+				RS_CORE_ASSERT(false, "Unknown event!");
 				break;
 			}
 		}

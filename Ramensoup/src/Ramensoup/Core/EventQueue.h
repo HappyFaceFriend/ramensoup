@@ -57,9 +57,9 @@ namespace Ramensoup
 	private:
 
 		template<typename T>
-		static uint32_t PaddedSizeof()
+		constexpr static uint32_t PaddedSizeof()
 		{
-			return sizeof(T) >= sizeof(std::max_align_t) ? sizeof(T) : sizeof(std::max_align_t);
+			return (sizeof(T) + sizeof(std::max_align_t) - 1) % sizeof(std::max_align_t) * sizeof(std::max_align_t);
 		}
 	private:
 		std::unordered_map<EventType, std::any> m_OverlayHandlers;

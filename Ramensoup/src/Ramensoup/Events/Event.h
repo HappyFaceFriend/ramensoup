@@ -11,7 +11,8 @@ namespace Ramensoup
 		AppTick, AppUpdate, AppRender,
 		WindowClose, WindowResize, WindowFocus, WindowLoseFocus, WindowMove,
 		KeyPress, KeyRelease, KeyType,
-		MouseButtonPress, MouseButtonRelease, MouseMove, MouseScroll
+		MouseButtonPress, MouseButtonRelease, MouseMove, MouseScroll,
+		MaxValue
 	};
 
 	enum class EventCategory : int
@@ -29,7 +30,6 @@ namespace Ramensoup
 	{
 		using EventCallbackFunc = std::function<void(Event&)>;
 
-		bool IsHandled = false;  
 
 #ifdef RS_DEBUG
 		const char* Name() const { return typeid(*this).name(); }
@@ -59,9 +59,9 @@ namespace Ramensoup
 	template<EventType type, EventCategory categoryFlags>
 	struct EventBase : public Event
 	{
-		static EventType GetStaticType() { return type; }
-		EventType GetType() const  { return type; }
-		bool IsInCategory(EventCategory category) const  { return (int)categoryFlags & (int)category; }
-		EventCategory GetCategory() const  { return categoryFlags; }
+		constexpr static EventType GetStaticType() { return type; }
+		constexpr EventType GetType() const  { return type; }
+		constexpr bool IsInCategory(EventCategory category) const  { return (int)categoryFlags & (int)category; }
+		constexpr EventCategory GetCategory() const  { return categoryFlags; }
 	};
 }
