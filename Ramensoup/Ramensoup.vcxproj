@@ -100,6 +100,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFrameBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLGraphicsAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLIndexBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
@@ -127,6 +128,8 @@
     <ClInclude Include="src\Ramensoup\ImGui\ImGuiCommands.h" />
     <ClInclude Include="src\Ramensoup\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Ramensoup\Renderer\Camera.h" />
+    <ClInclude Include="src\Ramensoup\Renderer\Defs.h" />
+    <ClInclude Include="src\Ramensoup\Renderer\FrameBuffer.h" />
     <ClInclude Include="src\Ramensoup\Renderer\GraphicsAPI.h" />
     <ClInclude Include="src\Ramensoup\Renderer\IndexBuffer.h" />
     <ClInclude Include="src\Ramensoup\Renderer\Material.h" />
@@ -142,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFrameBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLGraphicsAPI.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLIndexBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
@@ -157,8 +161,10 @@
     <ClCompile Include="src\Ramensoup\Core\LayerStack.cpp" />
     <ClCompile Include="src\Ramensoup\Core\Logger.cpp" />
     <ClCompile Include="src\Ramensoup\Core\Time.cpp" />
+    <ClCompile Include="src\Ramensoup\ImGui\ImGuiCommands.cpp" />
     <ClCompile Include="src\Ramensoup\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Camera.cpp" />
+    <ClCompile Include="src\Ramensoup\Renderer\FrameBuffer.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\GraphicsAPI.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\IndexBuffer.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Material.cpp" />

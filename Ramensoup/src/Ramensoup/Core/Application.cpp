@@ -52,13 +52,17 @@ namespace Ramensoup
 	}
 	bool Application::OnWindowCloseEvent(WindowCloseEvent& event)
 	{
-		m_IsRunning = false;
+		Close();
 		return true;
 	}
 	bool Application::OnWindowResizeEvent(WindowResizeEvent& event)
 	{
 		Renderer::SetViewport(0, 0, event.Width, event.Height);
 		return false;
+	}
+	void Application::Close()
+	{
+		m_IsRunning = false;
 	}
 	void Application::Run()
 	{
@@ -77,8 +81,6 @@ namespace Ramensoup
 				layer->OnUpdate();
 
 			ImGuiCommands::Begin();
-			bool show_demo_window = true;
-			ImGui::ShowDemoWindow(&show_demo_window);
 			for (Layer* layer : m_LayerStack)
 				layer->OnImGuiUpdate();
 			ImGuiCommands::End();

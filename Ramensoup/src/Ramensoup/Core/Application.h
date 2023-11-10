@@ -28,6 +28,9 @@ namespace Ramensoup
 		void PushOverlay(Layer* overlay);
 
 		void Run();
+		void Close();
+
+		inline ImGuiLayer& GetImGuiLayer() const { return *m_ImGuiLayer; }
 	public:
 		inline static Application& Get() { return *s_Instance;  }
 
