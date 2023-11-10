@@ -29,8 +29,8 @@ namespace Ramensoup
 		m_ImGuiLayer = new ImGuiLayer(m_Window.get());
 		m_LayerStack.PushOverlay(m_ImGuiLayer);
 
-		m_EventQueue.AddOverlayHandler<WindowCloseEvent>(std::bind(&Application::OnWindowCloseEvent, this, std::placeholders::_1));
-		m_EventQueue.AddOverlayHandler<WindowResizeEvent>(std::bind(&Application::OnWindowResizeEvent, this, std::placeholders::_1));
+		//m_EventQueue.AddOverlayHandler<WindowCloseEvent>(std::bind(&Application::OnWindowCloseEvent, this, std::placeholders::_1));
+		//m_EventQueue.AddOverlayHandler<WindowResizeEvent>(std::bind(&Application::OnWindowResizeEvent, this, std::placeholders::_1));
 
 		Renderer::Init(Renderer::API::OpenGL);
 		Renderer::SetClearColor(glm::vec4(0.8f, 0.5f, 0.1f, 1.0f));
@@ -50,12 +50,19 @@ namespace Ramensoup
 	{
 		m_LayerStack.PushOverlay(overlay);
 	}
-	bool Application::OnWindowCloseEvent(WindowCloseEvent& event)
+	bool Application::HandleEvent(const Event& e)
+	{
+		bool handled = false;
+		handled = Event::Dispatch(e, &Application::OnWindowCloseEvent, this);
+		handled = Event::Dispatch(e, &Application::OnWindowResizeEvent, this);
+		return handled;
+	}
+	bool Application::OnWindowCloseEvent(const WindowCloseEvent& event)
 	{
 		Close();
 		return true;
 	}
-	bool Application::OnWindowResizeEvent(WindowResizeEvent& event)
+	bool Application::OnWindowResizeEvent(const WindowResizeEvent& event)
 	{
 		Renderer::SetViewport(0, 0, event.Width, event.Height);
 		return false;
@@ -73,7 +80,7 @@ namespace Ramensoup
 			Time::Tick();
 			m_Window->OnUpdate();
 
-			HandleEvents();
+			FlushEvents();
 
 			Renderer::Clear();
 
@@ -86,9 +93,25 @@ namespace Ramensoup
 			ImGuiCommands::End();
 		}
 	}
-	void Application::HandleEvents()
+	void Application::FlushEvents()
 	{
-		m_EventQueue.Flush(m_LayerStack);
+		while (!m_EventQueue.IsEmpty())
+		{
+			Event& e = m_EventQueue.Pop();
+			bool handled = false;
+			//Application handles first
+			HandleEvent(e);
+			//Pend through layerstack
+			for (auto iter = m_LayerStack.cend(); iter != m_LayerStack.cbegin(); )
+			{
+				iter--;
+				handled = (*iter)->HandleEvent(e);
+				if (handled)
+					break;
+			}
+		}
+		m_EventQueue.Clear();
 	}
+	
 
 }

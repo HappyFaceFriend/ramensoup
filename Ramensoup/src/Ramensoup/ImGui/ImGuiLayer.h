@@ -11,7 +11,7 @@ namespace Ramensoup
 		ImGuiLayer(Window* window);
 		virtual ~ImGuiLayer() override;
 
-		virtual bool HandleEvent(const KeyPressEvent& e) override;
+		virtual bool HandleEvent(const Event& e) override;
 
 		inline void SetBlockEvents(bool block) { m_BlockEvent = block; }
 	private:

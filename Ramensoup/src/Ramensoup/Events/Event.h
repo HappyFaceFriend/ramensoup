@@ -3,6 +3,8 @@
 #include "Ramensoup/Core/Utils.h"
 #include "Ramensoup/Core/Logger.h"
 
+#include <optional>
+
 namespace Ramensoup
 {
 	enum class EventType
@@ -28,9 +30,21 @@ namespace Ramensoup
 
 	struct Event
 	{
-		using EventCallbackFunc = std::function<void(Event&)>;
+		//T : Event, U : Handling class
+		template<typename T, typename U>
+		using EventHandler = bool (U::*)(const T&);
 
-
+		//T : Event, U : Handling class
+		//e : the event, handler : handling function, instance : the handling object (this)
+		template<typename T, typename U>
+		static bool Dispatch(const Event& e, EventHandler<T, U> handler, U* instance)
+		{
+			if (e.Type == T::GetStaticType())
+				return (instance->*handler)((const T&)e);
+			return false;
+		}
+	protected:
+		EventType Type;
 #ifdef RS_DEBUG
 		const char* Name() const { return typeid(*this).name(); }
 #else
@@ -38,27 +52,10 @@ namespace Ramensoup
 #endif		
 	};
 
-	class EventDispatcher
-	{
-	public:
-		EventDispatcher(Event& e) : m_Event(e){}
-		template<typename T>
-		using EventHandler = std::function<bool(T&)>;
-
-		template<typename T>
-		void Dispatch(EventHandler<T> func)
-		{
-			if (m_Event.GetType() == T::GetStaticType())
-			{
-				m_Event.IsHandled = func(*(T*)&m_Event);
-			}
-		}
-	private:
-		Event& m_Event;
-	};
 	template<EventType type, EventCategory categoryFlags>
 	struct EventBase : public Event
 	{
+		EventBase() { Type = type; }
 		constexpr static EventType GetStaticType() { return type; }
 		constexpr EventType GetType() const  { return type; }
 		constexpr bool IsInCategory(EventCategory category) const  { return (int)categoryFlags & (int)category; }

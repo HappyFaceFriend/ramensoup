@@ -16,43 +16,31 @@ namespace Ramensoup
 	static constexpr uint32_t MAX_QUEUE_SIZE_BYTES = 1000;
 	using byte = uint8_t;
 
-
 	EventQueue::EventQueue()
 	{
 		m_BufferBase = new byte[MAX_QUEUE_SIZE_BYTES];
-		m_BufferPtr = m_BufferBase;
+		m_FrontPtr = m_BufferBase;
+		m_RearPtr = m_BufferBase;
 	}
 	EventQueue::~EventQueue()
 	{
 		delete m_BufferBase;
 	}
-	void EventQueue::Flush(LayerStack& layerStack)
+	Event& EventQueue::Pop()
 	{
-		void* ptr = m_BufferBase;
-		while (ptr < m_BufferPtr)
-		{
-			EventType eventType = *(EventType*)ptr;
-			ptr = (char*)ptr + sizeof(EventType*);
+		RS_CORE_ASSERT(m_FrontPtr < m_RearPtr, "Tried to pop from empty event queue!");
 
-			switch (eventType)
-			{
-			DISPATCH(KeyPress);
-			DISPATCH(KeyRelease);
-			DISPATCH(KeyType);
-			DISPATCH(WindowClose);
-			DISPATCH(WindowFocus);
-			DISPATCH(WindowLoseFocus);
-			DISPATCH(WindowResize);
-			DISPATCH(MouseButtonPress);
-			DISPATCH(MouseButtonRelease);
-			DISPATCH(MouseMove);
-			DISPATCH(MouseScroll);
-			default:
-				RS_CORE_ASSERT(false, "Unknown event!");
-				break;
-			}
-		}
-		m_BufferPtr = m_BufferBase;
-		m_Count = 0;
+		auto size = *(uint32_t*)m_FrontPtr;
+		m_FrontPtr = (char*)m_FrontPtr + sizeof(uint32_t);
+
+		Event& e = *(Event*)m_FrontPtr;
+		m_FrontPtr = (char*)m_FrontPtr + size;
+
+		return e;
+	}
+	void EventQueue::Clear()
+	{
+		m_FrontPtr = m_BufferBase;
+		m_RearPtr = m_BufferBase;
 	}
 }

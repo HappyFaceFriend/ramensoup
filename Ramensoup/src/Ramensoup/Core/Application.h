@@ -19,10 +19,11 @@ namespace Ramensoup
 
 		template <typename T>
 		void QueueEvent(T&& e) { m_EventQueue.Push(std::move(e)); }
-		void HandleEvents();
+		void FlushEvents();
 
-		bool OnWindowCloseEvent(WindowCloseEvent& event);
-		bool OnWindowResizeEvent(WindowResizeEvent& event);
+		bool HandleEvent(const Event& e);
+		bool OnWindowCloseEvent(const WindowCloseEvent& e);
+		bool OnWindowResizeEvent(const WindowResizeEvent& e);
 
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);

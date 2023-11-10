@@ -9,50 +9,32 @@ namespace Ramensoup
 {
 	/*
 		This EventQueue stores different types of events in a single queue.
-		It is achived by saving the event's type (EventType) as a header of each event.
+		It is achived by saving the event's size and type as a header of each event.
 	*/
 	class EventQueue
 	{
 	public:
+	public:
 		EventQueue();
 		~EventQueue();
+
+		inline bool IsEmpty() const { return m_FrontPtr >= m_RearPtr; }
+		Event& Pop();
+		void Clear();
 
 		template <typename T>
 		void Push(T&& e)
 		{
+			//Store event size
+			*(uint32_t*)m_RearPtr = PaddedSizeof<T>();
+			m_RearPtr = (char*)m_RearPtr + sizeof(uint32_t);
 			//Store event type
-			*(EventType*)m_BufferPtr = T::GetStaticType();
-			m_BufferPtr = (char*)m_BufferPtr + sizeof(EventType*);
+			*(EventType*)m_RearPtr = T::GetStaticType();
+			m_RearPtr = (char*)m_RearPtr + sizeof(EventType);
 			//Store actual event
-			*(T*)m_BufferPtr = e;
-			m_BufferPtr = (char*)m_BufferPtr + PaddedSizeof<T>();
-			m_Count++;
-			
+			*(T*)m_RearPtr = e;
+			m_RearPtr = (char*)m_RearPtr + PaddedSizeof<T>();
 		}
-
-		void Flush(LayerStack& layerStack);
-
-		template<typename T>
-		using EventHandler = std::function<bool(T&)>;
-
-		template <typename T>
-		void AddOverlayHandler(EventHandler<T> handler)
-		{
-			m_OverlayHandlers[T::GetStaticType()] = handler;
-		}
-
-		template <typename T>
-		void HandleEvent(Event* e, LayerStack& layerStack)
-		{
-			bool handled = false;
-			if (m_OverlayHandlers.find(T::GetStaticType()) != m_OverlayHandlers.end())
-			{
-				handled = (std::any_cast<EventHandler<T>>(m_OverlayHandlers[T::GetStaticType()]))(*(T*)e);
-			}
-			if (!handled)
-				layerStack.HandleEvent<T>(*(T*)e);
-		}
-
 	private:
 
 		template<typename T>
@@ -61,10 +43,8 @@ namespace Ramensoup
 			return (sizeof(T) + sizeof(std::max_align_t) - 1) % sizeof(std::max_align_t) * sizeof(std::max_align_t);
 		}
 	private:
-		std::unordered_map<EventType, std::any> m_OverlayHandlers;
 		void* m_BufferBase;
-		void* m_BufferPtr;
-		uint32_t m_Count = 0;
-	private:
+		void* m_FrontPtr;
+		void* m_RearPtr;
 	};
 }

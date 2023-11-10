@@ -25,17 +25,6 @@ namespace Ramensoup
 		inline std::vector<Layer*>::const_iterator cbegin() const { return m_Layers.cbegin(); }
 		inline std::vector<Layer*>::const_iterator cend() const { return m_Layers.cend(); }
 
-		template <typename T>
-		void HandleEvent(T& e)
-		{
-			for (auto iter = cend(); iter != cbegin(); )
-			{
-				iter--;
-				bool handled = (*iter)->HandleEvent(e);
-				if (handled)
-					break;
-			}
-		}
 		
 	private:
 		std::vector<Layer*> m_Layers;

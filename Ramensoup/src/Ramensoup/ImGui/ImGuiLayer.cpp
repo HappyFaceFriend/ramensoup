@@ -17,10 +17,12 @@ namespace Ramensoup
 		ImGuiCommands::Shutdown();
 	}
 
-	bool ImGuiLayer::HandleEvent(const KeyPressEvent& e)
+	bool ImGuiLayer::HandleEvent(const Event& e)
 	{
+		// TODO : Block events
 		return false;
 	}
+
 
 
 

@@ -88,7 +88,7 @@ namespace Ramensoup
 				data.Width = width;
 				data.Height = height;
 				Application::Get().QueueEvent(WindowResizeEvent(width,height));
-				Application::Get().HandleEvents();
+				Application::Get().FlushEvents();
 			});
 		glfwSetWindowCloseCallback(m_WindowHandle, [](GLFWwindow* window)
 			{
