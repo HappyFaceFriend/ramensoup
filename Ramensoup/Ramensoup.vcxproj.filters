@@ -19,6 +19,9 @@
     <Filter Include="src\Ramensoup\Core">
       <UniqueIdentifier>{8E8A26A5-7A6E-E7FA-E3CE-E14DCFD1D17C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Ramensoup\Debug">
+      <UniqueIdentifier>{6C37044A-D898-E157-6106-280ACD661817}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Ramensoup\Events">
       <UniqueIdentifier>{9A77158E-8606-9F57-2F25-B3521B93AFFD}</UniqueIdentifier>
     </Filter>
@@ -101,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Window.h">
       <Filter>src\Ramensoup\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Debug\Macros.h">
+      <Filter>src\Ramensoup\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Events\Event.h">
       <Filter>src\Ramensoup\Events</Filter>

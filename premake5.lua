@@ -3,7 +3,7 @@
 workspace "Ramensoup"
 	architecture "x64"
 	startproject "Ramensoup-Editor"
-	configurations {"Debug", "Release"}
+	configurations {"Debug", "Release", "Distribution"}
 	platforms {"Win64"}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
@@ -98,6 +98,10 @@ project "Ramensoup"
 		runtime "Release"
 		optimize "on"
 
+	filter "configurations:Distribution"
+		defines "RS_DIST"
+		runtime "Release"
+		optimize "on"
 
 
 project "Ramensoup-Editor"
@@ -151,5 +155,10 @@ project "Ramensoup-Editor"
 
 	filter "configurations:Release"
 		defines "RS_RELEASE"
+		runtime "Release"
+		optimize "on"
+		
+	filter "configurations:Distribution"
+		defines "RS_DIST"
 		runtime "Release"
 		optimize "on"
