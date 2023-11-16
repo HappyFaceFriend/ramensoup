@@ -1,7 +1,9 @@
 #pragma once
 
 
-#include "Ramensoup/Core/Debug.h"
+#include "Ramensoup/Core/MacroSetup.h"
+
+#include "Ramensoup/Debug/Logger.h"
 
 #include "Ramensoup/Core/Application.h"
 

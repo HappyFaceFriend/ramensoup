@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "EventQueue.h"
 
-#include "Ramensoup/Core/Logger.h"
 #include "Ramensoup/Events/KeyEvents.h"
 #include "Ramensoup/Events/MouseEvents.h"
 #include "Ramensoup/Events/WindowEvents.h"

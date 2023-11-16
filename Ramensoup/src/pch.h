@@ -17,4 +17,5 @@
 	#include <Windows.h>
 #endif
 
-#include "Ramensoup/Core/Debug.h"
+#include "Ramensoup/Core/MacroSetup.h"
+#include "Ramensoup/Debug/Logger.h"

@@ -1,8 +1,6 @@
 #include "pch.h"
 #include "WindowsWindow.h"
 
-#include "Ramensoup/Core/Logger.h"
-
 #include "Ramensoup/Events/WindowEvents.h"
 #include "Ramensoup/Events/Event.h"
 #include "Ramensoup/Events/KeyEvents.h"

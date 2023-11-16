@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Ramensoup/Core/Utils.h"
-#include "Ramensoup/Core/Logger.h"
 
 #include <optional>
 

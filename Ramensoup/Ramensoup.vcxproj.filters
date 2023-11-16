@@ -72,9 +72,6 @@
     <ClInclude Include="src\Ramensoup\Core\Application.h">
       <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ramensoup\Core\Debug.h">
-      <Filter>src\Ramensoup\Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Entrypoint.h">
       <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
@@ -93,7 +90,7 @@
     <ClInclude Include="src\Ramensoup\Core\LayerStack.h">
       <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ramensoup\Core\Logger.h">
+    <ClInclude Include="src\Ramensoup\Debug\Logger.h">
       <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Time.h">
@@ -105,7 +102,7 @@
     <ClInclude Include="src\Ramensoup\Core\Window.h">
       <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ramensoup\Debug\Macros.h">
+    <ClInclude Include="src\Ramensoup\Core\MacroSetup.h">
       <Filter>src\Ramensoup\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Events\Event.h">
@@ -218,7 +215,7 @@
     <ClCompile Include="src\Ramensoup\Core\LayerStack.cpp">
       <Filter>src\Ramensoup\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ramensoup\Core\Logger.cpp">
+    <ClCompile Include="src\Ramensoup\Debug\Logger.cpp">
       <Filter>src\Ramensoup\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Core\Time.cpp">

@@ -1,4 +1,4 @@
-#include <pch.h>
+#include "pch.h"
 
 #include "OpenGLContext.h"
 
@@ -8,7 +8,6 @@
 
 #include <glad/glad.h>
 
-#include "Ramensoup/Core/Debug.h"
 
 namespace Ramensoup
 {
