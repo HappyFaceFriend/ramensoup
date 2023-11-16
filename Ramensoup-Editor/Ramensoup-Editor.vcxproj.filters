@@ -12,6 +12,8 @@
     <ClInclude Include="src\Editor\PerspectiveCameraController.h">
       <Filter>Editor</Filter>
     </ClInclude>
+    <ClInclude Include="src\EditorApp.h" />
+    <ClInclude Include="src\EditorLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Editor\OrthographicCameraController.cpp">
@@ -21,5 +23,6 @@
       <Filter>Editor</Filter>
     </ClCompile>
     <ClCompile Include="src\EditorApp.cpp" />
+    <ClCompile Include="src\EditorLayer.cpp" />
   </ItemGroup>
 </Project>

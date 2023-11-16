@@ -39,23 +39,25 @@ namespace Ramensoup
 		template<typename T, typename U>
 		static bool Dispatch(const Event& e, EventHandler<T, U> handler, U* instance)
 		{
-			if (e.Type == T::GetStaticType())
+			if (e.m_Type == T::GetStaticType())
 				return (instance->*handler)((const T&)e);
 			return false;
 		}
+		bool IsInCategory(EventCategory category) const { return (int)m_CategoryFlags & (int)category; }
 	protected:
-		EventType Type;
-#ifdef RS_DEBUG
-		const char* Name() const { return typeid(*this).name(); }
-#else
-		const char* Name() const { return "Event"; }
-#endif		
+		Event(EventType type, EventCategory category)
+		:m_Type(type), m_CategoryFlags(category)
+		{
+		}
+	private:
+		const EventType m_Type;
+		const EventCategory m_CategoryFlags;
 	};
 
 	template<EventType type, EventCategory categoryFlags>
 	struct EventBase : public Event
 	{
-		EventBase() { Type = type; }
+		EventBase() : Event(type, categoryFlags) {  }
 		constexpr static EventType GetStaticType() { return type; }
 		constexpr EventType GetType() const  { return type; }
 		constexpr bool IsInCategory(EventCategory category) const  { return (int)categoryFlags & (int)category; }

@@ -13,8 +13,8 @@ namespace Ramensoup
 
 		virtual bool HandleEvent(const Event& e) override;
 
-		inline void SetBlockEvents(bool block) { m_BlockEvent = block; }
+		inline void SetBlockEvents(bool block) { m_BlockEvents = block; }
 	private:
-		bool m_BlockEvent = false;
+		bool m_BlockEvents = false;
 	};
 }

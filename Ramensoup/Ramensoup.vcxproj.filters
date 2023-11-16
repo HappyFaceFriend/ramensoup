@@ -39,6 +39,9 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFrameBuffer.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLGraphicsAPI.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
@@ -120,6 +123,12 @@
     <ClInclude Include="src\Ramensoup\Renderer\Camera.h">
       <Filter>src\Ramensoup\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ramensoup\Renderer\Defs.h">
+      <Filter>src\Ramensoup\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Renderer\FrameBuffer.h">
+      <Filter>src\Ramensoup\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ramensoup\Renderer\GraphicsAPI.h">
       <Filter>src\Ramensoup\Renderer</Filter>
     </ClInclude>
@@ -156,12 +165,12 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ramensoup\Renderer\FrameBuffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLFrameBuffer.h" />
-    <ClInclude Include="src\Ramensoup\Renderer\Defs.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFrameBuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLGraphicsAPI.cpp">
@@ -209,10 +218,16 @@
     <ClCompile Include="src\Ramensoup\Core\Time.cpp">
       <Filter>src\Ramensoup\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\Ramensoup\ImGui\ImGuiCommands.cpp">
+      <Filter>src\Ramensoup\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\Ramensoup\ImGui\ImGuiLayer.cpp">
       <Filter>src\Ramensoup\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Renderer\Camera.cpp">
+      <Filter>src\Ramensoup\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Renderer\FrameBuffer.cpp">
       <Filter>src\Ramensoup\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Renderer\GraphicsAPI.cpp">
@@ -248,8 +263,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ramensoup\ImGui\ImGuiCommands.cpp" />
-    <ClCompile Include="src\Ramensoup\Renderer\FrameBuffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLFrameBuffer.cpp" />
   </ItemGroup>
 </Project>

@@ -95,11 +95,14 @@
   <ItemGroup>
     <ClInclude Include="src\Editor\OrthographicCameraController.h" />
     <ClInclude Include="src\Editor\PerspectiveCameraController.h" />
+    <ClInclude Include="src\EditorApp.h" />
+    <ClInclude Include="src\EditorLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Editor\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Editor\PerspectiveCameraController.cpp" />
     <ClCompile Include="src\EditorApp.cpp" />
+    <ClCompile Include="src\EditorLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ramensoup\Ramensoup.vcxproj">

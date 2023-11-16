@@ -8,6 +8,7 @@ namespace Ramensoup
 	{
 		int Button;
 		MouseButtonPressEvent(int button) : Button(button) {}
+
 	};
 	struct MouseButtonReleaseEvent : public EventBase<EventType::MouseButtonRelease, EventCategory::MouseButton>
 	{

@@ -19,8 +19,14 @@ namespace Ramensoup
 
 	bool ImGuiLayer::HandleEvent(const Event& e)
 	{
-		// TODO : Block events
-		return false;
+		bool handled = false;
+		if (m_BlockEvents)
+		{
+			ImGuiIO& io = ImGui::GetIO();
+			handled |=  (e.IsInCategory(EventCategory::Mouse) & io.WantCaptureMouse);
+			handled |=  (e.IsInCategory(EventCategory::Keyboard) & io.WantCaptureKeyboard);
+		}
+		return handled;
 	}
 
 

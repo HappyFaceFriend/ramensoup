@@ -23,7 +23,7 @@ namespace Ramensoup
 		void Clear();
 
 		template <typename T>
-		void Push(T&& e)
+		void Push(const T& e)
 		{
 			//Store event size
 			*(uint32_t*)m_RearPtr = PaddedSizeof<T>();
@@ -32,7 +32,8 @@ namespace Ramensoup
 			*(EventType*)m_RearPtr = T::GetStaticType();
 			m_RearPtr = (char*)m_RearPtr + sizeof(EventType);
 			//Store actual event
-			*(T*)m_RearPtr = e;
+			//*(T*)m_RearPtr = e;
+			memcpy(m_RearPtr, &e, sizeof(T));
 			m_RearPtr = (char*)m_RearPtr + PaddedSizeof<T>();
 		}
 	private:

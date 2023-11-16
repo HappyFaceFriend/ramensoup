@@ -18,7 +18,7 @@ namespace Ramensoup
 		virtual ~Application();
 
 		template <typename T>
-		void QueueEvent(T&& e) { m_EventQueue.Push(std::move(e)); }
+		void QueueEvent(const T& e) { m_EventQueue.Push(e); }
 		void FlushEvents();
 
 		bool HandleEvent(const Event& e);
