@@ -4,6 +4,7 @@
 #include "EventQueue.h"
 #include "LayerStack.h"
 #include "Ramensoup/ImGui/ImGuiLayer.h"
+#include "Ramensoup/Debug/TimeProfiler.h"
 
 namespace Ramensoup
 {
@@ -45,7 +46,9 @@ namespace Ramensoup
 
 		std::unique_ptr<Window> m_Window;
 
+		//TODO : Only in debug mabye
 		std::unique_ptr<ImGuiLayer> m_ImGuiLayer;
+		std::unique_ptr<ProfileLayer> m_ProfileLayer;
 
 		
 	};

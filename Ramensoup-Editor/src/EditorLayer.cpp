@@ -38,6 +38,7 @@ namespace Ramensoup
 	{
 		m_CameraController.OnUpdate();
 
+		TimeProfiler::Begin("Single Frame Render");
 		m_FrameBuffer->Bind();
 		Renderer::Clear();
 		Renderer::BeginScene(m_CameraController.GetCamera().GetProjectionMatrix(), m_CameraController.GetCamera().GetViewMatrix());
@@ -46,6 +47,7 @@ namespace Ramensoup
 			Renderer::Submit(mesh, m_Material, m_ModelTransform);
 		Renderer::EndScene();
 		m_FrameBuffer->Unbind();
+		TimeProfiler::End("Single Frame Render");
 	}
 	void EditorLayer::OnImGuiUpdate()
 	{

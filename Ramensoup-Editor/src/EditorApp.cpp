@@ -10,10 +10,8 @@ namespace Ramensoup
 		RS_LOG("Hello Editor!");
 
 		m_EditorLayer = std::make_unique<EditorLayer>();
-		m_ProfileLayer = std::make_unique<ProfileLayer>();
 
 		PushLayer(m_EditorLayer.get());
-		PushLayer(m_ProfileLayer.get());
 	}
 
 

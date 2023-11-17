@@ -160,12 +160,13 @@
     <ClInclude Include="src\Ramensoup\Core\KeyCodes.h" />
     <ClInclude Include="src\Ramensoup\Core\Layer.h" />
     <ClInclude Include="src\Ramensoup\Core\LayerStack.h" />
-    <ClInclude Include="src\Ramensoup\Debug\Logger.h" />
+    <ClInclude Include="src\Ramensoup\Core\MacroSetup.h" />
     <ClInclude Include="src\Ramensoup\Core\Time.h" />
     <ClInclude Include="src\Ramensoup\Core\Utils.h" />
     <ClInclude Include="src\Ramensoup\Core\Window.h" />
-    <ClInclude Include="src\Ramensoup\Core\MacroSetup.h" />
+    <ClInclude Include="src\Ramensoup\Debug\Logger.h" />
     <ClInclude Include="src\Ramensoup\Debug\ProfileLayer.h" />
+    <ClInclude Include="src\Ramensoup\Debug\TimeProfiler.h" />
     <ClInclude Include="src\Ramensoup\Events\Event.h" />
     <ClInclude Include="src\Ramensoup\Events\KeyEvents.h" />
     <ClInclude Include="src\Ramensoup\Events\MouseEvents.h" />
@@ -204,9 +205,10 @@
     <ClCompile Include="src\Ramensoup\Core\EventQueue.cpp" />
     <ClCompile Include="src\Ramensoup\Core\Layer.cpp" />
     <ClCompile Include="src\Ramensoup\Core\LayerStack.cpp" />
-    <ClCompile Include="src\Ramensoup\Debug\Logger.cpp" />
     <ClCompile Include="src\Ramensoup\Core\Time.cpp" />
+    <ClCompile Include="src\Ramensoup\Debug\Logger.cpp" />
     <ClCompile Include="src\Ramensoup\Debug\ProfileLayer.cpp" />
+    <ClCompile Include="src\Ramensoup\Debug\TimeProfiler.cpp" />
     <ClCompile Include="src\Ramensoup\ImGui\ImGuiCommands.cpp" />
     <ClCompile Include="src\Ramensoup\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Camera.cpp" />

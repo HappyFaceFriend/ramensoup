@@ -12,7 +12,6 @@ namespace Ramensoup
 
 	private:
 		std::unique_ptr<EditorLayer> m_EditorLayer;
-		std::unique_ptr<ProfileLayer> m_ProfileLayer;
 
 	};
 }

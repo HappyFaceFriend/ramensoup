@@ -90,7 +90,7 @@
     <ClInclude Include="src\Ramensoup\Core\LayerStack.h">
       <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ramensoup\Debug\Logger.h">
+    <ClInclude Include="src\Ramensoup\Core\MacroSetup.h">
       <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Time.h">
@@ -102,7 +102,13 @@
     <ClInclude Include="src\Ramensoup\Core\Window.h">
       <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ramensoup\Core\MacroSetup.h">
+    <ClInclude Include="src\Ramensoup\Debug\Logger.h">
+      <Filter>src\Ramensoup\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Debug\ProfileLayer.h">
+      <Filter>src\Ramensoup\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Debug\TimeProfiler.h">
       <Filter>src\Ramensoup\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Events\Event.h">
@@ -168,7 +174,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ramensoup\Debug\ProfileLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -216,11 +221,17 @@
     <ClCompile Include="src\Ramensoup\Core\LayerStack.cpp">
       <Filter>src\Ramensoup\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ramensoup\Debug\Logger.cpp">
-      <Filter>src\Ramensoup\Core</Filter>
-    </ClCompile>
     <ClCompile Include="src\Ramensoup\Core\Time.cpp">
       <Filter>src\Ramensoup\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Debug\Logger.cpp">
+      <Filter>src\Ramensoup\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Debug\ProfileLayer.cpp">
+      <Filter>src\Ramensoup\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Debug\TimeProfiler.cpp">
+      <Filter>src\Ramensoup\Debug</Filter>
     </ClCompile>
     <ClCompile Include="src\Ramensoup\ImGui\ImGuiCommands.cpp">
       <Filter>src\Ramensoup\ImGui</Filter>
@@ -267,6 +278,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ramensoup\Debug\ProfileLayer.cpp" />
   </ItemGroup>
 </Project>

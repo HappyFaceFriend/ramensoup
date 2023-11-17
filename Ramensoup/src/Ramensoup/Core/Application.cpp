@@ -25,8 +25,12 @@ namespace Ramensoup
 		m_Window->SetVSync(false);
 		Input::SetWindow(m_Window.get());
 
+		//TODO : Only in debug mabye
 		m_ImGuiLayer = std::make_unique<ImGuiLayer>(m_Window.get());
 		m_LayerStack.PushOverlay(m_ImGuiLayer.get());
+
+		m_ProfileLayer = std::make_unique<ProfileLayer>();
+		m_LayerStack.PushOverlay(m_ProfileLayer.get());
 
 		Renderer::Init(Renderer::API::OpenGL);
 		Renderer::SetClearColor(glm::vec4(0.8f, 0.5f, 0.1f, 1.0f));
