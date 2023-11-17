@@ -1,7 +1,6 @@
 #include "EditorApp.h"
 
 #include <Ramensoup/Core/Entrypoint.h>
-#include "EditorLayer.h"
 
 namespace Ramensoup
 {
@@ -9,7 +8,12 @@ namespace Ramensoup
 		:Application()
 	{
 		RS_LOG("Hello Editor!");
-		PushLayer(new EditorLayer());
+
+		m_EditorLayer = std::make_unique<EditorLayer>();
+		m_ProfileLayer = std::make_unique<ProfileLayer>();
+
+		PushLayer(m_EditorLayer.get());
+		PushLayer(m_ProfileLayer.get());
 	}
 
 

@@ -45,7 +45,7 @@ namespace Ramensoup
 
 		std::unique_ptr<Window> m_Window;
 
-		ImGuiLayer* m_ImGuiLayer;
+		std::unique_ptr<ImGuiLayer> m_ImGuiLayer;
 
 		
 	};

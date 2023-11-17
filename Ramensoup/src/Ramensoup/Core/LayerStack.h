@@ -7,6 +7,9 @@ namespace Ramensoup
 	class LayerStack
 	{
 	public:
+		using Iterator = std::vector<Layer*>::iterator;
+		using ConstIterator = std::vector<Layer*>::const_iterator;
+	public:
 		LayerStack();
 		~LayerStack();
 
@@ -16,14 +19,14 @@ namespace Ramensoup
 		void PopLayer(Layer* layer);
 		void PopOverlay(Layer* overlay);
 
-		inline std::vector<Layer*>::iterator begin() { return m_Layers.begin(); }
-		inline std::vector<Layer*>::iterator end() { return m_Layers.end(); }
+		inline Iterator begin() { return m_Layers.begin(); }
+		inline Iterator end() { return m_Layers.end(); }
 
-		inline std::vector<Layer*>::const_iterator begin() const { return m_Layers.begin(); }
-		inline std::vector<Layer*>::const_iterator end() const { return m_Layers.end(); }
-
-		inline std::vector<Layer*>::const_iterator cbegin() const { return m_Layers.cbegin(); }
-		inline std::vector<Layer*>::const_iterator cend() const { return m_Layers.cend(); }
+		inline ConstIterator begin() const { return m_Layers.begin(); }
+		inline ConstIterator end() const { return m_Layers.end(); }
+				
+		inline ConstIterator cbegin() const { return m_Layers.cbegin(); }
+		inline ConstIterator cend() const { return m_Layers.cend(); }
 
 		
 	private:

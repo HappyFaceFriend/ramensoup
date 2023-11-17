@@ -3,7 +3,6 @@
 
 #include "Ramensoup/Core/MacroSetup.h"
 
-#include "Ramensoup/Debug/Logger.h"
 
 #include "Ramensoup/Core/Application.h"
 
