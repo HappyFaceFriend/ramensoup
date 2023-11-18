@@ -17,11 +17,11 @@ namespace Ramensoup
 {
 	Application* Application::s_Instance = nullptr;
 
-	Application::Application(const std::string& name)
+	Application::Application(std::string&& name)
 		:m_EventQueue()
 	{
 		RS_CORE_LOG("Created Application!");
-		m_Window = Window::Create({ name, 1280, 720 });
+		m_Window = Window::Create({ std::move(name), 1280, 720 });
 		m_Window->SetVSync(false);
 		Input::SetWindow(m_Window.get());
 
@@ -36,10 +36,6 @@ namespace Ramensoup
 		Renderer::SetClearColor(glm::vec4(0.8f, 0.5f, 0.1f, 1.0f));
 
 		s_Instance = this;
-	}
-
-	Application::~Application()
-	{
 	}
 
 	void Application::PushLayer(Layer* layer)

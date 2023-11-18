@@ -4,11 +4,8 @@
 namespace Ramensoup
 {
 
-	Material::Material(const char * name, const std::shared_ptr<Shader>& shader)
-		:m_Name(name), m_Shader(shader)
-	{
-	}
-	Material::~Material()
+	Material::Material(std::string&& name, const std::shared_ptr<Shader>& shader)
+		:m_Name(std::move(name)), m_Shader(shader)
 	{
 	}
 }

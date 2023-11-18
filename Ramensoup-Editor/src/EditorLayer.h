@@ -12,7 +12,6 @@ namespace Ramensoup
 	{
 	public:
 		EditorLayer();
-		~EditorLayer() = default;
 
 		virtual void OnAttach() override;
 		virtual void OnDetach() override;

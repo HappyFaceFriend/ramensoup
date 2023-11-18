@@ -48,6 +48,13 @@ namespace Ramensoup
 		:m_Type(type), m_CategoryFlags(category)
 		{
 		}
+
+		~Event() = default;
+		Event(const Event&) = default;
+		Event(Event&&) = default;
+		Event& operator=(const Event&) = default;
+		Event& operator=(Event&&) = default;
+
 	private:
 		const EventType m_Type;
 		const EventCategory m_CategoryFlags;
@@ -56,7 +63,9 @@ namespace Ramensoup
 	template<EventType type, EventCategory categoryFlags>
 	struct EventBase : public Event
 	{
+	protected:
 		EventBase() : Event(type, categoryFlags) {  }
+	public:
 		constexpr static EventType GetStaticType() { return type; }
 		constexpr EventType GetType() const  { return type; }
 		constexpr bool IsInCategory(EventCategory category) const  { return (int)categoryFlags & (int)category; }

@@ -7,7 +7,13 @@ namespace Ramensoup
 	class VertexBuffer
 	{
 	public:
+		VertexBuffer() = default;
 		virtual ~VertexBuffer() {}
+
+		VertexBuffer(const VertexBuffer&) = default;
+		VertexBuffer(VertexBuffer&&) = default;
+		VertexBuffer& operator=(const VertexBuffer&) = default;
+		VertexBuffer& operator=(VertexBuffer&&) = default;
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;

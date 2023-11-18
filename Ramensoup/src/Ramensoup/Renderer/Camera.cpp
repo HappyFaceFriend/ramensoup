@@ -6,13 +6,6 @@
 
 namespace Ramensoup
 {
-	Camera::Camera()
-		:m_ProjectionMatrix(1.0f), m_ViewMatrix(1.0f)
-	{
-	}
-	Camera::~Camera()
-	{
-	}
 	void Camera::SetOrthographic(float left, float right, float bottom, float top)
 	{
 		m_ProjectionMatrix = glm::ortho(left, right, bottom, top);

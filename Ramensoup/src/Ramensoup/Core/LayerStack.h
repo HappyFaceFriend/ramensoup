@@ -10,8 +10,13 @@ namespace Ramensoup
 		using Iterator = std::vector<Layer*>::iterator;
 		using ConstIterator = std::vector<Layer*>::const_iterator;
 	public:
-		LayerStack();
+		LayerStack() = default;
 		~LayerStack();
+
+		LayerStack(const LayerStack&) = delete;
+		LayerStack(LayerStack&&) = delete;
+		LayerStack& operator=(const LayerStack&) = delete;
+		LayerStack& operator=(LayerStack&&) = delete;
 
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);

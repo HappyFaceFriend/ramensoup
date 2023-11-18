@@ -10,6 +10,12 @@ namespace Ramensoup
 		OpenGLVertexBuffer(uint32_t size);
 		OpenGLVertexBuffer(const void* data, uint32_t size);
 		virtual ~OpenGLVertexBuffer() override;
+
+		OpenGLVertexBuffer(const OpenGLVertexBuffer&) = delete;
+		OpenGLVertexBuffer(OpenGLVertexBuffer&&) = delete;
+		OpenGLVertexBuffer& operator=(const OpenGLVertexBuffer&) = delete;
+		OpenGLVertexBuffer& operator=(OpenGLVertexBuffer&&) = delete;
+
 		virtual void Bind() const override;
 		virtual void Unbind() const override;
 

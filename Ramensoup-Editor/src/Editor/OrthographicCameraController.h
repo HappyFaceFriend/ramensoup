@@ -8,7 +8,6 @@ namespace Ramensoup
 	{
 	public:
 		OrthographicCameraController(float aspectRatio, float ySize);
-		~OrthographicCameraController();
 
 		void OnUpdate();
 

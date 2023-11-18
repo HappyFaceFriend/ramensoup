@@ -11,9 +11,6 @@ namespace Ramensoup
 	{
 		m_Camera.SetPerspective(yFov, aspectRatio, zNear, zFar);
 	}
-	PerspectiveCameraController::~PerspectiveCameraController()
-	{
-	}
 	void PerspectiveCameraController::OnUpdate()
 	{
 		float speed = m_TranslationSpeed;

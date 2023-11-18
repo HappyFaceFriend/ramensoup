@@ -15,7 +15,6 @@ namespace Ramensoup
 	{
 	public:
 		OpenGLContext(NativeWindow* windowHandle);
-		virtual ~OpenGLContext() override {}
 		virtual void Init() override;
 		virtual void SwapBuffers() override;
 

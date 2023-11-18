@@ -5,7 +5,13 @@ namespace Ramensoup
 	class IndexBuffer
 	{
 	public:
-		virtual ~IndexBuffer() {}
+		IndexBuffer() = default;
+		virtual ~IndexBuffer() = default;
+
+		IndexBuffer(const IndexBuffer&) = delete;
+		IndexBuffer(IndexBuffer&&) = delete;
+		IndexBuffer& operator=(const IndexBuffer&) = delete;
+		IndexBuffer& operator=(IndexBuffer&&) = delete;
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;

@@ -11,6 +11,10 @@ namespace Ramensoup
 		OpenGLFrameBuffer(const FrameBufferSpecification& spec);
 		virtual ~OpenGLFrameBuffer();
 
+		OpenGLFrameBuffer(const OpenGLFrameBuffer&) = delete;
+		OpenGLFrameBuffer(OpenGLFrameBuffer&&) = delete;
+		OpenGLFrameBuffer& operator=(const OpenGLFrameBuffer&) = delete;
+		OpenGLFrameBuffer& operator=(OpenGLFrameBuffer&&) = delete;
 
 		virtual void Resize(uint32_t width, uint32_t height) override;
 

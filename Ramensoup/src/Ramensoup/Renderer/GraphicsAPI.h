@@ -11,9 +11,15 @@ namespace Ramensoup
 	class GraphicsAPI
 	{
 		friend class Renderer;
+	public:
+		virtual ~GraphicsAPI() = default;
+		GraphicsAPI(const GraphicsAPI&) = delete;
+		GraphicsAPI(GraphicsAPI&&) = delete;
+		GraphicsAPI& operator=(const GraphicsAPI&) = delete;
+		GraphicsAPI& operator=(GraphicsAPI&&) = delete;
 
 	protected:
-		virtual ~GraphicsAPI() = default;
+		GraphicsAPI() = default;
 		virtual void Init() = 0;
 
 		virtual void SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height) = 0;

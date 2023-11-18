@@ -9,6 +9,12 @@ namespace Ramensoup
 	public:
 		virtual ~Shader() = default;
 
+		Shader() = default;
+		Shader(const Shader&) = delete;
+		Shader(Shader&&) = delete;
+		Shader& operator=(const Shader&) = delete;
+		Shader& operator=(Shader&&) = delete;
+
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
 

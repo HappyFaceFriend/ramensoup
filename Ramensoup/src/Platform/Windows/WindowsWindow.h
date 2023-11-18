@@ -12,6 +12,11 @@ namespace Ramensoup
 		WindowsWindow(const WindowProps& props);
 		virtual ~WindowsWindow();
 
+		WindowsWindow(const WindowsWindow&) = delete;
+		WindowsWindow(WindowsWindow&&) = delete;
+		WindowsWindow& operator=(const WindowsWindow&) = delete;
+		WindowsWindow& operator=(WindowsWindow&&) = delete;
+
 		virtual void OnUpdate() override;
 
 		virtual uint32_t GetWidth() const override { return m_Data.Width; }

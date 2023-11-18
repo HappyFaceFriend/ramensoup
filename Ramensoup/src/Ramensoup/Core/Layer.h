@@ -10,8 +10,13 @@ namespace Ramensoup
 	class Layer
 	{
 	public:
-		Layer(const std::string& name = "Layer");
-		virtual ~Layer();
+		Layer(std::string&& name = "Layer");
+		virtual ~Layer() = default;
+
+		Layer(const Layer&) = delete;
+		Layer(Layer&&) = delete;
+		Layer& operator=(const Layer&) = delete;
+		Layer& operator=(Layer&&) = delete;
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}

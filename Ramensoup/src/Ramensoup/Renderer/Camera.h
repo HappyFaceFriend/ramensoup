@@ -7,8 +7,7 @@ namespace Ramensoup
 	class Camera
 	{
 	public:
-		Camera();
-		~Camera();
+		Camera() = default;
 
 		void SetOrthographic(float left, float right, float bottom, float top);
 		void SetOrthographic(float left, float right, float bottom, float top, float zNear, float zFar);
@@ -22,9 +21,9 @@ namespace Ramensoup
 
 	private:
 		//TODO : Cache View / Projection matricies & Change m_Transform to transform component
-		glm::mat4 m_ProjectionMatrix;
+		glm::mat4 m_ProjectionMatrix{ 1.0f };
 		//glm::mat4 m_Transform;
-		glm::mat4 m_ViewMatrix;
+		glm::mat4 m_ViewMatrix{ 1.0f };
 		
 	};
 

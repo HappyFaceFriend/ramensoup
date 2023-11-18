@@ -23,6 +23,15 @@ namespace Ramensoup
 	public:
 		inline const Item& GetProfileItem(const std::string& key) const { return m_ProfileItems.at(key); }
 		inline const std::unordered_set<std::string>& GetProfileKeys() const { return m_Keys;  }
+
+	private:
+		TimeProfiler() = default;
+	public:
+		~TimeProfiler() = default;
+		TimeProfiler(const TimeProfiler&) = delete;
+		TimeProfiler(TimeProfiler&&) = delete;
+		TimeProfiler& operator=(const TimeProfiler&) = delete;
+		TimeProfiler& operator=(TimeProfiler&&) = delete;
 	private:
 		static TimeProfiler *s_Instance;
 	private:

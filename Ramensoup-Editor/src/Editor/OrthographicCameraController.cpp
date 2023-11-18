@@ -10,9 +10,6 @@ namespace Ramensoup
 	{
 		m_Camera.SetOrthographic(m_Bounds.Left, m_Bounds.Right, m_Bounds.Bottom, m_Bounds.Top);
 	}
-	OrthographicCameraController::~OrthographicCameraController()
-	{
-	}
 	void OrthographicCameraController::OnUpdate()
 	{
 		float speed = m_TranslationSpeed;

@@ -13,5 +13,7 @@ namespace Ramensoup
 
 	//private:
 		static std::shared_ptr<Mesh> LoadSingleMesh(const aiMesh* meshData);
+
+		MeshLoader() = delete;
 	};
 }

@@ -3,10 +3,6 @@
 
 namespace Ramensoup
 {
-
-	LayerStack::LayerStack()
-	{
-	}
 	LayerStack::~LayerStack()
 	{
 		for (auto &layer : m_Layers)

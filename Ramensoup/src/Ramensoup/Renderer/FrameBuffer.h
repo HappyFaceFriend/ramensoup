@@ -13,7 +13,14 @@ namespace Ramensoup
 	class FrameBuffer
 	{
 	public:
-		virtual ~FrameBuffer() {}
+		FrameBuffer() = default;
+		virtual ~FrameBuffer() = default;
+
+		FrameBuffer(const FrameBuffer&) = delete;
+		FrameBuffer(FrameBuffer&&) = delete;
+		FrameBuffer& operator=(const FrameBuffer&) = delete;
+		FrameBuffer& operator=(FrameBuffer&&) = delete;
+
 		virtual void Bind() = 0;
 		virtual void Unbind() = 0;
 

@@ -46,6 +46,8 @@ namespace Ramensoup
 			uint32_t TotalIndexCount = 0;
 		};
 		inline static const Statistics& GetStatistics() { return s_Statistics; }
+
+		Renderer() = delete;
 	private:
 
 		static void ResetStatistics();

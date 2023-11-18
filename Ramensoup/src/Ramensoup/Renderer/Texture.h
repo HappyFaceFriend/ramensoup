@@ -7,7 +7,14 @@ namespace Ramensoup
 	class Texture
 	{
 	public:
+		Texture() = default;
 		virtual ~Texture() = default;
+
+		Texture(const Texture&) = delete;
+		Texture(Texture&&) = delete;
+		Texture& operator=(const Texture&) = delete;
+		Texture& operator=(Texture&&) = delete;
+
 		virtual uint32_t GetWidth() const = 0;
 		virtual uint32_t GetHeight() const = 0;
 		virtual void SetData(const void* data, uint32_t size) = 0;

@@ -11,6 +11,11 @@ namespace Ramensoup
 		OpenGLVertexArray();
 		~OpenGLVertexArray();
 
+		OpenGLVertexArray(const OpenGLVertexArray&) = delete;
+		OpenGLVertexArray(OpenGLVertexArray&&) = delete;
+		OpenGLVertexArray& operator=(const OpenGLVertexArray&) = delete;
+		OpenGLVertexArray& operator=(OpenGLVertexArray&&) = delete;
+
 		void Bind() const;
 		void Unbind() const;
 

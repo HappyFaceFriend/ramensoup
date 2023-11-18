@@ -14,5 +14,7 @@ namespace Ramensoup
 		static bool IsKeyPressed(int keycode);
 		static bool IsMouseButtonPressed(int button);
 		static glm::vec2 GetMousePos();
+
+		Input() = delete;
 	};
 }

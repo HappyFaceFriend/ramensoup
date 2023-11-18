@@ -5,7 +5,6 @@
 namespace Ramensoup
 {
 	EditorApp::EditorApp()
-		:Application()
 	{
 		RS_LOG("Hello Editor!");
 

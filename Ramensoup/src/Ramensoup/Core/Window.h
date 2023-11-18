@@ -21,8 +21,13 @@ namespace Ramensoup
 	public:
 		static std::unique_ptr<Window> Create(const WindowProps& props = WindowProps());
 	public:
-
+		Window() = default;
 		virtual ~Window(){}
+
+		Window(const Window&) = delete;
+		Window(Window&&) = delete;
+		Window& operator=(const Window&) = delete;
+		Window& operator=(Window&&) = delete;
 
 		virtual void OnUpdate()=0;
 

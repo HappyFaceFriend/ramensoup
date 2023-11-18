@@ -7,6 +7,8 @@ namespace Ramensoup
 {
 	class OpenGLGraphicsAPI : public GraphicsAPI
 	{
+	public:
+		OpenGLGraphicsAPI() = default;
 	protected:
 		virtual void Init() override;
 

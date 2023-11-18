@@ -11,12 +11,16 @@ namespace Ramensoup
 
 	class Application
 	{
+	protected:
+		//TODO : Can be created twice..
+		Application(std::string&& name = "New Application");
 	public:
-		Application(const std::string& name = "New Application");
-		Application(const Application&) = default;
-		Application& operator=(const Application&) = delete;
+		virtual ~Application() = default;
 
-		virtual ~Application();
+		Application(const Application&) = delete;
+		Application(Application&&) = delete;
+		Application& operator=(const Application&) = delete;
+		Application& operator=(Application&&) = delete;
 
 		template <typename T>
 		void QueueEvent(const T& e) { m_EventQueue.Push(e); }

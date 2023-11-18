@@ -14,6 +14,11 @@ namespace Ramensoup
 		OpenGLTexture2D(uint32_t width, uint32_t height, ImageFormat format);
 		virtual ~OpenGLTexture2D() override;
 
+		OpenGLTexture2D(const OpenGLTexture2D&) = delete;
+		OpenGLTexture2D(OpenGLTexture2D&&) = delete;
+		OpenGLTexture2D& operator=(const OpenGLTexture2D&) = delete;
+		OpenGLTexture2D& operator=(OpenGLTexture2D&&) = delete;
+
 		virtual uint32_t GetWidth() const override { return m_Width; }
 		virtual uint32_t GetHeight() const override { return m_Height; }
 

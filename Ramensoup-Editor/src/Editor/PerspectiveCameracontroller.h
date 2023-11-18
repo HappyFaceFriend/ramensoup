@@ -8,7 +8,6 @@ namespace Ramensoup
 	{
 	public:
 		PerspectiveCameraController(float aspectRatio, float yFov, float zNear, float zFar);
-		~PerspectiveCameraController();
 
 		void OnUpdate();
 

@@ -14,5 +14,7 @@ namespace Ramensoup
 
 		static void Begin();
 		static void End();
+
+		ImGuiCommands() = delete;
 	};
 }
