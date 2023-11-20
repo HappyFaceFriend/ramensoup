@@ -18,6 +18,3 @@
 #include "Ramensoup/Debug/Logger.h"
 #endif //ifdef RS_ENABLE_LOGS
 
-#ifdef RS_ENABLE_PROFILING
-#include "Ramensoup/Debug/ProfileLayer.h"
-#endif

@@ -21,7 +21,11 @@ namespace Ramensoup
 		glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	}
-	OpenGLTexture2D::OpenGLTexture2D(const std::string_view& path)
+	OpenGLTexture2D::OpenGLTexture2D(const std::string& path)
+		: OpenGLTexture2D(std::move(std::string(path)))
+	{
+	}
+	OpenGLTexture2D::OpenGLTexture2D(std::string&& path)
 		:m_Path(std::move(path))
 	{
 		int width, height, channels;

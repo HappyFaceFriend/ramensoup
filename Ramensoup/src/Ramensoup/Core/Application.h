@@ -4,7 +4,7 @@
 #include "EventQueue.h"
 #include "LayerStack.h"
 #include "Ramensoup/ImGui/ImGuiLayer.h"
-#include "Ramensoup/Debug/TimeProfiler.h"
+#include "Ramensoup/Debug/ProfileLayer.h"
 
 namespace Ramensoup
 {

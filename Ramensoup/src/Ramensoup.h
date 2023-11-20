@@ -26,3 +26,5 @@
 #include "Ramensoup/Renderer/Camera.h"
 
 #include "Ramensoup/ImGui/ImGuiCommands.h"
+
+#include "Ramensoup/Debug/TimeProfiler.h"

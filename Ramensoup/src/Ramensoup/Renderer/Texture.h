@@ -28,7 +28,8 @@ namespace Ramensoup
 	public:
 		virtual ~Texture2D() = default;
 		static std::shared_ptr<Texture2D> Create(uint32_t width, uint32_t height, ImageFormat format);
-		static std::shared_ptr<Texture2D> Create(const std::string_view& path);
+		static std::shared_ptr<Texture2D> Create(const std::string& path);
+		static std::shared_ptr<Texture2D> Create(std::string&& path);
 
 	};
 }

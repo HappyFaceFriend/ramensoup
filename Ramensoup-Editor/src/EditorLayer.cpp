@@ -4,6 +4,7 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
+
 namespace Ramensoup
 {
 	EditorLayer::EditorLayer()
@@ -75,7 +76,23 @@ namespace Ramensoup
 
 		//Test windows
 		ImGui::Begin("test window");
-		ImGui::Text("Frame time: %fms", Time::GetDeltaTime() * 1000);
+
+		//TEMP
+		static int frames = 0;
+		static float deltaTimeSum = 0;
+		static float lastDeltaTime = 0;
+		if (frames == 1000)
+		{
+			frames = 0;
+			lastDeltaTime = deltaTimeSum;
+			deltaTimeSum = 0;
+		}
+		else
+		{
+			deltaTimeSum += Time::GetDeltaTime();
+			frames++;
+		}
+		ImGui::Text("Frame time (*1000): %fms", lastDeltaTime);
 		ImGui::Text("FPS: %f", 1 / Time::GetDeltaTime());
 		ImGui::Spacing();
 		ImGui::Text("Draw Calls: %d", Renderer::GetStatistics().DrawCallCount);
