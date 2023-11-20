@@ -4,8 +4,8 @@
 namespace Ramensoup
 {
 
-	Material::Material(std::string&& name, const std::shared_ptr<Shader>& shader)
-		:m_Name(std::move(name)), m_Shader(shader)
+	Material::Material(const std::string_view& name, const std::shared_ptr<Shader>& shader)
+		:m_Name(name), m_Shader(shader)
 	{
 	}
 }

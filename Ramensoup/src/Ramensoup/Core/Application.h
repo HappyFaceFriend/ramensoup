@@ -13,7 +13,7 @@ namespace Ramensoup
 	{
 	protected:
 		//TODO : Can be created twice..
-		Application(std::string&& name = "New Application");
+		Application(const std::string_view& name = { "New Application" });
 	public:
 		virtual ~Application() = default;
 

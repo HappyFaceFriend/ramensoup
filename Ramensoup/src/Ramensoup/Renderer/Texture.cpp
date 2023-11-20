@@ -16,7 +16,7 @@ namespace Ramensoup
 		RS_CORE_ASSERT(false, "Unknwon RendererAPI");
 		return nullptr;
 	}
-	std::shared_ptr<Texture2D> Texture2D::Create(const std::string& path)
+	std::shared_ptr<Texture2D> Texture2D::Create(const std::string_view& path)
 	{
 		switch (Renderer::GetAPI())
 		{

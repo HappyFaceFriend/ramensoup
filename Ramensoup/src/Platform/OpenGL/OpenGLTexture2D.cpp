@@ -21,17 +21,17 @@ namespace Ramensoup
 		glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	}
-	OpenGLTexture2D::OpenGLTexture2D(const std::string& path)
-		:m_Path(path)
+	OpenGLTexture2D::OpenGLTexture2D(const std::string_view& path)
+		:m_Path(std::move(path))
 	{
 		int width, height, channels;
 		stbi_set_flip_vertically_on_load(1);
 
 		stbi_uc* data;
 		{
-			data = stbi_load(path.c_str(), &width, &height, &channels, 0);
+			data = stbi_load(m_Path.c_str(), &width, &height, &channels, 0);
 		}
-		RS_CORE_ASSERT(data, "Failed to load image {0}", path);
+		RS_CORE_ASSERT(data, "Failed to load image {0}", m_Path);
 
 		m_Width = width;
 		m_Height = height;

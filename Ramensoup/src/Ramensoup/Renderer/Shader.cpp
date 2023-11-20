@@ -17,7 +17,7 @@ namespace Ramensoup
 		RS_CORE_ASSERT(false, "Unknwon RendererAPI");
 		return nullptr;
 	}
-	const std::shared_ptr<Shader> Shader::Create(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
+	const std::shared_ptr<Shader> Shader::Create(const std::string_view& name, const std::string_view& vertexSrc, const std::string_view& fragmentSrc)
 	{
 		//TODO : implement this
 		RS_CORE_ASSERT(false, "NOT IMPLEMENTED");

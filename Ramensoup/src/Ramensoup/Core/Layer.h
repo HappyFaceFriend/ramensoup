@@ -10,7 +10,7 @@ namespace Ramensoup
 	class Layer
 	{
 	public:
-		Layer(std::string&& name = "Layer");
+		Layer(const std::string_view& name = { "Layer" });
 		virtual ~Layer() = default;
 
 		Layer(const Layer&) = delete;

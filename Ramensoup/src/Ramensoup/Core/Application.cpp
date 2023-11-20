@@ -17,11 +17,11 @@ namespace Ramensoup
 {
 	Application* Application::s_Instance = nullptr;
 
-	Application::Application(std::string&& name)
+	Application::Application(const std::string_view& name)
 		:m_EventQueue()
 	{
 		RS_CORE_LOG("Created Application!");
-		m_Window = Window::Create({ std::move(name), 1280, 720 });
+		m_Window = Window::Create({ name, 1280, 720 });
 		m_Window->SetVSync(false);
 		Input::SetWindow(m_Window.get());
 

@@ -10,7 +10,7 @@ namespace Ramensoup
 	class OpenGLTexture2D : public Texture2D
 	{
 	public:
-		OpenGLTexture2D(const std::string& path);
+		OpenGLTexture2D(const std::string_view& path);
 		OpenGLTexture2D(uint32_t width, uint32_t height, ImageFormat format);
 		virtual ~OpenGLTexture2D() override;
 
@@ -35,9 +35,9 @@ namespace Ramensoup
 	private:
 		void SetFormat(ImageFormat format);
 	private:
-		std::string m_Path;
+		const std::string m_Path;
 		uint32_t m_Width, m_Height;
 		uint32_t m_RendererID;
-		GLenum m_InternalFormat, m_DataFormat; //shader sample format
+		GLenum m_InternalFormat = 0, m_DataFormat = 0; //shader sample format
 	};
 }
