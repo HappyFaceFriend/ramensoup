@@ -9,7 +9,7 @@
     <ClInclude Include="src\Editor\OrthographicCameraController.h">
       <Filter>Editor</Filter>
     </ClInclude>
-    <ClInclude Include="src\Editor\PerspectiveCameraController.h">
+    <ClInclude Include="src\Editor\PerspectiveCameracontroller.h">
       <Filter>Editor</Filter>
     </ClInclude>
     <ClInclude Include="src\EditorApp.h" />

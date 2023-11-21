@@ -3,7 +3,7 @@
 
 namespace Ramensoup
 {
-	Layer::Layer(const std::string_view& name)
+	Layer::Layer(const zstring_view& name)
 		: m_DebugName(name)
 	{}
 

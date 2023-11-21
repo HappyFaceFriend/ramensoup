@@ -6,8 +6,7 @@
 
 namespace Ramensoup
 {
-
-	const std::shared_ptr<Shader> Shader::Create(const std::string& filePath)
+	const std::shared_ptr<Shader> Shader::Create(const zstring_view& filePath)
 	{
 		switch (Renderer::GetAPI())
 		{

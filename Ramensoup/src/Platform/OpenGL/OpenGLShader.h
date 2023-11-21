@@ -10,7 +10,7 @@ namespace Ramensoup
 	class OpenGLShader : public Shader
 	{
 	public:
-		OpenGLShader(const std::string& filePath);
+		OpenGLShader(const zstring_view& filePath);
 		OpenGLShader(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc);
 		virtual ~OpenGLShader() override;
 
@@ -35,7 +35,7 @@ namespace Ramensoup
 
 	private:
 		GLint GetUniformLocation(const std::string& name);
-		std::string ReadFile(const std::string& filePath);
+		std::string ReadFile(const zstring_view& filePath);
 		std::unordered_map<GLenum, std::string> PreProcess(const std::string& source);
 		void Compile(const std::unordered_map<GLenum, std::string>& shaderSources);
 

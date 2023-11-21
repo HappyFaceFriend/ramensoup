@@ -86,6 +86,7 @@ namespace Ramensoup
 			frames = 0;
 			lastDeltaTime = deltaTimeSum;
 			deltaTimeSum = 0;
+			RS_LOG("1000 frame time : {0}", lastDeltaTime);
 		}
 		else
 		{

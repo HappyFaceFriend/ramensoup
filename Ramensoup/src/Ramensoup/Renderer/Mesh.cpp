@@ -13,9 +13,9 @@ namespace Ramensoup
 
 		m_VertexBuffer = VertexBuffer::Create(m_Verticies.data(), sizeof(Vertex) * m_Verticies.size());
 		m_VertexBuffer->SetLayout({
-				{ ShaderDataType::Float3, "a_Position" },
-				{ ShaderDataType::Float3, "a_Normal" },
-				{ ShaderDataType::Float2, "a_TexCoord" }
+				{ ShaderDataType::Float3}, //position
+				{ ShaderDataType::Float3}, //normal
+				{ ShaderDataType::Float2} //texcoord
 			});
 		m_IndexBuffer = IndexBuffer::Create(m_Indicies.data(), m_Indicies.size());
 	}

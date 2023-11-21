@@ -135,7 +135,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Editor\OrthographicCameraController.h" />
-    <ClInclude Include="src\Editor\PerspectiveCameraController.h" />
+    <ClInclude Include="src\Editor\PerspectiveCameracontroller.h" />
     <ClInclude Include="src\EditorApp.h" />
     <ClInclude Include="src\EditorLayer.h" />
   </ItemGroup>

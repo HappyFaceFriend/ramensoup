@@ -31,6 +31,9 @@
     <Filter Include="src\Ramensoup\Renderer">
       <UniqueIdentifier>{DCD44C60-C8CE-75B2-B13B-0CC39DD4DB1E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Ramensoup\Utils">
+      <UniqueIdentifier>{562E404B-C28F-1D59-4BFD-630BB75D5418}</UniqueIdentifier>
+    </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
     </Filter>
@@ -167,6 +170,9 @@
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Renderer\VertexBuffer.h">
       <Filter>src\Ramensoup\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Utils\zstring_view.h">
+      <Filter>src\Ramensoup\Utils</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h">
       <Filter>src</Filter>

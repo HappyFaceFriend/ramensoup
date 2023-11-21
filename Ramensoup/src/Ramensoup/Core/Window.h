@@ -12,7 +12,7 @@ namespace Ramensoup
 		uint32_t Width;
 		uint32_t Height;
 
-		WindowProps(const std::string_view& title = {"window"}, uint32_t width = 1280, uint32_t height = 720)
+		WindowProps(const zstring_view& title = "window", uint32_t width = 1280, uint32_t height = 720)
 			:Title(title), Width(width), Height(height)
 		{}
 	};

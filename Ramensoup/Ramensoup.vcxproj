@@ -186,6 +186,7 @@
     <ClInclude Include="src\Ramensoup\Renderer\Shader.h" />
     <ClInclude Include="src\Ramensoup\Renderer\Texture.h" />
     <ClInclude Include="src\Ramensoup\Renderer\VertexBuffer.h" />
+    <ClInclude Include="src\Ramensoup\Utils\zstring_view.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>

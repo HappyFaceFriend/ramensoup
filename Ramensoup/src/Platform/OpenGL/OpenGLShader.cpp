@@ -4,7 +4,7 @@
 
 namespace Ramensoup
 {
-	static GLenum ShaderTypeFromString(std::string_view type)
+	static GLenum ShaderTypeFromString(const std::string_view& type)
 	{
 		if (type == "vertex")
 			return GL_VERTEX_SHADER;
@@ -13,7 +13,7 @@ namespace Ramensoup
 		RS_CORE_ASSERT(false, "Unknown shader type");
 		return 0;
 	}
-	OpenGLShader::OpenGLShader(const std::string& filePath)
+	OpenGLShader::OpenGLShader(const zstring_view& filePath)
 	{
 		std::string source = ReadFile(filePath);
 		auto shaderSources = PreProcess(source);
@@ -139,10 +139,10 @@ namespace Ramensoup
 		}
 		return shaderSources;
 	}
-	std::string OpenGLShader::ReadFile(const std::string& filePath)
+	std::string OpenGLShader::ReadFile(const zstring_view& filePath)
 	{
 		std::string result;
-		std::ifstream in(filePath, std::ios::in | std::ios::binary);
+		std::ifstream in(filePath.data(), std::ios::in | std::ios::binary);
 		if (in)
 		{
 			in.seekg(0, std::ios::end);
@@ -153,7 +153,7 @@ namespace Ramensoup
 		}
 		else
 		{
-			RS_CORE_LOG_ERROR("Could not open shader {0}", filePath);
+			//RS_CORE_LOG_ERROR("Could not open shader {0}", filePath);
 		}
 		return result;
 	}

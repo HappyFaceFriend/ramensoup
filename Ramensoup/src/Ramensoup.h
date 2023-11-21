@@ -3,6 +3,8 @@
 
 #include "Ramensoup/Core/MacroSetup.h"
 
+#include "Ramensoup/Utils/zstring_view.h"
+
 
 #include "Ramensoup/Core/Application.h"
 

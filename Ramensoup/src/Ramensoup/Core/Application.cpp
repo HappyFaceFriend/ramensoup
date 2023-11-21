@@ -17,7 +17,7 @@ namespace Ramensoup
 {
 	Application* Application::s_Instance = nullptr;
 
-	Application::Application(const std::string_view& name)
+	Application::Application(const zstring_view& name)
 		:m_EventQueue()
 	{
 		RS_CORE_LOG("Created Application!");
