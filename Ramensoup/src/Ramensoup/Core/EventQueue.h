@@ -31,15 +31,15 @@ namespace Ramensoup
 		void Push(const T& e)
 		{
 			//Store event size
-			*(uint32_t*)m_RearPtr = PaddedSizeof<T>();
-			m_RearPtr = (byte*)m_RearPtr + sizeof(uint32_t);
+			*reinterpret_cast<uint32_t*>(m_RearPtr) = PaddedSizeof<T>();
+			m_RearPtr = m_RearPtr + sizeof(uint32_t);
 			//Store event type
-			*(EventType*)m_RearPtr = T::GetStaticType();
-			m_RearPtr = (byte*)m_RearPtr + sizeof(EventType);
+			*reinterpret_cast<EventType*>(m_RearPtr) = T::GetStaticType();
+			m_RearPtr = m_RearPtr + sizeof(EventType);
 			//Store actual event
 			//*(T*)m_RearPtr = e;
 			memcpy(m_RearPtr, &e, sizeof(T));
-			m_RearPtr = (byte*)m_RearPtr + PaddedSizeof<T>();
+			m_RearPtr = m_RearPtr + PaddedSizeof<T>();
 		}
 	private:
 

@@ -96,9 +96,6 @@
     <ClInclude Include="src\Ramensoup\Core\Time.h">
       <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ramensoup\Core\Utils.h">
-      <Filter>src\Ramensoup\Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\Ramensoup\Core\Window.h">
       <Filter>src\Ramensoup\Core</Filter>
     </ClInclude>

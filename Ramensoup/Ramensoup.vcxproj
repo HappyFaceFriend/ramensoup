@@ -162,7 +162,6 @@
     <ClInclude Include="src\Ramensoup\Core\LayerStack.h" />
     <ClInclude Include="src\Ramensoup\Core\MacroSetup.h" />
     <ClInclude Include="src\Ramensoup\Core\Time.h" />
-    <ClInclude Include="src\Ramensoup\Core\Utils.h" />
     <ClInclude Include="src\Ramensoup\Core\Window.h" />
     <ClInclude Include="src\Ramensoup\Debug\Logger.h" />
     <ClInclude Include="src\Ramensoup\Debug\ProfileLayer.h" />

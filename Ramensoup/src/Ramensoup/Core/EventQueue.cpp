@@ -23,13 +23,13 @@ namespace Ramensoup
 	{
 		RS_CORE_ASSERT(m_FrontPtr < m_RearPtr, "Tried to pop from empty event queue!");
 
-		auto size = *(uint32_t*)m_FrontPtr;
-		m_FrontPtr = (byte*)m_FrontPtr + sizeof(uint32_t);
+		uint32_t size = *reinterpret_cast<uint32_t*>(m_FrontPtr);
+		m_FrontPtr = m_FrontPtr + sizeof(uint32_t);
 
-		Event& e = *(Event*)m_FrontPtr;
-		m_FrontPtr = (byte*)m_FrontPtr + size;
+		Event* e = reinterpret_cast<Event*>(m_FrontPtr);
+		m_FrontPtr = m_FrontPtr + size;
 
-		return e;
+		return *e;
 	}
 	void EventQueue::Clear()
 	{

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Ramensoup/Core/Utils.h"
 
 #include <optional>
 
@@ -19,12 +18,12 @@ namespace Ramensoup
 	enum class EventCategory : int
 	{
 		None = 0,
-		Application = BIT(0),
-		Window		= BIT(1),
-		Input		= BIT(2),
-		Keyboard	= BIT(3) | Input,
-		Mouse		= BIT(4) | Input,
-		MouseButton = BIT(5) | Input | Mouse,
+		Application = (1 << 0),
+		Window	    = (1 << 1),
+		Input		= (1 << 2),
+		Keyboard    = (1 << 3) | Input,
+		Mouse       = (1 << 4) | Input,
+		MouseButton = (1 << 5) | Input | Mouse,
 	};
 
 	struct Event
@@ -39,10 +38,10 @@ namespace Ramensoup
 		static bool Dispatch(const Event& e, EventHandler<T, U> handler, U* instance)
 		{
 			if (e.m_Type == T::GetStaticType())
-				return (instance->*handler)((const T&)e);
+				return (instance->*handler)(static_cast<const T&>(e));
 			return false;
 		}
-		bool IsInCategory(EventCategory category) const { return (int)m_CategoryFlags & (int)category; }
+		bool IsInCategory(EventCategory category) const { return static_cast<int>(m_CategoryFlags) & static_cast<int>(category); }
 	protected:
 		Event(EventType type, EventCategory category)
 		:m_Type(type), m_CategoryFlags(category)

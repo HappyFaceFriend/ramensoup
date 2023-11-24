@@ -10,7 +10,7 @@ namespace Ramensoup
 	void ProfileLayer::OnImGuiUpdate()
 	{
 		ImGui::Begin("Time Profiler");
-		for (const auto key : TimeProfiler::Get().GetProfileKeys())
+		for (const auto& key : TimeProfiler::Get().GetProfileKeys())
 		{
 			ImGui::Text("%s: %lfms", key.c_str(), TimeProfiler::Get().GetProfileItem(key).Miliseconds);
 			ImGui::Spacing();

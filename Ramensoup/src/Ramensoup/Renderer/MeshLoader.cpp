@@ -54,8 +54,11 @@ namespace Ramensoup
 		}
 
 		// TODO : This can be optimized by making a MeshBuilder, letting texcoords & indicies be swapped or directly initialized
-		std::shared_ptr<Mesh> mesh = std::make_shared<Mesh>((glm::vec3*)meshData->mVertices, (glm::vec3*)meshData->mNormals, texCoords.data(), indicies.data(),
-																vertexCount, meshData->mNumFaces * 3);
+		std::shared_ptr<Mesh> mesh = std::make_shared<Mesh>(reinterpret_cast<glm::vec3*>(meshData->mVertices),
+															reinterpret_cast<glm::vec3*>(meshData->mNormals),
+															texCoords.data(), 
+															indicies.data(),
+															vertexCount, meshData->mNumFaces * 3);
 		return mesh;
 	}
 }

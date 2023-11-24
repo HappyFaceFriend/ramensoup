@@ -10,7 +10,7 @@ namespace Ramensoup
 	void Time::Tick()
 	{
 		auto now = std::chrono::high_resolution_clock::now();
-		std::chrono::duration<float> diff = now - s_LastTime;
+		std::chrono::duration<float> diff(now - s_LastTime);
 
 		s_DeltaTime = diff.count();
 
