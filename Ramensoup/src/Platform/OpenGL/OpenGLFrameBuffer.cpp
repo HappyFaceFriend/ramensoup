@@ -39,8 +39,8 @@ namespace Ramensoup
 	}
 	void OpenGLFrameBuffer::AddAttachment(const std::string& name, AttachmentType type, ImageFormat format)
 	{
-		std::unique_ptr<OpenGLTexture2D> attachment(new OpenGLTexture2D(m_Specification.Width, m_Specification.Height, format));
-		m_Attachments[name] = std::move(attachment);
+		m_Attachments[name] = std::make_unique<OpenGLTexture2D>(m_Specification.Width, m_Specification.Height, format);
+		//TODO : Need to enable multiple color attachments (currently only using zero)
 		if (type == AttachmentType::Color)
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_Attachments[name]->GetRendererID(), 0);
 		else if (type == AttachmentType::Depth)
@@ -48,7 +48,6 @@ namespace Ramensoup
 	}
 	void OpenGLFrameBuffer::ReallocateAttachments()
 	{
-		//delete attachments
 		if (m_RendererID)
 		{
 			m_Attachments.clear();

@@ -21,6 +21,7 @@ namespace Ramensoup
 	private:
 		std::shared_ptr<OpenGLVertexArray>& AllocateVertexArray(const std::shared_ptr<VertexBuffer>& vertexBuffer, const std::shared_ptr<IndexBuffer>& indexBuffer);
 	private:
+		//TOOD : Need some kind of mark&sweep for freeing all useless vertexArrays
 		std::unordered_map<VertexBuffer*, std::shared_ptr<OpenGLVertexArray>> m_VertexArrayMap;
 	};
 }
