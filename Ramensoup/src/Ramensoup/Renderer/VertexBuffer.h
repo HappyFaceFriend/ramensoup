@@ -22,7 +22,7 @@ namespace Ramensoup
 		virtual void SetLayout(const BufferLayout& layout) = 0;
 		virtual const BufferLayout& GetLayout() const = 0;
 
-		static const std::shared_ptr<VertexBuffer> Create(const void* data, uint32_t size);
+		static const std::shared_ptr<VertexBuffer> Create(const void* data, size_t size);
 		//static const std::shared_ptr<VertexBuffer> Create(uint32_t size);
 	};
 
@@ -35,7 +35,7 @@ namespace Ramensoup
 	struct BufferElement
 	{
 		ShaderDataType Type;
-		uint32_t Offset;
+		uint64_t Offset;
 		uint32_t Size;
 		bool Normalized;
 

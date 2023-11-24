@@ -1,6 +1,9 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable:4819)
 #include <GLFW/glfw3.h>
+#pragma warning(pop)
 
 #include "Ramensoup/Core/Window.h"
 

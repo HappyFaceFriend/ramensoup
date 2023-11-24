@@ -50,7 +50,7 @@ namespace Ramensoup
 
 	}
 
-	void Renderer::DrawIndexed(const std::shared_ptr<VertexBuffer>& vertexBuffer, const std::shared_ptr<IndexBuffer>& indexBuffer, uint32_t indexCount)
+	void Renderer::DrawIndexed(const std::shared_ptr<VertexBuffer>& vertexBuffer, const std::shared_ptr<IndexBuffer>& indexBuffer, size_t indexCount)
 	{
 		s_GraphicsAPI->DrawIndexed(vertexBuffer, indexBuffer, indexCount);
 		

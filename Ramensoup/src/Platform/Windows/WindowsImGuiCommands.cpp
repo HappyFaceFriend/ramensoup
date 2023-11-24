@@ -3,10 +3,13 @@
 #include "WindowsWindow.h"
 
 //Build platform implementations of ImGui
+#pragma warning(push)
+#pragma warning(disable:4819 4005 4996)
 #define IMGUI_IMPL_OPENGL_LOADER_GLAD
 #include <backends/imgui_impl_opengl3.cpp>
 #include <backends/imgui_impl_glfw.cpp>
 
+#pragma warning(pop)
 
 // from example_glfw_opengl3/main.cpp
 namespace Ramensoup

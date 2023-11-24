@@ -26,7 +26,7 @@ namespace Ramensoup
 		virtual void Clear() = 0;
 		virtual void SetClearColor(const glm::vec4& color) = 0;
 
-		virtual void DrawIndexed(const std::shared_ptr<VertexBuffer>& vertexBuffer, const std::shared_ptr<IndexBuffer>& indexBuffer, uint32_t indexCount = 0) = 0;
+		virtual void DrawIndexed(const std::shared_ptr<VertexBuffer>& vertexBuffer, const std::shared_ptr<IndexBuffer>& indexBuffer, size_t indexCount = 0) = 0;
 
 	};
 }

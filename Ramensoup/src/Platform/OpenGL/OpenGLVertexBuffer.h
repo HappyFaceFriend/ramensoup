@@ -8,7 +8,7 @@ namespace Ramensoup
 	{
 	public:
 		OpenGLVertexBuffer(uint32_t size);
-		OpenGLVertexBuffer(const void* data, uint32_t size);
+		OpenGLVertexBuffer(const void* data, size_t size);
 		virtual ~OpenGLVertexBuffer() override;
 
 		OpenGLVertexBuffer(const OpenGLVertexBuffer&) = delete;

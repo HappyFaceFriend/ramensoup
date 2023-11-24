@@ -3,7 +3,10 @@
 #include "OpenGLContext.h"
 
 #ifdef RS_PLATFORM_WINDOWS
+	#pragma warning(push)
+	#pragma warning(disable:4819)
 	#include <GLFW/glfw3.h>
+	#pragma warning(pop)
 #endif 
 
 #include <glad/glad.h>

@@ -1,6 +1,9 @@
 #include "EditorLayer.h"
 
+#pragma warning(push)
+#pragma warning(disable:4819 4005 4996)
 #include <imgui.h>
+#pragma warning(pop)
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
@@ -8,7 +11,7 @@
 namespace Ramensoup
 {
 	EditorLayer::EditorLayer()
-		:m_CameraController(16.0f / 9.0f, glm::radians(60.0f), 0.1f, 100)
+		:m_CameraController(16.0f / 9.0f, glm::radians(60.0f), 0.1f, 100), m_ViewportSize(0, 0)
 	{
 		m_ModelTransform = glm::translate(glm::mat4(1.0f), glm::vec3(1, 0, 0));
 	}
@@ -67,8 +70,8 @@ namespace Ramensoup
 			//m_CameraController.OnResize(m_ViewportSize.x, m_ViewportSize.y);
 		}
 
-		uint32_t textureID = m_FrameBuffer->GetColorAttachmentRendererID();
-		ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0,1 }, ImVec2{ 1,0 });
+		uint64_t textureID = m_FrameBuffer->GetColorAttachmentRendererID();
+		ImGui::Image(reinterpret_cast<ImTextureID>(textureID), ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0,1 }, ImVec2{ 1,0 });
 
 		ImGui::PopStyleVar();
 		ImGui::End();

@@ -17,7 +17,7 @@ namespace Ramensoup
 			glm::vec2 TexCoord;
 		};
 	public:
-		Mesh(const glm::vec3* positions, const glm::vec3* normals, const glm::vec2* texCoords, const uint32_t* indicies, uint32_t vertexCount, uint32_t indexCount);
+		Mesh(const glm::vec3* positions, const glm::vec3* normals, const glm::vec2* texCoords, const uint32_t* indicies, size_t vertexCount, size_t indexCount);
 		//TODO : default constructor
 
 	public:

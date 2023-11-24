@@ -6,7 +6,7 @@
 namespace Ramensoup
 {
 
-	OpenGLIndexBuffer::OpenGLIndexBuffer(const uint32_t* verticies, uint32_t count)
+	OpenGLIndexBuffer::OpenGLIndexBuffer(const uint32_t* verticies, size_t count)
 		:m_Count(count)
 	{
 		glGenBuffers(1, &m_RendererID);

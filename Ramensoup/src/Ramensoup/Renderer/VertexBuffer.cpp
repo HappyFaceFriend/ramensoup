@@ -6,7 +6,7 @@
 
 namespace Ramensoup
 {
-	const std::shared_ptr<VertexBuffer> VertexBuffer::Create(const void* data, uint32_t size)
+	const std::shared_ptr<VertexBuffer> VertexBuffer::Create(const void* data, size_t size)
 	{
 		switch (Renderer::GetAPI())
 		{

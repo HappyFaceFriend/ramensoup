@@ -29,7 +29,7 @@ namespace Ramensoup
 		std::shared_ptr<FrameBuffer> m_FrameBuffer;
 
 		bool m_ViewportFocused = false;
-		glm::vec2 m_ViewportSize;
+		glm::vec2 m_ViewportSize{0, 0};
 
 		PerspectiveCameraController m_CameraController;
 	};

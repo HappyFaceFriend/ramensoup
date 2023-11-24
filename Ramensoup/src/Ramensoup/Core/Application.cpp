@@ -6,7 +6,6 @@
 #include "Ramensoup/Events/WindowEvents.h"
 
 #include "Ramensoup/ImGui/ImGuiCommands.h"
-#include "imgui.h"
 
 #include "Ramensoup/Renderer/Renderer.h"
 #include "Ramensoup/Core/Input.h"

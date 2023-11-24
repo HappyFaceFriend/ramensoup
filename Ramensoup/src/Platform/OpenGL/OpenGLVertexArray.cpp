@@ -57,7 +57,7 @@ namespace Ramensoup
 		{
 			glEnableVertexAttribArray(index);
 			glVertexAttribPointer(index, element.GetComponentCount(), ShaderDataTypeToOpenGLBaseType(element.Type)
-				, element.Normalized ? GL_TRUE : GL_FALSE, vertexBuffer->GetLayout().GetStride(), (const void*)element.Offset);
+				, element.Normalized ? GL_TRUE : GL_FALSE, vertexBuffer->GetLayout().GetStride(), reinterpret_cast<const void*>(element.Offset));
 			index++;
 		}
 

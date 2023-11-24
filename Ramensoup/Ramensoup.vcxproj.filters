@@ -66,6 +66,9 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexBuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>src\Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ramensoup.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -174,7 +177,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">

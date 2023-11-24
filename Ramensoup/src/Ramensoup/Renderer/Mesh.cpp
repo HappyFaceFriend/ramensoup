@@ -3,12 +3,12 @@
 
 namespace Ramensoup
 {
-	Mesh::Mesh(const glm::vec3* positions, const glm::vec3* normals, const glm::vec2* texCoords, const uint32_t* indicies, uint32_t vertexCount, uint32_t indexCount)
+	Mesh::Mesh(const glm::vec3* positions, const glm::vec3* normals, const glm::vec2* texCoords, const uint32_t* indicies, size_t vertexCount, size_t indexCount)
 		:m_Verticies(vertexCount), m_Indicies(indexCount)
 	{
-		for (int idx = 0; idx < vertexCount; idx++)
+		for (size_t idx = 0; idx < vertexCount; idx++)
 			m_Verticies[idx] = { positions[idx], normals[idx], texCoords[idx] };
-		for (int idx = 0; idx < indexCount; idx++)
+		for (size_t idx = 0; idx < indexCount; idx++)
 			m_Indicies[idx] = indicies[idx];
 
 		m_VertexBuffer = VertexBuffer::Create(m_Verticies.data(), sizeof(Vertex) * m_Verticies.size());

@@ -19,7 +19,7 @@ namespace Ramensoup
 			return meshes;
 		}
 		
-		for (int meshIndex = 0; meshIndex < scene->mNumMeshes; meshIndex++)
+		for (uint32_t meshIndex = 0; meshIndex < scene->mNumMeshes; meshIndex++)
 		{
 			auto mesh = LoadSingleMesh(scene->mMeshes[meshIndex]);
 			meshes.push_back(mesh);
@@ -37,7 +37,7 @@ namespace Ramensoup
 		// TODO : This is currently loading only the first texture's uv
 		std::vector<glm::vec2> texCoords(vertexCount);
 		uint32_t textureID = 0;
-		for (int vertexIndex = 0; vertexIndex < vertexCount; vertexIndex++)
+		for (uint32_t vertexIndex = 0; vertexIndex < vertexCount; vertexIndex++)
 		{
 			if (meshData->HasTextureCoords(textureID))
 				texCoords[vertexIndex] = { meshData->mTextureCoords[textureID][vertexIndex].x, meshData->mTextureCoords[textureID][vertexIndex].y };
@@ -47,7 +47,7 @@ namespace Ramensoup
 		
 		//assimp indicies is stored as triangles(faces)
 		std::vector<uint32_t> indicies(meshData->mNumFaces * 3);
-		for (int faceIndex = 0; faceIndex < meshData->mNumFaces; faceIndex++)
+		for (uint32_t faceIndex = 0; faceIndex < meshData->mNumFaces; faceIndex++)
 		{
 			for (int i = 0; i < 3; i++)
 				indicies[faceIndex * 3 + i] = meshData->mFaces[faceIndex].mIndices[i];

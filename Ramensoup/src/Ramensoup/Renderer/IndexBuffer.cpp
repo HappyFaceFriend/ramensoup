@@ -7,7 +7,7 @@
 namespace Ramensoup
 {
 
-	const std::shared_ptr<IndexBuffer> IndexBuffer::Create(const uint32_t* indicies, uint32_t count)
+	const std::shared_ptr<IndexBuffer> IndexBuffer::Create(const uint32_t* indicies, size_t count)
 	{
 		switch (Renderer::GetAPI())
 		{

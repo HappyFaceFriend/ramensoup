@@ -7,7 +7,7 @@ namespace Ramensoup
 	class OpenGLIndexBuffer : public IndexBuffer
 	{
 	public:
-		OpenGLIndexBuffer(const uint32_t* verticies, uint32_t count);
+		OpenGLIndexBuffer(const uint32_t* verticies, size_t count);
 		virtual ~OpenGLIndexBuffer() override;
 
 		OpenGLIndexBuffer(const OpenGLIndexBuffer&) = delete;
@@ -17,9 +17,9 @@ namespace Ramensoup
 
 		virtual void Bind() const override;
 		virtual void Unbind() const override;
-		virtual uint32_t GetCount() const override { return m_Count; }
+		virtual size_t GetCount() const override { return m_Count; }
 	private:
 		uint32_t m_RendererID;
-		uint32_t m_Count;
+		size_t m_Count;
 	};
 }
