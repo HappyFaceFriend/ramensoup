@@ -8,24 +8,24 @@ namespace Ramensoup
 	class OpenGLFrameBuffer : public FrameBuffer
 	{
 	public:
-		OpenGLFrameBuffer(const FrameBufferSpecification& spec);
-		virtual ~OpenGLFrameBuffer();
+		[[nodiscard]] OpenGLFrameBuffer(const FrameBufferSpecification& spec);
+		~OpenGLFrameBuffer() override;
 
 		OpenGLFrameBuffer(const OpenGLFrameBuffer&) = delete;
 		OpenGLFrameBuffer(OpenGLFrameBuffer&&) = delete;
 		OpenGLFrameBuffer& operator=(const OpenGLFrameBuffer&) = delete;
 		OpenGLFrameBuffer& operator=(OpenGLFrameBuffer&&) = delete;
 
-		virtual void Resize(uint32_t width, uint32_t height) override;
+		void Resize(uint32_t width, uint32_t height) override;
 
-		virtual void Bind() override;
-		virtual void Unbind() override;
+		void Bind() override;
+		void Unbind() override;
 
-		virtual const FrameBufferSpecification& GetSpecification() const override { return m_Specification; }
+		[[nodiscard]] const FrameBufferSpecification& GetSpecification() const override { return m_Specification; }
 	private:
 		enum class AttachmentType { Color, Depth };
 	public:
-		virtual uint32_t GetColorAttachmentRendererID() const override { return m_Attachments.at("color")->GetRendererID(); }
+		[[nodiscard]] uint32_t GetColorAttachmentRendererID() const override { return m_Attachments.at("color")->GetRendererID(); }
 
 	private:
 		void ReallocateAttachments();

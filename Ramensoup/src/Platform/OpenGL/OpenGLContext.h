@@ -14,11 +14,11 @@ namespace Ramensoup
 	class OpenGLContext : public RenderContext
 	{
 	public:
-		OpenGLContext(NativeWindow* windowHandle);
-		virtual void Init() override;
-		virtual void SwapBuffers() override;
+		[[nodiscard]] OpenGLContext(NativeWindow* windowHandle);
+		void Init() override;
+		void SwapBuffers() override;
 
 	private:
-		NativeWindow* m_WindowHandle;
+		NativeWindow* const m_WindowHandle;
 	};
 }

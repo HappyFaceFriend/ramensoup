@@ -12,23 +12,23 @@ namespace Ramensoup
 	class WindowsWindow : public Window
 	{
 	public:
-		WindowsWindow(const WindowProps& props);
-		virtual ~WindowsWindow();
+		[[nodiscard]] WindowsWindow(const WindowProps& props);
+		~WindowsWindow() override;
 
 		WindowsWindow(const WindowsWindow&) = delete;
 		WindowsWindow(WindowsWindow&&) = delete;
 		WindowsWindow& operator=(const WindowsWindow&) = delete;
 		WindowsWindow& operator=(WindowsWindow&&) = delete;
 
-		virtual void OnUpdate() override;
+		void OnUpdate() override;
 
-		virtual uint32_t GetWidth() const override { return m_Data.Width; }
-		virtual uint32_t GetHeight() const override { return m_Data.Height; }
+		[[nodiscard]] uint32_t GetWidth() const override { return m_Data.Width; }
+		[[nodiscard]] uint32_t GetHeight() const override { return m_Data.Height; }
 
-		virtual void SetVSync(bool enabled) override;
-		virtual bool IsVSync() const override { return m_Data.VSyncEnabled; }
+		void SetVSync(bool enabled) override;
+		[[nodiscard]] bool IsVSync() const override { return m_Data.VSyncEnabled; }
 
-		inline GLFWwindow* GetWindowHandle() const{ return m_WindowHandle; }
+		[[nodiscard]] inline GLFWwindow* GetWindowHandle() const{ return m_WindowHandle; }
 
 	protected:
 		virtual void SetEventCallback(const EventCallbackFunc& callback) override;

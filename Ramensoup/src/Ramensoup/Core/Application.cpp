@@ -19,7 +19,7 @@ namespace Ramensoup
 	Application::Application(const zstring_view& name)
 		:m_EventQueue()
 	{
-		RS_CORE_ASSERT(s_Instance != nullptr, "Cannot create 2 Applications");
+		RS_CORE_ASSERT(s_Instance == nullptr, "Cannot create 2 Applications");
 		RS_CORE_LOG("Created Application!");
 		m_Window = Window::Create({ name, 1280, 720 });
 		m_Window->SetVSync(false);

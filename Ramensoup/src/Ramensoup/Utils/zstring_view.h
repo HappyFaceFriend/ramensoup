@@ -9,7 +9,7 @@ namespace Ramensoup
 		using string_view_base = std::string_view;
 	public:
 		[[nodiscard]] constexpr zstring_view(const char* string) : std::string_view(string) {}
-		[[nodiscard]] constexpr zstring_view(const std::string& string) : std::string_view(string) {}
+		[[nodiscard]] zstring_view(const std::string& string) : std::string_view(string) {}
 
 		[[nodiscard]] constexpr operator std::string_view() const noexcept { return (std::string_view)*this; }
 		[[nodiscard]] constexpr operator const char* () const noexcept { return std::string_view::data(); }
