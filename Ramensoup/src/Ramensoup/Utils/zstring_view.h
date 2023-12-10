@@ -8,13 +8,13 @@ namespace Ramensoup
 	{
 		using string_view_base = std::string_view;
 	public:
-		zstring_view(const char* string) : std::string_view(string) {}
-		zstring_view(const std::string& string) : std::string_view(string) {}
+		[[nodiscard]] constexpr zstring_view(const char* string) : std::string_view(string) {}
+		[[nodiscard]] constexpr zstring_view(const std::string& string) : std::string_view(string) {}
 
-		constexpr operator std::string_view() const noexcept { return (std::string_view)*this; }
-		constexpr operator const char* () const noexcept { return std::string_view::data(); }
+		[[nodiscard]] constexpr operator std::string_view() const noexcept { return (std::string_view)*this; }
+		[[nodiscard]] constexpr operator const char* () const noexcept { return std::string_view::data(); }
 
-		constexpr const char* c_str() const noexcept { return std::string_view::data(); }
+		[[nodiscard]] constexpr const char* c_str() const noexcept { return std::string_view::data(); }
 
 		constexpr size_t find(const zstring_view& s, size_t pos = 0) const noexcept { return std::string_view::find(s, pos); }
 		constexpr size_t rfind(const zstring_view& s, size_t pos = 0) const noexcept { return std::string_view::rfind(s, pos); }

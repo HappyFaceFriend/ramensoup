@@ -9,7 +9,7 @@ namespace Ramensoup
 	public:
 		virtual ~Shader() = default;
 
-		Shader() = default;
+		[[nodiscard]] Shader() = default;
 		Shader(const Shader&) = delete;
 		Shader(Shader&&) = delete;
 		Shader& operator=(const Shader&) = delete;
@@ -19,10 +19,10 @@ namespace Ramensoup
 		virtual void Unbind() const = 0;
 
 
-		virtual const std::string& GetName() const = 0;
+		[[nodiscard]] virtual const std::string& GetName() const = 0;
 
-		static const std::shared_ptr<Shader> Create(const zstring_view& filePath);
-		static const std::shared_ptr<Shader> Create(const std::string_view& name, const std::string_view& vertexSrc, const std::string_view& fragmentSrc);
+		[[nodiscard]] static const std::shared_ptr<Shader> Create(const zstring_view& filePath);
+		[[nodiscard]] static const std::shared_ptr<Shader> Create(const std::string_view& name, const std::string_view& vertexSrc, const std::string_view& fragmentSrc);
 
 		//virtual void UploadUniformBuffer
 		virtual void SetUniformMat4(const std::string& name, const glm::mat4& matrix) = 0;

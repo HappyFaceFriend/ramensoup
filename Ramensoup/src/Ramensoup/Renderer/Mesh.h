@@ -22,11 +22,11 @@ namespace Ramensoup
 
 	public:
 
-		inline const std::vector<Vertex>& GetVerticies() const { return m_Verticies; }
-		inline const std::vector<uint32_t>& GetIndicies() const { return m_Indicies; }
+		[[nodiscard]] inline const std::vector<Vertex>& GetVerticies() const { return m_Verticies; }
+		[[nodiscard]] inline const std::vector<uint32_t>& GetIndicies() const { return m_Indicies; }
 
-		inline const std::shared_ptr<VertexBuffer>& GetVertexBuffer() const { return m_VertexBuffer; }
-		inline const std::shared_ptr<IndexBuffer>& GetIndexBuffer() const { return m_IndexBuffer; }
+		[[nodiscard]] inline const std::shared_ptr<VertexBuffer>& GetVertexBuffer() const { return m_VertexBuffer; }
+		[[nodiscard]] inline const std::shared_ptr<IndexBuffer>& GetIndexBuffer() const { return m_IndexBuffer; }
 		
 	private:
 		std::vector<Vertex> m_Verticies;

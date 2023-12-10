@@ -17,7 +17,7 @@ namespace Ramensoup
 			double Miliseconds= 0;
 		};
 	public:
-		inline static TimeProfiler& Get() { return *s_Instance; }
+		[[nodiscard]] inline static TimeProfiler& Get() { return *s_Instance; }
 		static void Begin(const std::string& key);
 		static void End(const std::string& key);
 	public:

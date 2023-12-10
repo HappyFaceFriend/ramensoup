@@ -12,16 +12,16 @@ namespace Ramensoup
 		uint32_t Width;
 		uint32_t Height;
 
-		WindowProps(const zstring_view& title = "window", uint32_t width = 1280, uint32_t height = 720)
+		[[nodiscard]] WindowProps(const zstring_view& title = "window", uint32_t width = 1280, uint32_t height = 720)
 			:Title(title), Width(width), Height(height)
 		{}
 	};
 	class Window
 	{
 	public:
-		static std::unique_ptr<Window> Create(const WindowProps& props = WindowProps());
+		[[nodiscard]] static std::unique_ptr<Window> Create(const WindowProps& props = WindowProps());
 	public:
-		Window() = default;
+		[[nodiscard]] Window() = default;
 		virtual ~Window(){}
 
 		Window(const Window&) = delete;
@@ -32,10 +32,10 @@ namespace Ramensoup
 		virtual void OnUpdate()=0;
 
 		virtual void SetVSync(bool enable)=0;
-		virtual bool IsVSync() const=0;
+		[[nodiscard]] virtual bool IsVSync() const=0;
 
-		virtual uint32_t GetWidth() const=0;
-		virtual uint32_t GetHeight() const=0;
+		[[nodiscard]] virtual uint32_t GetWidth() const=0;
+		[[nodiscard]] virtual uint32_t GetHeight() const=0;
 
 		using EventCallbackFunc = std::function<void(Event&)>;
 		virtual void SetEventCallback(const EventCallbackFunc& callback) = 0;

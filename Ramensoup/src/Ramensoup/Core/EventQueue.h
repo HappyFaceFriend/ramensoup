@@ -15,7 +15,7 @@ namespace Ramensoup
 	{
 		using byte = uint8_t;
 	public:
-		EventQueue();
+		[[nodiscard]] EventQueue();
 
 		~EventQueue() = default;
 		EventQueue(const EventQueue&) = delete;
@@ -23,7 +23,7 @@ namespace Ramensoup
 		EventQueue& operator=(const EventQueue&) = delete;
 		EventQueue& operator=(EventQueue&&) = delete;
 
-		inline bool IsEmpty() const { return m_FrontPtr >= m_RearPtr; }
+		[[nodiscard]] inline bool IsEmpty() const { return m_FrontPtr >= m_RearPtr; }
 		Event& Pop();
 		void Clear();
 

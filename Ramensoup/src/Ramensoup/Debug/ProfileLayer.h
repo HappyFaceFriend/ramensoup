@@ -7,9 +7,10 @@ namespace Ramensoup
 	class ProfileLayer : public Layer
 	{
 	public:
-		virtual void OnAttach() {}
-		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
-		virtual void OnImGuiUpdate() override;
+		void OnAttach() override {}
+		void OnAttach() override {}
+		void OnDetach() override {}
+		void OnUpdate() override {}
+		void OnImGuiUpdate() override;
 	};
 }

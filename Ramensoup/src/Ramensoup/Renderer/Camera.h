@@ -7,7 +7,7 @@ namespace Ramensoup
 	class Camera
 	{
 	public:
-		Camera() = default;
+		[[nodiscard]] Camera() = default;
 
 		void SetOrthographic(float left, float right, float bottom, float top);
 		void SetOrthographic(float left, float right, float bottom, float top, float zNear, float zFar);
@@ -16,8 +16,8 @@ namespace Ramensoup
 		inline void SetTransform(const glm::mat4& transform) { m_ViewMatrix = glm::inverse(transform); }
 		inline void SetView(const glm::mat4& view) { m_ViewMatrix = view; }
 
-		const glm::mat4& GetProjectionMatrix() const { return m_ProjectionMatrix; }
-		const glm::mat4& GetViewMatrix() const { return m_ViewMatrix; }
+		[[nodiscard]] const glm::mat4& GetProjectionMatrix() const { return m_ProjectionMatrix; }
+		[[nodiscard]] const glm::mat4& GetViewMatrix() const { return m_ViewMatrix; }
 
 	private:
 		//TODO : Cache View / Projection matricies & Change m_Transform to transform component

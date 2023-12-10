@@ -10,7 +10,7 @@ namespace Ramensoup
 		using Iterator = std::vector<Layer*>::iterator;
 		using ConstIterator = std::vector<Layer*>::const_iterator;
 	public:
-		LayerStack() = default;
+		[[nodiscard]] LayerStack() = default;
 		~LayerStack();
 
 		LayerStack(const LayerStack&) = delete;
@@ -36,6 +36,6 @@ namespace Ramensoup
 		
 	private:
 		std::vector<Layer*> m_Layers;
-		unsigned int m_LayerInsertIndex = 0;
+		uint32_t m_LayerInsertIndex = 0;
 	};
 }

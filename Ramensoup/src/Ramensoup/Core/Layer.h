@@ -10,7 +10,7 @@ namespace Ramensoup
 	class Layer
 	{
 	public:
-		Layer(const zstring_view& name =  "Layer" );
+		[[nodiscard]] Layer(const zstring_view& name =  "Layer" );
 		virtual ~Layer() = default;
 
 		Layer(const Layer&) = delete;
@@ -23,7 +23,7 @@ namespace Ramensoup
 		virtual void OnUpdate() {}
 		virtual void OnImGuiUpdate() {}
 
-		inline const std::string& GetName() const { return m_DebugName; }
+		[[nodiscard]] inline const std::string& GetName() const { return m_DebugName; }
 
 		virtual bool HandleEvent(const Event& e) { return false; }
 

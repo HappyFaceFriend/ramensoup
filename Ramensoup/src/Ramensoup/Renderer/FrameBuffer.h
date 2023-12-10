@@ -13,7 +13,7 @@ namespace Ramensoup
 	class FrameBuffer
 	{
 	public:
-		FrameBuffer() = default;
+		[[nodiscard]] FrameBuffer() = default;
 		virtual ~FrameBuffer() = default;
 
 		FrameBuffer(const FrameBuffer&) = delete;
@@ -29,6 +29,6 @@ namespace Ramensoup
 		virtual const FrameBufferSpecification& GetSpecification() const = 0;
 		virtual uint32_t GetColorAttachmentRendererID() const = 0;
 
-		static std::shared_ptr<FrameBuffer> Create(const FrameBufferSpecification& spec);
+		[[nodiscard]] static std::shared_ptr<FrameBuffer> Create(const FrameBufferSpecification& spec);
 	};
 }

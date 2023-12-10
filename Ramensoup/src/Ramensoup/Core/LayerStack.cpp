@@ -9,8 +9,6 @@ namespace Ramensoup
 		{
 			layer->OnDetach();
 		}
-		m_Layers.clear();
-		m_LayerInsertIndex = 0;
 	}
 
 	void LayerStack::PushLayer(Layer* layer)

@@ -7,22 +7,22 @@ namespace Ramensoup
 	class VertexBuffer
 	{
 	public:
-		VertexBuffer() = default;
+		[[nodiscard]] VertexBuffer() = default;
 		virtual ~VertexBuffer() {}
 
-		VertexBuffer(const VertexBuffer&) = default;
-		VertexBuffer(VertexBuffer&&) = default;
-		VertexBuffer& operator=(const VertexBuffer&) = default;
-		VertexBuffer& operator=(VertexBuffer&&) = default;
+		[[nodiscard]] VertexBuffer(const VertexBuffer&) = delete;
+		[[nodiscard]] VertexBuffer(VertexBuffer&&) = delete;
+		[[nodiscard]] VertexBuffer& operator=(const VertexBuffer&) = delete;
+		[[nodiscard]] VertexBuffer& operator=(VertexBuffer&&) = delete;
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
 
 		virtual void SetData(const void* data, uint32_t size) = 0;
 		virtual void SetLayout(const BufferLayout& layout) = 0;
-		virtual const BufferLayout& GetLayout() const = 0;
+		[[nodiscard]] virtual const BufferLayout& GetLayout() const = 0;
 
-		static const std::shared_ptr<VertexBuffer> Create(const void* data, size_t size);
+		[[nodiscard]] static const std::shared_ptr<VertexBuffer> Create(const void* data, size_t size);
 		//static const std::shared_ptr<VertexBuffer> Create(uint32_t size);
 	};
 

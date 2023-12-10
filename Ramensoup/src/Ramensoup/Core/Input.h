@@ -11,9 +11,9 @@ namespace Ramensoup
 	{
 	public:
 		static void SetWindow(Window* window);
-		static bool IsKeyPressed(int keycode);
-		static bool IsMouseButtonPressed(int button);
-		static glm::vec2 GetMousePos();
+		[[nodiscard]] static bool IsKeyPressed(int keycode);
+		[[nodiscard]] static bool IsMouseButtonPressed(int button);
+		[[nodiscard]] static glm::vec2 GetMousePos();
 
 		Input() = delete;
 	};

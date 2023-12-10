@@ -13,7 +13,7 @@ namespace Ramensoup
 	{
 	protected:
 		//TODO : Can be created twice..
-		Application(const zstring_view& name =  "New Application" );
+		[[nodiscard]] Application(const zstring_view& name =  "New Application" );
 	public:
 		virtual ~Application() = default;
 
@@ -36,9 +36,9 @@ namespace Ramensoup
 		void Run();
 		void Close();
 
-		inline ImGuiLayer& GetImGuiLayer() const { return *m_ImGuiLayer; }
+		[[nodiscard]] inline ImGuiLayer& GetImGuiLayer() const { return *m_ImGuiLayer; }
 	public:
-		inline static Application& Get() { return *s_Instance;  }
+		[[nodiscard]] inline static Application& Get() { return *s_Instance;  }
 
 	private:
 		static Application* s_Instance;

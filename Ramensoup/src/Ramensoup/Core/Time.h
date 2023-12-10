@@ -9,7 +9,7 @@ namespace Ramensoup
 	public:
 		static void Tick();
 
-		static float GetDeltaTime();
+		[[nodiscard]] static float GetDeltaTime();
 
 		Time() = delete; 
 	private:

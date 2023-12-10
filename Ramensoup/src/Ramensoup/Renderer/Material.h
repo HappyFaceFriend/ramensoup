@@ -9,7 +9,7 @@ namespace Ramensoup
 	class Material
 	{
 	public:
-		Material(const zstring_view& name, const std::shared_ptr<Shader>& shader);
+		[[nodiscard]] Material(const zstring_view& name, const std::shared_ptr<Shader>& shader);
 
 		inline std::shared_ptr<Shader> GetShader() const { return m_Shader; }
 	private:

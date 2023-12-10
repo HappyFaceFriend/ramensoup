@@ -7,7 +7,7 @@ namespace Ramensoup
 	public:
 		virtual ~RenderContext() = default;
 
-		RenderContext() = default;
+		[[nodiscard]] RenderContext() = default;
 		RenderContext(const RenderContext&) = delete;
 		RenderContext(RenderContext&&) = delete;
 		RenderContext& operator=(const RenderContext&) = delete;

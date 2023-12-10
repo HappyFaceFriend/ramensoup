@@ -43,7 +43,7 @@ namespace Ramensoup
 		}
 		bool IsInCategory(EventCategory category) const { return static_cast<int>(m_CategoryFlags) & static_cast<int>(category); }
 	protected:
-		Event(EventType type, EventCategory category)
+		[[nodiscard]] constexpr Event(EventType type, EventCategory category)
 		:m_Type(type), m_CategoryFlags(category)
 		{
 		}
@@ -65,9 +65,9 @@ namespace Ramensoup
 	protected:
 		EventBase() : Event(type, categoryFlags) {  }
 	public:
-		constexpr static EventType GetStaticType() { return type; }
-		constexpr EventType GetType() const  { return type; }
-		constexpr bool IsInCategory(EventCategory category) const  { return (int)categoryFlags & (int)category; }
-		constexpr EventCategory GetCategory() const  { return categoryFlags; }
+		constexpr [[nodiscard]] static EventType GetStaticType() { return type; }
+		constexpr [[nodiscard]] EventType GetType() const  { return type; }
+		constexpr [[nodiscard]] bool IsInCategory(EventCategory category) const  { return (int)categoryFlags & (int)category; }
+		constexpr [[nodiscard]] EventCategory GetCategory() const  { return categoryFlags; }
 	};
 }
