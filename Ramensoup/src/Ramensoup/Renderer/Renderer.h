@@ -13,6 +13,15 @@ namespace Ramensoup
 		{
 			None = 0, OpenGL = 1
 		};
+		//TODO : Debug & Release only
+		struct Statistics
+		{
+			uint32_t DrawCallCount = 0;
+			size_t TotalIndexCount = 0;
+		};
+
+	public:
+		Renderer() = delete;
 
 	public:
 		static void Init(API api);
@@ -39,25 +48,16 @@ namespace Ramensoup
 		}
 		inline static API GetAPI() { return s_API; }
 
-		//TODO : Debug & Release only
-		struct Statistics
-		{
-			uint32_t DrawCallCount = 0;
-			size_t TotalIndexCount = 0;
-		};
 		inline static const Statistics& GetStatistics() { return s_Statistics; }
 
-		Renderer() = delete;
 	private:
-
 		static void ResetStatistics();
+
 	private:
 		struct SceneContext
 		{
 			glm::mat4 ViewProjectionMatrix;
-		};
-		static SceneContext s_SceneContext;
-
+		} s_SceneContext;
 
 		static Statistics s_Statistics;
 

@@ -1,9 +1,9 @@
 #pragma once
 
-#include <glm/glm.hpp>
-
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
+
+#include <glm/glm.hpp>
 
 namespace Ramensoup
 {
@@ -21,7 +21,6 @@ namespace Ramensoup
 		//TODO : default constructor
 
 	public:
-
 		[[nodiscard]] inline const std::vector<Vertex>& GetVerticies() const { return m_Verticies; }
 		[[nodiscard]] inline const std::vector<uint32_t>& GetIndicies() const { return m_Indicies; }
 
@@ -34,6 +33,5 @@ namespace Ramensoup
 
 		std::shared_ptr<VertexBuffer> m_VertexBuffer;
 		std::shared_ptr<IndexBuffer> m_IndexBuffer;
-
 	};
 }

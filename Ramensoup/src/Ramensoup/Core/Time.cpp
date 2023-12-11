@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Time.h"
 
-
 namespace Ramensoup
 {
 	std::chrono::time_point<std::chrono::high_resolution_clock> Time::s_LastTime = std::chrono::high_resolution_clock::now();

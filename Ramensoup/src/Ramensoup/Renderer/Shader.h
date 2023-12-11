@@ -7,9 +7,9 @@ namespace Ramensoup
 	class Shader
 	{
 	public:
+		[[nodiscard]] Shader() = default;
 		virtual ~Shader() = default;
 
-		[[nodiscard]] Shader() = default;
 		Shader(const Shader&) = delete;
 		Shader(Shader&&) = delete;
 		Shader& operator=(const Shader&) = delete;
@@ -17,7 +17,6 @@ namespace Ramensoup
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
-
 
 		[[nodiscard]] virtual const std::string& GetName() const = 0;
 
@@ -33,7 +32,5 @@ namespace Ramensoup
 		virtual void SetUniformFloat1(const std::string& name, float value) = 0;
 		virtual void SetUniformInt(const std::string& name, int value) = 0;
 		virtual void SetUniformIntArray(const std::string& name, int* values, int count) = 0;
-
-	private:
 	};
 }

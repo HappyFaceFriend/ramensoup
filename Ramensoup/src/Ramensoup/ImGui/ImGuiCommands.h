@@ -8,6 +8,9 @@ namespace Ramensoup
 	class ImGuiCommands
 	{
 	public:
+		ImGuiCommands() = delete;
+
+	public:
 		static void Init(Window* window);
 		static void Shutdown();
 		static void EnableDockspace();
@@ -15,6 +18,5 @@ namespace Ramensoup
 		static void Begin();
 		static void End();
 
-		ImGuiCommands() = delete;
 	};
 }

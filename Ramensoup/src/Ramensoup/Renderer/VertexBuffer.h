@@ -96,6 +96,7 @@ namespace Ramensoup
 		{
 			CalculateOffsetsAndStride();
 		}
+
 		inline const std::vector<BufferElement>& GetElements() const { return m_Elements; }
 		inline uint32_t GetStride() const { return m_Stride; }
 
@@ -105,6 +106,9 @@ namespace Ramensoup
 		std::vector<BufferElement>::const_iterator end() const { return m_Elements.end(); }
 
 	private:
+		std::vector<BufferElement> m_Elements;
+		uint32_t m_Stride = 0;
+
 		void CalculateOffsetsAndStride()
 		{
 			uint32_t offset = 0;
@@ -115,8 +119,5 @@ namespace Ramensoup
 			}
 			m_Stride = offset;
 		}
-
-		std::vector<BufferElement> m_Elements;
-		uint32_t m_Stride = 0;
 	};
 }

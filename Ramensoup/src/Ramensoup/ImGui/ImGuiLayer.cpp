@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "ImGuiLayer.h"
+
 #include "ImGuiCommands.h"
 
 #pragma warning(push)
@@ -31,8 +32,4 @@ namespace Ramensoup
 		}
 		return handled;
 	}
-
-
-
-
 }

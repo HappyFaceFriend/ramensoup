@@ -1,8 +1,5 @@
 #pragma once
 
-
-#include <optional>
-
 namespace Ramensoup
 {
 	enum class EventType
@@ -42,6 +39,7 @@ namespace Ramensoup
 			return false;
 		}
 		bool IsInCategory(EventCategory category) const { return static_cast<int>(m_CategoryFlags) & static_cast<int>(category); }
+
 	protected:
 		[[nodiscard]] constexpr Event(EventType type, EventCategory category)
 		:m_Type(type), m_CategoryFlags(category)
@@ -64,6 +62,7 @@ namespace Ramensoup
 	{
 	protected:
 		EventBase() : Event(type, categoryFlags) {  }
+
 	public:
 		constexpr [[nodiscard]] static EventType GetStaticType() { return type; }
 		constexpr [[nodiscard]] EventType GetType() const  { return type; }

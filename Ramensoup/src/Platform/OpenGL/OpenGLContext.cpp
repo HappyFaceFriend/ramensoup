@@ -1,6 +1,7 @@
 #include "pch.h"
-
 #include "OpenGLContext.h"
+
+#include <glad/glad.h>
 
 #ifdef RS_PLATFORM_WINDOWS
 	#pragma warning(push)
@@ -8,9 +9,6 @@
 	#include <GLFW/glfw3.h>
 	#pragma warning(pop)
 #endif 
-
-#include <glad/glad.h>
-
 
 namespace Ramensoup
 {

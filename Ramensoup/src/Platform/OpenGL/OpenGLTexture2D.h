@@ -1,9 +1,8 @@
 #pragma once
 
-#include <glad/glad.h>
-
 #include "Ramensoup/Renderer/Texture.h"
 
+#include <glad/glad.h>
 
 namespace Ramensoup
 {
@@ -20,25 +19,27 @@ namespace Ramensoup
 		OpenGLTexture2D& operator=(const OpenGLTexture2D&) = delete;
 		OpenGLTexture2D& operator=(OpenGLTexture2D&&) = delete;
 
-		[[nodiscard]] uint32_t GetWidth() const override { return m_Width; }
-		[[nodiscard]] uint32_t GetHeight() const override { return m_Height; }
-
 		[[nodiscard]] bool operator==(const Texture& other) const override
 		{
 			return m_RendererID == ((OpenGLTexture2D&)other).m_RendererID;
 		}
 
-		void SetData(const void* data, uint32_t size) override;
-
 		void Bind(uint32_t slot = 0) const override;
 
+		void SetData(const void* data, uint32_t size) override;
+
+		[[nodiscard]] uint32_t GetWidth() const override { return m_Width; }
+		[[nodiscard]] uint32_t GetHeight() const override { return m_Height; }
+
 		[[nodiscard]] inline uint32_t GetRendererID() const { return m_RendererID; }
-	private:
-		void SetFormat(ImageFormat format);
+
 	private:
 		const std::string m_Path;
 		uint32_t m_Width, m_Height;
 		uint32_t m_RendererID;
 		GLenum m_InternalFormat = 0, m_DataFormat = 0; //shader sample format
+
+	private:
+		void SetFormat(ImageFormat format);
 	};
 }

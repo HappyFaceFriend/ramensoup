@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "OpenGLShader.h"
 
-
 namespace Ramensoup
 {
 	static GLenum ShaderTypeFromString(const std::string_view& type)

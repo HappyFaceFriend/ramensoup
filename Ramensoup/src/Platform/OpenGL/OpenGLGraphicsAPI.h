@@ -1,7 +1,8 @@
 #pragma once
 
-#include "Ramensoup/Renderer/GraphicsAPI.h"
 #include "OpenGLVertexArray.h"
+
+#include "Ramensoup/Renderer/GraphicsAPI.h"
 
 namespace Ramensoup
 {
@@ -9,6 +10,7 @@ namespace Ramensoup
 	{
 	public:
 		[[nodiscard]] OpenGLGraphicsAPI() = default;
+
 	protected:
 		void Init() override;
 
@@ -18,10 +20,12 @@ namespace Ramensoup
 
 		void DrawIndexed(const std::shared_ptr<VertexBuffer>& vertexBuffer, const std::shared_ptr<IndexBuffer>& indexBuffer, size_t indexCount = 0) override;
 		void DrawIndexed(const std::shared_ptr<OpenGLVertexArray>& vertexArray, size_t indexCount = 0);
-	private:
-		std::shared_ptr<OpenGLVertexArray> AllocateVertexArray(const std::shared_ptr<VertexBuffer>& vertexBuffer, const std::shared_ptr<IndexBuffer>& indexBuffer);
+	
 	private:
 		//TOOD : Need some kind of mark&sweep for freeing all useless vertexArrays
 		std::unordered_map<VertexBuffer*, std::shared_ptr<OpenGLVertexArray>> m_VertexArrayMap;
+
+	private:
+		std::shared_ptr<OpenGLVertexArray> AllocateVertexArray(const std::shared_ptr<VertexBuffer>& vertexBuffer, const std::shared_ptr<IndexBuffer>& indexBuffer);
 	};
 }

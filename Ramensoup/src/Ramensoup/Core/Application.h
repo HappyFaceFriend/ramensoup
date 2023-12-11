@@ -3,6 +3,7 @@
 #include "Window.h"
 #include "EventQueue.h"
 #include "LayerStack.h"
+
 #include "Ramensoup/ImGui/ImGuiLayer.h"
 #include "Ramensoup/Debug/ProfileLayer.h"
 
@@ -14,6 +15,7 @@ namespace Ramensoup
 	protected:
 		//TODO : Can be created twice..
 		[[nodiscard]] Application(const zstring_view& name =  "New Application" );
+
 	public:
 		virtual ~Application() = default;
 
@@ -37,7 +39,7 @@ namespace Ramensoup
 		void Close();
 
 		[[nodiscard]] inline ImGuiLayer& GetImGuiLayer() const { return *m_ImGuiLayer; }
-	public:
+
 		[[nodiscard]] inline static Application& Get() { return *s_Instance;  }
 
 	private:
@@ -53,8 +55,6 @@ namespace Ramensoup
 		//TODO : Only in debug mabye
 		std::unique_ptr<ImGuiLayer> m_ImGuiLayer;
 		std::unique_ptr<ProfileLayer> m_ProfileLayer;
-
-		
 	};
 
 	//to be defined in client

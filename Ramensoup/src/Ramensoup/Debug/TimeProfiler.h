@@ -16,13 +16,6 @@ namespace Ramensoup
 			TimePoint End;
 			double Miliseconds= 0;
 		};
-	public:
-		[[nodiscard]] inline static TimeProfiler& Get() { return *s_Instance; }
-		static void Begin(const std::string& key);
-		static void End(const std::string& key);
-	public:
-		inline const Item& GetProfileItem(const std::string& key) const { return m_ProfileItems.at(key); }
-		inline const std::unordered_set<std::string>& GetProfileKeys() const { return m_Keys;  }
 
 	private:
 		TimeProfiler() = default;
@@ -32,8 +25,19 @@ namespace Ramensoup
 		TimeProfiler(TimeProfiler&&) = delete;
 		TimeProfiler& operator=(const TimeProfiler&) = delete;
 		TimeProfiler& operator=(TimeProfiler&&) = delete;
+
+	public:
+		static void Begin(const std::string& key);
+		static void End(const std::string& key);
+
+		[[nodiscard]] inline static TimeProfiler& Get() { return *s_Instance; }
+
+		inline const Item& GetProfileItem(const std::string& key) const { return m_ProfileItems.at(key); }
+		inline const std::unordered_set<std::string>& GetProfileKeys() const { return m_Keys;  }
+
 	private:
 		static TimeProfiler *s_Instance;
+
 	private:
 		std::unordered_map<std::string, Item> m_ProfileItems;
 		std::unordered_set<std::string> m_Keys;

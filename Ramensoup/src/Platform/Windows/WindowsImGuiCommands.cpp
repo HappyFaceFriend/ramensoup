@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Ramensoup/ImGui/ImGuiCommands.h"
+
 #include "WindowsWindow.h"
 
 //Build platform implementations of ImGui
@@ -8,7 +9,6 @@
 #define IMGUI_IMPL_OPENGL_LOADER_GLAD
 #include <backends/imgui_impl_opengl3.cpp>
 #include <backends/imgui_impl_glfw.cpp>
-
 #pragma warning(pop)
 
 // from example_glfw_opengl3/main.cpp

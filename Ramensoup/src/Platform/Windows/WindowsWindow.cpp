@@ -1,13 +1,14 @@
 #include "pch.h"
 #include "WindowsWindow.h"
 
+#include "Platform/OpenGL/OpenGLContext.h"
+
 #include "Ramensoup/Events/WindowEvents.h"
 #include "Ramensoup/Events/Event.h"
 #include "Ramensoup/Events/KeyEvents.h"
 #include "Ramensoup/Events/MouseEvents.h"
 #include "Ramensoup/Core/Application.h"
 
-#include "Platform/OpenGL/OpenGLContext.h"
 
 
 namespace Ramensoup

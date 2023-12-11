@@ -9,11 +9,11 @@ namespace Ramensoup
 	class MeshLoader
 	{
 	public:
-		[[nodiscard]] static std::vector<std::shared_ptr<Mesh>> LoadOBJ(const std::string& filePath);
+		MeshLoader() = delete;
 
-	//private:
+	public:
+		[[nodiscard]] static std::vector<std::shared_ptr<Mesh>> LoadOBJ(const std::string& filePath);
 		[[nodiscard]] static std::shared_ptr<Mesh> LoadSingleMesh(const aiMesh* meshData);
 
-		MeshLoader() = delete;
 	};
 }

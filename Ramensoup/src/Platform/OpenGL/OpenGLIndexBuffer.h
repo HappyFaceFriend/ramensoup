@@ -17,7 +17,9 @@ namespace Ramensoup
 
 		void Bind() const override;
 		void Unbind() const override;
+
 		[[nodiscard]] size_t GetCount() const override { return m_Count; }
+
 	private:
 		uint32_t m_RendererID;
 		size_t m_Count;

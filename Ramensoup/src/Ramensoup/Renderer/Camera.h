@@ -24,7 +24,6 @@ namespace Ramensoup
 		glm::mat4 m_ProjectionMatrix{ 1.0f };
 		//glm::mat4 m_Transform;
 		glm::mat4 m_ViewMatrix{ 1.0f };
-		
 	};
 
 	//TODO : Change this to just Rect

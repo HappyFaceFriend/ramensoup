@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "TimeProfiler.h"
 
-
 namespace Ramensoup
 {
 	TimeProfiler* TimeProfiler::s_Instance = new TimeProfiler();

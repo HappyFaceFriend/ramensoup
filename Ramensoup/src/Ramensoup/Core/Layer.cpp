@@ -6,5 +6,4 @@ namespace Ramensoup
 	Layer::Layer(const zstring_view& name)
 		: m_DebugName(name)
 	{}
-
 }

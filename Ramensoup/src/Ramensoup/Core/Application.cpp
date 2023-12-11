@@ -1,16 +1,13 @@
 #include "pch.h"
-
 #include "Application.h"
 
 #include "EventQueue.h"
+#include "Input.h"
+#include "Time.h"
+
 #include "Ramensoup/Events/WindowEvents.h"
-
 #include "Ramensoup/ImGui/ImGuiCommands.h"
-
 #include "Ramensoup/Renderer/Renderer.h"
-#include "Ramensoup/Core/Input.h"
-
-#include "Ramensoup/Core/Time.h"
 
 namespace Ramensoup
 {

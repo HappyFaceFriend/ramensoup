@@ -3,8 +3,6 @@
 #include "Ramensoup/Events/Event.h"
 #include "Ramensoup/Core/LayerStack.h"
 
-#include <any>
-
 namespace Ramensoup
 {
 	/*
@@ -14,6 +12,7 @@ namespace Ramensoup
 	class EventQueue //TODO : Can be extended to template to store multiple types
 	{
 		using byte = uint8_t;
+
 	public:
 		[[nodiscard]] EventQueue();
 
@@ -22,10 +21,6 @@ namespace Ramensoup
 		EventQueue(EventQueue&&) = delete;
 		EventQueue& operator=(const EventQueue&) = delete;
 		EventQueue& operator=(EventQueue&&) = delete;
-
-		[[nodiscard]] inline bool IsEmpty() const { return m_FrontPtr >= m_RearPtr; }
-		Event& Pop();
-		void Clear();
 
 		template <typename T>
 		void Push(const T& e)
@@ -41,18 +36,25 @@ namespace Ramensoup
 			memcpy(m_RearPtr, &e, sizeof(T));
 			m_RearPtr = m_RearPtr + PaddedSizeof<T>();
 		}
-	private:
 
+		Event& Pop();
+		void Clear();
+
+		[[nodiscard]] inline bool IsEmpty() const { return m_FrontPtr >= m_RearPtr; }
+
+	private:
+		static constexpr uint32_t MAX_QUEUE_SIZE_BYTES = 1000;
+
+	private:
+		std::unique_ptr<byte[]> m_BufferBase;
+		byte* m_FrontPtr;
+		byte* m_RearPtr;
+
+	private:
 		template<typename T>
 		constexpr static uint32_t PaddedSizeof()
 		{
 			return (sizeof(T) + sizeof(std::max_align_t) - 1) % sizeof(std::max_align_t) * sizeof(std::max_align_t);
 		}
-	private:
-		static constexpr uint32_t MAX_QUEUE_SIZE_BYTES = 1000;
-	private:
-		std::unique_ptr<byte[]> m_BufferBase;
-		byte* m_FrontPtr;
-		byte* m_RearPtr;
 	};
 }

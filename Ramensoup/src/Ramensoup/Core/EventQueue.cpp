@@ -5,11 +5,6 @@
 #include "Ramensoup/Events/MouseEvents.h"
 #include "Ramensoup/Events/WindowEvents.h"
 
-#define DISPATCH(EventT)	case EventType::##EventT: \
-								HandleEvent<##EventT##Event>((##EventT##Event*)ptr, layerStack); \
-								ptr = (char*)ptr + PaddedSizeof<##EventT##Event>(); \
-								break
-
 namespace Ramensoup
 {
 

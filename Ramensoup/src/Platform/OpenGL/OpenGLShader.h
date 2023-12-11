@@ -34,15 +34,15 @@ namespace Ramensoup
 		void SetUniformIntArray(const std::string& name, int* values, int count) override;
 
 	private:
-		GLint GetUniformLocation(const std::string& name);
-		std::string ReadFile(const zstring_view& filePath);
-		std::unordered_map<GLenum, std::string> PreProcess(const std::string& source);
-		void Compile(const std::unordered_map<GLenum, std::string>& shaderSources);
-
-	private:
 		uint32_t m_RendererID;
 		std::string m_Name;
 
 		std::unordered_map<std::string, GLint> m_UniformLocations;
+
+	private:
+		GLint GetUniformLocation(const std::string& name);
+		std::string ReadFile(const zstring_view& filePath);
+		std::unordered_map<GLenum, std::string> PreProcess(const std::string& source);
+		void Compile(const std::unordered_map<GLenum, std::string>& shaderSources);
 	};
 }

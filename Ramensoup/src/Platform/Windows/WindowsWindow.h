@@ -1,11 +1,11 @@
 #pragma once
 
+#include "Ramensoup/Core/Window.h"
+
 #pragma warning(push)
 #pragma warning(disable:4819)
 #include <GLFW/glfw3.h>
 #pragma warning(pop)
-
-#include "Ramensoup/Core/Window.h"
 
 namespace Ramensoup
 {
@@ -22,20 +22,12 @@ namespace Ramensoup
 
 		void OnUpdate() override;
 
-		[[nodiscard]] uint32_t GetWidth() const override { return m_Data.Width; }
-		[[nodiscard]] uint32_t GetHeight() const override { return m_Data.Height; }
-
 		void SetVSync(bool enabled) override;
 		[[nodiscard]] bool IsVSync() const override { return m_Data.VSyncEnabled; }
 
+		[[nodiscard]] uint32_t GetWidth() const override { return m_Data.Width; }
+		[[nodiscard]] uint32_t GetHeight() const override { return m_Data.Height; }
 		[[nodiscard]] inline GLFWwindow* GetWindowHandle() const{ return m_WindowHandle; }
-
-	protected:
-		virtual void SetEventCallback(const EventCallbackFunc& callback) override;
-	private:
-		void InitEventCallbacks();
-		void Shutdown();
-
 
 	private:
 		GLFWwindow* m_WindowHandle;
@@ -47,5 +39,10 @@ namespace Ramensoup
 			bool VSyncEnabled;
 			EventCallbackFunc EventCallback;
 		} m_Data;
+
+	private:
+		void InitEventCallbacks();
+		void Shutdown();
+		void SetEventCallback(const EventCallbackFunc& callback) override;
 	};
 }

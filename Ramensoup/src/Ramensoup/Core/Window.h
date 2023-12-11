@@ -1,7 +1,8 @@
 #pragma once
-#include "Ramensoup/Events/Event.h"
-#include "Ramensoup/Core/EventQueue.h"
 
+#include "EventQueue.h"
+
+#include "Ramensoup/Events/Event.h"
 #include "Ramensoup/Renderer/RenderContext.h"
 
 namespace Ramensoup
@@ -16,10 +17,12 @@ namespace Ramensoup
 			:Title(title), Width(width), Height(height)
 		{}
 	};
+
 	class Window
 	{
 	public:
-		[[nodiscard]] static std::unique_ptr<Window> Create(const WindowProps& props = WindowProps());
+		using EventCallbackFunc = std::function<void(Event&)>;
+
 	public:
 		[[nodiscard]] Window() = default;
 		virtual ~Window(){}
@@ -29,16 +32,18 @@ namespace Ramensoup
 		Window& operator=(const Window&) = delete;
 		Window& operator=(Window&&) = delete;
 
+	public:
+		[[nodiscard]] static std::unique_ptr<Window> Create(const WindowProps& props = WindowProps());
+
+	public:
 		virtual void OnUpdate()=0;
+		virtual void SetEventCallback(const EventCallbackFunc& callback) = 0;
 
 		virtual void SetVSync(bool enable)=0;
 		[[nodiscard]] virtual bool IsVSync() const=0;
 
 		[[nodiscard]] virtual uint32_t GetWidth() const=0;
 		[[nodiscard]] virtual uint32_t GetHeight() const=0;
-
-		using EventCallbackFunc = std::function<void(Event&)>;
-		virtual void SetEventCallback(const EventCallbackFunc& callback) = 0;
 
 	protected:
 		std::unique_ptr<RenderContext> m_RenderContext;

@@ -2,6 +2,7 @@
 #include "VertexBuffer.h"
 
 #include "Renderer.h"
+
 #include "Platform/OpenGL/OpenGLVertexBuffer.h"
 
 namespace Ramensoup
