@@ -57,7 +57,7 @@ namespace Ramensoup
 		struct SceneContext
 		{
 			glm::mat4 ViewProjectionMatrix;
-		} s_SceneContext;
+		} static s_SceneContext;
 
 		static Statistics s_Statistics;
 
