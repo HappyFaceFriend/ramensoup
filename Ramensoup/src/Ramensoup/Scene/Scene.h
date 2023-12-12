@@ -5,6 +5,7 @@
 namespace Ramensoup
 {
 	class Entity;
+	class SceneHierarchyPanel;
 
 	class Scene
 	{
@@ -18,5 +19,6 @@ namespace Ramensoup
 		entt::registry m_Registry;
 
 		friend Entity;
+		friend SceneHierarchyPanel;
 	};
 }

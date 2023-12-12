@@ -7,7 +7,8 @@
 namespace Ramensoup
 {
 	class Scene;
-
+	
+	//Entity is just a wrapper with helper functions of entt::entity (an ID)
 	class Entity
 	{
 	public:

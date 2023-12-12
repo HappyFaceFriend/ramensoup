@@ -14,6 +14,7 @@
     </ClInclude>
     <ClInclude Include="src\EditorApp.h" />
     <ClInclude Include="src\EditorLayer.h" />
+    <ClInclude Include="src\Panels\SceneHierarchyPanel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Editor\OrthographicCameraController.cpp">
@@ -24,5 +25,6 @@
     </ClCompile>
     <ClCompile Include="src\EditorApp.cpp" />
     <ClCompile Include="src\EditorLayer.cpp" />
+    <ClCompile Include="src\Panels\SceneHierarchyPanel.cpp" />
   </ItemGroup>
 </Project>

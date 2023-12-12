@@ -11,7 +11,8 @@
 namespace Ramensoup
 {
 	EditorLayer::EditorLayer()
-		:m_CameraController(16.0f / 9.0f, glm::radians(60.0f), 0.1f, 100), m_ViewportSize(0, 0)
+		:m_CameraController(16.0f / 9.0f, glm::radians(60.0f), 0.1f, 100), m_ViewportSize(0, 0),
+		m_Scene(std::make_shared<Scene>()), m_SceneHierarchyPanel(m_Scene)
 	{
 		m_ModelTransform = glm::translate(glm::mat4(1.0f), glm::vec3(1, 0, 0));
 	}
@@ -34,7 +35,6 @@ namespace Ramensoup
 		m_Texture->Bind();
 		Renderer::SetClearColor(glm::vec4(0.2, 0.2, 0.2, 1));
 
-		m_Scene = std::make_shared<Scene>();
 		auto entity = m_Scene->CreateEntity("Entity1");
 		RS_LOG("Entity name: {0}", entity.GetComponent<TagComponent>().Tag);
 	}
@@ -80,6 +80,8 @@ namespace Ramensoup
 		ImGui::PopStyleVar();
 		ImGui::End();
 
+		//Scene Hierarchy Panel
+		m_SceneHierarchyPanel.OnImGuiRender();
 
 		//Test windows
 		ImGui::Begin("test window");
