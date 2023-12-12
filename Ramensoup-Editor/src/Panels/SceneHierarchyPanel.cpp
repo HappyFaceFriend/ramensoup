@@ -14,7 +14,6 @@ namespace Ramensoup
 	void SceneHierarchyPanel::OnImGuiRender()
 	{
 		ImGui::Begin("Hierarchy");
-		ImGui::Text("asdf");
 
 		m_CurrentScene->m_Registry.each([&](auto entityID)
 			{
