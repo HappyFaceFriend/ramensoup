@@ -31,6 +31,9 @@
     <Filter Include="src\Ramensoup\Renderer">
       <UniqueIdentifier>{DCD44C60-C8CE-75B2-B13B-0CC39DD4DB1E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Ramensoup\Scene">
+      <UniqueIdentifier>{139A124B-7FFB-EF58-0869-360B74C92618}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Ramensoup\Utils">
       <UniqueIdentifier>{562E404B-C28F-1D59-4BFD-630BB75D5418}</UniqueIdentifier>
     </Filter>
@@ -168,6 +171,15 @@
     <ClInclude Include="src\Ramensoup\Renderer\VertexBuffer.h">
       <Filter>src\Ramensoup\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ramensoup\Scene\Components.h">
+      <Filter>src\Ramensoup\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Scene\Entity.h">
+      <Filter>src\Ramensoup\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ramensoup\Scene\Scene.h">
+      <Filter>src\Ramensoup\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ramensoup\Utils\zstring_view.h">
       <Filter>src\Ramensoup\Utils</Filter>
     </ClInclude>
@@ -274,6 +286,12 @@
     </ClCompile>
     <ClCompile Include="src\Ramensoup\Renderer\VertexBuffer.cpp">
       <Filter>src\Ramensoup\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Scene\Entity.cpp">
+      <Filter>src\Ramensoup\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ramensoup\Scene\Scene.cpp">
+      <Filter>src\Ramensoup\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp">
       <Filter>src</Filter>

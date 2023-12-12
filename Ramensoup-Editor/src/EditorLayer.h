@@ -32,5 +32,7 @@ namespace Ramensoup
 		glm::vec2 m_ViewportSize{0, 0};
 
 		PerspectiveCameraController m_CameraController;
+
+		std::shared_ptr<Scene> m_Scene;
 	};
 }

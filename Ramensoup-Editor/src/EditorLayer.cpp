@@ -33,6 +33,10 @@ namespace Ramensoup
 		m_Texture = Texture2D::Create("assets/models/low-poly-garen_/textures/garen_tex.jpg");
 		m_Texture->Bind();
 		Renderer::SetClearColor(glm::vec4(0.2, 0.2, 0.2, 1));
+
+		m_Scene = std::make_shared<Scene>();
+		auto entity = m_Scene->CreateEntity("Entity1");
+		RS_LOG("Entity name: {0}", entity.GetComponent<TagComponent>().Tag);
 	}
 	void EditorLayer::OnDetach()
 	{

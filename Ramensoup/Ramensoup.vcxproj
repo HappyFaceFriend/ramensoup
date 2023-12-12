@@ -76,7 +76,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>GLM_FORCE_LEFT_HANDED;RS_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;RS_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLM_FORCE_LEFT_HANDED;NOMINMAX;RS_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;RS_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;vendor\stb_image;vendor\assimp\include;vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -97,7 +97,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>GLM_FORCE_LEFT_HANDED;RS_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;RS_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLM_FORCE_LEFT_HANDED;NOMINMAX;RS_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;RS_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;vendor\stb_image;vendor\assimp\include;vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -122,7 +122,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>GLM_FORCE_LEFT_HANDED;RS_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;RS_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLM_FORCE_LEFT_HANDED;NOMINMAX;RS_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;RS_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;vendor\stb_image;vendor\assimp\include;vendor\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -185,6 +185,9 @@
     <ClInclude Include="src\Ramensoup\Renderer\Shader.h" />
     <ClInclude Include="src\Ramensoup\Renderer\Texture.h" />
     <ClInclude Include="src\Ramensoup\Renderer\VertexBuffer.h" />
+    <ClInclude Include="src\Ramensoup\Scene\Components.h" />
+    <ClInclude Include="src\Ramensoup\Scene\Entity.h" />
+    <ClInclude Include="src\Ramensoup\Scene\Scene.h" />
     <ClInclude Include="src\Ramensoup\Utils\zstring_view.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="vendor\stb_image\stb_image.h" />
@@ -222,6 +225,8 @@
     <ClCompile Include="src\Ramensoup\Renderer\Shader.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\Texture.cpp" />
     <ClCompile Include="src\Ramensoup\Renderer\VertexBuffer.cpp" />
+    <ClCompile Include="src\Ramensoup\Scene\Entity.cpp" />
+    <ClCompile Include="src\Ramensoup\Scene\Scene.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

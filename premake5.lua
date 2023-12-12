@@ -38,7 +38,8 @@ project "Ramensoup"
 
 	defines
 	{
-		"GLM_FORCE_LEFT_HANDED"
+		"GLM_FORCE_LEFT_HANDED",
+		"NOMINMAX" --For entt (https://github.com/skypjack/entt/wiki/Frequently-Asked-Questions#warning-C4003-the-min-the-max-and-the-macro)
 	}
 	files
 	{
@@ -134,6 +135,7 @@ project "Ramensoup-Editor"
 		"%{IncludeDirs.ImGui}",
 		"%{IncludeDirs.glm}",
 		"%{IncludeDirs.assimp}",
+		"%{IncludeDirs.entt}",
 		"Ramensoup/vendor/spdlog/include",
 	}
 

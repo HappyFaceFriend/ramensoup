@@ -25,6 +25,10 @@
 #include "Ramensoup/Renderer/Texture.h"
 #include "Ramensoup/Renderer/FrameBuffer.h"
 
+#include "Ramensoup/Scene/Scene.h"
+#include "Ramensoup/Scene/Entity.h"
+#include "Ramensoup/Scene/Components.h"
+
 #include "Ramensoup/Renderer/Camera.h"
 
 #include "Ramensoup/ImGui/ImGuiCommands.h"
