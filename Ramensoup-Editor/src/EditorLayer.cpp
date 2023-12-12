@@ -35,8 +35,13 @@ namespace Ramensoup
 		m_Texture->Bind();
 		Renderer::SetClearColor(glm::vec4(0.2, 0.2, 0.2, 1));
 
-		auto entity = m_Scene->CreateEntity("Entity1");
-		RS_LOG("Entity name: {0}", entity.GetComponent<TagComponent>().Tag);
+		auto entity1 = m_Scene->CreateEntity("Entity1");
+		auto entity2c1 = m_Scene->CreateEntity("Entity2 - c1");
+		auto entity2p = m_Scene->CreateEntity("Entity2 - p");
+		auto entity2c2 = m_Scene->CreateEntity("Entity2 - c2");
+
+		entity2c1.SetParent(entity2p);
+		entity2c2.SetParent(entity2p);
 	}
 	void EditorLayer::OnDetach()
 	{

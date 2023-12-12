@@ -1,13 +1,11 @@
 #pragma once
 
-//#include "Scene.h"
+#include "Scene.h"
 
 #include <entt.hpp>
 
 namespace Ramensoup
 {
-	class Scene;
-	
 	//Entity is just a wrapper with helper functions of entt::entity (an ID)
 	class Entity
 	{
@@ -16,6 +14,13 @@ namespace Ramensoup
 		[[nodiscard]] Entity(entt::entity handle, Scene* scene) noexcept;
 
 		[[nodiscard]] operator bool() const noexcept { return m_ID != entt::null; }
+		[[nodiscard]] bool operator==(const Entity& other) const noexcept { return m_ID == other.m_ID; }
+		[[nodiscard]] bool operator!=(const Entity& other) const noexcept { return m_ID != other.m_ID; }
+
+		[[nodiscard]] bool IsNull() const noexcept { return m_ID == entt::null; }
+
+
+		void SetParent(const Entity& entity);
 
 		template<typename T>
 		[[nodiscard]] bool HasComponent() const
