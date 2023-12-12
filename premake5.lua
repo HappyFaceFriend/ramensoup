@@ -15,6 +15,7 @@ IncludeDirs["ImGui"] = "Ramensoup/vendor/ImGui"
 IncludeDirs["glm"] = "Ramensoup/vendor/glm"
 IncludeDirs["stb_image"] = "Ramensoup/vendor/stb_image"
 IncludeDirs["assimp"] = "Ramensoup/vendor/assimp/include"
+IncludeDirs["entt"] = "Ramensoup/vendor/entt/include"
 
 include "Ramensoup/vendor/assimp"
 
@@ -63,6 +64,7 @@ project "Ramensoup"
 		"%{IncludeDirs.glm}",
 		"%{IncludeDirs.stb_image}",
 		"%{IncludeDirs.assimp}",
+		"%{IncludeDirs.entt}",
 	}
 
 	links
