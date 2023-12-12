@@ -11,7 +11,7 @@ namespace Ramensoup
 		EditorApp();
 
 	private:
-		std::unique_ptr<EditorLayer> m_EditorLayer;
+		std::shared_ptr<EditorLayer> m_EditorLayer;
 
 	};
 }

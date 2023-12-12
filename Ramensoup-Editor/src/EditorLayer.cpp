@@ -43,7 +43,7 @@ namespace Ramensoup
 		entity2c1.SetParent(entity2p);
 		entity2c2.SetParent(entity2p);
 	}
-	void EditorLayer::OnDetach()
+	void EditorLayer::OnDetach() noexcept
 	{
 		RS_LOG("OnDetach");
 	}

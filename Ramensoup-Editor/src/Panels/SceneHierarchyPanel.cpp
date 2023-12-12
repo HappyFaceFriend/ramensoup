@@ -32,6 +32,7 @@ namespace Ramensoup
 
 		ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow;
 		flags |= transformComponent.GetChildren().empty() ? ImGuiTreeNodeFlags_Leaf : 0;
+		//TODO : Need to change selected entity with arrow keys
 		flags |= (m_SelectedEntity == entity) ? ImGuiTreeNodeFlags_Selected : 0;
 
 		bool opened = ImGui::TreeNodeEx(tag.c_str(), flags);

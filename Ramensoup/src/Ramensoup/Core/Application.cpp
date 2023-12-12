@@ -23,23 +23,22 @@ namespace Ramensoup
 		Input::SetWindow(m_Window.get());
 
 		//TODO : Only in debug mabye
-		m_ImGuiLayer = std::make_unique<ImGuiLayer>(m_Window.get());
-		m_LayerStack.PushOverlay(m_ImGuiLayer.get());
+		m_ImGuiLayer = std::make_shared<ImGuiLayer>(m_Window.get());
+		m_LayerStack.PushOverlay(m_ImGuiLayer);
 
-		m_ProfileLayer = std::make_unique<ProfileLayer>();
-		m_LayerStack.PushOverlay(m_ProfileLayer.get());
+		m_ProfileLayer = std::make_shared<ProfileLayer>();
+		m_LayerStack.PushOverlay(m_ProfileLayer);
 
 		Renderer::Init(Renderer::API::OpenGL);
 		Renderer::SetClearColor(glm::vec4(0.8f, 0.5f, 0.1f, 1.0f));
 
 		s_Instance = this;
 	}
-
-	void Application::PushLayer(Layer* layer)
+	void Application::PushLayer(const std::shared_ptr<Layer>& layer)
 	{
 		m_LayerStack.PushLayer(layer);
 	}
-	void Application::PushOverlay(Layer* overlay)
+	void Application::PushOverlay(const std::shared_ptr<Layer>& overlay)
 	{
 		m_LayerStack.PushOverlay(overlay);
 	}

@@ -8,9 +8,9 @@ namespace Ramensoup
 	{
 		RS_LOG("Hello Editor!");
 
-		m_EditorLayer = std::make_unique<EditorLayer>();
+		m_EditorLayer = std::make_shared<EditorLayer>();
 
-		PushLayer(m_EditorLayer.get());
+		PushLayer(m_EditorLayer);
 	}
 
 

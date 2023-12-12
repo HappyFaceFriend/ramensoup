@@ -8,7 +8,7 @@ namespace Ramensoup
 	{
 	public:
 		void OnAttach() override {}
-		void OnDetach() override {}
+		void OnDetach() noexcept override {}
 		void OnUpdate() override {}
 		void OnImGuiUpdate() override;
 	};

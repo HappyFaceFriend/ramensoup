@@ -19,7 +19,7 @@ namespace Ramensoup
 		Layer& operator=(Layer&&) = delete;
 
 		virtual void OnAttach() {}
-		virtual void OnDetach() {}
+		virtual void OnDetach() noexcept {}
 		virtual void OnUpdate() {}
 		virtual void OnImGuiUpdate() {}
 

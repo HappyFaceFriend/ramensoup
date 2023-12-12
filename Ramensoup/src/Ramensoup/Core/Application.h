@@ -18,7 +18,6 @@ namespace Ramensoup
 
 	public:
 		virtual ~Application() = default;
-
 		Application(const Application&) = delete;
 		Application(Application&&) = delete;
 		Application& operator=(const Application&) = delete;
@@ -32,8 +31,8 @@ namespace Ramensoup
 		bool OnWindowCloseEvent(const WindowCloseEvent& e);
 		bool OnWindowResizeEvent(const WindowResizeEvent& e);
 
-		void PushLayer(Layer* layer);
-		void PushOverlay(Layer* overlay);
+		void PushLayer(const std::shared_ptr<Layer>& layer);
+		void PushOverlay(const std::shared_ptr<Layer>& overlay);
 
 		void Run();
 		void Close();
@@ -53,8 +52,8 @@ namespace Ramensoup
 		std::unique_ptr<Window> m_Window;
 
 		//TODO : Only in debug mabye
-		std::unique_ptr<ImGuiLayer> m_ImGuiLayer;
-		std::unique_ptr<ProfileLayer> m_ProfileLayer;
+		std::shared_ptr<ImGuiLayer> m_ImGuiLayer;
+		std::shared_ptr<ProfileLayer> m_ProfileLayer;
 	};
 
 	//to be defined in client
