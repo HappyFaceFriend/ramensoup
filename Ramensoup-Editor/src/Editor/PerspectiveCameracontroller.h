@@ -10,7 +10,7 @@ namespace Ramensoup
 		PerspectiveCameraController(float aspectRatio, float yFov, float zNear, float zFar);
 
 		void OnUpdate();
-
+		void OnViewportResize(float width, float height);
 		inline const Camera& GetCamera() const { return m_Camera; }
 		inline const glm::vec3& GetPosition() { return m_Position; }
 	private:

@@ -47,4 +47,9 @@ namespace Ramensoup
 
 		m_Camera.SetView(glm::lookAt(m_Position, m_Position + m_Front, m_Up));
 	}
+	void PerspectiveCameraController::OnViewportResize(float width, float height)
+	{
+		m_AspectRatio = width / height;
+		m_Camera.SetPerspective(m_YFieldOfView, m_AspectRatio, m_Near, m_Far);
+	}
 }

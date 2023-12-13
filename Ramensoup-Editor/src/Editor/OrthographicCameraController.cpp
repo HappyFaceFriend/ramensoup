@@ -32,4 +32,11 @@ namespace Ramensoup
 		m_Camera.SetTransform(glm::translate(glm::mat4(1.0f), m_Position) * 
 			glm::rotate(glm::mat4(1.0f), glm::radians(m_Rotation), glm::vec3(0, 0, 1)));
 	}
+	void OrthographicCameraController::OnViewportResize(float width, float height)
+	{
+		m_AspectRatio = width / height;
+		m_Bounds.Left = -m_AspectRatio * m_YSize;
+		m_Bounds.Right = m_AspectRatio * m_YSize;
+		m_Camera.SetOrthographic(m_Bounds.Left, m_Bounds.Right, m_Bounds.Bottom, m_Bounds.Top);
+	}
 }

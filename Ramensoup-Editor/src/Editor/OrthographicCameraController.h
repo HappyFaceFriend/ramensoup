@@ -9,7 +9,8 @@ namespace Ramensoup
 	public:
 		OrthographicCameraController(float aspectRatio, float ySize);
 
-		void OnUpdate();
+		void OnUpdate(); 
+		void OnViewportResize(float width, float height);
 
 		inline const Camera& GetCamera() const { return m_Camera; }
 	private:

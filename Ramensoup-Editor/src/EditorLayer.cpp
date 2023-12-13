@@ -76,7 +76,7 @@ namespace Ramensoup
 		{
 			m_ViewportSize = { viewportPanelSize.x, viewportPanelSize.y };
 			m_FrameBuffer->Resize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
-			//m_CameraController.OnResize(m_ViewportSize.x, m_ViewportSize.y);
+			m_CameraController.OnViewportResize(m_ViewportSize.x, m_ViewportSize.y);
 		}
 
 		uint64_t textureID = m_FrameBuffer->GetColorAttachmentRendererID();
