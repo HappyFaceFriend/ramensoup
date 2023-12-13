@@ -40,10 +40,10 @@ namespace Ramensoup
 
 	struct TransformComponent
 	{
-		glm::mat4 Matrix{ 1.0f };
+		glm::vec3 Position{0.0f, 0.0f, 0.0f};
+		glm::vec3 Rotation{0.0f, 0.0f, 0.0f};
+		glm::vec3 Scale{0.0f, 0.0f, 0.0f};
 
 		TransformComponent() = default;
-		TransformComponent(const glm::mat4& matrix)
-			:Matrix(matrix) {}
 	};
 }

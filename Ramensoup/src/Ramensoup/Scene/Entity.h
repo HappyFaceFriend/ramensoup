@@ -45,10 +45,10 @@ namespace Ramensoup
 		}
 
 		template<typename T>
-		T& RemoveComponent()
+		void RemoveComponent()
 		{
 			RS_CORE_ASSERT(HasComponent<T>(), "Entity doesn't have component!");
-			return m_Scene->m_Registry.remove<T>(m_ID);
+			m_Scene->m_Registry.remove<T>(m_ID);
 		}
 
 	private:
