@@ -4,6 +4,7 @@
 
 #include "Editor/PerspectiveCameraController.h"
 #include "Panels/SceneHierarchyPanel.h"
+#include "Panels/InspectorPanel.h"
 
 namespace Ramensoup
 {
@@ -37,5 +38,6 @@ namespace Ramensoup
 		std::shared_ptr<Scene> m_Scene;
 
 		SceneHierarchyPanel m_SceneHierarchyPanel;
+		InspectorPanel m_InspectorPanel;
 	};
 }

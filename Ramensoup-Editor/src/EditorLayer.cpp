@@ -87,8 +87,13 @@ namespace Ramensoup
 		ImGui::PopStyleVar();
 		ImGui::End();
 
+		TimeProfiler::Begin("Editor GUI Render");
 		//Scene Hierarchy Panel
 		m_SceneHierarchyPanel.OnImGuiRender();
+		m_InspectorPanel.SetEntity(m_SceneHierarchyPanel.GetSelectedEntity());
+		m_InspectorPanel.OnImGuiRender();
+
+		TimeProfiler::End("Editor GUI Render");
 
 		//Test windows
 		ImGui::Begin("test window");

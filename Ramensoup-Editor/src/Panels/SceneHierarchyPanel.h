@@ -11,8 +11,8 @@ namespace Ramensoup
 		
 		void OnImGuiRender();
 
-		inline void SetScene(std::shared_ptr<Scene> scene) noexcept { m_CurrentScene = scene; }
-
+		void SetScene(std::shared_ptr<Scene> scene) noexcept { m_CurrentScene = scene; }
+		[[nodiscard]] const Entity& GetSelectedEntity() const noexcept { return m_SelectedEntity; }
 	private:
 		std::shared_ptr<Scene> m_CurrentScene;
 		Entity m_SelectedEntity{};

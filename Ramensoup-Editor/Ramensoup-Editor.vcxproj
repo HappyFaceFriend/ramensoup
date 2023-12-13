@@ -134,17 +134,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\GUI\EditorGUI.h" />
     <ClInclude Include="src\Editor\OrthographicCameraController.h" />
     <ClInclude Include="src\Editor\PerspectiveCameracontroller.h" />
     <ClInclude Include="src\EditorApp.h" />
     <ClInclude Include="src\EditorLayer.h" />
+    <ClInclude Include="src\Panels\InspectorPanel.h" />
     <ClInclude Include="src\Panels\SceneHierarchyPanel.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\GUI\EditorGUI.cpp" />
     <ClCompile Include="src\Editor\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Editor\PerspectiveCameraController.cpp" />
     <ClCompile Include="src\EditorApp.cpp" />
     <ClCompile Include="src\EditorLayer.cpp" />
+    <ClCompile Include="src\Panels\InspectorPanel.cpp" />
     <ClCompile Include="src\Panels\SceneHierarchyPanel.cpp" />
   </ItemGroup>
   <ItemGroup>

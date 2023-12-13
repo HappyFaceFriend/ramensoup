@@ -17,6 +17,7 @@ namespace Ramensoup
 		[[nodiscard]] bool operator==(const Entity& other) const noexcept { return m_ID == other.m_ID; }
 		[[nodiscard]] bool operator!=(const Entity& other) const noexcept { return m_ID != other.m_ID; }
 
+		//TODO : detaching from parent
 		void SetParent(Entity parentEntity);
 
 		[[nodiscard]] bool IsNull() const noexcept { return m_ID == entt::null; }

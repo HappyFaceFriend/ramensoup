@@ -17,9 +17,13 @@
     </ClInclude>
     <ClInclude Include="src\EditorApp.h" />
     <ClInclude Include="src\EditorLayer.h" />
+    <ClInclude Include="src\Panels\InspectorPanel.h">
+      <Filter>Panels</Filter>
+    </ClInclude>
     <ClInclude Include="src\Panels\SceneHierarchyPanel.h">
       <Filter>Panels</Filter>
     </ClInclude>
+    <ClInclude Include="src\GUI\EditorGUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Editor\OrthographicCameraController.cpp">
@@ -33,5 +37,7 @@
     <ClCompile Include="src\Panels\SceneHierarchyPanel.cpp">
       <Filter>Panels</Filter>
     </ClCompile>
+    <ClCompile Include="src\Panels\InspectorPanel.cpp" />
+    <ClCompile Include="src\GUI\EditorGUI.cpp" />
   </ItemGroup>
 </Project>

@@ -20,7 +20,9 @@ namespace Ramensoup
 				Entity entity{ entityID, m_CurrentScene.get() };
 				//TODO : Should maintain a vector of root entities, using something like SetDirty() to maintain order
 				if (entity.GetComponent<RelationshipComponent>().GetParent().IsNull())
+				{
 					RenderEntity(entity);
+				}
 			});
 
 		ImGui::End();
