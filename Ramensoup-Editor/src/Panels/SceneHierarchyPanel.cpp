@@ -18,8 +18,8 @@ namespace Ramensoup
 		m_CurrentScene->m_Registry.each([&](auto entityID)
 			{
 				Entity entity{ entityID, m_CurrentScene.get() };
-				//TODO : Should maintain a vector of root entities, using something like SetDirty()
-				if (entity.GetComponent<TransformComponent>().GetParent().IsNull())
+				//TODO : Should maintain a vector of root entities, using something like SetDirty() to maintain order
+				if (entity.GetComponent<RelationshipComponent>().GetParent().IsNull())
 					RenderEntity(entity);
 			});
 
@@ -27,11 +27,11 @@ namespace Ramensoup
 	}
 	void SceneHierarchyPanel::RenderEntity(const Entity& entity)
 	{
-		auto& transformComponent = entity.GetComponent<TransformComponent>();
+		auto& relationshipComponent = entity.GetComponent<RelationshipComponent>();
 		auto& tag = entity.GetComponent<TagComponent>().Tag;
 
 		ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow;
-		flags |= transformComponent.GetChildren().empty() ? ImGuiTreeNodeFlags_Leaf : 0;
+		flags |= relationshipComponent.GetFirstChild().IsNull() ? ImGuiTreeNodeFlags_Leaf : 0;
 		//TODO : Need to change selected entity with arrow keys
 		flags |= (m_SelectedEntity == entity) ? ImGuiTreeNodeFlags_Selected : 0;
 
@@ -42,8 +42,12 @@ namespace Ramensoup
 		}
 		if (opened)
 		{
-			for (auto& child : transformComponent.GetChildren())
-				RenderEntity(child);
+			auto current = relationshipComponent.GetFirstChild();
+			while(!current.IsNull())
+			{
+				RenderEntity(current);
+				current = current.GetComponent<RelationshipComponent>().GetNextSibling();
+			}
 			ImGui::TreePop();
 		}
 	}

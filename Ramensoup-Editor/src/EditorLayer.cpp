@@ -14,7 +14,7 @@ namespace Ramensoup
 		:m_CameraController(16.0f / 9.0f, glm::radians(60.0f), 0.1f, 100), m_ViewportSize(0, 0),
 		m_Scene(std::make_shared<Scene>()), m_SceneHierarchyPanel(m_Scene)
 	{
-		m_ModelTransform = glm::translate(glm::mat4(1.0f), glm::vec3(1, 0, 0));
+		m_ModelTransform = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
 	}
 	void EditorLayer::OnAttach()
 	{

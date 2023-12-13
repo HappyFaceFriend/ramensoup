@@ -17,10 +17,11 @@ namespace Ramensoup
 		[[nodiscard]] bool operator==(const Entity& other) const noexcept { return m_ID == other.m_ID; }
 		[[nodiscard]] bool operator!=(const Entity& other) const noexcept { return m_ID != other.m_ID; }
 
+		void SetParent(Entity parentEntity);
+
 		[[nodiscard]] bool IsNull() const noexcept { return m_ID == entt::null; }
 
-
-		void SetParent(const Entity& entity);
+		[[nodiscard]] entt::entity GetID() const noexcept { return m_ID; }
 
 		template<typename T>
 		[[nodiscard]] bool HasComponent() const

@@ -10,9 +10,22 @@ namespace Ramensoup
 	{
 	}
 
-	void Entity::SetParent(const Entity& parent)
+	void Entity::SetParent(Entity parentEntity)
 	{
-		parent.GetComponent<TransformComponent>().m_Children.push_back(*this);
-		GetComponent<TransformComponent>().m_Parent = parent;;
+		auto& relationship = GetComponent<RelationshipComponent>();
+		relationship.m_Parent = parentEntity;
+
+		auto& parentRelationship = parentEntity.GetComponent<RelationshipComponent>();
+		if (parentRelationship.m_LastChild)
+		{
+			parentRelationship.m_LastChild.GetComponent<RelationshipComponent>().m_NextSibling = *this;
+			relationship.m_PrevSibling = parentRelationship.m_LastChild;
+			parentRelationship.m_LastChild = *this;
+		}
+		else
+		{
+			parentRelationship.m_FirstChild = *this;
+			parentRelationship.m_LastChild = *this;
+		}
 	}
 }
