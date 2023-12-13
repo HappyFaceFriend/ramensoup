@@ -43,12 +43,12 @@ namespace Ramensoup
 				tag = std::string(tagBuffer);
 			}
 			DrawComponent<TransformComponent>("Transform", m_CurrentEntity, [](TransformComponent& component)
-			{
-				// TODO : Need compiletime string concat
-				EditorGUI::Vector3Field("Position", component.Position, "##Position");
-				EditorGUI::Vector3Field("Rotation", component.Rotation, "##Rotation");
-				EditorGUI::Vector3Field("Scale   ", component.Scale, "##Scale");
-			});
+				{
+					// TODO : Need compiletime string concat
+					EditorGUI::Vector3Field("Position", component.Position);
+					EditorGUI::Vector3Field("Rotation", component.Rotation);
+					EditorGUI::Vector3Field("Scale   ", component.Scale);
+				});
 		}
 		else
 		{
