@@ -39,9 +39,11 @@ namespace Ramensoup
 		auto entity2c1 = m_Scene->CreateEntity("Entity2 - c1");
 		auto entity2p = m_Scene->CreateEntity("Entity2 - p");
 		auto entity2c2 = m_Scene->CreateEntity("Entity2 - c2");
+		auto entity2c2c = m_Scene->CreateEntity("Entity2 - c2 - c");
 
 		entity2c1.SetParent(entity2p);
 		entity2c2.SetParent(entity2p);
+		entity2c2c.SetParent(entity2c2);
 	}
 	void EditorLayer::OnDetach() noexcept
 	{

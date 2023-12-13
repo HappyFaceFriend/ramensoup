@@ -23,11 +23,11 @@ namespace Ramensoup
 	struct RelationshipComponent
 	{
 	public:
-		const Entity& GetParent() const noexcept { return m_Parent; }
-		const Entity& GetFirstChild() const noexcept { return m_FirstChild; }
-		const Entity& GetLastChild() const noexcept { return m_LastChild; }
-		const Entity& GetPrevSibling() const noexcept { return m_PrevSibling; }
-		const Entity& GetNextSibling() const noexcept { return m_NextSibling; }
+		[[nodiscard]] const Entity& GetParent() const noexcept { return m_Parent; }
+		[[nodiscard]] const Entity& GetFirstChild() const noexcept { return m_FirstChild; }
+		[[nodiscard]] const Entity& GetLastChild() const noexcept { return m_LastChild; }
+		[[nodiscard]] const Entity& GetPrevSibling() const noexcept { return m_PrevSibling; }
+		[[nodiscard]] const Entity& GetNextSibling() const noexcept { return m_NextSibling; }
 	private:
 		Entity m_Parent;
 		Entity m_FirstChild;
