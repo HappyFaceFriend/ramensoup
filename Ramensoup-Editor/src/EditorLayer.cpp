@@ -50,11 +50,16 @@ namespace Ramensoup
 	{
 		m_CameraController.OnUpdate();
 
+
+
+		TimeProfiler::Begin("Transform updates");
+		m_Scene->UpdateHierarchyTransforms();
+		TimeProfiler::End("Transform updates");
+
 		TimeProfiler::Begin("Single Frame Render");
 		m_FrameBuffer->Bind();
 		Renderer::Clear();
 
-		m_Scene->UpdateHierarchyTransforms();
 		m_Scene->RenderMeshes(m_CameraController.GetCamera());
 
 		m_FrameBuffer->Unbind();
@@ -63,7 +68,6 @@ namespace Ramensoup
 	void EditorLayer::OnImGuiUpdate()
 	{
 		ImGuiCommands::EnableDockspace();
-
 		//Viewport
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0,0 });
 		ImGui::Begin("Viewport");

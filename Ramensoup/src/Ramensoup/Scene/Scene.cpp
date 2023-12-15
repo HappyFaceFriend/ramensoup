@@ -20,7 +20,9 @@ namespace Ramensoup
 
 	void Scene::UpdateHierarchyTransforms()
 	{
-		//https://skypjack.github.io/2019-08-20-ecs-baf-part-4-insights/
+		// https://skypjack.github.io/2019-08-20-ecs-baf-part-4-insights/
+		// TODO : Sort only the dirty transforms (mark dirty when parent is changed)
+		// TODO : This sorts lasty by address, so mabye mark the creation or hierarchy order
 
 		m_Registry.sort<RelationshipComponent>([&](const entt::entity lhs, const entt::entity rhs)
 			{
