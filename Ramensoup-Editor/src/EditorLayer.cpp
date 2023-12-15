@@ -14,7 +14,6 @@ namespace Ramensoup
 		:m_CameraController(16.0f / 9.0f, glm::radians(60.0f), 0.1f, 100), m_ViewportSize(0, 0),
 		m_Scene(std::make_shared<Scene>()), m_SceneHierarchyPanel(m_Scene)
 	{
-		m_ModelTransform = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
 	}
 	void EditorLayer::OnAttach()
 	{
@@ -57,7 +56,7 @@ namespace Ramensoup
 		Renderer::BeginScene(m_CameraController.GetCamera().GetProjectionMatrix(), m_CameraController.GetCamera().GetViewMatrix());
 
 		for (auto mesh : m_Meshes)
-			Renderer::Submit(mesh, m_Material, m_ModelTransform);
+			Renderer::Submit(mesh, m_Material, m_GarenEntity.GetComponent<TransformComponent>().GetMatrix());
 		Renderer::EndScene();
 		m_FrameBuffer->Unbind();
 		TimeProfiler::End("Single Frame Render");

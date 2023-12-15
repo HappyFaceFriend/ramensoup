@@ -46,7 +46,9 @@ namespace Ramensoup
 				{
 					// TODO : Need compiletime string concat
 					EditorGUI::Vector3Field("Position", component.Position);
-					EditorGUI::Vector3Field("Rotation", component.Rotation);
+					auto rotationInDegrees = glm::degrees(component.Rotation);
+					if (EditorGUI::Vector3Field("Rotation", rotationInDegrees))
+						component.Rotation = glm::radians(rotationInDegrees);
 					EditorGUI::Vector3Field("Scale   ", component.Scale);
 				});
 		}

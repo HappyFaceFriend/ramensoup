@@ -25,7 +25,6 @@ namespace Ramensoup
 
 		std::vector<std::shared_ptr<Mesh>> m_Meshes;
 		std::shared_ptr<Material> m_Material;
-		glm::mat4 m_ModelTransform = glm::mat4(1.0f);
 
 		std::shared_ptr<FrameBuffer> m_FrameBuffer;
 
