@@ -16,6 +16,7 @@ namespace Ramensoup
 
 		Entity CreateEntity(const zstring_view& name = "New Entity");
 
+		void UpdateHierarchyTransforms();
 		void RenderMeshes(const Camera& camera);
 	private:
 		entt::registry m_Registry;

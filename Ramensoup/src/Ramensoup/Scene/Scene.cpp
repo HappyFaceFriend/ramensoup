@@ -18,6 +18,28 @@ namespace Ramensoup
 	}
 
 
+	void Scene::UpdateHierarchyTransforms()
+	{
+		//https://skypjack.github.io/2019-08-20-ecs-baf-part-4-insights/
+
+		m_Registry.sort<RelationshipComponent>([&](const entt::entity lhs, const entt::entity rhs)
+			{
+				const auto& clhs = m_Registry.get<RelationshipComponent>(lhs);
+				const auto& crhs = m_Registry.get<RelationshipComponent>(rhs);
+				return crhs.GetParent().GetID() == lhs || clhs.GetNextSibling().GetID() == rhs
+					|| (!(clhs.GetParent().GetID() == rhs || crhs.GetNextSibling().GetID() == lhs)
+						&& (clhs.GetParent().GetID() < crhs.GetParent().GetID() 
+							|| (clhs.GetParent().GetID() == crhs.GetParent().GetID() && &clhs < &crhs)));
+			});
+
+		auto view = m_Registry.view<TransformComponent, RelationshipComponent>();
+		for (auto entity : view)
+		{
+			auto& [transform, relationship] = view.get<TransformComponent, RelationshipComponent>(entity);
+			if (relationship.GetParent())
+				transform.ParentModelMatrix = relationship.GetParent().GetComponent<TransformComponent>().GetMatrix();
+		}
+	}
 	void Scene::RenderMeshes(const Camera& camera)
 	{
 		Renderer::BeginScene(camera.GetProjectionMatrix(), camera.GetViewMatrix());
@@ -25,7 +47,7 @@ namespace Ramensoup
 		auto view = m_Registry.view<TransformComponent, MeshRendererComponent>();
 		for (auto entity : view)
 		{
-			auto [transform, meshRenderer] = view.get<TransformComponent, MeshRendererComponent>(entity);
+			auto& [transform, meshRenderer] = view.get<TransformComponent, MeshRendererComponent>(entity);
 			Renderer::Submit(meshRenderer.Mesh, meshRenderer.Material, transform.GetMatrix());
 		}
 		Renderer::EndScene();

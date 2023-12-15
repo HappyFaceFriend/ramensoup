@@ -54,6 +54,7 @@ namespace Ramensoup
 		m_FrameBuffer->Bind();
 		Renderer::Clear();
 
+		m_Scene->UpdateHierarchyTransforms();
 		m_Scene->RenderMeshes(m_CameraController.GetCamera());
 
 		m_FrameBuffer->Unbind();
