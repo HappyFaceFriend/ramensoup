@@ -7,6 +7,11 @@ namespace Ramensoup
 	class Shader
 	{
 	public:
+		enum class DataType : uint8_t
+		{
+			None = 0, Float, Float2, Float3, Float4, Mat3, Mat4, Int, Int2, Int3, Int4, Bool
+		};
+
 		[[nodiscard]] Shader() = default;
 		virtual ~Shader() = default;
 
@@ -15,14 +20,16 @@ namespace Ramensoup
 		Shader& operator=(const Shader&) = delete;
 		Shader& operator=(Shader&&) = delete;
 
+		[[nodiscard]] static const std::shared_ptr<Shader> Create(const zstring_view& filePath);
+
+		[[nodiscard]] static size_t GetDataTypeSize(DataType type);
+
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
 
 		[[nodiscard]] virtual const std::string& GetName() const = 0;
 
-		[[nodiscard]] static const std::shared_ptr<Shader> Create(const zstring_view& filePath);
-		[[nodiscard]] static const std::shared_ptr<Shader> Create(const std::string_view& name, const std::string_view& vertexSrc, const std::string_view& fragmentSrc);
-
+		
 		//virtual void UploadUniformBuffer
 		virtual void SetUniformMat4(const std::string& name, const glm::mat4& matrix) = 0;
 		virtual void SetUniformMat3(const std::string& name, const glm::mat3& matrix) = 0;

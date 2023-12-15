@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Shader.h"
+
 namespace Ramensoup
 {
 	class BufferLayout;
@@ -26,60 +28,37 @@ namespace Ramensoup
 		//static const std::shared_ptr<VertexBuffer> Create(uint32_t size);
 	};
 
-	enum class ShaderDataType : uint8_t
-	{
-		None = 0, Float, Float2, Float3, Float4, Mat3, Mat4, Int, Int2, Int3, Int4, Bool
-	};
-
 
 	struct BufferElement
 	{
-		ShaderDataType Type;
+		Shader::DataType Type;
 		uint64_t Offset;
 		uint32_t Size;
 		bool Normalized;
 
 		BufferElement() = default;
-		BufferElement(ShaderDataType type,bool normalized = false)
+		BufferElement(Shader::DataType type,bool normalized = false)
 			: Type(type), Size(0), Offset(0), Normalized(normalized)
 		{
-			Size = ShaderDataTypeSize(type);
+			Size = Shader::GetDataTypeSize(type);
 		}
 
-		static uint32_t ShaderDataTypeSize(ShaderDataType type)
-		{
-			switch (type)
-			{
-			case ShaderDataType::Float:		return 4;
-			case ShaderDataType::Float2:	return 4 * 2;
-			case ShaderDataType::Float3:	return 4 * 3;
-			case ShaderDataType::Float4:	return 4 * 4;
-			case ShaderDataType::Mat3:		return 4 * 3 * 3;
-			case ShaderDataType::Mat4:		return 4 * 4 * 4;
-			case ShaderDataType::Int:		return 4;
-			case ShaderDataType::Int2:		return 4 * 2;
-			case ShaderDataType::Int3:		return 4 * 3;
-			case ShaderDataType::Int4:		return 4 * 4;
-			case ShaderDataType::Bool:		return 1;
-			}
-			RS_CORE_ASSERT(false, "Unknown ShaderDataType");
-			return 0;
-		}
+
 		uint32_t GetComponentCount() const
 		{
 			switch (Type)
 			{
-			case ShaderDataType::Float:		return 1;
-			case ShaderDataType::Float2:	return 2;
-			case ShaderDataType::Float3:	return 3;
-			case ShaderDataType::Float4:	return 4;
-			case ShaderDataType::Mat3:		return 3 * 3;
-			case ShaderDataType::Mat4:		return 4 * 4;
-			case ShaderDataType::Int:		return 1;
-			case ShaderDataType::Int2:		return 2;
-			case ShaderDataType::Int3:		return 3;
-			case ShaderDataType::Int4:		return 4;
-			case ShaderDataType::Bool:		return 1;
+			case Shader::DataType::Float:		return 1;
+			case Shader::DataType::Float2:		return 2;
+			case Shader::DataType::Float3:		return 3;
+			case Shader::DataType::Float4:		return 4;
+			case Shader::DataType::Mat3:		return 3 * 3;
+			case Shader::DataType::Mat4:		return 4 * 4;
+			case Shader::DataType::Int:			return 1;
+			case Shader::DataType::Int2:		return 2;
+			case Shader::DataType::Int3:		return 3;
+			case Shader::DataType::Int4:		return 4;
+			case Shader::DataType::Bool:		return 1;
 			}
 
 			RS_CORE_ASSERT(false, "Unknown ShaderDataType");

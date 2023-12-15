@@ -5,21 +5,21 @@
 
 namespace Ramensoup
 {
-	static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type)
+	static GLenum ShaderDataTypeToOpenGLBaseType(Shader::DataType type)
 	{
 		switch (type)
 		{
-		case ShaderDataType::Float:		return GL_FLOAT;
-		case ShaderDataType::Float2:	return GL_FLOAT;
-		case ShaderDataType::Float3:	return GL_FLOAT;
-		case ShaderDataType::Float4:	return GL_FLOAT;
-		case ShaderDataType::Mat3:		return GL_FLOAT;
-		case ShaderDataType::Mat4:		return GL_FLOAT;
-		case ShaderDataType::Int:		return GL_INT;
-		case ShaderDataType::Int2:		return GL_INT;
-		case ShaderDataType::Int3:		return GL_INT;
-		case ShaderDataType::Int4:		return GL_INT;
-		case ShaderDataType::Bool:		return GL_BOOL;
+		case Shader::DataType::Float:		return GL_FLOAT;
+		case Shader::DataType::Float2:	return GL_FLOAT;
+		case Shader::DataType::Float3:	return GL_FLOAT;
+		case Shader::DataType::Float4:	return GL_FLOAT;
+		case Shader::DataType::Mat3:		return GL_FLOAT;
+		case Shader::DataType::Mat4:		return GL_FLOAT;
+		case Shader::DataType::Int:		return GL_INT;
+		case Shader::DataType::Int2:		return GL_INT;
+		case Shader::DataType::Int3:		return GL_INT;
+		case Shader::DataType::Int4:		return GL_INT;
+		case Shader::DataType::Bool:		return GL_BOOL;
 		}
 		RS_CORE_ASSERT(false, "Unknown ShaderDataType");
 		return 0;

@@ -12,13 +12,9 @@ namespace Ramensoup
 		RS_CORE_ASSERT(false, "Unknown shader type");
 		return 0;
 	}
-	OpenGLShader::OpenGLShader(const zstring_view& filePath)
-	{
-		std::string source = ReadFile(filePath);
-		auto shaderSources = PreProcess(source);
-		Compile(shaderSources);
 
-		//Retrieve name from filePath
+	static std::string GetFileName(const zstring_view& filePath)
+	{
 		auto lastSlash = filePath.find_last_of("/\\");
 		if (lastSlash == std::string::npos)
 			lastSlash = 0;
@@ -27,23 +23,37 @@ namespace Ramensoup
 
 		auto lastDot = filePath.rfind('.');
 		auto count = lastDot == std::string::npos ? filePath.size() - lastSlash : lastDot - lastSlash;
-		m_Name = filePath.substr(lastSlash, count);
+		return std::string(filePath.substr(lastSlash, count));
 	}
-
-	OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
-		:m_Name(name)
+	
+	OpenGLShader::OpenGLShader(const zstring_view& filePath)
 	{
-		std::unordered_map<GLenum, std::string> shaderSources;
+		std::string source = ReadFile(filePath);
+		m_Name = GetFileName(filePath);
 
-		shaderSources[GL_VERTEX_SHADER] = vertexSrc;
-		shaderSources[GL_FRAGMENT_SHADER] = fragmentSrc;
+		auto shaderSources = PreProcess(source);
 		Compile(shaderSources);
-
+		InitUniformLocations(source);
 
 	}
 	OpenGLShader::~OpenGLShader()
 	{
 		glDeleteProgram(m_RendererID);
+	}
+	void OpenGLShader::InitUniformLocations(const std::string& source)
+	{
+		auto uniformToken = "uniform";
+		size_t pos = source.find(uniformToken, 0);
+		while (pos != std::string::npos)
+		{
+			size_t semicolon = source.find_first_of(";", pos);
+			size_t start = source.rfind(' ', semicolon)+1;
+			std::string uniformName = source.substr(start, semicolon - start);
+			m_UniformLocations[uniformName] = glGetUniformLocation(m_RendererID, uniformName.c_str());
+			RS_CORE_LOG_INFO("Shader {1} has: {0}", uniformName, m_Name);
+
+			pos = source.find(uniformToken, semicolon);
+		}
 	}
 
 	void OpenGLShader::Compile(const std::unordered_map<GLenum, std::string>& shaderSources)
@@ -135,6 +145,7 @@ namespace Ramensoup
 			pos = source.find(typeToken, nextLinePos);
 
 			shaderSources[ShaderTypeFromString(type)] = source.substr(nextLinePos, pos - (nextLinePos == std::string::npos ? source.size() - 1 : nextLinePos));
+
 		}
 		return shaderSources;
 	}
@@ -166,46 +177,36 @@ namespace Ramensoup
 		glUseProgram(0);
 	}
 
-	//TODO : Run this on shader initialization once
-	GLint OpenGLShader::GetUniformLocation(const std::string& name)
-	{
-		if (m_UniformLocations.find(name) == m_UniformLocations.end())
-		{
-			m_UniformLocations[name] = glGetUniformLocation(m_RendererID, name.c_str());
-		}
-		return m_UniformLocations[name];
-	}
-
 	void OpenGLShader::SetUniformMat4(const std::string& name, const glm::mat4& matrix)
 	{
-		glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, glm::value_ptr(matrix));
+		glUniformMatrix4fv(m_UniformLocations[name], 1, GL_FALSE, glm::value_ptr(matrix));
 	}
 	void OpenGLShader::SetUniformMat3(const std::string& name, const glm::mat3& matrix)
 	{
-		glUniformMatrix3fv(GetUniformLocation(name), 1, GL_FALSE, glm::value_ptr(matrix));
+		glUniformMatrix3fv(m_UniformLocations[name], 1, GL_FALSE, glm::value_ptr(matrix));
 	}
 	void OpenGLShader::SetUniformFloat4(const std::string& name, const glm::vec4& values)
 	{
-		glUniform4f(GetUniformLocation(name), values.x, values.y, values.z, values.w);
+		glUniform4f(m_UniformLocations[name], values.x, values.y, values.z, values.w);
 	}
 	void OpenGLShader::SetUniformFloat3(const std::string& name, const glm::vec3& values)
 	{
-		glUniform3f(GetUniformLocation(name), values.x, values.y, values.z);
+		glUniform3f(m_UniformLocations[name], values.x, values.y, values.z);
 	}
 	void OpenGLShader::SetUniformFloat2(const std::string& name, const glm::vec2& values)
 	{
-		glUniform2f(GetUniformLocation(name), values.x, values.y);
+		glUniform2f(m_UniformLocations[name], values.x, values.y);
 	}
 	void OpenGLShader::SetUniformFloat1(const std::string& name, float value)
 	{
-		glUniform1f(GetUniformLocation(name), value);
+		glUniform1f(m_UniformLocations[name], value);
 	}
 	void OpenGLShader::SetUniformInt(const std::string& name, int value)
 	{
-		glUniform1i(GetUniformLocation(name), value);
+		glUniform1i(m_UniformLocations[name], value);
 	}
 	void OpenGLShader::SetUniformIntArray(const std::string& name, int* values, int count)
 	{
-		glUniform1iv(GetUniformLocation(name), count, values);
+		glUniform1iv(m_UniformLocations[name], count, values);
 	}
 }

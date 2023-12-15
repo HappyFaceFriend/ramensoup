@@ -4,6 +4,7 @@
 
 namespace Ramensoup
 {
+	//A null terminated string_view
 	class zstring_view final : private std::string_view
 	{
 		using string_view_base = std::string_view;
