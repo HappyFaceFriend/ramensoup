@@ -2,7 +2,9 @@
 
 #include "Entity.h"
 
-#include <Ramensoup/Utils/zstring_view.h>
+#include "Ramensoup/Renderer/Mesh.h"
+#include "Ramensoup/Renderer/Material.h"
+#include "Ramensoup/Utils/zstring_view.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -53,6 +55,13 @@ namespace Ramensoup
 		{
 			return glm::translate(glm::mat4(1.0f), Position) * glm::toMat4(glm::quat(Rotation)) * glm::scale(glm::mat4(1.0f), Scale);
 		}
+	};
 
+	struct MeshRendererComponent
+	{
+		std::shared_ptr<Mesh> Mesh;
+		std::shared_ptr<Material> Material;
+
+		MeshRendererComponent() = default;
 	};
 }

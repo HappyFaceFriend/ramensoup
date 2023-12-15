@@ -31,16 +31,16 @@ namespace Ramensoup
 		
 		Renderer::SetClearColor(glm::vec4(0.2, 0.2, 0.2, 1));
 
-		auto entity2c1 = m_Scene->CreateEntity("Entity2 - c1");
-		auto entity2p = m_Scene->CreateEntity("Entity2 - p");
-		auto entity2c2 = m_Scene->CreateEntity("Entity2 - c2");
-		auto entity2c2c = m_Scene->CreateEntity("Entity2 - c2 - c");
+		m_GarenEntity = m_Scene->CreateEntity("Garen Parent");
 
-		entity2c1.SetParent(entity2p);
-		entity2c2.SetParent(entity2p);
-		entity2c2c.SetParent(entity2c2);
-
-		m_GarenEntity = m_Scene->CreateEntity("Garen");
+		for (int i=0; i<m_Meshes.size(); i++)
+		{
+			m_GarenParts.push_back(m_Scene->CreateEntity(std::string("Garen") + std::to_string(i)));
+			auto& meshRenderer = m_GarenParts[i].AddComponent<MeshRendererComponent>();
+			meshRenderer.Mesh = m_Meshes[i];
+			meshRenderer.Material = m_Material;
+			m_GarenParts[i].SetParent(m_GarenEntity);
+		}
 	}
 	void EditorLayer::OnDetach() noexcept
 	{
@@ -53,11 +53,9 @@ namespace Ramensoup
 		TimeProfiler::Begin("Single Frame Render");
 		m_FrameBuffer->Bind();
 		Renderer::Clear();
-		Renderer::BeginScene(m_CameraController.GetCamera().GetProjectionMatrix(), m_CameraController.GetCamera().GetViewMatrix());
 
-		for (auto mesh : m_Meshes)
-			Renderer::Submit(mesh, m_Material, m_GarenEntity.GetComponent<TransformComponent>().GetMatrix());
-		Renderer::EndScene();
+		m_Scene->RenderMeshes(m_CameraController.GetCamera());
+
 		m_FrameBuffer->Unbind();
 		TimeProfiler::End("Single Frame Render");
 	}
@@ -84,8 +82,10 @@ namespace Ramensoup
 		ImGui::PopStyleVar();
 		ImGui::End();
 
+
+		//Panels
 		TimeProfiler::Begin("Editor GUI Render");
-		//Scene Hierarchy Panel
+
 		m_SceneHierarchyPanel.OnImGuiRender();
 		m_InspectorPanel.SetEntity(m_SceneHierarchyPanel.GetSelectedEntity());
 		m_InspectorPanel.OnImGuiRender();

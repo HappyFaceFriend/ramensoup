@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Ramensoup/Renderer/Camera.h"
+
 #include <entt.hpp>
 
 namespace Ramensoup
@@ -14,7 +16,7 @@ namespace Ramensoup
 
 		Entity CreateEntity(const zstring_view& name = "New Entity");
 
-		void OnUpdate();
+		void RenderMeshes(const Camera& camera);
 	private:
 		entt::registry m_Registry;
 

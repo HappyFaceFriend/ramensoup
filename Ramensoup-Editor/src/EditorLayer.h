@@ -39,5 +39,6 @@ namespace Ramensoup
 		InspectorPanel m_InspectorPanel;
 
 		Entity m_GarenEntity;
+		std::vector<Entity> m_GarenParts;
 	};
 }

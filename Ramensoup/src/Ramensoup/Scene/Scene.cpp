@@ -2,8 +2,9 @@
 #include "Scene.h"
 
 #include "Entity.h"
-
 #include "Components.h"
+
+#include "Ramensoup/Renderer/Renderer.h"
 
 namespace Ramensoup
 {
@@ -17,8 +18,16 @@ namespace Ramensoup
 	}
 
 
-	void Scene::OnUpdate()
+	void Scene::RenderMeshes(const Camera& camera)
 	{
-
+		Renderer::BeginScene(camera.GetProjectionMatrix(), camera.GetViewMatrix());
+		
+		auto view = m_Registry.view<TransformComponent, MeshRendererComponent>();
+		for (auto entity : view)
+		{
+			auto [transform, meshRenderer] = view.get<TransformComponent, MeshRendererComponent>(entity);
+			Renderer::Submit(meshRenderer.Mesh, meshRenderer.Material, transform.GetMatrix());
+		}
+		Renderer::EndScene();
 	}
 }
