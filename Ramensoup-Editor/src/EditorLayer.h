@@ -25,7 +25,6 @@ namespace Ramensoup
 
 		std::vector<std::shared_ptr<Mesh>> m_Meshes;
 		std::shared_ptr<Material> m_Material;
-		std::shared_ptr<Texture2D> m_Texture;
 		glm::mat4 m_ModelTransform = glm::mat4(1.0f);
 
 		std::shared_ptr<FrameBuffer> m_FrameBuffer;
@@ -39,5 +38,7 @@ namespace Ramensoup
 
 		SceneHierarchyPanel m_SceneHierarchyPanel;
 		InspectorPanel m_InspectorPanel;
+
+		Entity m_GarenEntity;
 	};
 }

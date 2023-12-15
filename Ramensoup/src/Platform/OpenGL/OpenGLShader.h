@@ -20,7 +20,7 @@ namespace Ramensoup
 
 		void Bind() const override;
 		void Unbind() const override;
-
+		
 		[[nodiscard]] const std::string& GetName() const override { return m_Name; }
 
 		void SetUniformMat4(const std::string& name, const glm::mat4& matrix) override;
@@ -31,12 +31,15 @@ namespace Ramensoup
 		void SetUniformFloat1(const std::string& name, float value) override;
 		void SetUniformInt(const std::string& name, int value) override;
 		void SetUniformIntArray(const std::string& name, int* values, int count) override;
+		void SetTexture(const std::string& name, const std::shared_ptr<Texture2D>& texture) override;
 
 	private:
 		uint32_t m_RendererID;
 		std::string m_Name;
 
 		std::unordered_map<std::string, GLint> m_UniformLocations;
+		std::unordered_map<std::string, uint8_t> m_TextureSlots;
+
 
 	private:
 		std::string ReadFile(const zstring_view& filePath);

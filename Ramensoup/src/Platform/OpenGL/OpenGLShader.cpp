@@ -42,18 +42,24 @@ namespace Ramensoup
 	}
 	void OpenGLShader::InitUniformLocations(const std::string& source)
 	{
+		uint8_t textureSlot = 0;
 		auto uniformToken = "uniform";
 		size_t pos = source.find(uniformToken, 0);
 		while (pos != std::string::npos)
 		{
 			size_t semicolon = source.find_first_of(";", pos);
-			size_t start = source.rfind(' ', semicolon)+1;
-			std::string uniformName = source.substr(start, semicolon - start);
+			size_t nameStart = source.rfind(' ', semicolon) + 1;
+			size_t typeStart = source.rfind(' ', nameStart - 2) + 1;
+			std::string typeName = source.substr(typeStart, nameStart - typeStart - 1);
+			std::string uniformName = source.substr(nameStart, semicolon - nameStart);
+			RS_CORE_LOG_INFO("Shader {1} has: {2} {0}", uniformName, m_Name, typeName);
 			m_UniformLocations[uniformName] = glGetUniformLocation(m_RendererID, uniformName.c_str());
-			RS_CORE_LOG_INFO("Shader {1} has: {0}", uniformName, m_Name);
+			if (typeName == "sampler2D")
+				m_TextureSlots[uniformName] = textureSlot++;
 
 			pos = source.find(uniformToken, semicolon);
 		}
+		
 	}
 
 	void OpenGLShader::Compile(const std::unordered_map<GLenum, std::string>& shaderSources)
@@ -208,5 +214,9 @@ namespace Ramensoup
 	void OpenGLShader::SetUniformIntArray(const std::string& name, int* values, int count)
 	{
 		glUniform1iv(m_UniformLocations[name], count, values);
+	}
+	void OpenGLShader::SetTexture(const std::string& name, const std::shared_ptr<Texture2D>& texture)
+	{
+		texture->Bind(m_TextureSlots[name]);
 	}
 }

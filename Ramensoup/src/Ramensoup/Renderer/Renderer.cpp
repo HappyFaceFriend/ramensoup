@@ -42,9 +42,11 @@ namespace Ramensoup
 		auto& vertexBuffer = mesh->GetVertexBuffer();
 		auto& indexBuffer = mesh->GetIndexBuffer();
 
-		material->GetShader()->Bind();
-		material->GetShader()->SetUniformMat4("u_ModelMatrix", transform);
-		material->GetShader()->SetUniformMat4("u_ViewProjectionMatrix", s_SceneContext.ViewProjectionMatrix);
+		material->Bind();
+
+		material->SetMat4Value("u_ModelMatrix", transform);
+		material->SetMat4Value("u_ViewProjectionMatrix", s_SceneContext.ViewProjectionMatrix);
+
 
 		DrawIndexed(vertexBuffer, indexBuffer, indexBuffer->GetCount());
 

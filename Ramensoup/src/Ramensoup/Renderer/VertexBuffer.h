@@ -33,7 +33,7 @@ namespace Ramensoup
 	{
 		Shader::DataType Type;
 		uint64_t Offset;
-		uint32_t Size;
+		size_t Size;
 		bool Normalized;
 
 		BufferElement() = default;

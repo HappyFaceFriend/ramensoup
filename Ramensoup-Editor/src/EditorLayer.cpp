@@ -28,14 +28,10 @@ namespace Ramensoup
 		m_Shader = Shader::Create("assets/shaders/Lit.glsl");
 
 		m_Material = std::shared_ptr<Material>(new Material("Lit", m_Shader));
-		m_Material->GetShader()->Bind();
-		//m_Material->GetShader()->SetUniformFloat4("u_Color", glm::vec4(0.8f, 0.2f, 0.3f, 1.0f));
-
-		m_Texture = Texture2D::Create("assets/models/low-poly-garen_/textures/garen_tex.jpg");
-		m_Texture->Bind();
+		m_Material->SetTexture("u_DiffuseTexture", Texture2D::Create("assets/models/low-poly-garen_/textures/garen_tex.jpg"));
+		
 		Renderer::SetClearColor(glm::vec4(0.2, 0.2, 0.2, 1));
 
-		auto entity1 = m_Scene->CreateEntity("Entity1");
 		auto entity2c1 = m_Scene->CreateEntity("Entity2 - c1");
 		auto entity2p = m_Scene->CreateEntity("Entity2 - p");
 		auto entity2c2 = m_Scene->CreateEntity("Entity2 - c2");
@@ -44,6 +40,8 @@ namespace Ramensoup
 		entity2c1.SetParent(entity2p);
 		entity2c2.SetParent(entity2p);
 		entity2c2c.SetParent(entity2c2);
+
+		m_GarenEntity = m_Scene->CreateEntity("Garen");
 	}
 	void EditorLayer::OnDetach() noexcept
 	{

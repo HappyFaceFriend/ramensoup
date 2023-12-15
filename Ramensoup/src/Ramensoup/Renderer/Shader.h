@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Texture.h"
+
 #include <glm/glm.hpp>
 
 namespace Ramensoup
@@ -9,7 +11,7 @@ namespace Ramensoup
 	public:
 		enum class DataType : uint8_t
 		{
-			None = 0, Float, Float2, Float3, Float4, Mat3, Mat4, Int, Int2, Int3, Int4, Bool
+			None = 0, Float, Float2, Float3, Float4, Mat3, Mat4, Int, Int2, Int3, Int4, Bool, Texture2D
 		};
 
 		[[nodiscard]] Shader() = default;
@@ -31,6 +33,7 @@ namespace Ramensoup
 
 		
 		//virtual void UploadUniformBuffer
+
 		virtual void SetUniformMat4(const std::string& name, const glm::mat4& matrix) = 0;
 		virtual void SetUniformMat3(const std::string& name, const glm::mat3& matrix) = 0;
 		virtual void SetUniformFloat4(const std::string& name, const glm::vec4& values) = 0;
@@ -39,5 +42,6 @@ namespace Ramensoup
 		virtual void SetUniformFloat1(const std::string& name, float value) = 0;
 		virtual void SetUniformInt(const std::string& name, int value) = 0;
 		virtual void SetUniformIntArray(const std::string& name, int* values, int count) = 0;
+		virtual void SetTexture(const std::string& name, const std::shared_ptr<Texture2D>& texture) = 0;
 	};
 }
