@@ -22,6 +22,7 @@ namespace Ramensoup
 		for (uint32_t meshIndex = 0; meshIndex < scene->mNumMeshes; meshIndex++)
 		{
 			auto mesh = LoadSingleMesh(scene->mMeshes[meshIndex]);
+			mesh->SetFilePath(filePath);
 			meshes.push_back(mesh);
 		}
 
@@ -32,6 +33,7 @@ namespace Ramensoup
 	{
 		uint32_t vertexCount = meshData->mNumVertices;
 
+		RS_CORE_LOG("Mesh name: {0}", meshData->mName.C_Str());
 
 		//assimp Texcoords is 3d
 		// TODO : This is currently loading only the first texture's uv
@@ -58,7 +60,8 @@ namespace Ramensoup
 															reinterpret_cast<glm::vec3*>(meshData->mNormals),
 															texCoords.data(), 
 															indicies.data(),
-															vertexCount, meshData->mNumFaces * 3);
+															vertexCount, meshData->mNumFaces * 3,
+															meshData->mName.C_Str());
 		return mesh;
 	}
 }
