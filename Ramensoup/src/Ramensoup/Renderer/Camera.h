@@ -20,9 +20,7 @@ namespace Ramensoup
 		[[nodiscard]] const glm::mat4& GetViewMatrix() const { return m_ViewMatrix; }
 
 	private:
-		//TODO : Cache View / Projection matricies & Change m_Transform to transform component
 		glm::mat4 m_ProjectionMatrix{ 1.0f };
-		//glm::mat4 m_Transform;
 		glm::mat4 m_ViewMatrix{ 1.0f };
 	};
 

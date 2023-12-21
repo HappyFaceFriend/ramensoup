@@ -15,12 +15,12 @@ namespace Ramensoup
 	public:
 		EditorLayer();
 
-		virtual void OnAttach() override;
-		virtual void OnDetach() noexcept override;
-		virtual void OnUpdate() override;
-		virtual void OnImGuiUpdate() override;
-	private:
+		void OnAttach() override;
+		void OnDetach() noexcept override;
+		void OnUpdate() override;
+		void OnImGuiUpdate() override;
 
+	private:
 		std::shared_ptr<Shader> m_Shader;
 
 		std::vector<std::shared_ptr<Mesh>> m_Meshes;
@@ -37,6 +37,8 @@ namespace Ramensoup
 
 		SceneHierarchyPanel m_SceneHierarchyPanel;
 		InspectorPanel m_InspectorPanel;
+
+		Entity m_Camera;
 
 		Entity m_GarenEntity;
 		std::vector<Entity> m_GarenParts;

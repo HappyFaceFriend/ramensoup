@@ -186,8 +186,14 @@
     <ClInclude Include="src\Ramensoup\Renderer\Texture.h" />
     <ClInclude Include="src\Ramensoup\Renderer\VertexBuffer.h" />
     <ClInclude Include="src\Ramensoup\Scene\Components.h" />
+    <ClInclude Include="src\Ramensoup\Scene\Components\CameraComponent.h" />
+    <ClInclude Include="src\Ramensoup\Scene\Components\MeshRendererComponent.h" />
+    <ClInclude Include="src\Ramensoup\Scene\Components\RelationshipComponent.h" />
+    <ClInclude Include="src\Ramensoup\Scene\Components\TagComponent.h" />
+    <ClInclude Include="src\Ramensoup\Scene\Components\TransformComponent.h" />
     <ClInclude Include="src\Ramensoup\Scene\Entity.h" />
     <ClInclude Include="src\Ramensoup\Scene\Scene.h" />
+    <ClInclude Include="src\Ramensoup\Maths\CameraProjection.h" />
     <ClInclude Include="src\Ramensoup\Utils\zstring_view.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="vendor\stb_image\stb_image.h" />
@@ -227,6 +233,7 @@
     <ClCompile Include="src\Ramensoup\Renderer\VertexBuffer.cpp" />
     <ClCompile Include="src\Ramensoup\Scene\Entity.cpp" />
     <ClCompile Include="src\Ramensoup\Scene\Scene.cpp" />
+    <ClCompile Include="src\Ramensoup\Maths\CameraProjection.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

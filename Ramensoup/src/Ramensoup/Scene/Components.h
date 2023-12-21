@@ -4,3 +4,4 @@
 #include "Components/TagComponent.h"
 #include "Components/TransformComponent.h"
 #include "Components/RelationshipComponent.h"
+#include "Components/CameraComponent.h"

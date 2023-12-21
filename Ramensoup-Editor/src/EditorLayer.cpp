@@ -31,6 +31,9 @@ namespace Ramensoup
 		
 		Renderer::SetClearColor(glm::vec4(0.2, 0.2, 0.2, 1));
 
+		m_Camera = m_Scene->CreateEntity("Main Camera");
+		m_Camera.AddComponent<CameraComponent>();
+
 		m_GarenEntity = m_Scene->CreateEntity("Garen Parent");
 
 		for (int i=0; i<m_Meshes.size(); i++)
@@ -49,8 +52,6 @@ namespace Ramensoup
 	void EditorLayer::OnUpdate()
 	{
 		m_CameraController.OnUpdate();
-
-
 
 		TimeProfiler::Begin("Transform updates");
 		m_Scene->UpdateHierarchyTransforms();

@@ -4,6 +4,9 @@
     <Filter Include="Editor">
       <UniqueIdentifier>{8C1A20B0-78BC-4A86-6177-5EDA4DB8D1D6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{2AEC870B-96F5-877C-1F71-9E7C8B79937C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Panels">
       <UniqueIdentifier>{A80D95C9-94AF-BF9F-7D6A-D3F369AB46F0}</UniqueIdentifier>
     </Filter>
@@ -17,13 +20,15 @@
     </ClInclude>
     <ClInclude Include="src\EditorApp.h" />
     <ClInclude Include="src\EditorLayer.h" />
+    <ClInclude Include="src\GUI\EditorGUI.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
     <ClInclude Include="src\Panels\InspectorPanel.h">
       <Filter>Panels</Filter>
     </ClInclude>
     <ClInclude Include="src\Panels\SceneHierarchyPanel.h">
       <Filter>Panels</Filter>
     </ClInclude>
-    <ClInclude Include="src\GUI\EditorGUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Editor\OrthographicCameraController.cpp">
@@ -34,10 +39,14 @@
     </ClCompile>
     <ClCompile Include="src\EditorApp.cpp" />
     <ClCompile Include="src\EditorLayer.cpp" />
+    <ClCompile Include="src\GUI\EditorGUI.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Panels\InspectorPanel.cpp">
+      <Filter>Panels</Filter>
+    </ClCompile>
     <ClCompile Include="src\Panels\SceneHierarchyPanel.cpp">
       <Filter>Panels</Filter>
     </ClCompile>
-    <ClCompile Include="src\Panels\InspectorPanel.cpp" />
-    <ClCompile Include="src\GUI\EditorGUI.cpp" />
   </ItemGroup>
 </Project>
