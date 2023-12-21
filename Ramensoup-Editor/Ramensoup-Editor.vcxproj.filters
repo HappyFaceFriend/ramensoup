@@ -12,10 +12,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Editor\OrthographicCameraController.h">
+    <ClInclude Include="src\CameraControllers\OrthographicCameraController.h">
       <Filter>Editor</Filter>
     </ClInclude>
-    <ClInclude Include="src\Editor\PerspectiveCameracontroller.h">
+    <ClInclude Include="src\CameraControllers\PerspectiveCameracontroller.h">
       <Filter>Editor</Filter>
     </ClInclude>
     <ClInclude Include="src\EditorApp.h" />
@@ -29,12 +29,13 @@
     <ClInclude Include="src\Panels\SceneHierarchyPanel.h">
       <Filter>Panels</Filter>
     </ClInclude>
+    <ClInclude Include="src\Panels\SceneViewPanel.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Editor\OrthographicCameraController.cpp">
+    <ClCompile Include="src\CameraControllers\OrthographicCameraController.cpp">
       <Filter>Editor</Filter>
     </ClCompile>
-    <ClCompile Include="src\Editor\PerspectiveCameraController.cpp">
+    <ClCompile Include="src\CameraControllers\PerspectiveCameraController.cpp">
       <Filter>Editor</Filter>
     </ClCompile>
     <ClCompile Include="src\EditorApp.cpp" />
@@ -48,5 +49,6 @@
     <ClCompile Include="src\Panels\SceneHierarchyPanel.cpp">
       <Filter>Panels</Filter>
     </ClCompile>
+    <ClCompile Include="src\Panels\SceneViewPanel.cpp" />
   </ItemGroup>
 </Project>

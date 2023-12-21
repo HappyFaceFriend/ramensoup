@@ -2,7 +2,8 @@
 
 #include <Ramensoup.h>
 
-#include "Editor/PerspectiveCameraController.h"
+#include "CameraControllers/PerspectiveCameraController.h"
+#include "Panels/SceneViewPanel.h"
 #include "Panels/SceneHierarchyPanel.h"
 #include "Panels/InspectorPanel.h"
 
@@ -26,15 +27,10 @@ namespace Ramensoup
 		std::vector<std::shared_ptr<Mesh>> m_Meshes;
 		std::shared_ptr<Material> m_Material;
 
-		std::shared_ptr<FrameBuffer> m_FrameBuffer;
-
-		bool m_ViewportFocused = false;
-		glm::vec2 m_ViewportSize{0, 0};
-
-		PerspectiveCameraController m_CameraController;
 
 		std::shared_ptr<Scene> m_Scene;
 
+		SceneViewPanel m_SceneViewPanel;
 		SceneHierarchyPanel m_SceneHierarchyPanel;
 		InspectorPanel m_InspectorPanel;
 

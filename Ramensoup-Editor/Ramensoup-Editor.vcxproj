@@ -134,22 +134,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Editor\OrthographicCameraController.h" />
-    <ClInclude Include="src\Editor\PerspectiveCameracontroller.h" />
+    <ClInclude Include="src\CameraControllers\OrthographicCameraController.h" />
+    <ClInclude Include="src\CameraControllers\PerspectiveCameracontroller.h" />
     <ClInclude Include="src\EditorApp.h" />
     <ClInclude Include="src\EditorLayer.h" />
     <ClInclude Include="src\GUI\EditorGUI.h" />
     <ClInclude Include="src\Panels\InspectorPanel.h" />
     <ClInclude Include="src\Panels\SceneHierarchyPanel.h" />
+    <ClInclude Include="src\Panels\SceneViewPanel.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Editor\OrthographicCameraController.cpp" />
-    <ClCompile Include="src\Editor\PerspectiveCameraController.cpp" />
+    <ClCompile Include="src\CameraControllers\OrthographicCameraController.cpp" />
+    <ClCompile Include="src\CameraControllers\PerspectiveCameraController.cpp" />
     <ClCompile Include="src\EditorApp.cpp" />
     <ClCompile Include="src\EditorLayer.cpp" />
     <ClCompile Include="src\GUI\EditorGUI.cpp" />
     <ClCompile Include="src\Panels\InspectorPanel.cpp" />
     <ClCompile Include="src\Panels\SceneHierarchyPanel.cpp" />
+    <ClCompile Include="src\Panels\SceneViewPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ramensoup\Ramensoup.vcxproj">
