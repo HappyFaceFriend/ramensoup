@@ -54,4 +54,36 @@ namespace Ramensoup
 		}
 		Renderer::EndScene();
 	}
+	void Scene::OnViewportResize(uint32_t width, uint32_t height)
+	{
+		auto& camera = m_Registry.get<CameraComponent>(GetMainCamera());
+		camera.Projection.SetViewportSize(width, height);
+	}
+	entt::entity Scene::GetMainCamera() const
+	{
+		auto view = m_Registry.view<TransformComponent, CameraComponent>();
+		for (entt::entity entity : view)
+		{
+			return entity;
+		}
+		return entt::null;
+	}
+	void Scene::RenderMeshes()
+	{
+		glm::mat4 projectionMatrix, viewMatrix;
+		auto& [transform, camera] = m_Registry.get<TransformComponent, CameraComponent>(GetMainCamera());
+
+		projectionMatrix = camera.Projection.GetProjectionMatrix();
+		viewMatrix = glm::inverse(transform.GetMatrix());
+
+		Renderer::BeginScene(projectionMatrix, viewMatrix);
+
+		auto view = m_Registry.view<TransformComponent, MeshRendererComponent>();
+		for (auto entity : view)
+		{
+			auto& [transform, meshRenderer] = view.get<TransformComponent, MeshRendererComponent>(entity);
+			Renderer::Submit(meshRenderer.Mesh, meshRenderer.Material, transform.GetMatrix());
+		}
+		Renderer::EndScene();
+	}
 }

@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Panels\GameViewPanel.h" />
     <ClInclude Include="src\CameraControllers\OrthographicCameraController.h" />
     <ClInclude Include="src\CameraControllers\PerspectiveCameracontroller.h" />
     <ClInclude Include="src\EditorApp.h" />
@@ -144,6 +145,7 @@
     <ClInclude Include="src\Panels\SceneViewPanel.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Panels\GameViewPanel.cpp" />
     <ClCompile Include="src\CameraControllers\OrthographicCameraController.cpp" />
     <ClCompile Include="src\CameraControllers\PerspectiveCameraController.cpp" />
     <ClCompile Include="src\EditorApp.cpp" />

@@ -12,7 +12,7 @@ namespace Ramensoup
 {
 	EditorLayer::EditorLayer()
 		: m_Scene(std::make_shared<Scene>()),
-		m_SceneHierarchyPanel(m_Scene), m_SceneViewPanel(m_Scene)
+		m_SceneHierarchyPanel(m_Scene), m_SceneViewPanel(m_Scene), m_GameViewPanel(m_Scene)
 	{
 	}
 	void EditorLayer::OnAttach()
@@ -26,9 +26,6 @@ namespace Ramensoup
 		
 		Renderer::SetClearColor(glm::vec4(0.2, 0.2, 0.2, 1));
 
-		m_Camera = m_Scene->CreateEntity("Main Camera");
-		m_Camera.AddComponent<CameraComponent>();
-
 		m_GarenEntity = m_Scene->CreateEntity("Garen Parent");
 
 		for (int i=0; i<m_Meshes.size(); i++)
@@ -39,6 +36,10 @@ namespace Ramensoup
 			meshRenderer.Material = m_Material;
 			m_GarenParts[i].SetParent(m_GarenEntity);
 		}
+
+		m_Camera = m_Scene->CreateEntity("Main Camera");
+		m_Camera.AddComponent<CameraComponent>();
+		m_Camera.GetComponent<TransformComponent>().Position = glm::vec3(0, 0, -5);
 	}
 	void EditorLayer::OnDetach() noexcept
 	{
@@ -53,6 +54,7 @@ namespace Ramensoup
 		m_SceneViewPanel.OnUpdate();
 		m_SceneViewPanel.RenderScene();
 
+		m_GameViewPanel.OnUpdate();
 	}
 	void EditorLayer::OnImGuiUpdate()
 	{
@@ -62,6 +64,8 @@ namespace Ramensoup
 		TimeProfiler::Begin("Editor GUI Render");
 
 		m_SceneViewPanel.OnImGuiRender();
+
+		m_GameViewPanel.OnImGuiRender();
 
 		m_SceneHierarchyPanel.OnImGuiRender();
 

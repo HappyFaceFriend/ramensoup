@@ -13,6 +13,8 @@ namespace Ramensoup {
 		void SetOrthographic(float size, float nearClip, float farClip);
 		void SetViewportSize(uint32_t width, uint32_t height);
 
+		float GetAspectRatio() { return m_AspectRatio; }
+
 		[[nodiscard]] Type GetProjectionType() const noexcept { return m_ProjectionType; }
 		void SetProjectionType(Type type);
 
@@ -33,9 +35,9 @@ namespace Ramensoup {
 		void SetOrthographicFarClip(float farClip) { m_OrthographicFar = farClip; UpdateOrthographicProjection(); }
 
 	private:
-		Type m_ProjectionType = Type::Orthographic;
+		Type m_ProjectionType = Type::Perspective;
 
-		float m_PerspectiveFOV = glm::radians(45.0f);
+		float m_PerspectiveFOV = glm::radians(60.0f);
 		float m_PerspectiveNear = 0.01f, m_PerspectiveFar = 1000.0f;
 
 		float m_OrthographicSize = 10.0f;

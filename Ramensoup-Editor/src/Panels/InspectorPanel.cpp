@@ -63,6 +63,57 @@ namespace Ramensoup
 					ImGui::Text("Shader: %s", component.Material->GetShader()->GetName().c_str());
 					ImGui::Unindent();
 				});
+			DrawComponent<CameraComponent>("Camera", m_CurrentEntity, [](CameraComponent& component)
+				{
+					auto& projection = component.Projection;
+					const char* projectionTypeStrings[2] = { "Perspective", "Orthographic" };
+					const char* currentProjectionTypeString = projectionTypeStrings[(int)projection.GetProjectionType()];
+
+					if (ImGui::BeginCombo("Projection Type", currentProjectionTypeString))
+					{
+						for (int i = 0; i < 2; i++)
+						{
+							bool isSelected = currentProjectionTypeString == projectionTypeStrings[i];
+							if (ImGui::Selectable(projectionTypeStrings[i], isSelected))
+							{
+								currentProjectionTypeString = projectionTypeStrings[i];
+								projection.SetProjectionType((CameraProjection::Type)i);
+							}
+							if (isSelected)
+								ImGui::SetItemDefaultFocus();
+						}
+						ImGui::EndCombo();
+					}
+
+					if (projection.GetProjectionType() == CameraProjection::Type::Perspective)
+					{
+						float perspectiveVerticalFov = glm::degrees(projection.GetPerspectiveVerticalFOV());
+						if (ImGui::DragFloat("Vertical FOV", &perspectiveVerticalFov))
+							projection.SetPerspectiveVerticalFOV(glm::radians(perspectiveVerticalFov));
+
+						float perspectiveNear = projection.GetPerspectiveNearClip();
+						if (ImGui::DragFloat("Near", &perspectiveNear))
+							projection.SetPerspectiveNearClip(perspectiveNear);
+
+						float perspectiveFar = projection.GetPerspectiveFarClip();
+						if (ImGui::DragFloat("Far", &perspectiveFar))
+							projection.SetPerspectiveFarClip(perspectiveFar);
+					}
+					else //Orthographic
+					{
+						float orthoSize = projection.GetOrthographicSize();
+						if (ImGui::DragFloat("Size", &orthoSize))
+							projection.SetOrthographicSize(orthoSize);
+
+						float orthoNear = projection.GetOrthographicNearClip();
+						if (ImGui::DragFloat("Near", &orthoNear))
+							projection.SetOrthographicNearClip(orthoNear);
+
+						float orthoFar = projection.GetOrthographicFarClip();
+						if (ImGui::DragFloat("Far", &orthoFar))
+							projection.SetOrthographicFarClip(orthoFar);
+					}
+				});
 		}
 		else
 		{

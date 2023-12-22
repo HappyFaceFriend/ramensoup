@@ -27,7 +27,6 @@ namespace Ramensoup
 	{
 		RS_CORE_ASSERT(width > 0 && height > 0, "Invalid viewport size");
 		m_AspectRatio = (float)width / (float)height;
-
 		if (m_ProjectionType == Type::Perspective)
 			UpdatePerspectiveProjection();
 		else
@@ -47,7 +46,6 @@ namespace Ramensoup
 	void CameraProjection::UpdatePerspectiveProjection()
 	{
 		m_ProjectionMatrix = glm::perspective(m_PerspectiveFOV, m_AspectRatio, m_PerspectiveNear, m_PerspectiveFar);
-
 	}
 
 	void CameraProjection::UpdateOrthographicProjection()
