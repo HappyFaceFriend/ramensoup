@@ -67,50 +67,38 @@ namespace Ramensoup
 				{
 					auto& projection = component.Projection;
 					const char* projectionTypeStrings[2] = { "Perspective", "Orthographic" };
-					const char* currentProjectionTypeString = projectionTypeStrings[(int)projection.GetProjectionType()];
-
-					if (ImGui::BeginCombo("Projection Type", currentProjectionTypeString))
+					uint32_t selectedIndex = (uint32_t)projection.GetProjectionType();
+					if (EditorGUI::SelectableField("Projection Type", projectionTypeStrings, 2, selectedIndex))
 					{
-						for (int i = 0; i < 2; i++)
-						{
-							bool isSelected = currentProjectionTypeString == projectionTypeStrings[i];
-							if (ImGui::Selectable(projectionTypeStrings[i], isSelected))
-							{
-								currentProjectionTypeString = projectionTypeStrings[i];
-								projection.SetProjectionType((CameraProjection::Type)i);
-							}
-							if (isSelected)
-								ImGui::SetItemDefaultFocus();
-						}
-						ImGui::EndCombo();
+						projection.SetProjectionType((CameraProjection::Type)selectedIndex);
 					}
 
 					if (projection.GetProjectionType() == CameraProjection::Type::Perspective)
 					{
 						float perspectiveVerticalFov = glm::degrees(projection.GetPerspectiveVerticalFOV());
-						if (ImGui::DragFloat("Vertical FOV", &perspectiveVerticalFov))
+						if (EditorGUI::DraggableFloatField("Vertical FOV", &perspectiveVerticalFov))
 							projection.SetPerspectiveVerticalFOV(glm::radians(perspectiveVerticalFov));
 
 						float perspectiveNear = projection.GetPerspectiveNearClip();
-						if (ImGui::DragFloat("Near", &perspectiveNear))
+						if (EditorGUI::DraggableFloatField("Near", &perspectiveNear))
 							projection.SetPerspectiveNearClip(perspectiveNear);
 
 						float perspectiveFar = projection.GetPerspectiveFarClip();
-						if (ImGui::DragFloat("Far", &perspectiveFar))
+						if (EditorGUI::DraggableFloatField("Far", &perspectiveFar))
 							projection.SetPerspectiveFarClip(perspectiveFar);
 					}
 					else //Orthographic
 					{
 						float orthoSize = projection.GetOrthographicSize();
-						if (ImGui::DragFloat("Size", &orthoSize))
+						if (EditorGUI::DraggableFloatField("Size", &orthoSize))
 							projection.SetOrthographicSize(orthoSize);
 
 						float orthoNear = projection.GetOrthographicNearClip();
-						if (ImGui::DragFloat("Near", &orthoNear))
+						if (EditorGUI::DraggableFloatField("Near", &orthoNear))
 							projection.SetOrthographicNearClip(orthoNear);
 
 						float orthoFar = projection.GetOrthographicFarClip();
-						if (ImGui::DragFloat("Far", &orthoFar))
+						if (EditorGUI::DraggableFloatField("Far", &orthoFar))
 							projection.SetOrthographicFarClip(orthoFar);
 					}
 				});
