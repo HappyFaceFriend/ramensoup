@@ -11,8 +11,8 @@ namespace Ramensoup
 		
 		void SerializeToText(const std::string& filePath);
 		void SerializeToBinary(const std::string& filePath);
-		bool DeserializeToText(const std::string& filePath);
-		bool DeserializeToBinary(const std::string& filePath);
+		bool DeserializeFromText(const std::string& filePath);
+		bool DeserializeFromBinary(const std::string& filePath);
 
 	private:
 		std::shared_ptr<Scene> m_Scene;
