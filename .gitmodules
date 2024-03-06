@@ -10,3 +10,6 @@
 [submodule "Ramensoup/vendor/assimp"]
 	path = Ramensoup/vendor/assimp
 	url = https://github.com/HappyFaceFriend/assimp
+[submodule "Ramensoup/vendor/yaml-cpp"]
+	path = Ramensoup/vendor/yaml-cpp
+	url = https://github.com/HappyFaceFriend/yaml-cpp

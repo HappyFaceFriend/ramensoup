@@ -1,0 +1,23 @@
+Scene: Untitled scene
+Entities:
+  - Entity: 123123
+    TagComponent:
+      Tag: Main Camera
+  - Entity: 123123
+    TagComponent:
+      Tag: Garen4
+  - Entity: 123123
+    TagComponent:
+      Tag: Garen3
+  - Entity: 123123
+    TagComponent:
+      Tag: Garen2
+  - Entity: 123123
+    TagComponent:
+      Tag: Garen1
+  - Entity: 123123
+    TagComponent:
+      Tag: Garen0
+  - Entity: 123123
+    TagComponent:
+      Tag: Garen Parent

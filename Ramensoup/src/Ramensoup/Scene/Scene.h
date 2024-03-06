@@ -8,6 +8,7 @@ namespace Ramensoup
 {
 	class Entity;
 	class SceneHierarchyPanel;
+	class SceneSerializer;
 
 	class Scene
 	{
@@ -27,5 +28,6 @@ namespace Ramensoup
 
 		friend Entity;
 		friend SceneHierarchyPanel;
+		friend SceneSerializer;
 	};
 }

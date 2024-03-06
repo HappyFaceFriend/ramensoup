@@ -7,6 +7,7 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
+#include "Ramensoup/Scene/SceneSerializer.h"
 
 namespace Ramensoup
 {
@@ -40,6 +41,9 @@ namespace Ramensoup
 		m_Camera = m_Scene->CreateEntity("Main Camera");
 		m_Camera.AddComponent<CameraComponent>();
 		m_Camera.GetComponent<TransformComponent>().Position = glm::vec3(0, 0, -5);
+
+		SceneSerializer serializer(m_Scene);
+		serializer.SerializeToText("assets/scenes/Example.rsscene");
 	}
 	void EditorLayer::OnDetach() noexcept
 	{

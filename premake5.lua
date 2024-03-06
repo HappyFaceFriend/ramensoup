@@ -16,12 +16,14 @@ IncludeDirs["glm"] = "Ramensoup/vendor/glm"
 IncludeDirs["stb_image"] = "Ramensoup/vendor/stb_image"
 IncludeDirs["assimp"] = "Ramensoup/vendor/assimp/include"
 IncludeDirs["entt"] = "Ramensoup/vendor/entt/include"
+IncludeDirs["yaml_cpp"] = "Ramensoup/vendor/yaml-cpp/include"
 
 include "Ramensoup/vendor/assimp"
 
 include "Ramensoup/vendor/GLFW"
 include "Ramensoup/vendor/Glad"
 include "Ramensoup/vendor/ImGui"
+include "Ramensoup/vendor/yaml-cpp"
 
 project "Ramensoup"
 	location "Ramensoup"
@@ -39,7 +41,8 @@ project "Ramensoup"
 	defines
 	{
 		"GLM_FORCE_LEFT_HANDED",
-		"NOMINMAX" --For entt (https://github.com/skypjack/entt/wiki/Frequently-Asked-Questions#warning-C4003-the-min-the-max-and-the-macro)
+		"NOMINMAX", --For entt (https://github.com/skypjack/entt/wiki/Frequently-Asked-Questions#warning-C4003-the-min-the-max-and-the-macro)
+		"YAML_CPP_STATIC_DEFINE"
 	}
 	files
 	{
@@ -66,6 +69,7 @@ project "Ramensoup"
 		"%{IncludeDirs.stb_image}",
 		"%{IncludeDirs.assimp}",
 		"%{IncludeDirs.entt}",
+		"%{IncludeDirs.yaml_cpp}",
 	}
 
 	links
@@ -74,7 +78,8 @@ project "Ramensoup"
 		"Glad",
 		"ImGui",
 		"assimp",
-		"opengl32.lib"
+		"yaml-cpp",
+		"opengl32.lib",
 	}
 
 	filter "system:windows"
@@ -125,7 +130,8 @@ project "Ramensoup-Editor"
 
 	defines
 	{
-		"GLM_FORCE_LEFT_HANDED"
+		"GLM_FORCE_LEFT_HANDED",
+		"YAML_CPP_STATIC_DEFINE"
 	}
 	includedirs
 	{
@@ -136,6 +142,7 @@ project "Ramensoup-Editor"
 		"%{IncludeDirs.glm}",
 		"%{IncludeDirs.assimp}",
 		"%{IncludeDirs.entt}",
+		"%{IncludeDirs.yaml}",
 		"Ramensoup/vendor/spdlog/include",
 	}
 

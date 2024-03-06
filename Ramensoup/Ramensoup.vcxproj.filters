@@ -138,6 +138,9 @@
     <ClInclude Include="src\Ramensoup\ImGui\ImGuiLayer.h">
       <Filter>src\Ramensoup\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ramensoup\Maths\CameraProjection.h">
+      <Filter>src\Ramensoup\Maths</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ramensoup\Renderer\Camera.h">
       <Filter>src\Ramensoup\Renderer</Filter>
     </ClInclude>
@@ -201,7 +204,7 @@
     <ClInclude Include="src\Ramensoup\Scene\Scene.h">
       <Filter>src\Ramensoup\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ramensoup\Maths\CameraProjection.h">
+    <ClInclude Include="src\Ramensoup\Scene\SceneSerializer.h">
       <Filter>src\Ramensoup\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Ramensoup\Utils\zstring_view.h">
@@ -278,6 +281,9 @@
     <ClCompile Include="src\Ramensoup\ImGui\ImGuiLayer.cpp">
       <Filter>src\Ramensoup\ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="src\Ramensoup\Maths\CameraProjection.cpp">
+      <Filter>src\Ramensoup\Maths</Filter>
+    </ClCompile>
     <ClCompile Include="src\Ramensoup\Renderer\Camera.cpp">
       <Filter>src\Ramensoup\Renderer</Filter>
     </ClCompile>
@@ -317,7 +323,7 @@
     <ClCompile Include="src\Ramensoup\Scene\Scene.cpp">
       <Filter>src\Ramensoup\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ramensoup\Maths\CameraProjection.cpp">
+    <ClCompile Include="src\Ramensoup\Scene\SceneSerializer.cpp">
       <Filter>src\Ramensoup\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp">

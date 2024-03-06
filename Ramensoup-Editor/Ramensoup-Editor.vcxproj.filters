@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Editor">
-      <UniqueIdentifier>{8C1A20B0-78BC-4A86-6177-5EDA4DB8D1D6}</UniqueIdentifier>
+    <Filter Include="CameraControllers">
+      <UniqueIdentifier>{A54E0E66-1165-0CFC-5ADC-971DC631DD83}</UniqueIdentifier>
     </Filter>
     <Filter Include="GUI">
       <UniqueIdentifier>{2AEC870B-96F5-877C-1F71-9E7C8B79937C}</UniqueIdentifier>
@@ -13,15 +13,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CameraControllers\OrthographicCameraController.h">
-      <Filter>Editor</Filter>
+      <Filter>CameraControllers</Filter>
     </ClInclude>
     <ClInclude Include="src\CameraControllers\PerspectiveCameracontroller.h">
-      <Filter>Editor</Filter>
+      <Filter>CameraControllers</Filter>
     </ClInclude>
     <ClInclude Include="src\EditorApp.h" />
     <ClInclude Include="src\EditorLayer.h" />
     <ClInclude Include="src\GUI\EditorGUI.h">
       <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Panels\GameViewPanel.h">
+      <Filter>Panels</Filter>
     </ClInclude>
     <ClInclude Include="src\Panels\InspectorPanel.h">
       <Filter>Panels</Filter>
@@ -29,20 +32,24 @@
     <ClInclude Include="src\Panels\SceneHierarchyPanel.h">
       <Filter>Panels</Filter>
     </ClInclude>
-    <ClInclude Include="src\Panels\SceneViewPanel.h" />
-    <ClInclude Include="src\Panels\GameViewPanel.h" />
+    <ClInclude Include="src\Panels\SceneViewPanel.h">
+      <Filter>Panels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CameraControllers\OrthographicCameraController.cpp">
-      <Filter>Editor</Filter>
+      <Filter>CameraControllers</Filter>
     </ClCompile>
     <ClCompile Include="src\CameraControllers\PerspectiveCameraController.cpp">
-      <Filter>Editor</Filter>
+      <Filter>CameraControllers</Filter>
     </ClCompile>
     <ClCompile Include="src\EditorApp.cpp" />
     <ClCompile Include="src\EditorLayer.cpp" />
     <ClCompile Include="src\GUI\EditorGUI.cpp">
       <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Panels\GameViewPanel.cpp">
+      <Filter>Panels</Filter>
     </ClCompile>
     <ClCompile Include="src\Panels\InspectorPanel.cpp">
       <Filter>Panels</Filter>
@@ -50,7 +57,8 @@
     <ClCompile Include="src\Panels\SceneHierarchyPanel.cpp">
       <Filter>Panels</Filter>
     </ClCompile>
-    <ClCompile Include="src\Panels\SceneViewPanel.cpp" />
-    <ClCompile Include="src\Panels\GameViewPanel.cpp" />
+    <ClCompile Include="src\Panels\SceneViewPanel.cpp">
+      <Filter>Panels</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
