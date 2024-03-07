@@ -71,7 +71,8 @@ namespace Ramensoup
 				}
 				if (ImGui::MenuItem("Deserialize"))
 				{
-					//m_Scene = std::make_shared<Scene>();
+					m_Scene->Clear();
+					m_SceneHierarchyPanel.UnselectEntity();
 					SceneSerializer serializer(m_Scene);
 					serializer.DeserializeFromText("assets/scenes/Example.rsscene");
 				}

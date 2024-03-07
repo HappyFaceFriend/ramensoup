@@ -59,6 +59,14 @@ namespace Ramensoup
 		auto& camera = m_Registry.get<CameraComponent>(GetMainCamera());
 		camera.Projection.SetViewportSize(width, height);
 	}
+	void Scene::Clear()
+	{
+		auto view = m_Registry.view<TransformComponent>();
+		for (auto entity : view)
+		{
+			m_Registry.destroy(entity);
+		}
+	}
 	entt::entity Scene::GetMainCamera() const
 	{
 		auto view = m_Registry.view<TransformComponent, CameraComponent>();

@@ -144,6 +144,7 @@ namespace Ramensoup
 					name = tagComponent["Tag"].as<std::string>();
 
 				Entity deserializedEntity = m_Scene->CreateEntity(name);
+				RS_LOG(name);
 
 				auto transformComponent = entity["TransformComponent"];
 				if (transformComponent)
@@ -165,7 +166,12 @@ namespace Ramensoup
 					cc.Projection.SetOrthographicNearClip(cameraComponent["OrthographicNear"].as<float>());
 					cc.Projection.SetOrthographicFarClip(cameraComponent["OrthographicFar"].as<float>());
 				}
-				
+				auto meshRendererComponent = entity["MeshRehdererComponent"];
+				if (meshRendererComponent)
+				{
+					auto& mrc = deserializedEntity.AddComponent<MeshRendererComponent>();
+					mrc.Mesh = MeshLoader::LoadOBJ(meshRendererComponent["MeshFilePath"].as<std::string>());
+				}
 			}
 		}
 	}

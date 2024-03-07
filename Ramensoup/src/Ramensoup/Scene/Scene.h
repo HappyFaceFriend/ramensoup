@@ -21,6 +21,7 @@ namespace Ramensoup
 		void RenderMeshes();
 		void RenderMeshes(const Camera& camera);
 		void OnViewportResize(uint32_t width, uint32_t height);
+		void Clear();
 	private:
 		entt::registry m_Registry;
 

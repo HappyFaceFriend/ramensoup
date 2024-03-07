@@ -2,13 +2,6 @@ Scene: Untitled scene
 Entities:
   - Entity: 123123123
     TagComponent:
-      Tag: Garen Model
-    TransformComponent:
-      Position: [0, 0, 0]
-      Rotation: [0, 0, -1.22173047]
-      Scale: [1, 1, 1]
-  - Entity: 123123123
-    TagComponent:
       Tag: Main Camera
     TransformComponent:
       Position: [0, 0, -5]
@@ -22,3 +15,12 @@ Entities:
       OrthographicSize: 10
       OrthographicNear: -1
       OrthographicFar: 1
+  - Entity: 123123123
+    TagComponent:
+      Tag: Garen Model
+    TransformComponent:
+      Position: [0, 0, 0]
+      Rotation: [0, -3.15904593, 0]
+      Scale: [1, 1, 1]
+    MeshRendererComponent:
+      MeshFilePath: assets/models/low-poly-garen_/source/b137609479e34bc3bf215142d91b745b.obj
