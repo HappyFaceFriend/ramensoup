@@ -25,7 +25,7 @@ namespace Ramensoup
 	private:
 		std::shared_ptr<Shader> m_Shader;
 
-		std::vector<std::shared_ptr<Mesh>> m_Meshes;
+		std::shared_ptr<Mesh> m_Mesh;
 		std::shared_ptr<Material> m_Material;
 
 

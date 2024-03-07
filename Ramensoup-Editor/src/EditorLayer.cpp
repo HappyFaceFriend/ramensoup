@@ -19,7 +19,7 @@ namespace Ramensoup
 	void EditorLayer::OnAttach()
 	{
 		//m_Meshes = MeshLoader::LoadOBJ("assets/models/Toyota Supra MK4 Custom/model/mk5_on_4.obj");
-		m_Meshes = MeshLoader::LoadOBJ("assets/models/low-poly-garen_/source/b137609479e34bc3bf215142d91b745b.obj");
+		m_Mesh = MeshLoader::LoadOBJ("assets/models/low-poly-garen_/source/b137609479e34bc3bf215142d91b745b.obj");
 		m_Shader = Shader::Create("assets/shaders/Lit.glsl");
 
 		m_Material = std::shared_ptr<Material>(new Material("Lit", m_Shader));
@@ -27,16 +27,10 @@ namespace Ramensoup
 		
 		Renderer::SetClearColor(glm::vec4(0.2, 0.2, 0.2, 1));
 
-		m_GarenEntity = m_Scene->CreateEntity("Garen Parent");
-
-		for (int i=0; i<m_Meshes.size(); i++)
-		{
-			m_GarenParts.push_back(m_Scene->CreateEntity(std::string("Garen") + std::to_string(i)));
-			auto& meshRenderer = m_GarenParts[i].AddComponent<MeshRendererComponent>();
-			meshRenderer.Mesh = m_Meshes[i];
-			meshRenderer.Material = m_Material;
-			m_GarenParts[i].SetParent(m_GarenEntity);
-		}
+		m_GarenEntity = m_Scene->CreateEntity("Garen Model");
+		auto& meshRenderer = m_GarenEntity.AddComponent<MeshRendererComponent>();
+		meshRenderer.Mesh = m_Mesh;
+		meshRenderer.Material = m_Material;
 
 		m_Camera = m_Scene->CreateEntity("Main Camera");
 		m_Camera.AddComponent<CameraComponent>();
@@ -77,6 +71,7 @@ namespace Ramensoup
 				}
 				if (ImGui::MenuItem("Deserialize"))
 				{
+					//m_Scene = std::make_shared<Scene>();
 					SceneSerializer serializer(m_Scene);
 					serializer.DeserializeFromText("assets/scenes/Example.rsscene");
 				}

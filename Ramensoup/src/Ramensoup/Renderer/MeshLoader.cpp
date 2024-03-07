@@ -6,28 +6,22 @@
 
 namespace Ramensoup
 {
-	std::vector<std::shared_ptr<Mesh>> MeshLoader::LoadOBJ(const std::string& filePath) //"assets/models/Toyota Supra MK4 Custom/model/mk5_on_4.obj"
+	std::shared_ptr<Mesh> MeshLoader::LoadOBJ(const std::string& filePath) //"assets/models/Toyota Supra MK4 Custom/model/mk5_on_4.obj"
 	{
-		std::vector<std::shared_ptr<Mesh>> meshes;
-
 		Assimp::Importer importer;
-		const aiScene* scene = importer.ReadFile(filePath, aiProcess_Triangulate);
+		const aiScene* scene = importer.ReadFile(filePath, aiProcessPreset_TargetRealtime_Fast | aiProcess_OptimizeGraph
+									| aiProcess_OptimizeMeshes);
 
 		if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
 		{
 			RS_LOG_ERROR("Failed loading {0}: {0}", filePath, importer.GetErrorString());
-			return meshes;
-		}
-		
-		for (uint32_t meshIndex = 0; meshIndex < scene->mNumMeshes; meshIndex++)
-		{
-			auto mesh = LoadSingleMesh(scene->mMeshes[meshIndex]);
-			mesh->SetFilePath(filePath);
-			meshes.push_back(mesh);
+			return nullptr;
 		}
 
 
-		return meshes;
+		auto mesh = LoadSingleMesh(scene->mMeshes[0]);
+		mesh->SetFilePath(filePath);
+		return mesh;
 	}
 	std::shared_ptr<Mesh> MeshLoader::LoadSingleMesh(const aiMesh* meshData)
 	{

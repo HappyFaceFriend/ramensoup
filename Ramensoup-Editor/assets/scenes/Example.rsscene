@@ -2,6 +2,13 @@ Scene: Untitled scene
 Entities:
   - Entity: 123123123
     TagComponent:
+      Tag: Garen Model
+    TransformComponent:
+      Position: [0, 0, 0]
+      Rotation: [0, 0, -1.22173047]
+      Scale: [1, 1, 1]
+  - Entity: 123123123
+    TagComponent:
       Tag: Main Camera
     TransformComponent:
       Position: [0, 0, -5]
@@ -15,55 +22,3 @@ Entities:
       OrthographicSize: 10
       OrthographicNear: -1
       OrthographicFar: 1
-  - Entity: 123123123
-    TagComponent:
-      Tag: Garen4
-    TransformComponent:
-      Position: [0, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    MeshRendererComponent:
-      MeshFilePath: assets/models/low-poly-garen_/source/b137609479e34bc3bf215142d91b745b.obj
-  - Entity: 123123123
-    TagComponent:
-      Tag: Garen3
-    TransformComponent:
-      Position: [0, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    MeshRendererComponent:
-      MeshFilePath: assets/models/low-poly-garen_/source/b137609479e34bc3bf215142d91b745b.obj
-  - Entity: 123123123
-    TagComponent:
-      Tag: Garen2
-    TransformComponent:
-      Position: [0, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    MeshRendererComponent:
-      MeshFilePath: assets/models/low-poly-garen_/source/b137609479e34bc3bf215142d91b745b.obj
-  - Entity: 123123123
-    TagComponent:
-      Tag: Garen1
-    TransformComponent:
-      Position: [0, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    MeshRendererComponent:
-      MeshFilePath: assets/models/low-poly-garen_/source/b137609479e34bc3bf215142d91b745b.obj
-  - Entity: 123123123
-    TagComponent:
-      Tag: Garen0
-    TransformComponent:
-      Position: [0, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    MeshRendererComponent:
-      MeshFilePath: assets/models/low-poly-garen_/source/b137609479e34bc3bf215142d91b745b.obj
-  - Entity: 123123123
-    TagComponent:
-      Tag: Garen Parent
-    TransformComponent:
-      Position: [-2, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
