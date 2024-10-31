@@ -1,23 +1,26 @@
 Scene: Untitled scene
 Entities:
-  - Entity: 123123
+  - Entity: 123123123
     TagComponent:
       Tag: Main Camera
-  - Entity: 123123
+    TransformComponent:
+      Position: [0, 0, -5]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      ProjectionType: 0
+      PerspectiveFOV: 1.04719758
+      PerspectiveNear: 0.00999999978
+      PerspectiveFar: 1000
+      OrthographicSize: 10
+      OrthographicNear: -1
+      OrthographicFar: 1
+  - Entity: 123123123
     TagComponent:
-      Tag: Garen4
-  - Entity: 123123
-    TagComponent:
-      Tag: Garen3
-  - Entity: 123123
-    TagComponent:
-      Tag: Garen2
-  - Entity: 123123
-    TagComponent:
-      Tag: Garen1
-  - Entity: 123123
-    TagComponent:
-      Tag: Garen0
-  - Entity: 123123
-    TagComponent:
-      Tag: Garen Parent
+      Tag: Garen Model
+    TransformComponent:
+      Position: [0, 0, 0]
+      Rotation: [0, -3.15904593, 0]
+      Scale: [1, 1, 1]
+    MeshRendererComponent:
+      MeshFilePath: assets/models/low-poly-garen_/source/b137609479e34bc3bf215142d91b745b.obj

@@ -19,7 +19,7 @@ namespace Ramensoup
 	void EditorLayer::OnAttach()
 	{
 		//m_Meshes = MeshLoader::LoadOBJ("assets/models/Toyota Supra MK4 Custom/model/mk5_on_4.obj");
-		m_Meshes = MeshLoader::LoadOBJ("assets/models/low-poly-garen_/source/b137609479e34bc3bf215142d91b745b.obj");
+		m_Mesh = MeshLoader::LoadOBJ("assets/models/low-poly-garen_/source/b137609479e34bc3bf215142d91b745b.obj");
 		m_Shader = Shader::Create("assets/shaders/Lit.glsl");
 
 		m_Material = std::shared_ptr<Material>(new Material("Lit", m_Shader));
@@ -27,23 +27,15 @@ namespace Ramensoup
 		
 		Renderer::SetClearColor(glm::vec4(0.2, 0.2, 0.2, 1));
 
-		m_GarenEntity = m_Scene->CreateEntity("Garen Parent");
-
-		for (int i=0; i<m_Meshes.size(); i++)
-		{
-			m_GarenParts.push_back(m_Scene->CreateEntity(std::string("Garen") + std::to_string(i)));
-			auto& meshRenderer = m_GarenParts[i].AddComponent<MeshRendererComponent>();
-			meshRenderer.Mesh = m_Meshes[i];
-			meshRenderer.Material = m_Material;
-			m_GarenParts[i].SetParent(m_GarenEntity);
-		}
+		m_GarenEntity = m_Scene->CreateEntity("Garen Model");
+		auto& meshRenderer = m_GarenEntity.AddComponent<MeshRendererComponent>();
+		meshRenderer.Mesh = m_Mesh;
+		meshRenderer.Material = m_Material;
 
 		m_Camera = m_Scene->CreateEntity("Main Camera");
 		m_Camera.AddComponent<CameraComponent>();
 		m_Camera.GetComponent<TransformComponent>().Position = glm::vec3(0, 0, -5);
 
-		SceneSerializer serializer(m_Scene);
-		serializer.SerializeToText("assets/scenes/Example.rsscene");
 	}
 	void EditorLayer::OnDetach() noexcept
 	{
@@ -60,10 +52,41 @@ namespace Ramensoup
 
 		m_GameViewPanel.OnUpdate();
 	}
+	static void ImGuiBeginDockspace();
+
 	void EditorLayer::OnImGuiUpdate()
 	{
-		ImGuiCommands::EnableDockspace();
-		
+		ImGuiBeginDockspace();
+		if (ImGui::BeginMenuBar())
+		{
+			if (ImGui::BeginMenu("File"))
+			{
+				// Disabling fullscreen would allow the window to be moved to the front of other windows,
+				// which we can't undo at the moment without finer window depth/z control.
+
+				if (ImGui::MenuItem("Serialize"))
+				{
+					SceneSerializer serializer(m_Scene);
+					serializer.SerializeToText("assets/scenes/Example.rsscene");
+				}
+				if (ImGui::MenuItem("Deserialize"))
+				{
+					m_Scene->Clear();
+					m_SceneHierarchyPanel.UnselectEntity();
+					SceneSerializer serializer(m_Scene);
+					serializer.DeserializeFromText("assets/scenes/Example.rsscene");
+				}
+
+				if (ImGui::MenuItem("Exit"))
+					Application::Get().Close();
+				//ImGui::Separator();
+
+				ImGui::EndMenu();
+			}
+			ImGui::EndMenuBar();
+		}
+		ImGui::End();
+
 		//Panels
 		TimeProfiler::Begin("Editor GUI Render");
 
@@ -105,6 +128,55 @@ namespace Ramensoup
 		ImGui::End();
 	}
 
+	static void ImGuiBeginDockspace()
+	{
+		static bool dockSpaceOpen = true;
+
+		//From imgui_demo.cpp ShowExampleAppDockSpace
+		static bool opt_fullscreen = true;
+		static bool opt_padding = false;
+		static ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None;
+
+		// We are using the ImGuiWindowFlags_NoDocking flag to make the parent window not dockable into,
+		// because it would be confusing to have two docking targets within each others.
+		ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking;
+		if (opt_fullscreen)
+		{
+			const ImGuiViewport* viewport = ImGui::GetMainViewport();
+			ImGui::SetNextWindowPos(viewport->WorkPos);
+			ImGui::SetNextWindowSize(viewport->WorkSize);
+			ImGui::SetNextWindowViewport(viewport->ID);
+			ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
+			ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+			window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
+			window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
+		}
+		else
+		{
+			dockspace_flags &= ~ImGuiDockNodeFlags_PassthruCentralNode;
+		}
+
+		if (dockspace_flags & ImGuiDockNodeFlags_PassthruCentralNode)
+			window_flags |= ImGuiWindowFlags_NoBackground;
+		if (!opt_padding)
+			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
+
+		ImGui::Begin("DockSpace Demo", &dockSpaceOpen, window_flags);
+		if (!opt_padding)
+			ImGui::PopStyleVar();
+
+		if (opt_fullscreen)
+			ImGui::PopStyleVar(2);
+
+		// Submit the DockSpace
+		ImGuiIO& io = ImGui::GetIO();
+		if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
+		{
+			ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
+			ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags);
+		}
+
+	}
 }
 
 

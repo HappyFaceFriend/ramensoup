@@ -13,6 +13,7 @@ namespace Ramensoup
 
 		void SetScene(std::shared_ptr<Scene> scene) noexcept { m_CurrentScene = scene; }
 		[[nodiscard]] const Entity& GetSelectedEntity() const noexcept { return m_SelectedEntity; }
+		void UnselectEntity() noexcept { m_SelectedEntity = Entity(); }
 	private:
 		std::shared_ptr<Scene> m_CurrentScene;
 		Entity m_SelectedEntity{};
