@@ -28,9 +28,6 @@ namespace Ramensoup
 			//Store event size
 			*reinterpret_cast<uint32_t*>(m_RearPtr) = PaddedSizeof<T>();
 			m_RearPtr = m_RearPtr + sizeof(uint32_t);
-			//Store event type
-			*reinterpret_cast<EventType*>(m_RearPtr) = T::GetStaticType();
-			m_RearPtr = m_RearPtr + sizeof(EventType);
 			//Store actual event
 			//*(T*)m_RearPtr = e;
 			memcpy(m_RearPtr, &e, sizeof(T));
@@ -54,7 +51,8 @@ namespace Ramensoup
 		template<typename T>
 		constexpr static uint32_t PaddedSizeof()
 		{
-			return (sizeof(T) + sizeof(std::max_align_t) - 1) % sizeof(std::max_align_t) * sizeof(std::max_align_t);
+			// Calculate next multiple of maximum alignment
+			return (sizeof(T) + 1) / sizeof(std::max_align_t) * sizeof(std::max_align_t);
 		}
 	};
 }
