@@ -56,6 +56,8 @@ namespace Ramensoup
 
 		AddAttachment("color", AttachmentType::Color, ImageFormat::RGBA8);
 		AddAttachment("depth", AttachmentType::Depth, ImageFormat::Depth24Stencil8);
+
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		
 		RS_CORE_ASSERT(glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE, "Framebuffer is incomplete!");
 	}
