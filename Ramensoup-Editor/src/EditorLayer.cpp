@@ -51,16 +51,16 @@ namespace Ramensoup
 		{
 			m_PointLight1 = m_Scene->CreateEntity("Point Light 1");
 			auto& lightSourceComponent = m_PointLight1.AddComponent<LightSourceComponent>();
-			m_PointLight1.GetComponent<TransformComponent>().Position = glm::vec3(3, 0, 0);
+			m_PointLight1.GetComponent<TransformComponent>().Position = glm::vec3(3, 0, 2);
 			lightSourceComponent.Color = { 1, 0.8f, 1 };
-			lightSourceComponent.Intensity = 0.5f;
+			lightSourceComponent.Intensity = 0.8f;
 		}
 		{
 			m_PointLight2 = m_Scene->CreateEntity("Point Light 2");
 			auto& lightSourceComponent = m_PointLight2.AddComponent<LightSourceComponent>();
-			m_PointLight2.GetComponent<TransformComponent>().Position = glm::vec3(-3, 0, 0);
+			m_PointLight2.GetComponent<TransformComponent>().Position = glm::vec3(-3, 0, 2);
 			lightSourceComponent.Color = { 0.8f, 1, 1 };
-			lightSourceComponent.Intensity = 0.5f;
+			lightSourceComponent.Intensity = 0.8f;
 		}
 	}
 	void EditorLayer::OnDetach() noexcept
