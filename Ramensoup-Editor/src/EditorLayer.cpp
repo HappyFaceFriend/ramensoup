@@ -44,6 +44,7 @@ namespace Ramensoup
 		m_LitShader = Shader::Create("assets/shaders/Lit.glsl");
 		m_SphereMaterial = std::make_shared<Material>("Sphere Lit", m_LitShader);
 		m_SphereEntity = m_Scene->CreateEntity("Sphere");
+		m_SphereEntity.GetComponent<TransformComponent>().Scale = glm::vec3(0.6, 1, 1);
 		auto& sphereMeshRenderer = m_SphereEntity.AddComponent<MeshRendererComponent>();
 		sphereMeshRenderer.Mesh = m_Sphere;
 		sphereMeshRenderer.Material = m_SphereMaterial;
