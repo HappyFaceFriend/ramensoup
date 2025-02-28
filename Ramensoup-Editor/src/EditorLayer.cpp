@@ -6,6 +6,7 @@
 #pragma warning(pop)
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
+#include "Meshes/Primitives/PrimitiveMeshFactory.h"
 
 #include "Ramensoup/Scene/SceneSerializer.h"
 
@@ -28,6 +29,7 @@ namespace Ramensoup
 		Renderer::SetClearColor(glm::vec4(0.2, 0.2, 0.2, 1));
 
 		m_GarenEntity = m_Scene->CreateEntity("Garen Model");
+		m_GarenEntity.GetComponent<TransformComponent>().Position = glm::vec3(-10, 0, 0);
 		auto& meshRenderer = m_GarenEntity.AddComponent<MeshRendererComponent>();
 		meshRenderer.Mesh = m_Mesh;
 		meshRenderer.Material = m_Material;
@@ -35,6 +37,14 @@ namespace Ramensoup
 		m_Camera = m_Scene->CreateEntity("Main Camera");
 		m_Camera.AddComponent<CameraComponent>();
 		m_Camera.GetComponent<TransformComponent>().Position = glm::vec3(0, 0, -5);
+
+
+		m_Sphere = PrimitiveMeshFactory::Create(PrimitiveMeshType::Sphere);
+		m_SphereMaterial = std::shared_ptr<Material>(new Material("Sphere Lit", m_Shader));
+		m_SphereEntity = m_Scene->CreateEntity("Sphere");
+		auto& sphereMeshRenderer = m_SphereEntity.AddComponent<MeshRendererComponent>();
+		sphereMeshRenderer.Mesh = m_Sphere;
+		sphereMeshRenderer.Material = m_SphereMaterial;
 
 	}
 	void EditorLayer::OnDetach() noexcept

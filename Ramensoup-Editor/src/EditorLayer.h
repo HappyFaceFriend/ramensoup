@@ -40,5 +40,10 @@ namespace Ramensoup
 
 		Entity m_GarenEntity;
 		std::vector<Entity> m_GarenParts;
+
+
+		std::shared_ptr<Mesh> m_Sphere;
+		Entity m_SphereEntity;
+		std::shared_ptr<Material> m_SphereMaterial;
 	};
 }

@@ -29,7 +29,7 @@ namespace Ramensoup
 		[[nodiscard]] const std::shared_ptr<IndexBuffer>& GetIndexBuffer() const { return m_IndexBuffer; }
 		[[nodiscard]] const std::string& GetName() const { return m_Name; }
 		// TEMP
-		[[nodiscard]] void SetFilePath(const zstring_view& filePath) { m_FilePath = filePath; }
+		void SetFilePath(const zstring_view& filePath) { m_FilePath = filePath; }
 		[[nodiscard]] const std::string& GetFilePath() const { return m_FilePath; }
 		
 	private:
