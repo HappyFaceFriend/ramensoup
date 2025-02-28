@@ -45,6 +45,13 @@ namespace Ramensoup
 	void Scene::RenderMeshes(const Camera& camera)
 	{
 		Renderer::BeginScene(camera.GetProjectionMatrix(), camera.GetViewMatrix());
+
+		auto lightSourcesView = m_Registry.view<TransformComponent, LightSourceComponent>();
+		for (auto entity : lightSourcesView)
+		{
+			auto& [transform, lightSource] = lightSourcesView.get<TransformComponent, LightSourceComponent>(entity);
+			Renderer::SubmitLightSource(transform.Position, lightSource.Color, lightSource.Attenuation, lightSource.Intensity);
+		}
 		
 		auto view = m_Registry.view<TransformComponent, MeshRendererComponent>();
 		for (auto entity : view)
@@ -79,12 +86,19 @@ namespace Ramensoup
 	void Scene::RenderMeshes()
 	{
 		glm::mat4 projectionMatrix, viewMatrix;
-		auto& [transform, camera] = m_Registry.get<TransformComponent, CameraComponent>(GetMainCamera());
+		auto& [cameraTransform, camera] = m_Registry.get<TransformComponent, CameraComponent>(GetMainCamera());
 
 		projectionMatrix = camera.Projection.GetProjectionMatrix();
-		viewMatrix = glm::inverse(transform.GetMatrix());
+		viewMatrix = glm::inverse(cameraTransform.GetMatrix());
 
 		Renderer::BeginScene(projectionMatrix, viewMatrix);
+
+		auto lightSourcesView = m_Registry.view<TransformComponent, LightSourceComponent>();
+		for (auto entity : lightSourcesView)
+		{
+			auto& [transform, lightSource] = lightSourcesView.get<TransformComponent, LightSourceComponent>(entity);
+			Renderer::SubmitLightSource(transform.Position, lightSource.Color, lightSource.Attenuation, lightSource.Intensity);
+		}
 
 		auto view = m_Registry.view<TransformComponent, MeshRendererComponent>();
 		for (auto entity : view)

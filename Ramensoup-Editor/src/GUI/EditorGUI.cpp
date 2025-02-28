@@ -33,6 +33,27 @@ namespace Ramensoup
 		ImGui::PopID();
 		return changed;
 	}
+
+	bool EditorGUI::ColorField(const zstring_view& label, glm::vec3& color)
+	{
+		ImGui::Text(label);
+		ImGui::SameLine(s_LabelWidth);
+		ImGui::PushID(label);
+		bool changed = ImGui::ColorEdit3("", glm::value_ptr(color));
+		ImGui::PopID();
+		return changed;
+	}
+
+	bool EditorGUI::ColorField(const zstring_view& label, glm::vec4& color)
+	{
+		ImGui::Text(label);
+		ImGui::SameLine(s_LabelWidth);
+		ImGui::PushID(label);
+		bool changed = ImGui::ColorEdit4("", glm::value_ptr(color));
+		ImGui::PopID();
+		return changed;
+	}
+
 	bool EditorGUI::DraggableFloatField(const zstring_view& label, float *value)
 	{
 		ImGui::Text(label);

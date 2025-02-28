@@ -102,6 +102,12 @@ namespace Ramensoup
 							projection.SetOrthographicFarClip(orthoFar);
 					}
 				});
+			DrawComponent<LightSourceComponent>("Light Source", m_CurrentEntity, [](LightSourceComponent& component)
+				{
+					EditorGUI::ColorField("Color", component.Color);
+					EditorGUI::DraggableFloatField("Intensity", &component.Intensity);
+					EditorGUI::Vector3Field("Attenuation", component.Attenuation); // TODO : Match alignment
+				});
 		}
 		else
 		{

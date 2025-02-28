@@ -183,36 +183,54 @@ namespace Ramensoup
 		glUseProgram(0);
 	}
 
+	// TODO: Uniform functions need to be cleaned. Can't call map.find every time parameter is set.
+
 	void OpenGLShader::SetUniformMat4(const std::string& name, const glm::mat4& matrix)
 	{
+		if (m_UniformLocations.find(name) == m_UniformLocations.end())
+			m_UniformLocations[name] = glGetUniformLocation(m_RendererID, name.c_str());
 		glUniformMatrix4fv(m_UniformLocations[name], 1, GL_FALSE, glm::value_ptr(matrix));
 	}
 	void OpenGLShader::SetUniformMat3(const std::string& name, const glm::mat3& matrix)
 	{
+		if (m_UniformLocations.find(name) == m_UniformLocations.end())
+			m_UniformLocations[name] = glGetUniformLocation(m_RendererID, name.c_str());
 		glUniformMatrix3fv(m_UniformLocations[name], 1, GL_FALSE, glm::value_ptr(matrix));
 	}
 	void OpenGLShader::SetUniformFloat4(const std::string& name, const glm::vec4& values)
 	{
+		if (m_UniformLocations.find(name) == m_UniformLocations.end())
+			m_UniformLocations[name] = glGetUniformLocation(m_RendererID, name.c_str());
 		glUniform4f(m_UniformLocations[name], values.x, values.y, values.z, values.w);
 	}
 	void OpenGLShader::SetUniformFloat3(const std::string& name, const glm::vec3& values)
 	{
+		if (m_UniformLocations.find(name) == m_UniformLocations.end())
+			m_UniformLocations[name] = glGetUniformLocation(m_RendererID, name.c_str());
 		glUniform3f(m_UniformLocations[name], values.x, values.y, values.z);
 	}
 	void OpenGLShader::SetUniformFloat2(const std::string& name, const glm::vec2& values)
 	{
+		if (m_UniformLocations.find(name) == m_UniformLocations.end())
+			m_UniformLocations[name] = glGetUniformLocation(m_RendererID, name.c_str());
 		glUniform2f(m_UniformLocations[name], values.x, values.y);
 	}
 	void OpenGLShader::SetUniformFloat1(const std::string& name, float value)
 	{
+		if (m_UniformLocations.find(name) == m_UniformLocations.end())
+			m_UniformLocations[name] = glGetUniformLocation(m_RendererID, name.c_str());
 		glUniform1f(m_UniformLocations[name], value);
 	}
 	void OpenGLShader::SetUniformInt(const std::string& name, int value)
 	{
+		if (m_UniformLocations.find(name) == m_UniformLocations.end())
+			m_UniformLocations[name] = glGetUniformLocation(m_RendererID, name.c_str());
 		glUniform1i(m_UniformLocations[name], value);
 	}
 	void OpenGLShader::SetUniformIntArray(const std::string& name, int* values, int count)
 	{
+		if (m_UniformLocations.find(name) == m_UniformLocations.end())
+			m_UniformLocations[name] = glGetUniformLocation(m_RendererID, name.c_str());
 		glUniform1iv(m_UniformLocations[name], count, values);
 	}
 	void OpenGLShader::SetTexture(const std::string& name, const std::shared_ptr<Texture2D>& texture)

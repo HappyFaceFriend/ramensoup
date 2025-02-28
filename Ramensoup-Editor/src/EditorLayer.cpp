@@ -21,9 +21,9 @@ namespace Ramensoup
 	{
 		//m_Meshes = MeshLoader::LoadOBJ("assets/models/Toyota Supra MK4 Custom/model/mk5_on_4.obj");
 		m_Mesh = MeshLoader::LoadOBJ("assets/models/low-poly-garen_/source/b137609479e34bc3bf215142d91b745b.obj");
-		m_Shader = Shader::Create("assets/shaders/Lit.glsl");
+		m_Shader = Shader::Create("assets/shaders/OldLit.glsl");
 
-		m_Material = std::shared_ptr<Material>(new Material("Lit", m_Shader));
+		m_Material = std::shared_ptr<Material>(new Material("OldLit", m_Shader));
 		m_Material->SetTexture("u_DiffuseTexture", Texture2D::Create("assets/models/low-poly-garen_/textures/garen_tex.jpg"));
 		
 		Renderer::SetClearColor(glm::vec4(0.2, 0.2, 0.2, 1));
@@ -38,14 +38,30 @@ namespace Ramensoup
 		m_Camera.AddComponent<CameraComponent>();
 		m_Camera.GetComponent<TransformComponent>().Position = glm::vec3(0, 0, -5);
 
+		// Sphere test
 
 		m_Sphere = PrimitiveMeshFactory::Create(PrimitiveMeshType::Sphere);
-		m_SphereMaterial = std::shared_ptr<Material>(new Material("Sphere Lit", m_Shader));
+		m_LitShader = Shader::Create("assets/shaders/Lit.glsl");
+		m_SphereMaterial = std::make_shared<Material>("Sphere Lit", m_LitShader);
 		m_SphereEntity = m_Scene->CreateEntity("Sphere");
 		auto& sphereMeshRenderer = m_SphereEntity.AddComponent<MeshRendererComponent>();
 		sphereMeshRenderer.Mesh = m_Sphere;
 		sphereMeshRenderer.Material = m_SphereMaterial;
-
+		
+		{
+			m_PointLight1 = m_Scene->CreateEntity("Point Light 1");
+			auto& lightSourceComponent = m_PointLight1.AddComponent<LightSourceComponent>();
+			m_PointLight1.GetComponent<TransformComponent>().Position = glm::vec3(3, 0, 0);
+			lightSourceComponent.Color = { 1, 0.8f, 1 };
+			lightSourceComponent.Intensity = 0.5f;
+		}
+		{
+			m_PointLight2 = m_Scene->CreateEntity("Point Light 2");
+			auto& lightSourceComponent = m_PointLight2.AddComponent<LightSourceComponent>();
+			m_PointLight2.GetComponent<TransformComponent>().Position = glm::vec3(-3, 0, 0);
+			lightSourceComponent.Color = { 0.8f, 1, 1 };
+			lightSourceComponent.Intensity = 0.5f;
+		}
 	}
 	void EditorLayer::OnDetach() noexcept
 	{

@@ -24,6 +24,7 @@ namespace Ramensoup
 
 	private:
 		std::shared_ptr<Shader> m_Shader;
+		std::shared_ptr<Shader> m_LitShader;
 
 		std::shared_ptr<Mesh> m_Mesh;
 		std::shared_ptr<Material> m_Material;
@@ -45,5 +46,8 @@ namespace Ramensoup
 		std::shared_ptr<Mesh> m_Sphere;
 		Entity m_SphereEntity;
 		std::shared_ptr<Material> m_SphereMaterial;
+
+		Entity m_PointLight1;
+		Entity m_PointLight2;
 	};
 }
