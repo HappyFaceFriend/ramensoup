@@ -1,5 +1,7 @@
 #include "PrimitiveMeshFactory.h"
 
+#include <glm/gtx/compatibility.hpp>
+
 #include "Ramensoup/Renderer/MeshBuilder.h"
 
 namespace Ramensoup
@@ -42,14 +44,38 @@ namespace Ramensoup
 
 		m_Meshes[PrimitiveMeshType::Sphere] = meshBuilder.Build();
 	}
+	static glm::vec2 GetSphericalTexCoord(const glm::vec3& pos)
+	{
+		constexpr float pi = glm::pi<float>();
+		float theta = glm::atan2(pos.x, pos.z);
+		float phi = glm::asin(pos.y);
+		return { -theta / pi * 0.5f, 0.5f + phi / pi };
+	}
 	static void Triangulate(uint32_t detailLevel, const glm::vec3& a, const glm::vec3& b, const glm::vec3& c, MeshBuilder& meshBuilder)
 	{
 		if (detailLevel <= 0)
 		{
-			uint32_t indexA = meshBuilder.AddVertex(a, a, { 0,0 });
-			uint32_t indexB = meshBuilder.AddVertex(b, b, { 0,0 });
-			uint32_t indexC = meshBuilder.AddVertex(c, c, { 0,0 });
-			meshBuilder.AddTriangle(indexA, indexB, indexC);
+			// If the polygon is on the -z direction, it will have near -pi and pi,
+			// which is contiguous, but can be interpreted as not contiguous.
+			// We calculate theta from the point on the other side (+z direction),
+			// then move it back to its original position (+0.5)
+			if (a.z < 0 && b.z < 0 && c.z < 0)	
+			{
+				auto texCoordA = GetSphericalTexCoord({ -a.x, a.y, -a.z }) + glm::vec2{ 0.5f, 0.0f };
+				auto texCoordB = GetSphericalTexCoord({ -b.x, b.y, -b.z }) + glm::vec2{ 0.5f, 0.0f };
+				auto texCoordC = GetSphericalTexCoord({ -c.x, c.y, -c.z }) + glm::vec2{ 0.5f, 0.0f };
+				uint32_t indexA = meshBuilder.AddVertex(a, a, texCoordA);
+				uint32_t indexB = meshBuilder.AddVertex(b, b, texCoordB);
+				uint32_t indexC = meshBuilder.AddVertex(c, c, texCoordC);
+				meshBuilder.AddTriangle(indexA, indexB, indexC);
+			}
+			else
+			{
+				uint32_t indexA = meshBuilder.AddVertex(a, a, GetSphericalTexCoord(a));
+				uint32_t indexB = meshBuilder.AddVertex(b, b, GetSphericalTexCoord(b));
+				uint32_t indexC = meshBuilder.AddVertex(c, c, GetSphericalTexCoord(c));
+				meshBuilder.AddTriangle(indexA, indexB, indexC);
+			}
 		}
 		else
 		{

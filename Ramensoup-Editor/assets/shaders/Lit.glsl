@@ -18,8 +18,8 @@ void main()
 {
 	gl_Position = u_ViewProjectionMatrix * u_ModelMatrix * vec4(a_Position, 1.0);
 	v_Position = gl_Position;
-	v_Normal = vec3(transpose(inverse(u_ModelMatrix)) * normalize(vec4(a_Normal, 0)));
 	v_TexCoord = a_TexCoord;
+	v_Normal = vec3(transpose(inverse(u_ModelMatrix)) * normalize(vec4(a_Normal, 0)));
 	v_WorldPosition = vec3(u_ModelMatrix * vec4(a_Position, 1.0));
 }
 
@@ -55,11 +55,10 @@ uniform vec3 u_CameraPosition;
 
 void main()
 {
-	//vec4 texColor = texture(u_DiffuseTexture, v_TexCoord);
-	
-	vec3 illumination;
+	vec4 texColor = texture(u_DiffuseTexture, v_TexCoord);
 
 	// Phong shading
+	vec3 illumination = u_MaterialParams.Ka * u_AmbientLight;
 	for(int i = 0; i < u_LightCount; i++)
 	{
 		vec3 L = normalize(u_LightSources[i].Position - v_WorldPosition);
@@ -75,8 +74,8 @@ void main()
 		vec3 specular = pow(max(dot(R, V), 0.0f), u_MaterialParams.Shineness) * u_LightSources[i].Color / attenuation;
 		vec3 diffuse = max(dot(L, N), 0.0f) * u_LightSources[i].Color / attenuation;
 
-		// v_Illumination = u_AmbientLight;
-		illumination += u_MaterialParams.Ka * u_AmbientLight + u_MaterialParams.Kd * diffuse + u_MaterialParams.Ks * specular;
+		illumination += u_MaterialParams.Kd * diffuse + u_MaterialParams.Ks * specular;
 	}
-	color = vec4(illumination, 1);
+	
+	color = texColor * vec4(illumination, 1);
 }

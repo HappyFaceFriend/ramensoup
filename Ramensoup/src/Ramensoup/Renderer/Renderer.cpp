@@ -58,11 +58,11 @@ namespace Ramensoup
 		}
 
 		material->SetIntValue("u_LightCount", s_SceneContext.LightSourceCount);
-		material->SetFloat3Value("u_AmbientLight", {0.2,0.2,0.2});
+		material->SetFloat3Value("u_AmbientLight", {0.3,0.3,0.3});
 
-		material->SetFloat1Value("u_MaterialParams.Ka", 0);
-		material->SetFloat1Value("u_MaterialParams.Kd", 0.5f);
-		material->SetFloat1Value("u_MaterialParams.Ks", 0.5f);
+		material->SetFloat1Value("u_MaterialParams.Ka", 0.1f);
+		material->SetFloat1Value("u_MaterialParams.Kd", 0.45f);
+		material->SetFloat1Value("u_MaterialParams.Ks", 0.45f);
 		material->SetFloat1Value("u_MaterialParams.Shineness", 32);
 
 		material->SetFloat3Value("u_CameraPosition", s_SceneContext.CameraPosition);

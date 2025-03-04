@@ -41,25 +41,26 @@ namespace Ramensoup
 		// Sphere test
 
 		m_Sphere = PrimitiveMeshFactory::Create(PrimitiveMeshType::Sphere);
-		m_LitShader = Shader::Create("assets/shaders/Lit.glsl");
+		m_LitShader = Shader::Create("assets/shaders/OldLit.glsl");
 		m_SphereMaterial = std::make_shared<Material>("Sphere Lit", m_LitShader);
 		m_SphereEntity = m_Scene->CreateEntity("Sphere");
-		m_SphereEntity.GetComponent<TransformComponent>().Scale = glm::vec3(0.6, 1, 1);
+		// m_SphereEntity.GetComponent<TransformComponent>().Scale = glm::vec3(0.6, 1, 1);
 		auto& sphereMeshRenderer = m_SphereEntity.AddComponent<MeshRendererComponent>();
 		sphereMeshRenderer.Mesh = m_Sphere;
 		sphereMeshRenderer.Material = m_SphereMaterial;
+		m_SphereMaterial->SetTexture("u_DiffuseTexture", Texture2D::Create("assets/textures/sphere_texture.png"));
 		
 		{
 			m_PointLight1 = m_Scene->CreateEntity("Point Light 1");
 			auto& lightSourceComponent = m_PointLight1.AddComponent<LightSourceComponent>();
-			m_PointLight1.GetComponent<TransformComponent>().Position = glm::vec3(3, 0, 2);
+			m_PointLight1.GetComponent<TransformComponent>().Position = glm::vec3(3, 0, 0);
 			lightSourceComponent.Color = { 1, 0.8f, 1 };
 			lightSourceComponent.Intensity = 0.8f;
 		}
 		{
 			m_PointLight2 = m_Scene->CreateEntity("Point Light 2");
 			auto& lightSourceComponent = m_PointLight2.AddComponent<LightSourceComponent>();
-			m_PointLight2.GetComponent<TransformComponent>().Position = glm::vec3(-3, 0, 2);
+			m_PointLight2.GetComponent<TransformComponent>().Position = glm::vec3(-3, 0, 0);
 			lightSourceComponent.Color = { 0.8f, 1, 1 };
 			lightSourceComponent.Intensity = 0.8f;
 		}

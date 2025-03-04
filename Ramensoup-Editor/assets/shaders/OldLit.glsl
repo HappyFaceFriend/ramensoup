@@ -35,6 +35,5 @@ uniform sampler2D u_DiffuseTexture;
 
 void main()
 {
-	color = texture(u_DiffuseTexture, v_TexCoord); //v_Position;
-	//color = vec4(v_Normal, 1.0);
+	color = texture(u_DiffuseTexture, v_TexCoord);
 }
